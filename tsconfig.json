@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@Public/*": ["public/*"],
+      "@Templates/*": ["src/components/templates/*"],
+      "@Assets/*": ["src/assets/*"],
+      "@Styles/*": ["src/styles/*"]
+    },
+    "target": "es2020",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "exclude": ["node_modules", ".next"],
+  "include": [
+    "src",
+    "public/**/*.svg",
+    "react-app-env.d.ts",
+    "../types.d.ts",
+    "next-env.d.ts",
+    "../**/*.stories.ts",
+    "../**/*.stories.tsx",
+    "src/config",
+    "src/config"
+  ]
+}
