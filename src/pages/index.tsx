@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from 'react';
+import React, { createRef, useState } from 'react';
 import IndexContainer from './indexStyled';
 
 const Index: React.FC = () => {
