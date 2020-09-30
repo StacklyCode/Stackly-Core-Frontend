@@ -1,23 +1,38 @@
-import React, { createRef, useEffect } from 'react';
-import IndexStyled from './indexStyled';
+import React, { createRef, useEffect, useState } from 'react';
+import IndexContainer from './indexStyled';
 
 const Index: React.FC = () => {
   const videoReact = createRef<HTMLVideoElement>();
-  useEffect(() => {
+  const [showVideo, useShowVideo] = useState(false);
+  const showVideoFunc = () => {
+    useShowVideo(true);
     if (videoReact.current) {
       videoReact.current.volume = 0.1;
+      videoReact.current.play();
     }
-  });
+  };
   return (
-    <IndexStyled>
-      <span>We Are Working</span>
+    <IndexContainer>
+      {showVideo ? <span>We Are Working</span> : null}
       <div>
-        <video ref={videoReact} src="/videoloop.mp4" loop autoPlay>
-          <track default kind="captions" />
-          Sorry, your browser doesnt support embedded videos.
-        </video>
+        {!showVideo ? (
+          <div>
+            <img src="/logo.svg" alt="Logo" />
+
+            <button type="button" onClick={showVideoFunc}>
+              Enter
+            </button>
+          </div>
+        ) : null}
+
+        {showVideo ? (
+          <video ref={videoReact} src="/videoloop.mp4" loop autoPlay>
+            <track default kind="captions" />
+            Sorry, your browser doesnt support embedded videos.
+          </video>
+        ) : null}
       </div>
-    </IndexStyled>
+    </IndexContainer>
   );
 };
 

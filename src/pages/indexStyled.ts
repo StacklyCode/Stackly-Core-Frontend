@@ -1,13 +1,12 @@
 import styled from '@emotion/styled';
 
-export const IndexStyled = styled.div`
+export const IndexStyledContainer = styled.div`
   min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #7882b1;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -27,6 +26,38 @@ export const IndexStyled = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+    div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: #2e384c;
+      span {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 700;
+        width: 300px;
+        text-align: center;
+        font-size: 20px;
+        color: #fafafa;
+        -webkit-text-stroke: 0px #1a1a1a;
+      }
+      img {
+        width: 350px;
+      }
+      button {
+        width: max-content;
+        background-color: #fb5d64;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 4px;
+        border: none;
+        font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
 
     video {
       min-width: 100%;
@@ -39,8 +70,9 @@ export const IndexStyled = styled.div`
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: -1;
     }
   }
 `;
 
-export default IndexStyled;
+export default IndexStyledContainer;
