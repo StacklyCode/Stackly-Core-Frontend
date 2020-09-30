@@ -9,7 +9,7 @@
         <img height="80" width="160" src="https://raw.githubusercontent.com/erianvc/erianvc/master/badges/socials/linkedin-badge.svg">
     </a>
         &nbsp;
-    <a target="_blank" href="https://twitter.com/erianvc/" title="Twitter" alt="Twitter">
+    <a target="_blank" href="https://twitter.com/StacklyCode/" title="Twitter" alt="Twitter">
         <img height="80" width="160" src="https://raw.githubusercontent.com/erianvc/erianvc/master/badges/socials/twitter-badge.svg">
     </a>
 </div>
