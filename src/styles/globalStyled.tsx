@@ -9,6 +9,7 @@ const GlobalStyles = () => (
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Roboto:wght@500;700&display=swap');
       }
 
       :root {
