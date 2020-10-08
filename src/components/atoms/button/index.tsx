@@ -7,20 +7,24 @@ type ButtonProps = {
 };
 
 const Button = styled.div<ButtonProps>`
-  font-size: ${({ theme }) => theme.texts.Button.FontSize};
-  font-family: ${({ theme }) => theme.texts.Button.FontFamily};
-  font-weight: bold;
-  line-height: ${({ theme }) => theme.texts.Button.LineHeight};
-  width: max-content;
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.primary.base};
-  padding: 14px 20px;
-  border-radius: 4px;
-  :hover {
-    cursor: pointer;
-    background-color: ${({ theme }) => theme.colors.primary.light};
-  }
+  /* StyleComponent Style with Theme*/
+  ${({ theme }) => ({
+    fontSize: theme.texts.Button.FontSize,
+    fontFamily: theme.texts.Button.FontFamily,
+    fontWeight: 'bold',
+    lineHeight: theme.texts.Button.LineHeight,
+    width: 'max-content',
+    color: theme.colors.white,
+    backgroundColor: theme.colors.primary.base,
+    padding: '14px 20px',
+    borderRadius: '4px',
+    ':hover': {
+      cursor: 'pointer',
+      backgroundColor: theme.colors.primary.light
+    }
+  })}
 
+  /* If Primary */
   ${({ color, theme }) =>
     color === 'primary' && {
       backgroundColor: theme.colors.accent.green.base,
@@ -29,6 +33,7 @@ const Button = styled.div<ButtonProps>`
       }
     }}
 
+    /* If Outline */
   ${({ outline, theme }) =>
     outline && {
       backgroundColor: 'transparent',
@@ -40,6 +45,7 @@ const Button = styled.div<ButtonProps>`
       }
     }}
 
+/* scss Style */
   transition: all 0.3s ease-out;
 `;
 
