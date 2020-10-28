@@ -23,7 +23,7 @@ let mobileSize: Size = 'TitleMedium';
 const getColor = (theme: Theme, color: 'white' | 'gray' | 'black' | undefined) => {
   switch (color) {
     case 'black':
-      return theme.colors.primary.base;
+      return theme.colors.primary.dark;
     case 'gray':
       return theme.colors.gray[300];
     default:
