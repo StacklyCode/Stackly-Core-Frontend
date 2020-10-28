@@ -4,6 +4,7 @@ import Title from '@Atoms/title';
 import Input from '@Atoms/input';
 import Icon from '@Atoms/icon';
 import Body from '@Atoms/body';
+import AtomToggleList from '@Atoms/togglelist';
 
 type TextProps = {
   color: string;
@@ -93,6 +94,9 @@ const TestPage: React.FC = () => {
       <Input />
       <Input />
       <Input id="customInput" />
+
+      <AtomToggleList object={{ title: 'Lenguajes', options: ['ENG', 'ESP', 'FR', 'KR'] }} />
+      <AtomToggleList outline object={{ title: 'Lenguajes', options: ['ENG', 'ESP', 'FR', 'KR'] }} />
     </Background>
   );
 };
