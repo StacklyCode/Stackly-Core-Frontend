@@ -5,6 +5,7 @@ import Input from '@Atoms/input';
 import Icon from '@Atoms/icon';
 import Body from '@Atoms/body';
 import AtomToggleList from '@Atoms/togglelist';
+import AtomImage from '@Atoms/image';
 
 type TextProps = {
   color: string;
@@ -97,6 +98,18 @@ const TestPage: React.FC = () => {
 
       <AtomToggleList object={{ title: 'Lenguajes', options: ['ENG', 'ESP', 'FR', 'KR'] }} />
       <AtomToggleList outline object={{ title: 'Lenguajes', options: ['ENG', 'ESP', 'FR', 'KR'] }} />
+      <AtomImage
+        background
+        image="https://uicookies.com/wp-content/uploads/2020/01/Startit-website-header-design-templates.jpg"
+      />
+      <AtomImage background image="https://uicookies.com/wp-content/uploads/2020/01/Sassico.jpg" />
+      <AtomImage
+        background
+        image="https://uicookies.com/wp-content/uploads/2020/01/Revolution-website-header-design-templates.jpg"
+      />
+      <AtomImage image="https://uicookies.com/wp-content/uploads/2020/01/Startit-website-header-design-templates.jpg" />
+      <AtomImage image="https://uicookies.com/wp-content/uploads/2020/01/Sassico.jpg" />
+      <AtomImage image="https://uicookies.com/wp-content/uploads/2020/01/Revolution-website-header-design-templates.jpg" />
     </Background>
   );
 };
