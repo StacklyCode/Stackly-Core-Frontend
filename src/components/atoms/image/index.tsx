@@ -42,7 +42,7 @@ const AtomImage: React.FC<ImageProps> = ({ background, image }) => {
   const { data } = usePalette(image || '');
   return (
     <Image background={background} getColor={data.muted}>
-      <img src={image} alt="" />
+      <img src={image} alt="" loading="lazy" />
     </Image>
   );
 };

@@ -1,39 +1,70 @@
-import React, { createRef, useState } from 'react';
-import IndexContainer from './indexStyled';
+import TemplateMain from '@Templates/index';
+import OrganismHero from '@Organisms/hero';
+import OrganismServices from '@Organisms/services';
+import OrganismProjects from '@Organisms/projects';
+import OrganismClients from '@Organisms/clients';
+import OrganismContact from '@Organisms/contact';
 
-const Index: React.FC = () => {
-  const videoReact = createRef<HTMLVideoElement>();
-  const [showVideo, useShowVideo] = useState(false);
-  const showVideoFunc = () => {
-    useShowVideo(true);
-    if (videoReact.current) {
-      videoReact.current.volume = 0.1;
-      videoReact.current.play();
-    }
-  };
+type IProject = {
+  id?: string;
+  title?: string;
+  type?: string;
+  description?: string;
+  urlImage?: string;
+};
+const ProjectsDataFake: IProject[] = [
+  {
+    id: '0',
+    title: 'Landing page for Amara',
+    type: 'Web | UI/UX',
+    description:
+      'We delivered a nice looking and well crafted user experience for Amara’s website, to bring customers to their platform for flower services and increasing their user’s traffic and sells',
+    urlImage: 'https://miro.medium.com/max/1600/1*TtM37P6qF7JcvFdpfIICgQ.png'
+  },
+  {
+    id: '1',
+    title: 'Landing page for William',
+    type: 'Web | UI/UX',
+    description:
+      'We delivered a nice looking and well crafted user experience for Amara’s website, to bring customers to their platform for flower services and increasing their user’s traffic and sells',
+    urlImage: 'https://miro.medium.com/max/700/1*uxDIyeyeeAQcfcvz6GzCGw.png'
+  },
+  {
+    id: '2',
+    title: 'Landing page for Company',
+    type: 'Web | UI/UX',
+    description:
+      'We delivered a nice looking and well crafted user experience for Amara’s website, to bring customers to their platform for flower services and increasing their user’s traffic and sells',
+    urlImage: 'https://miro.medium.com/max/700/1*8MBh4AmUhMqEKWOO_5AeQw.png'
+  },
+  {
+    id: '3',
+    title: 'Landing page for Amara',
+    type: 'Web | UI/UX',
+    description:
+      'We delivered a nice looking and well crafted user experience for Amara’s website, to bring customers to their platform for flower services and increasing their user’s traffic and sells',
+    urlImage: 'https://miro.medium.com/max/700/1*Nu-FIla1yFxUVut6in9zrg.png'
+  },
+  {
+    id: '4',
+    title: 'Landing page for Amara',
+    type: 'Web | UI/UX',
+    description:
+      'We delivered a nice looking and well crafted user experience for Amara’s website, to bring customers to their platform for flower services and increasing their user’s traffic and sells',
+    urlImage: 'https://miro.medium.com/max/700/1*n1hYjKwLMrndUOcB568MbA.png'
+  }
+];
+
+const TestPage: React.FC = () => {
   return (
-    <IndexContainer>
-      {showVideo ? <span>We Are Working</span> : null}
-      <div>
-        {!showVideo ? (
-          <div>
-            <img src="/logo.svg" alt="Logo" />
-
-            <button type="button" onClick={showVideoFunc}>
-              Enter
-            </button>
-          </div>
-        ) : null}
-
-        {showVideo ? (
-          <video ref={videoReact} src="/videoloop.mp4" loop autoPlay>
-            <track default kind="captions" />
-            Sorry, your browser doesnt support embedded videos.
-          </video>
-        ) : null}
-      </div>
-    </IndexContainer>
+    <TemplateMain>
+      <OrganismHero />
+      <OrganismServices />
+      <OrganismProjects projects={ProjectsDataFake} />
+      <OrganismClients />
+      <OrganismContact />
+    </TemplateMain>
   );
 };
 
-export default Index;
+export default TestPage;

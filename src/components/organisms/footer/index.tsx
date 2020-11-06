@@ -33,6 +33,9 @@ const FooterContainer = styled.div<FooterProps>`
       display: flex;
     }
   }
+  svg {
+    display: flex;
+  }
 `;
 const FooterSocialContainer = styled.div<FooterProps>`
   width: max-content;
