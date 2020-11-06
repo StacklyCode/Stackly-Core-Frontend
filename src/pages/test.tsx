@@ -2,11 +2,11 @@ import styled from '@Styles/styled';
 import Button from '@Atoms/button';
 import Title from '@Atoms/title';
 import Input from '@Atoms/input';
-import Icon from '@Atoms/icon';
 import Body from '@Atoms/body';
 import AtomToggleList from '@Atoms/togglelist';
 import AtomImage from '@Atoms/image';
 import MoleculesTags from '@Molecules/tags';
+import AtomIcon from '@Atoms/icon';
 
 type TextProps = {
   color: string;
@@ -24,6 +24,26 @@ const Background = styled.main`
   background: ${({ theme }) => theme.colors.primary.light};
   min-height: 100vh;
   width: 100%;
+`;
+
+const TestSVGMediaQuery = styled.div`
+  div {
+    svg {
+      g {
+        display: none;
+      }
+    }
+  }
+
+  ${({ theme }) => theme.mediaquery.medium} {
+    div {
+      svg {
+        g {
+          display: block;
+        }
+      }
+    }
+  }
 `;
 
 const TestPage: React.FC = () => {
@@ -95,9 +115,9 @@ const TestPage: React.FC = () => {
       <Button outline>Let’s start a project</Button>
       <Text color="blue">StyledCode</Text>
 
-      <Icon icon="facebook" size="100px" color="dark" />
-      <Icon icon="facebook" size="50px" color="light" />
-      <Icon icon="facebook" size="20px" color="grey" />
+      <AtomIcon icon="facebook" size="100px" color="dark" />
+      <AtomIcon icon="facebook" size="50px" color="light" />
+      <AtomIcon icon="facebook" size="20px" color="grey" />
 
       <Input id="checkbox" type="checkbox" color="dark" />
       <Input id="password" type="password" color="dark" placeholder="Password" icon="lock" />
@@ -134,6 +154,9 @@ const TestPage: React.FC = () => {
         />
         <MoleculesTags color="blue" />
       </div>
+      <TestSVGMediaQuery>
+        <AtomIcon icon="stacklycodelogo" />
+      </TestSVGMediaQuery>
     </Background>
   );
 };
