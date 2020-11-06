@@ -1,6 +1,6 @@
 import styled from '@Styles/styled';
-
 import OrganismsNavigation from '@Organisms/navegation';
+import OrganismFooter from '@Organisms/footer';
 
 const Background = styled.main`
   background: ${({ theme }) => theme.colors.white};
@@ -13,6 +13,7 @@ const TemplateMain: React.FC = ({ children }) => {
     <Background>
       <OrganismsNavigation />
       {children}
+      <OrganismFooter />
     </Background>
   );
 };
