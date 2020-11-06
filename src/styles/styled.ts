@@ -1,4 +1,5 @@
 import styled, { CreateStyled } from '@emotion/styled';
+import { css } from '@emotion/core';
 
 interface IPrimary {
   dark: string;
@@ -115,4 +116,5 @@ export type Theme = {
   };
 };
 
+export { css };
 export default styled as CreateStyled<Theme>;

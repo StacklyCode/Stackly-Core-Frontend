@@ -6,6 +6,7 @@ import Icon from '@Atoms/icon';
 import Body from '@Atoms/body';
 import AtomToggleList from '@Atoms/togglelist';
 import AtomImage from '@Atoms/image';
+import MoleculesTags from '@Molecules/tags';
 
 type TextProps = {
   color: string;
@@ -26,6 +27,18 @@ const Background = styled.main`
 `;
 
 const TestPage: React.FC = () => {
+  const fakeUserData = {
+    name: 'William',
+    description: 'Marketing strategies to bring a fresh and modern identity for your brand.',
+    img:
+      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    socialnetwork: [
+      { name: 'facebook', url: 'fb.com/willishakkespeare' },
+      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
+      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
+    ],
+    stars: true
+  };
   return (
     <Background>
       <Title bold>We create the right solution for your business.</Title>
@@ -110,6 +123,17 @@ const TestPage: React.FC = () => {
       <AtomImage image="https://uicookies.com/wp-content/uploads/2020/01/Startit-website-header-design-templates.jpg" />
       <AtomImage image="https://uicookies.com/wp-content/uploads/2020/01/Sassico.jpg" />
       <AtomImage image="https://uicookies.com/wp-content/uploads/2020/01/Revolution-website-header-design-templates.jpg" />
+
+      <div style={{ display: 'flex' }}>
+        <MoleculesTags
+          color="pink"
+          img={fakeUserData.img}
+          title={fakeUserData.name}
+          description={fakeUserData.description}
+          stars={fakeUserData.stars}
+        />
+        <MoleculesTags color="blue" />
+      </div>
     </Background>
   );
 };
