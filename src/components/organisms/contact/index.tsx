@@ -59,6 +59,9 @@ const FormContainer = styled.form`
   width: 100%;
   margin-top: 10px;
   justify-content: center;
+  div:nth-last-of-type(1) {
+    height: 10px;
+  }
   div {
     width: 100%;
     label {
@@ -88,7 +91,8 @@ const FormLeftContainer = styled.div`
   }
   width: 100%;
   div {
-    width: 100%%;
+    width: 100%;
+
     ${({ theme }) => theme.mediaquery.extrasmall} {
       width: 48%;
     }

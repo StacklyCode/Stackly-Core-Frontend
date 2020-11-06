@@ -47,7 +47,7 @@ const FooterSocialContainer = styled.div<FooterProps>`
     width: 25px;
     margin-right: 30px;
   }
-  a:nth-last-child(1) {
+  a:nth-last-of-type(1) {
     margin-right: 0px;
   }
 `;
