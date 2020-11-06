@@ -21,7 +21,6 @@ const Tags = styled.div<TagsProps>`
   max-width: 320px;
   min-height: 88px;
   display: flex;
-  margin: 30px 40px;
   border-radius: 4px;
 `;
 const TagColor = styled.div<TagsProps>`
