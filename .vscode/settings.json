@@ -12,5 +12,6 @@
     "neue",
     "noto",
     "segoe"
-  ]
+  ],
+  "svg.preview.background": "transparent"
 }

@@ -14,7 +14,8 @@ const IconStyled = styled.div<IconProps>`
   justify-content: center;
   ${({ size }) => size && { width: size, height: size }}
   svg {
-    ${({ size }) => size && { width: size, height: size }}
+    width: 100%;
+    height: 100%;
     path {
       ${({ color, theme }) => color === 'dark' && { fill: theme.colors.primary.dark }}
       ${({ color, theme }) => color === 'light' && { fill: theme.colors.white }}

@@ -8,17 +8,18 @@ type InputProps = {
   placeholder?: string;
   id?: string;
   icon?: string;
+  margin?: [string, string];
 };
 
 const InputStyled = styled.div<InputProps>`
-  width: max-content;
-  margin: 0px;
+  width: fit-content;
+  margin: ${({ margin }) => (margin ? `${margin[0]} ${margin[1]}` : '0px')};
   display: flex;
   align-items: center;
   label {
     input {
       border: none;
-      min-width: ${({ type }) => (type === 'checkbox' ? '15px' : '280px')};
+      min-width: ${({ type }) => (type === 'checkbox' ? '15px' : '180px')};
       font-family: Roboto;
       font-style: normal;
       font-weight: bold;
@@ -110,10 +111,10 @@ const IconContainerStyled = styled.div<InputProps>`
   }
 `;
 
-const AtomInput: React.FC<InputProps> = ({ type, color, placeholder, id, icon }) => {
+const AtomInput: React.FC<InputProps> = ({ type, color, placeholder, id, icon, margin }) => {
   const [eye, seteye] = useState(false);
   return (
-    <InputStyled type={type || 'text'} color={color || `light`} icon={icon}>
+    <InputStyled type={type || 'text'} color={color || `light`} icon={icon} margin={margin}>
       {icon && (
         <IconContainerStyled color={color}>
           <Icon icon={icon} />

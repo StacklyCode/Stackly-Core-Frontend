@@ -10,8 +10,8 @@ type ImageProps = {
 
 const Image = styled.div<ImageProps>`
   /* StyleComponent Style with Theme*/
-  width: 280px;
-  height: 150px;
+  width: 250px;
+  height: 130px;
   border-radius: 4px;
   ${({ background, theme, getColor }) =>
     background && {

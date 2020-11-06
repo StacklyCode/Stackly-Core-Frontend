@@ -12,9 +12,10 @@ const ToggleListStyled = styled.div<ToggleListProps>`
   /* StyleComponent Style with Theme*/
   display: flex;
   flex-direction: column;
-  width: 100px;
+  width: 80px;
   height: max-content;
   border-radius: 4px;
+  align-self: baseline;
   cursor: pointer;
   ${({ theme }) =>
     theme && {
@@ -75,10 +76,9 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
     display: flex;
     border: none;
     align-items: center;
-    padding-left: 29px;
-    justify-content: flex-start;
+    justify-content: center;
     color: white;
-    background-color: #58698c;
+    background-color: ${({ theme }) => theme.colors.primary.dark};
     font-family: Inter;
     font-style: normal;
     font-weight: bold;

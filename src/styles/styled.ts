@@ -84,6 +84,7 @@ interface IZindex {
 }
 
 interface IMediaQuery {
+  extrasmall: string;
   small: string;
   medium: string;
   large: string;

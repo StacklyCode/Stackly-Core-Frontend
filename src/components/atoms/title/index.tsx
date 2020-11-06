@@ -7,7 +7,7 @@ type Size =
   | 'SubTitleLarge'
   | 'SubTitleMedium'
   | 'SubTitleSmall';
-type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'a' | 'span';
 
 type TitleProps = {
   size?: Size;
@@ -79,10 +79,10 @@ const Title = styled.h1<TitleProps>`
   }
 `;
 
-const AtomTitle: React.FC<TitleProps> = ({ children, size, color, align, bold }) => {
+const AtomTitle: React.FC<TitleProps> = ({ children, size, color, align, bold, as }) => {
   setValues(size);
   return (
-    <Title as={tag} size={size} color={color} align={align} bold={bold}>
+    <Title as={as || tag} size={size} color={color} align={align} bold={bold}>
       {children}
     </Title>
   );

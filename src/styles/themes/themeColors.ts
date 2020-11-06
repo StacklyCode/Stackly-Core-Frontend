@@ -6,34 +6,34 @@ const ThemeColor = {
   },
   accent: {
     green: {
-      base: '#269E40',
-      light: '#35CE57',
-      dark: '#95E1A6'
+      base: '#35CE57',
+      light: '#95E1A6',
+      dark: '#269E40'
     },
     red: {
-      base: '#D41A47',
-      light: '#E63B64',
-      dark: '#E3718D'
+      base: '#E63B64',
+      light: '#E3718D',
+      dark: '#D41A47'
     },
     orange: {
-      base: '#EA7520',
-      light: '#FF9B53',
-      dark: '#F4B384'
+      base: '#FF9B53',
+      light: '#F4B384',
+      dark: '#EA7520'
     },
     blue: {
-      base: '#1C61C9',
-      light: '#3E82E9',
-      dark: '#82A9E5'
+      base: '#3E82E9',
+      light: '#82A9E5',
+      dark: '#1C61C9'
     },
     cyan: {
-      base: '#2BB2A1',
-      light: '#46DBC9',
-      dark: '#9AEFE5'
+      base: '#46DBC9',
+      light: '#9AEFE5',
+      dark: '#2BB2A1'
     },
     pink: {
-      base: '#C82874',
-      light: '#DB468D',
-      dark: '#EE8ABA'
+      base: '#DB468D',
+      light: '#EE8ABA',
+      dark: '#C82874'
     }
   },
   gray: {

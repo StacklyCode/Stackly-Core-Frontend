@@ -1,22 +1,28 @@
 import React from 'react';
 import styled from '@Styles/styled';
+import Link from 'next/link';
 
 type ButtonProps = {
   color?: 'primary' | 'secondary';
   outline?: boolean;
+  link?: string;
+  href?: string;
+  type?: 'button' | 'reset' | 'submit';
 };
 
-const Button = styled.div<ButtonProps>`
+const Button = styled.button<ButtonProps>`
   /* StyleComponent Style with Theme*/
   ${({ theme }) => ({
     fontSize: theme.texts.Button.FontSize,
     fontFamily: theme.texts.Button.FontFamily,
     fontWeight: 'bold',
     lineHeight: theme.texts.Button.LineHeight,
+    outline: 'none',
+    border: `2px solid ${theme.colors.primary.base}`,
     width: 'max-content',
     color: theme.colors.white,
     backgroundColor: theme.colors.primary.base,
-    padding: '14px 20px',
+    padding: '10px 20px',
     borderRadius: '4px',
     ':hover': {
       cursor: 'pointer',
@@ -27,9 +33,11 @@ const Button = styled.div<ButtonProps>`
   /* If Primary */
   ${({ color, theme }) =>
     color === 'primary' && {
+      border: `2px solid ${theme.colors.accent.green.base}`,
       backgroundColor: theme.colors.accent.green.base,
       ':hover': {
-        backgroundColor: theme.colors.accent.green.light
+        backgroundColor: theme.colors.accent.green.dark,
+        border: `2px solid ${theme.colors.accent.green.dark}`
       }
     }}
 
@@ -40,8 +48,8 @@ const Button = styled.div<ButtonProps>`
       border: `2px solid ${theme.colors.white}`,
       ':hover': {
         backgroundColor: 'transparent',
-        border: `2px solid ${theme.colors.accent.green.base}`,
-        color: theme.colors.accent.green.base
+        border: `2px solid ${theme.colors.accent.blue.base}`,
+        color: theme.colors.accent.blue.base
       }
     }}
 
@@ -49,9 +57,27 @@ const Button = styled.div<ButtonProps>`
   transition: all 0.3s ease-out;
 `;
 
-const AtomButton: React.FC<ButtonProps> = ({ color, children, outline }) => {
+const AtomButton: React.FC<ButtonProps> = ({ color, children, outline, link, href, type }) => {
+  if (link) {
+    return (
+      <Link href={link}>
+        <Button color={color} outline={outline}>
+          {children}
+        </Button>
+      </Link>
+    );
+  }
+  if (href) {
+    return (
+      <a href={href}>
+        <Button color={color} outline={outline}>
+          {children}
+        </Button>
+      </a>
+    );
+  }
   return (
-    <Button color={color} outline={outline}>
+    <Button type={type} color={color} outline={outline}>
       {children}
     </Button>
   );

@@ -17,11 +17,12 @@ type TagsProps = {
   stars?: boolean;
 };
 
-const Tags = styled.div<TagsProps>`
-  max-width: 320px;
+const Tags = styled.article<TagsProps>`
+  max-width: 310px;
   min-height: 88px;
   display: flex;
   border-radius: 4px;
+  box-shadow: 0px 4px 20px rgba(105, 115, 124, 0.15);
 `;
 const TagColor = styled.div<TagsProps>`
   width: 13px;
