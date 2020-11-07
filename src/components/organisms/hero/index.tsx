@@ -1,9 +1,11 @@
 import styled from '@Styles/styled';
-import IllustrationHero from '@Assets/img/illustration-hero.svg';
 import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import AtomContainer from '@Atoms/container';
 import AtomButton from '@Atoms/button';
+import Lottie from 'react-lottie';
+import animationData from '@Assets/json/animations/drawkit-grape-animation-4-LOOP.json';
+import { useSpring, animated } from 'react-spring';
 
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -20,7 +22,7 @@ const Hero = styled.section`
   }
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled(animated.div)`
   width: 100%;
   ${({ theme }) => theme.mediaquery.small} {
     width: 80%;
@@ -33,7 +35,7 @@ const TextContainer = styled.div`
     margin-bottom: 20px;
   }
 `;
-const IllustrationContainer = styled.div`
+const IllustrationContainer = styled(animated.div)`
   width: 35%;
   margin-bottom: 55px;
   display: none;
@@ -71,11 +73,30 @@ const ButtonContainer = styled.div`
   }
 `;
 
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
+
 const OrganismHero: React.FC = () => {
+  const props = useSpring({
+    to: { opacity: 1, transform: 'translateX(20px)' },
+    from: { opacity: 0, transform: 'translateX(0px)' },
+    delay: 700
+  });
+  const props2 = useSpring({
+    to: { opacity: 1, transform: 'translateX(-20px)' },
+    from: { opacity: 0, transform: 'translateX(0px)' },
+    delay: 700
+  });
   return (
     <Hero>
       <AtomContainer alignItems="center" justifyContent="space-between">
-        <TextContainer>
+        <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleLarge">
             We create the right solution for your business.
           </AtomTitle>
@@ -87,8 +108,8 @@ const OrganismHero: React.FC = () => {
             <AtomButton outline>View our catalog</AtomButton>
           </ButtonContainer>
         </TextContainer>
-        <IllustrationContainer>
-          <IllustrationHero />
+        <IllustrationContainer style={props2}>
+          <Lottie options={defaultOptions} />
         </IllustrationContainer>
       </AtomContainer>
     </Hero>

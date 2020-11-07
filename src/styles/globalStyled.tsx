@@ -17,7 +17,9 @@ const GlobalStyles = () => (
       :root {
         font-size: 16px;
       }
-
+      html {
+        width: 100vw;
+      }
       body {
         background-color: #fafafa;
         overflow-x: hidden;

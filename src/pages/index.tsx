@@ -4,6 +4,7 @@ import OrganismServices from '@Organisms/services';
 import OrganismProjects from '@Organisms/projects';
 import OrganismClients from '@Organisms/clients';
 import OrganismContact from '@Organisms/contact';
+import LazyLoad from 'react-lazyload';
 
 type IProject = {
   id?: string;
@@ -59,10 +60,18 @@ const TestPage: React.FC = () => {
   return (
     <TemplateMain>
       <OrganismHero />
-      <OrganismServices />
-      <OrganismProjects projects={ProjectsDataFake} />
-      <OrganismClients />
-      <OrganismContact />
+      <LazyLoad height={100} once>
+        <OrganismServices />
+      </LazyLoad>
+      <LazyLoad height={100} once>
+        <OrganismProjects projects={ProjectsDataFake} />
+      </LazyLoad>
+      <LazyLoad height={100} once>
+        <OrganismClients />
+      </LazyLoad>
+      <LazyLoad height={100} once>
+        <OrganismContact />
+      </LazyLoad>
     </TemplateMain>
   );
 };

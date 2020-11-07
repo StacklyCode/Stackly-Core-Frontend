@@ -53,7 +53,7 @@ const Button = styled.button<ButtonProps>`
       }
     }}
 
-/* scss Style */
+
   transition: all 0.3s ease-out;
 `;
 
