@@ -5,8 +5,6 @@ import OrganismProjects from '@Organisms/projects';
 import OrganismClients from '@Organisms/clients';
 import OrganismContact from '@Organisms/contact';
 import LazyLoad from 'react-lazyload';
-import { ThemeProvider } from 'emotion-theming';
-import theme from '@Styles/theme';
 
 type IProject = {
   id?: string;
@@ -60,23 +58,21 @@ const ProjectsDataFake: IProject[] = [
 
 const TestPage: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <TemplateMain>
-        <OrganismHero />
-        <LazyLoad height={100} once>
-          <OrganismServices />
-        </LazyLoad>
-        <LazyLoad height={100} once>
-          <OrganismProjects projects={ProjectsDataFake} />
-        </LazyLoad>
-        <LazyLoad height={100} once>
-          <OrganismClients />
-        </LazyLoad>
-        <LazyLoad height={100} once>
-          <OrganismContact />
-        </LazyLoad>
-      </TemplateMain>
-    </ThemeProvider>
+    <TemplateMain>
+      <OrganismHero />
+      <LazyLoad height={100} once>
+        <OrganismServices />
+      </LazyLoad>
+      <LazyLoad height={100} once>
+        <OrganismProjects projects={ProjectsDataFake} />
+      </LazyLoad>
+      <LazyLoad height={100} once>
+        <OrganismClients />
+      </LazyLoad>
+      <LazyLoad height={100} once>
+        <OrganismContact />
+      </LazyLoad>
+    </TemplateMain>
   );
 };
 
