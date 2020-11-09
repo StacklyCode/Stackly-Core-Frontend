@@ -5,6 +5,7 @@ import styled from '@Styles/styled';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
 import LinkNext from 'next/link';
+import { useRouter } from 'next/router';
 
 type NavegationProps = {
   title?: string;
@@ -50,6 +51,9 @@ const NavigationLinks = styled.div<NavegationProps>`
   ${({ theme }) => theme.mediaquery.medium} {
     display: flex;
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 const NavigationLink = styled.div<NavegationProps>`
@@ -68,6 +72,7 @@ const NavigationLink = styled.div<NavegationProps>`
     top: -8px;
     width: 35px;
   }
+
   margin-right: 20px;
 `;
 
@@ -146,13 +151,20 @@ const ToggleContainer = styled.div<NavegationProps>`
 
 const OrganismNavigation: React.FC<NavegationProps> = () => {
   const [sidebar, setSidebar] = useState(false);
+  const router = useRouter();
   return (
     <Navigation>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <NavigationLogo>
-          <Link to="HeroScroll" smooth offset={-110}>
-            <AtomIcon icon="stacklycodelogo" />
-          </Link>
+          {router.pathname !== '/' ? (
+            <a href="/">
+              <AtomIcon icon="stacklycodelogo" />
+            </a>
+          ) : (
+            <Link to="HeroScroll" smooth offset={-110}>
+              <AtomIcon icon="stacklycodelogo" />
+            </Link>
+          )}
         </NavigationLogo>
         <NavigationLinks>
           <LinkNext href="/about">
@@ -163,20 +175,45 @@ const OrganismNavigation: React.FC<NavegationProps> = () => {
               Community <AtomIcon icon="new" />{' '}
             </NavigationLink>
           </LinkNext>
-          <Link to="ServicesScroll" smooth offset={-60}>
-            <NavigationLink>Services</NavigationLink>
-          </Link>
-          <Link to="ClientsScroll" smooth offset={-60}>
-            <NavigationLink>Clients</NavigationLink>
-          </Link>
-          <Link to="ProjectsScroll" smooth offset={-60}>
-            <NavigationLink>Projects</NavigationLink>
-          </Link>
-          <Link to="ContactScroll" smooth offset={-60}>
-            <NavigationLink>Contact</NavigationLink>
-          </Link>
+          {router.pathname !== '/' ? (
+            <LinkNext href="/#ServicesScroll">
+              <NavigationLink>Services</NavigationLink>
+            </LinkNext>
+          ) : (
+            <Link to="ServicesScroll" smooth offset={-60}>
+              <NavigationLink>Services</NavigationLink>
+            </Link>
+          )}
+          {router.pathname !== '/' ? (
+            <LinkNext href="/#ClientsScroll">
+              <NavigationLink>Clients</NavigationLink>
+            </LinkNext>
+          ) : (
+            <Link to="ClientsScroll" smooth offset={-60}>
+              <NavigationLink>Clients</NavigationLink>
+            </Link>
+          )}
+          {router.pathname !== '/' ? (
+            <LinkNext href="/#ProjectsScroll">
+              <NavigationLink>Projects</NavigationLink>
+            </LinkNext>
+          ) : (
+            <Link to="ProjectsScroll" smooth offset={-30}>
+              <NavigationLink>Projects</NavigationLink>
+            </Link>
+          )}
+          {router.pathname !== '/' ? (
+            <LinkNext href="/#ContactScroll">
+              <NavigationLink>Contact</NavigationLink>
+            </LinkNext>
+          ) : (
+            <Link to="ContactScroll" smooth offset={-40}>
+              <NavigationLink>Contact</NavigationLink>
+            </Link>
+          )}
+
           <ToggleContainer>
-            <AtomToggleList outline object={{ title: 'Lenguajes', options: ['ENG', 'ESP', 'FR', 'KR'] }} />
+            <AtomToggleList outline object={{ title: 'Lenguajes', options: ['en', 'es'] }} />
           </ToggleContainer>
         </NavigationLinks>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
@@ -195,18 +232,42 @@ const OrganismNavigation: React.FC<NavegationProps> = () => {
                 Community <AtomIcon icon="new" />{' '}
               </NavigationLink>
             </LinkNext>
-            <Link to="ServicesScroll" smooth offset={-110}>
-              <NavigationLink>Services</NavigationLink>
-            </Link>
-            <Link to="ClientsScroll" smooth offset={-60}>
-              <NavigationLink>Clients</NavigationLink>
-            </Link>
-            <Link to="ProjectsScroll" smooth offset={-110}>
-              <NavigationLink>Projects</NavigationLink>
-            </Link>
-            <Link to="ContactScroll" smooth offset={-110}>
-              <NavigationLink>Contact</NavigationLink>
-            </Link>
+            {router.pathname !== '/' ? (
+              <LinkNext href="/#ServicesScroll">
+                <NavigationLink>Services</NavigationLink>
+              </LinkNext>
+            ) : (
+              <Link to="ServicesScroll" smooth offset={-60}>
+                <NavigationLink>Services</NavigationLink>
+              </Link>
+            )}
+            {router.pathname !== '/' ? (
+              <LinkNext href="/#ClientsScroll">
+                <NavigationLink>Clients</NavigationLink>
+              </LinkNext>
+            ) : (
+              <Link to="ClientsScroll" smooth offset={-60}>
+                <NavigationLink>Clients</NavigationLink>
+              </Link>
+            )}
+            {router.pathname !== '/' ? (
+              <LinkNext href="/#ProjectsScroll">
+                <NavigationLink>Projects</NavigationLink>
+              </LinkNext>
+            ) : (
+              <Link to="ProjectsScroll" smooth offset={-30}>
+                <NavigationLink>Projects</NavigationLink>
+              </Link>
+            )}
+            {router.pathname !== '/' ? (
+              <LinkNext href="/#ContactScroll">
+                <NavigationLink>Contact</NavigationLink>
+              </LinkNext>
+            ) : (
+              <Link to="ContactScroll" smooth offset={-40}>
+                <NavigationLink>Contact</NavigationLink>
+              </Link>
+            )}
           </NavigationLinksSidebar>
         </SideBar>
       )}

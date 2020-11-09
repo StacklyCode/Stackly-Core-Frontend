@@ -6,6 +6,7 @@ import AtomBody from '@Atoms/body';
 import MoleculesTags from '@Molecules/tags';
 import AtomButton from '@Atoms/button';
 import React from 'react';
+import { Link } from 'react-scroll';
 
 const Services = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -147,7 +148,9 @@ const OrganismServices: React.FC<IServices> = ({ idScroll }) => {
               color="orange"
             />
           </TagsContainer>
-          <AtomButton>Let’s start a project</AtomButton>
+          <Link to="ContactScroll" smooth offset={-40}>
+            <AtomButton>Let’s start a project</AtomButton>
+          </Link>
         </TextContainer>
       </AtomContainer>
     </Services>

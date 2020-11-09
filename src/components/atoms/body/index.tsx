@@ -40,7 +40,8 @@ const getMobileSize = (size: Size | undefined) => {
 const Body = styled.p<BodyProps>`
   ${({ theme, size, color, bold }) => ({
     fontFamily: theme.texts.BodyExtraLarge.FontFamily,
-    fontWeight: bold ? 700 : 500,
+    fontWeight: bold ? 700 : 400,
+    fontsize: 'normal',
     textAlign: 'center',
     fontSize: theme.texts[getMobileSize(size)].FontSize,
     lineHeight: theme.texts[getMobileSize(size)].LineHeight,
@@ -54,6 +55,7 @@ const Body = styled.p<BodyProps>`
       lineHeight: theme.texts[size || 'BodyExtraLarge'].LineHeight
     })}
   }
+  ${({ color }) => color === 'green' && { cursor: 'pointer' }}
 `;
 
 const AtomBody: React.FC<BodyProps> = ({ children, size, color, align, bold }) => {

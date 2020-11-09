@@ -6,6 +6,8 @@ import AtomButton from '@Atoms/button';
 import Lottie from 'react-lottie';
 import animationData from '@Assets/json/animations/drawkit-grape-animation-4-LOOP.json';
 import { useSpring, animated } from 'react-spring';
+import { TFunction } from 'next-i18next';
+import { Link } from 'react-scroll';
 
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -84,9 +86,10 @@ const defaultOptions = {
 
 type IHero = {
   idScroll?: string;
+  t?: TFunction;
 };
 
-const OrganismHero: React.FC<IHero> = ({ idScroll }) => {
+const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
   const props = useSpring({
     to: { opacity: 1, transform: 'translateX(20px)' },
     from: { opacity: 0, transform: 'translateX(0px)' },
@@ -102,14 +105,18 @@ const OrganismHero: React.FC<IHero> = ({ idScroll }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleLarge">
-            We create the right solution for your business.
+            {t && t('hero-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge">
-            We will be in charge to bring your idea to life and give the best value for your users.
+            {t && t('hero-desc')}
           </AtomBody>
           <ButtonContainer>
-            <AtomButton color="primary">Let’s start a project</AtomButton>
-            <AtomButton outline>View our catalog</AtomButton>
+            <Link to="ContactScroll" smooth offset={-40}>
+              <AtomButton color="primary">{t && t('hero-btn-1')}</AtomButton>
+            </Link>
+            <Link to="ProjectsScroll" smooth offset={-30}>
+              <AtomButton outline>{t && t('hero-btn-2')}</AtomButton>
+            </Link>
           </ButtonContainer>
         </TextContainer>
         <IllustrationContainer style={props2}>

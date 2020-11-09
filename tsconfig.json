@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@Src/*": ["src/*"],
       "@Public/*": ["public/*"],
       "@Atoms/*": ["src/components/atoms/*"],
       "@Molecules/*": ["src/components/molecules/*"],
@@ -34,6 +35,7 @@
     "../**/*.stories.ts",
     "../**/*.stories.tsx",
     "src/config",
-    "src/config"
+    "src/config",
+    ".js"
   ]
 }

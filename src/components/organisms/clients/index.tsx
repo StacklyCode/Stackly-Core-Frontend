@@ -4,6 +4,7 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import MoleculesTags from '@Molecules/tags';
 import AtomButton from '@Atoms/button';
+import { Link } from 'react-scroll';
 
 const fakeUserData = [
   {
@@ -140,7 +141,9 @@ const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
             The communication is an important aspect for us. Taking us part of your journey, on building your
             project, we’ll take care of all the details for you.
           </AtomBody>
-          <AtomButton>You can also trust in us</AtomButton>
+          <Link to="ContactScroll" smooth offset={-40}>
+            <AtomButton>You can also trust in us</AtomButton>
+          </Link>
         </TextContainer>
         <TagsContainer>
           <MoleculesTags

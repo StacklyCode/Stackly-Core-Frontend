@@ -5,6 +5,8 @@ import OrganismServices from '@Organisms/services';
 import OrganismProjects from '@Organisms/projects';
 import OrganismClients from '@Organisms/clients';
 import OrganismContact from '@Organisms/contact';
+import { withTranslation } from '@Src/i18n';
+import { TFunction } from 'next-i18next';
 
 type IProject = {
   id?: string;
@@ -56,10 +58,10 @@ const ProjectsDataFake: IProject[] = [
   }
 ];
 
-const TestPage: React.FC = () => {
+const PageHome = ({ t }: { readonly t: TFunction }) => {
   return (
     <TemplateMain>
-      <OrganismHero idScroll="HeroScroll" />
+      <OrganismHero t={t} idScroll="HeroScroll" />
       <OrganismServices idScroll="ServicesScroll" />
       <OrganismProjects idScroll="ProjectsScroll" projects={ProjectsDataFake} />
       <OrganismClients idScroll="ClientsScroll" />
@@ -68,4 +70,4 @@ const TestPage: React.FC = () => {
   );
 };
 
-export default TestPage;
+export default withTranslation('common')(PageHome);

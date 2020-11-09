@@ -5,6 +5,7 @@ import AtomBody from '@Atoms/body';
 import MoleculeProjectInfo from '@Molecules/projectinfo';
 import AtomImage from '@Atoms/image';
 import { useState } from 'react';
+import { Link } from 'react-scroll';
 
 type IProject = {
   id?: string;
@@ -128,9 +129,11 @@ const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects }) => {
           </ParagraphTitle>
           <ParagraphContainer>
             <AtomBody size="BodyLarge">Ready to start your project ?</AtomBody>
-            <AtomBody color="green" size="BodyLarge">
-              Let’s work together.
-            </AtomBody>
+            <Link to="ContactScroll" smooth offset={-40}>
+              <AtomBody color="green" size="BodyLarge">
+                Let’s work together.
+              </AtomBody>
+            </Link>
           </ParagraphContainer>
           <MoleculeProjectInfo
             title={projectID?.title || (projects && projects[0].title)}
