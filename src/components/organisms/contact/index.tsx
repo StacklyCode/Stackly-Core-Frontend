@@ -5,6 +5,8 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import AtomButton from '@Atoms/button';
 import AtomInput from '@Atoms/input';
+import Lottie from 'react-lottie';
+import animationData from '@Assets/json/animations/drawkit-grape-animation-6-LOOP.json';
 
 const Contact = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -57,11 +59,10 @@ const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: max-content;
   margin-top: 10px;
   justify-content: center;
-  div:nth-last-of-type(1) {
-    height: 10px;
-  }
+
   div {
     width: 100%;
     label {
@@ -80,7 +81,7 @@ const FormContainer = styled.form`
     margin-top: 15px;
   }
 `;
-const FormLeftContainer = styled.div`
+const FormLeftContainer = styled.article`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -105,9 +106,20 @@ const FormLeftContainer = styled.div`
   }
 `;
 
-const OrganismContact: React.FC = () => {
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
+type IContact = {
+  idScroll?: string;
+};
+const OrganismContact: React.FC<IContact> = ({ idScroll }) => {
   return (
-    <Contact>
+    <Contact id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="white">
@@ -117,7 +129,7 @@ const OrganismContact: React.FC = () => {
             These are a collection of projects we have worked so far. We’ll work with you side by side to
             bring your idea to life.
           </AtomBody>
-          <FormContainer action="https://formspree.io/f/xqkgbjoa" method="POST">
+          <FormContainer action="mailto:social@stacklycode.com" method="POST">
             <FormLeftContainer>
               <AtomInput id="name" margin={['15px', '0px']} placeholder="Your Name" />
               <AtomInput id="Subject" margin={['15px', '0px']} placeholder="Subject" />
@@ -135,7 +147,7 @@ const OrganismContact: React.FC = () => {
           </FormContainer>
         </TextContainer>
         <IllustrationContainer>
-          <IllustrationHero />
+          <Lottie options={defaultOptions} />
         </IllustrationContainer>
       </AtomContainer>
     </Contact>

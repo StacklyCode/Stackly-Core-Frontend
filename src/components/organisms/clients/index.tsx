@@ -45,14 +45,12 @@ const fakeUserData = [
 ];
 
 const Clients = styled.section`
-  background: ${({ theme }) => theme.colors.white};
   min-height: calc(100vh - 110px);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.white};
-  background-image: url('/assets/img/background1.svg');
+  position: relative;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
@@ -110,9 +108,25 @@ const TagsContainer = styled.div`
   }
 `;
 
-const OrganismClients: React.FC = () => {
+type IClients = {
+  idScroll?: string;
+};
+
+const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
   return (
-    <Clients>
+    <Clients id={idScroll}>
+      <ul className="circles">
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+      </ul>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="black">

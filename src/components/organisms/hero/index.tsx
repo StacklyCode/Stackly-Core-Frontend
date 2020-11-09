@@ -36,7 +36,7 @@ const TextContainer = styled(animated.div)`
   }
 `;
 const IllustrationContainer = styled(animated.div)`
-  width: 35%;
+  width: 40%;
   margin-bottom: 55px;
   display: none;
   ${({ theme }) => theme.mediaquery.medium} {
@@ -82,7 +82,11 @@ const defaultOptions = {
   }
 };
 
-const OrganismHero: React.FC = () => {
+type IHero = {
+  idScroll?: string;
+};
+
+const OrganismHero: React.FC<IHero> = ({ idScroll }) => {
   const props = useSpring({
     to: { opacity: 1, transform: 'translateX(20px)' },
     from: { opacity: 0, transform: 'translateX(0px)' },
@@ -94,7 +98,7 @@ const OrganismHero: React.FC = () => {
     delay: 700
   });
   return (
-    <Hero>
+    <Hero id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleLarge">

@@ -3,7 +3,6 @@ import OrganismsNavigation from '@Organisms/navegation';
 import OrganismFooter from '@Organisms/footer';
 
 const Background = styled.main`
-  background: ${({ theme }) => theme.colors.white};
   height: max-content;
   width: 100%;
 `;

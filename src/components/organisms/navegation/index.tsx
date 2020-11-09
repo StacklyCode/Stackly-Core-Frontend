@@ -2,8 +2,9 @@ import AtomContainer from '@Atoms/container';
 import AtomIcon from '@Atoms/icon';
 import AtomToggleList from '@Atoms/togglelist';
 import styled from '@Styles/styled';
-import Link from 'next/link';
 import { useState } from 'react';
+import { Link } from 'react-scroll';
+import LinkNext from 'next/link';
 
 type NavegationProps = {
   title?: string;
@@ -21,6 +22,7 @@ const NavigationLogo = styled.div`
   div {
     width: 35px;
     height: 35px;
+    cursor: pointer;
     svg {
       g {
         display: none;
@@ -148,24 +150,29 @@ const OrganismNavigation: React.FC<NavegationProps> = () => {
     <Navigation>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <NavigationLogo>
-          <AtomIcon icon="stacklycodelogo" />
+          <Link to="HeroScroll" smooth offset={-110}>
+            <AtomIcon icon="stacklycodelogo" />
+          </Link>
         </NavigationLogo>
         <NavigationLinks>
-          <Link href="/about">
+          <LinkNext href="/about">
             <NavigationLink>About us</NavigationLink>
-          </Link>
-          <Link href="/community">
+          </LinkNext>
+          <LinkNext href="/community">
             <NavigationLink>
               Community <AtomIcon icon="new" />{' '}
             </NavigationLink>
-          </Link>
-          <Link href="/services">
+          </LinkNext>
+          <Link to="ServicesScroll" smooth offset={-60}>
             <NavigationLink>Services</NavigationLink>
           </Link>
-          <Link href="/projects">
+          <Link to="ClientsScroll" smooth offset={-60}>
+            <NavigationLink>Clients</NavigationLink>
+          </Link>
+          <Link to="ProjectsScroll" smooth offset={-60}>
             <NavigationLink>Projects</NavigationLink>
           </Link>
-          <Link href="/contact">
+          <Link to="ContactScroll" smooth offset={-60}>
             <NavigationLink>Contact</NavigationLink>
           </Link>
           <ToggleContainer>
@@ -180,21 +187,24 @@ const OrganismNavigation: React.FC<NavegationProps> = () => {
         <SideBar>
           <ContainerSideBar />
           <NavigationLinksSidebar>
-            <Link href="/about">
+            <LinkNext href="/about">
               <NavigationLink>About us</NavigationLink>
-            </Link>
-            <Link href="/community">
+            </LinkNext>
+            <LinkNext href="/community">
               <NavigationLink>
                 Community <AtomIcon icon="new" />{' '}
               </NavigationLink>
-            </Link>
-            <Link href="/services">
+            </LinkNext>
+            <Link to="ServicesScroll" smooth offset={-110}>
               <NavigationLink>Services</NavigationLink>
             </Link>
-            <Link href="/projects">
+            <Link to="ClientsScroll" smooth offset={-60}>
+              <NavigationLink>Clients</NavigationLink>
+            </Link>
+            <Link to="ProjectsScroll" smooth offset={-110}>
               <NavigationLink>Projects</NavigationLink>
             </Link>
-            <Link href="/contact">
+            <Link to="ContactScroll" smooth offset={-110}>
               <NavigationLink>Contact</NavigationLink>
             </Link>
           </NavigationLinksSidebar>

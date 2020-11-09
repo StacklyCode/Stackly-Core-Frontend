@@ -15,6 +15,7 @@ type IProject = {
 };
 
 type ProjectsProps = {
+  idScroll?: string;
   projects?: IProject[];
 };
 
@@ -110,10 +111,10 @@ const ButtonProject = styled.button`
   cursor: pointer;
 `;
 
-const OrganismProjects: React.FC<ProjectsProps> = ({ projects }) => {
+const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects }) => {
   const [projectID, setProjectID] = useState<IProject | undefined>({});
   return (
-    <Projects>
+    <Projects id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between" fullwidth>
         <ProjectsContainer>
           <ParagraphTitle>

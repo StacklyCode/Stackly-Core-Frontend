@@ -5,6 +5,7 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import MoleculesTags from '@Molecules/tags';
 import AtomButton from '@Atoms/button';
+import React from 'react';
 
 const Services = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -12,9 +13,9 @@ const Services = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.white};
-  background-image: url('/assets/img/background1.svg');
+  background-color: transparent;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
@@ -94,9 +95,25 @@ const TagsContainer = styled.div`
   }
 `;
 
-const OrganismServices: React.FC = () => {
+type IServices = {
+  idScroll?: string;
+};
+
+const OrganismServices: React.FC<IServices> = ({ idScroll }) => {
   return (
-    <Services>
+    <Services id={idScroll}>
+      <ul className="circles">
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+        <li />
+      </ul>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <IllustrationContainer>
           <IllustrationHero />
