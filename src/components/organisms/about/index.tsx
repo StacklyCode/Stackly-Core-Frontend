@@ -6,6 +6,7 @@ import AtomBody from '@Atoms/body';
 import Lottie from 'react-lottie';
 import animationData from '@Assets/json/animations/drawkit-grape-animation-2-LOOP.json';
 import { useSpring, animated } from 'react-spring';
+import { TFunction } from 'next-i18next';
 
 const About = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -71,9 +72,10 @@ const defaultOptions = {
 
 type IAbout = {
   idScroll?: string;
+  t?: TFunction;
 };
 
-const OrganismAbout: React.FC<IAbout> = ({ idScroll }) => {
+const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
   const props = useSpring({
     to: { opacity: 1, transform: 'translateX(20px)' },
     from: { opacity: 0, transform: 'translateX(0px)' },
@@ -101,11 +103,10 @@ const OrganismAbout: React.FC<IAbout> = ({ idScroll }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            We’re professionals commited to deliver the best solutions for our clients
+            {t && t('about-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            In Stackly Code we understand that time is the most valuable asset and if you put it in our hands,
-            we will make sure to bring the best product for your needs.
+            {t && t('about-desc')}
           </AtomBody>
         </TextContainer>
         <IllustrationContainer style={props2}>

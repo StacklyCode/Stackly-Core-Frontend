@@ -7,6 +7,8 @@ import MoleculesTags from '@Molecules/tags';
 import AtomButton from '@Atoms/button';
 import React from 'react';
 import { Link } from 'react-scroll';
+import { TFunction } from 'next-i18next';
+import { useSpring, animated } from 'react-spring';
 
 const Services = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -27,7 +29,7 @@ const Services = styled.section`
   }
 `;
 
-const IllustrationContainer = styled.div`
+const IllustrationContainer = styled(animated.div)`
   width: 30%;
   display: none;
   ${({ theme }) => theme.mediaquery.medium} {
@@ -41,7 +43,7 @@ const IllustrationContainer = styled.div`
   }
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled(animated.div)`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -52,8 +54,14 @@ const TextContainer = styled.div`
     width: 60%;
   }
 
-  h1 {
+  h2 {
     margin-bottom: 20px;
+  }
+  a {
+    align-self: center;
+    ${({ theme }) => theme.mediaquery.small} {
+      align-self: flex-start;
+    }
   }
   button {
     align-self: center;
@@ -98,9 +106,20 @@ const TagsContainer = styled.div`
 
 type IServices = {
   idScroll?: string;
+  t?: TFunction;
 };
 
-const OrganismServices: React.FC<IServices> = ({ idScroll }) => {
+const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
+  const props = useSpring({
+    to: { opacity: 1, transform: 'translateX(20px)' },
+    from: { opacity: 0, transform: 'translateX(0px)' },
+    delay: 700
+  });
+  const props2 = useSpring({
+    to: { opacity: 1, transform: 'translateX(-20px)' },
+    from: { opacity: 0, transform: 'translateX(0px)' },
+    delay: 700
+  });
   return (
     <Services id={idScroll}>
       <ul className="circles">
@@ -116,40 +135,40 @@ const OrganismServices: React.FC<IServices> = ({ idScroll }) => {
         <li />
       </ul>
       <AtomContainer alignItems="center" justifyContent="space-between">
-        <IllustrationContainer>
+        <IllustrationContainer style={props}>
           <IllustrationHero />
         </IllustrationContainer>
-        <TextContainer>
+        <TextContainer style={props2}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            We’re prepare to give you the service you need.
+            {t && t('services-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            No matter the project, we have the necessary tools to work in your idea from start to finish.
+            {t && t('services-desc')}
           </AtomBody>
           <TagsContainer>
             <MoleculesTags
-              title="Designs"
-              description="Marketing strategies to bring a fresh and modern identity for your brand."
+              title={t && t('services-tag-1-title')}
+              description={t && t('services-tag-1-desc')}
               color="pink"
             />
             <MoleculesTags
-              title="Apps services "
-              description="Multiple services to suit your needs depending on your bussiness."
+              title={t && t('services-tag-2-title')}
+              description={t && t('services-tag-2-desc')}
               color="green"
             />
             <MoleculesTags
-              title="Web & mobile application"
-              description="Well crafted applications for your idea to get a positive user feedback. "
+              title={t && t('services-tag-3-title')}
+              description={t && t('services-tag-3-desc')}
               color="blue"
             />
             <MoleculesTags
-              title="Consultancy"
-              description="For new or existing project, we’ll guide you in the right direction."
+              title={t && t('services-tag-4-title')}
+              description={t && t('services-tag-4-desc')}
               color="orange"
             />
           </TagsContainer>
           <Link to="ContactScroll" smooth offset={-40}>
-            <AtomButton>Let’s start a project</AtomButton>
+            <AtomButton>{t && t('services-button')}</AtomButton>
           </Link>
         </TextContainer>
       </AtomContainer>

@@ -5,11 +5,12 @@ import AtomBody from '@Atoms/body';
 import MoleculesTags from '@Molecules/tags';
 import AtomButton from '@Atoms/button';
 import { Link } from 'react-scroll';
+import { TFunction } from 'next-i18next';
 
 const fakeUserData = [
   {
     name: 'Albert Flores',
-    description: 'Marketing strategies to bring a fresh and modern identity for your brand.',
+    description: 'client-desc-1',
     img:
       'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     socialnetwork: [
@@ -21,7 +22,7 @@ const fakeUserData = [
   },
   {
     name: 'Albert Flores',
-    description: 'Marketing strategies to bring a fresh and modern identity for your brand.',
+    description: 'client-desc-2',
     img:
       'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     socialnetwork: [
@@ -33,7 +34,7 @@ const fakeUserData = [
   },
   {
     name: 'Albert Flores',
-    description: 'Marketing strategies to bring a fresh and modern identity for your brand.',
+    description: 'client-desc-3',
     img:
       'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     socialnetwork: [
@@ -79,6 +80,12 @@ const TextContainer = styled.div`
   p {
     margin-bottom: 20px;
   }
+  a {
+    align-self: center;
+    ${({ theme }) => theme.mediaquery.small} {
+      align-self: flex-start;
+    }
+  }
   button {
     align-self: center;
     ${({ theme }) => theme.mediaquery.small} {
@@ -111,9 +118,10 @@ const TagsContainer = styled.div`
 
 type IClients = {
   idScroll?: string;
+  t?: TFunction;
 };
 
-const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
+const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
   return (
     <Clients id={idScroll}>
       <ul className="circles">
@@ -131,24 +139,22 @@ const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            They Clients in our work.
+            {t && t('clients-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            We have worked with several clients around the globe. They have Clientsed in our services to bring
-            their ideas to life or in an existing project to create better experiences for their users.
+            {t && t('clients-desc-1')}
           </AtomBody>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            The communication is an important aspect for us. Taking us part of your journey, on building your
-            project, we’ll take care of all the details for you.
+            {t && t('clients-desc-2')}
           </AtomBody>
           <Link to="ContactScroll" smooth offset={-40}>
-            <AtomButton>You can also trust in us</AtomButton>
+            <AtomButton> {t && t('clients-button')}</AtomButton>
           </Link>
         </TextContainer>
         <TagsContainer>
           <MoleculesTags
             title={fakeUserData[0].name}
-            description={fakeUserData[0].description}
+            description={t && t(`${fakeUserData[0].description}`)}
             img={fakeUserData[0].img}
             socialnetwork={fakeUserData[0].socialnetwork}
             stars={fakeUserData[0].stars}
@@ -156,7 +162,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
           />
           <MoleculesTags
             title={fakeUserData[1].name}
-            description={fakeUserData[1].description}
+            description={t && t(`${fakeUserData[1].description}`)}
             img={fakeUserData[1].img}
             socialnetwork={fakeUserData[1].socialnetwork}
             stars={fakeUserData[1].stars}
@@ -164,7 +170,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
           />
           <MoleculesTags
             title={fakeUserData[2].name}
-            description={fakeUserData[2].description}
+            description={t && t(`${fakeUserData[2].description}`)}
             img={fakeUserData[2].img}
             socialnetwork={fakeUserData[2].socialnetwork}
             stars={fakeUserData[2].stars}

@@ -1,10 +1,12 @@
-import AtomBody from '@Atoms/body';
 import AtomContainer from '@Atoms/container';
 import AtomIcon from '@Atoms/icon';
 import styled from '@Styles/styled';
+import { TFunction } from 'next-i18next';
+import LinkNext from 'next/link';
 
 type FooterProps = {
   title?: string;
+  t?: TFunction;
 };
 
 const Footer = styled.div<FooterProps>`
@@ -26,7 +28,7 @@ const FooterContainer = styled.div<FooterProps>`
     justify-content: space-between;
     margin: 00px 0px;
   }
-  p {
+  span {
     display: none;
     width: 358.47px;
     ${({ theme }) => theme.mediaquery.large} {
@@ -52,15 +54,28 @@ const FooterSocialContainer = styled.div<FooterProps>`
   }
 `;
 
-const OrganismFooter: React.FC<FooterProps> = () => {
+const FooterCopyrighted = styled.span`
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: ${({ theme }) => theme && theme.colors.white};
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+`;
+
+const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
   return (
     <Footer>
       <AtomContainer alignItems="center" justifyContent="center">
         <FooterContainer>
           <AtomIcon icon="stacklycodelogo" />
-          <AtomBody size="BodyMedium">
-            All Rights Reserved. The contents of all material available on this Internet site are copyrighted
-          </AtomBody>
+          <LinkNext href="/copyrighted">
+            <FooterCopyrighted>{t && t('footer-desc')}</FooterCopyrighted>
+          </LinkNext>
           <FooterSocialContainer>
             <a href="https://www.facebook.com/StacklyCodeOfficial">
               <AtomIcon icon="facebook" />

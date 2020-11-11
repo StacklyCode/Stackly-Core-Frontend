@@ -4,6 +4,7 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import MoleculesTags from '@Molecules/tags';
 import AtomButton from '@Atoms/button';
+import { TFunction } from 'next-i18next';
 
 const fakeUserData = [
   {
@@ -163,9 +164,10 @@ const TagsContainer = styled.div`
 
 type ITeam = {
   idScroll?: string;
+  t?: TFunction;
 };
 
-const OrganismTeam: React.FC<ITeam> = ({ idScroll }) => {
+const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
   return (
     <Team id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
@@ -183,18 +185,16 @@ const OrganismTeam: React.FC<ITeam> = ({ idScroll }) => {
         </TagsContainer>
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="white">
-            Stackly Code’s Team
+            {t && t('team-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="white">
-            We are an experience team of amazing people wiling to bring their knowledge to your projects.
+            {t && t('team-desc-1')}
           </AtomBody>
           <AtomBody align="left" size="BodyExtraLarge" color="white">
-            In Stackly Code, our team works remotely from diverse parts of the world like Peru, Mexico, Span,
-            Argentina, Dominican Republic and much more. This is a great advantage to our employes, because
-            they can work from anywhere and deliver qualty work without problems.
+            {t && t('team-desc-2')}
           </AtomBody>
           <AtomButton href="/#ContactScroll" color="primary">
-            Let’s start a project
+            {t && t('team-button')}
           </AtomButton>
         </TextContainer>
       </AtomContainer>

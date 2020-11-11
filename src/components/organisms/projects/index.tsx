@@ -6,6 +6,7 @@ import MoleculeProjectInfo from '@Molecules/projectinfo';
 import AtomImage from '@Atoms/image';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
+import { TFunction } from 'next-i18next';
 
 type IProject = {
   id?: string;
@@ -18,6 +19,7 @@ type IProject = {
 type ProjectsProps = {
   idScroll?: string;
   projects?: IProject[];
+  t?: TFunction;
 };
 
 const Projects = styled.section`
@@ -112,7 +114,7 @@ const ButtonProject = styled.button`
   cursor: pointer;
 `;
 
-const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects }) => {
+const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects, t }) => {
   const [projectID, setProjectID] = useState<IProject | undefined>({});
   return (
     <Projects id={idScroll}>
@@ -120,18 +122,17 @@ const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects }) => {
         <ProjectsContainer>
           <ParagraphTitle>
             <AtomTitle bold size="TitleMedium">
-              We don’t just build. We provide value for your business.
+              {t && t('projects-title')}
             </AtomTitle>
             <AtomBody size="BodyExtraLarge" color="gray">
-              These are a collection of projects we have worked so far. We’ll work with you side by side to
-              bring your idea to life.
+              {t && t('projects-desc')}
             </AtomBody>
           </ParagraphTitle>
           <ParagraphContainer>
-            <AtomBody size="BodyLarge">Ready to start your project ?</AtomBody>
+            <AtomBody size="BodyLarge">{t && t('projects-desc-button-1')}</AtomBody>
             <Link to="ContactScroll" smooth offset={-40}>
               <AtomBody color="green" size="BodyLarge">
-                Let’s work together.
+                {t && t('projects-desc-button-2')}
               </AtomBody>
             </Link>
           </ParagraphContainer>
@@ -139,11 +140,14 @@ const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects }) => {
             title={projectID?.title || (projects && projects[0].title)}
             urlImage={projectID?.urlImage || (projects && projects[0].urlImage)}
             type={projectID?.type || (projects && projects[0].type)}
-            description={projectID?.description || (projects && projects[0].description)}
+            description={
+              (projectID?.description && t && t(`${projectID.description}`)) ||
+              (t && t(`${projects && projects[0].description}`))
+            }
             id={projectID?.id || (projects && projects[0].id)}
           />
           <AtomBody size="BodySmall" color="gray">
-            Click on the image to see the next project
+            {t && t('projects-click')}
           </AtomBody>
           <ScrollProjectsContainer>
             <AllProjectsContainer>

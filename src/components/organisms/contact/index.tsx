@@ -1,12 +1,12 @@
 import styled from '@Styles/styled';
 import AtomContainer from '@Atoms/container';
-import IllustrationHero from '@Assets/img/illustration-contact.svg';
 import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import AtomButton from '@Atoms/button';
 import AtomInput from '@Atoms/input';
 import Lottie from 'react-lottie';
 import animationData from '@Assets/json/animations/drawkit-grape-animation-6-LOOP.json';
+import { TFunction } from 'next-i18next';
 
 const Contact = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -116,33 +116,42 @@ const defaultOptions = {
 };
 type IContact = {
   idScroll?: string;
+  t?: TFunction;
 };
-const OrganismContact: React.FC<IContact> = ({ idScroll }) => {
+const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
   return (
     <Contact id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="white">
-            Let’s work together and bring your idea to life.
+            {t && t('contact-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="white">
-            These are a collection of projects we have worked so far. We’ll work with you side by side to
-            bring your idea to life.
+            {t && t('contact-desc')}
           </AtomBody>
           <FormContainer action="mailto:social@stacklycode.com" method="POST">
             <FormLeftContainer>
-              <AtomInput id="name" margin={['15px', '0px']} placeholder="Your Name" />
-              <AtomInput id="Subject" margin={['15px', '0px']} placeholder="Subject" />
+              <AtomInput id="name" margin={['15px', '0px']} placeholder={t && t('contact-input-name')} />
+              <AtomInput
+                id="Subject"
+                margin={['15px', '0px']}
+                placeholder={t && t('contact-input-subject')}
+              />
             </FormLeftContainer>
-            <AtomInput id="email" type="email" margin={['15px', '0px']} placeholder="Your Email" />
+            <AtomInput
+              id="email"
+              type="email"
+              margin={['15px', '0px']}
+              placeholder={t && t('contact-input-email')}
+            />
             <AtomInput
               id="message"
               margin={['15px', '0px']}
-              placeholder="Type Menssage Here..."
+              placeholder={t && t('contact-input-message')}
               type="text"
             />
             <AtomButton type="submit" color="primary">
-              Send
+              {t && t('contact-input-send')}
             </AtomButton>
           </FormContainer>
         </TextContainer>

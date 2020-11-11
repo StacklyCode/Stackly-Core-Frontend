@@ -7,6 +7,7 @@ import Lottie from 'react-lottie';
 import animationData from '@Assets/json/animations/drawkit-grape-animation-5-LOOP.json';
 import { useSpring, animated } from 'react-spring';
 import AtomButton from '@Atoms/button';
+import { TFunction } from 'next-i18next';
 
 const Community = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -72,9 +73,10 @@ const defaultOptions = {
 
 type ICommunity = {
   idScroll?: string;
+  t?: TFunction;
 };
 
-const OrganismCommunity: React.FC<ICommunity> = ({ idScroll }) => {
+const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
   const props = useSpring({
     to: { opacity: 1, transform: 'translateX(20px)' },
     from: { opacity: 0, transform: 'translateX(0px)' },
@@ -102,13 +104,12 @@ const OrganismCommunity: React.FC<ICommunity> = ({ idScroll }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            Enter our community and develop your skills
+            {t && t('community-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            Grow as a professional by sharing your knowledge with others and participating in open source
-            projects.
+            {t && t('community-desc')}
           </AtomBody>
-          <AtomButton href="https://discord.gg/jjMRrHguPf">Join Discord Community</AtomButton>
+          <AtomButton href="https://discord.gg/jjMRrHguPf"> {t && t('community-button')}</AtomButton>
         </TextContainer>
         <IllustrationContainer style={props2}>
           <Lottie options={defaultOptions} />
