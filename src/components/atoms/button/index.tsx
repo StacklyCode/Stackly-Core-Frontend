@@ -14,6 +14,10 @@ const Button = styled.button<ButtonProps>`
   /* StyleComponent Style with Theme*/
   position: relative;
   overflow: hidden;
+  max-width: 250px;
+  ${({ theme }) => theme.mediaquery.extrasmall} {
+    max-width: max-content;
+  }
   ${({ theme }) => ({
     fontSize: theme.texts.Button.FontSize,
     fontFamily: theme.texts.Button.FontFamily,

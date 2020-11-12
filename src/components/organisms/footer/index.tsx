@@ -12,6 +12,8 @@ type FooterProps = {
 const Footer = styled.div<FooterProps>`
   width: 100vw;
   min-height: 110px;
+  display: flex;
+  justify-content: center;
   background-color: ${({ theme }) => theme.colors.black};
 `;
 
@@ -70,7 +72,7 @@ const FooterCopyrighted = styled.span`
 const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
   return (
     <Footer>
-      <AtomContainer alignItems="center" justifyContent="center">
+      <AtomContainer fullwidth alignItems="center" justifyContent="center">
         <FooterContainer>
           <AtomIcon icon="stacklycodelogo" />
           <LinkNext href="/copyrighted">

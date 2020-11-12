@@ -53,7 +53,7 @@ const TextContainer = styled(animated.div)`
   h2 {
     margin-bottom: 20px;
   }
-  button {
+  a {
     align-self: center;
     ${({ theme }) => theme.mediaquery.small} {
       align-self: flex-start;

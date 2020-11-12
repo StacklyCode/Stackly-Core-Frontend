@@ -27,7 +27,7 @@ const Container = styled.div<AtomContainerProps>`
     margin: 0px 100px;
   }
   ${({ theme }) => theme.mediaquery.extralarge} {
-    margin: 0px auto;
+    margin: 0px 100px;
   }
 `;
 

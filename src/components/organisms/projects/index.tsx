@@ -82,10 +82,9 @@ const ParagraphContainer = styled.div`
 
 const ScrollProjectsContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 85%;
   overflow-x: scroll;
   justify-content: flex-start;
-  margin-left: 50px;
 
   ::-webkit-scrollbar {
     width: 10px;

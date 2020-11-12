@@ -17,6 +17,8 @@ const Navigation = styled.div<NavegationProps>`
   width: 100vw;
   height: 110px;
   background-color: ${({ theme }) => theme.colors.primary.dark};
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 0;
   z-index: ${({ theme }) => theme.zindex.zFixed};
@@ -156,7 +158,7 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
   const router = useRouter();
   return (
     <Navigation>
-      <AtomContainer alignItems="center" justifyContent="space-between">
+      <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
         <NavigationLogo>
           {router.pathname !== '/' ? (
             <a href="/">

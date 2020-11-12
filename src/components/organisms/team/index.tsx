@@ -131,7 +131,7 @@ const TextContainer = styled.div`
   p {
     margin-bottom: 20px;
   }
-  button {
+  a {
     align-self: center;
     ${({ theme }) => theme.mediaquery.small} {
       align-self: flex-start;
