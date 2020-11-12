@@ -227,7 +227,7 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           <ContainerSideBar />
           <NavigationLinksSidebar>
             <LinkNext href="/about">
-              <NavigationLink>{t && t('services-tag-2-desc')}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>
