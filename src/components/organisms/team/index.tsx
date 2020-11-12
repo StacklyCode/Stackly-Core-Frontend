@@ -8,16 +8,14 @@ import { TFunction } from 'next-i18next';
 
 const fakeUserData = [
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: 'Fernando Lopez',
+    description: 'SEO',
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      'https://avatars3.githubusercontent.com/u/15000248?s=400&u=2e1dc6e71e73a162aef210b9807890c30bc48c1f&v=4',
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+      { name: 'github', url: 'https://github.com/Beor18' },
+      { name: 'linkedin', url: 'https://www.linkedin.com/in/fernandogabriellopez/' }
+    ]
   },
   {
     name: 'Albert Flores',
@@ -28,8 +26,7 @@ const fakeUserData = [
       { name: 'facebook', url: 'fb.com/willishakkespeare' },
       { name: 'twitter', url: 'twitter.com/willishakkespeare' },
       { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+    ]
   },
   {
     name: 'Albert Flores',
@@ -40,8 +37,7 @@ const fakeUserData = [
       { name: 'facebook', url: 'fb.com/willishakkespeare' },
       { name: 'twitter', url: 'twitter.com/willishakkespeare' },
       { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+    ]
   },
   {
     name: 'Albert Flores',
@@ -52,8 +48,7 @@ const fakeUserData = [
       { name: 'facebook', url: 'fb.com/willishakkespeare' },
       { name: 'twitter', url: 'twitter.com/willishakkespeare' },
       { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+    ]
   },
   {
     name: 'Albert Flores',
@@ -64,8 +59,7 @@ const fakeUserData = [
       { name: 'facebook', url: 'fb.com/willishakkespeare' },
       { name: 'twitter', url: 'twitter.com/willishakkespeare' },
       { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+    ]
   },
   {
     name: 'Albert Flores',
@@ -76,8 +70,7 @@ const fakeUserData = [
       { name: 'facebook', url: 'fb.com/willishakkespeare' },
       { name: 'twitter', url: 'twitter.com/willishakkespeare' },
       { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+    ]
   },
   {
     name: 'Albert Flores',
@@ -88,8 +81,7 @@ const fakeUserData = [
       { name: 'facebook', url: 'fb.com/willishakkespeare' },
       { name: 'twitter', url: 'twitter.com/willishakkespeare' },
       { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+    ]
   },
   {
     name: 'Albert Flores',
@@ -100,8 +92,7 @@ const fakeUserData = [
       { name: 'facebook', url: 'fb.com/willishakkespeare' },
       { name: 'twitter', url: 'twitter.com/willishakkespeare' },
       { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ],
-    stars: true
+    ]
   }
 ];
 

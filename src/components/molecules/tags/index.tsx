@@ -115,9 +115,11 @@ const MoleculesTags: React.FC<TagsProps> = ({ color, img, title, description, so
             <InfoTag socialnetwork={socialnetwork}>
               {socialnetwork && (
                 <SocialNetworkContainer stars={stars}>
-                  <AtomIcon icon="facebook" color="dark" size="12px" />
-                  <AtomIcon icon="twitter" color="dark" size="12px" />
-                  <AtomIcon icon="linkedin" color="dark" size="12px" />
+                  {socialnetwork.map((social) => (
+                    <a key={social.name} href={social.url}>
+                      <AtomIcon icon={social.name} color="dark" size="12px" />
+                    </a>
+                  ))}
                 </SocialNetworkContainer>
               )}
               {stars && (
