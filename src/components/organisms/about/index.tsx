@@ -77,13 +77,13 @@ type IAbout = {
 
 const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(20px)' },
-    from: { opacity: 0, transform: 'translateX(0px)' },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(-20px)' },
     delay: 700
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: 'translateX(-20px)' },
-    from: { opacity: 0, transform: 'translateX(0px)' },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(20px)' },
     delay: 700
   });
   return (

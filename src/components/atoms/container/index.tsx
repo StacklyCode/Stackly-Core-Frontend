@@ -8,7 +8,7 @@ type AtomContainerProps = {
 
 const Container = styled.div<AtomContainerProps>`
   ${({ fullwidth }) => fullwidth && { width: '100%' }}
-  max-width: 1140px;
+  max-width: 1440px;
   height: 100%;
   margin: 0px 40px;
   display: flex;
