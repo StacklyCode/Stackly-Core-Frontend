@@ -1,5 +1,5 @@
 {
-  "nav-tag-1": "Nosotros",
+  "nav-tag-1": "Sobre nosotros",
   "nav-tag-2": "Comunidad",
   "nav-tag-3": "Servicios",
   "nav-tag-4": "Clientes",
@@ -9,7 +9,7 @@
   "hero-title": "Creamos la solución adecuada para su negocio.",
   "hero-desc": "Nos encargaremos de darle vida a tu idea y dar el mejor valor a tus usuarios.",
   "hero-btn-1": "Empecemos un proyecto",
-  "hero-btn-2": "Mire nuestro catalogo",
+  "hero-btn-2": "Mire nuestro catálogo",
 
   "services-title": "Estamos preparados para brindarle el servicio que necesita.",
   "services-desc": "No importa el proyecto, tenemos las herramientas necesarias para trabajar en tu idea de principio a fin.",
@@ -17,7 +17,7 @@
   "services-tag-1-desc": "Estrategias de marketing para aportar una identidad fresca y moderna a su marca.",
   "services-tag-2-title": "Servicios de aplicaciones",
   "services-tag-2-desc": "Múltiples servicios que se adaptan a sus necesidades en función de su negocio.",
-  "services-tag-3-title": "Aplicaciónes web y móvil",
+  "services-tag-3-title": "Aplicaciónes web y móviles",
   "services-tag-3-desc": "Aplicaciones bien diseñadas para que su idea obtenga comentarios positivos de los usuarios.",
   "services-tag-4-title": "Consultoría",
   "services-tag-4-desc": "Para proyectos nuevos o existentes, lo guiaremos en la dirección correcta.",
@@ -47,7 +47,7 @@
   "contact-input-name": "Tu nombre",
   "contact-input-subject": "Sujeto",
   "contact-input-email": "Tu correo electrónico",
-  "contact-input-message": "Escriba Mensaje aquí ...",
+  "contact-input-message": "Escriba su Mensaje aquí ...",
   "contact-input-send": "Enviar",
 
   "footer-desc": "Todos los derechos reservados. El contenido de todo el material disponible en este sitio de Internet está protegido por derechos de autor.",
