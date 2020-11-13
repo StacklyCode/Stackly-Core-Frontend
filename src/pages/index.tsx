@@ -5,6 +5,7 @@ import OrganismServices from '@Organisms/services';
 import OrganismProjects from '@Organisms/projects';
 import OrganismClients from '@Organisms/clients';
 import OrganismContact from '@Organisms/contact';
+import Seo from '@Src/components/utils/seo';
 import { useTranslation } from '@Src/i18n';
 
 type IProject = {
@@ -60,17 +61,20 @@ const ProjectsDataFake: IProject[] = [
 const PageHome = () => {
   const { t } = useTranslation();
   return (
-    <TemplateMain t={t}>
-      <OrganismHero t={t} idScroll="HeroScroll" />
+    <>
+      <Seo page="Home" />
+      <TemplateMain t={t}>
+        <OrganismHero t={t} idScroll="HeroScroll" />
 
-      <OrganismServices t={t} idScroll="ServicesScroll" />
+        <OrganismServices t={t} idScroll="ServicesScroll" />
 
-      <OrganismProjects t={t} idScroll="ProjectsScroll" projects={ProjectsDataFake} />
+        <OrganismProjects t={t} idScroll="ProjectsScroll" projects={ProjectsDataFake} />
 
-      <OrganismClients t={t} idScroll="ClientsScroll" />
+        <OrganismClients t={t} idScroll="ClientsScroll" />
 
-      <OrganismContact t={t} idScroll="ContactScroll" />
-    </TemplateMain>
+        <OrganismContact t={t} idScroll="ContactScroll" />
+      </TemplateMain>
+    </>
   );
 };
 
