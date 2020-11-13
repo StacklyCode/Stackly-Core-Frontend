@@ -119,15 +119,15 @@ const ContainerSideBar = styled.div<NavegationProps>`
   align-items: center;
   position: fixed;
   justify-content: flex-end;
-  padding: 0px 40px;
+  padding: 0px 200px;
   button {
     justify-self: flex-end;
   }
   ${({ theme }) => theme.mediaquery.extrasmall} {
-    padding: 0px 60px;
+    padding: 0px 190px;
   }
   ${({ theme }) => theme.mediaquery.small} {
-    padding: 0px 80px;
+    padding: 0px 190px;
   }
   ${({ theme }) => theme.mediaquery.medium} {
     display: none;
@@ -226,7 +226,11 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
       </AtomContainer>
       {sidebar && (
         <SideBar>
-          <ContainerSideBar />
+          <ContainerSideBar>
+            <ToggleContainer>
+              <AtomToggleList outline object={{ title: 'Lenguajes', options: ['en', 'es'] }} />
+            </ToggleContainer>
+          </ContainerSideBar>
           <NavigationLinksSidebar>
             <LinkNext href="/about">
               <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
