@@ -10,6 +10,7 @@ type ProjectInfoProps = {
   type?: string;
   description?: string;
   urlImage?: string;
+  link?: string;
 };
 
 const ProjectInfo = styled.div`
@@ -48,9 +49,9 @@ const ContainerInfo = styled.div`
       text-align: left;
     }
   }
-  button {
+  a {
     margin-top: 20px;
-    width: 200px;
+    width: max-content;
     align-self: center;
     ${({ theme }) => theme.mediaquery.medium} {
       align-self: flex-start;
@@ -64,7 +65,7 @@ const ContainerInfoTitle = styled.div`
   }
 `;
 
-const MoleculeProjectInfo: React.FC<ProjectInfoProps> = ({ urlImage, title, type, description, id }) => {
+const MoleculeProjectInfo: React.FC<ProjectInfoProps> = ({ urlImage, title, type, description, link }) => {
   return (
     <ProjectInfo>
       <AtomImage background image={urlImage} />
@@ -80,7 +81,7 @@ const MoleculeProjectInfo: React.FC<ProjectInfoProps> = ({ urlImage, title, type
         <AtomBody color="gray" align="left" size="BodyMedium">
           {description}
         </AtomBody>
-        <AtomButton outline link={`/projects/${id}`}>
+        <AtomButton outline href={link}>
           View project
         </AtomButton>
       </ContainerInfo>

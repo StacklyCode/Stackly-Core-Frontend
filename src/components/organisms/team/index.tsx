@@ -9,7 +9,7 @@ import { TFunction } from 'next-i18next';
 const fakeUserData = [
   {
     name: 'Fernando Lopez',
-    description: 'SEO',
+    description: 'CEO',
     img:
       'https://avatars3.githubusercontent.com/u/15000248?s=400&u=2e1dc6e71e73a162aef210b9807890c30bc48c1f&v=4',
     socialnetwork: [

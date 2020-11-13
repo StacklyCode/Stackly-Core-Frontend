@@ -14,6 +14,7 @@ type IProject = {
   type?: string;
   description?: string;
   urlImage?: string;
+  link?: string;
 };
 
 type ProjectsProps = {
@@ -144,6 +145,7 @@ const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects, t }) =>
               (t && t(`${projects && projects[0].description}`))
             }
             id={projectID?.id || (projects && projects[0].id)}
+            link={projectID?.link || (projects && projects[0].link)}
           />
           <AtomBody size="BodySmall" color="gray">
             {t && t('projects-click')}
