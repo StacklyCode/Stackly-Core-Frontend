@@ -8,6 +8,7 @@
       "@Molecules/*": ["src/components/molecules/*"],
       "@Organisms/*": ["src/components/organisms/*"],
       "@Templates/*": ["src/components/templates/*"],
+      "@Utils/*": ["src/components/utils/*"],
       "@Assets/*": ["src/assets/*"],
       "@Styles/*": ["src/styles/*"]
     },
