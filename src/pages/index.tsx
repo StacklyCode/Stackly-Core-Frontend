@@ -1,4 +1,3 @@
-import React from 'react';
 import TemplateMain from '@Templates/index';
 import OrganismHero from '@Organisms/hero';
 import OrganismServices from '@Organisms/services';

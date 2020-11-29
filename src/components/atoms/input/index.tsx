@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from '@Styles/styled';
 import Icon from '@Atoms/icon';
 

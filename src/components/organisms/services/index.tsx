@@ -5,7 +5,6 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import MoleculesTags from '@Molecules/tags';
 import AtomButton from '@Atoms/button';
-import React from 'react';
 import { Link } from 'react-scroll';
 import { TFunction } from 'next-i18next';
 import { useSpring, animated } from 'react-spring';

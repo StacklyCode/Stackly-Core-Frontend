@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@Styles/styled';
 import AtomContainer from '@Atoms/container';
 import AtomTitle from '@Atoms/title';
