@@ -1,13 +1,12 @@
-import styled from '@Styles/styled';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import AtomContainer from '@Atoms/container';
-import AtomButton from '@Atoms/button';
-import Lottie from 'react-lottie';
-import animationData from '@Assets/json/animations/drawkit-grape-animation-4-LOOP.json';
-import { useSpring, animated } from 'react-spring';
-import { TFunction } from 'next-i18next';
-import { Link } from 'react-scroll';
+import styled from "@emotion/styled";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import AtomContainer from "@Atoms/container";
+import AtomButton from "@Atoms/button";
+import { useSpring, animated } from "react-spring";
+import { TFunction } from "next-i18next";
+import { Link } from "react-scroll";
+import IllustrationHero from "@Assets/img/illustration-hero.svg";
 
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -48,7 +47,6 @@ const IllustrationContainer = styled(animated.div)`
   justify-content: center;
   svg {
     width: 100%;
-    height: 100%;
   }
 `;
 
@@ -75,15 +73,6 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-};
-
 type IHero = {
   idScroll?: string;
   t?: TFunction;
@@ -91,36 +80,36 @@ type IHero = {
 
 const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(-20px)" },
+    delay: 700,
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(20px)" },
+    delay: 700,
   });
   return (
     <Hero id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleLarge">
-            {t && t('hero-title')}
+            {t && t("hero-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge">
-            {t && t('hero-desc')}
+            {t && t("hero-desc")}
           </AtomBody>
           <ButtonContainer>
             <Link to="ContactScroll" smooth offset={-40}>
-              <AtomButton color="primary">{t && t('hero-btn-1')}</AtomButton>
+              <AtomButton color="primary">{t && t("hero-btn-1")}</AtomButton>
             </Link>
             <Link to="ProjectsScroll" smooth offset={-30}>
-              <AtomButton outline>{t && t('hero-btn-2')}</AtomButton>
+              <AtomButton outline>{t && t("hero-btn-2")}</AtomButton>
             </Link>
           </ButtonContainer>
         </TextContainer>
         <IllustrationContainer style={props2}>
-          <Lottie options={defaultOptions} />
+          <IllustrationHero />
         </IllustrationContainer>
       </AtomContainer>
     </Hero>

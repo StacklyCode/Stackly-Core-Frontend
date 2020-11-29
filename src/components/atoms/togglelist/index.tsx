@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import styled from '@Styles/styled';
-import AtomIcon from '@Atoms/icon';
-import { i18n } from '@Src/i18n';
-import { I18nContext } from 'next-i18next';
+import React, { useContext, useEffect, useState } from "react";
+import styled from "@emotion/styled";
+import AtomIcon from "@Atoms/icon";
+import { i18n } from "@Src/i18n";
+import { I18nContext } from "next-i18next";
 
 type ToggleListProps = {
   outline?: boolean;
@@ -22,12 +22,12 @@ const ToggleListStyled = styled.div<ToggleListProps>`
   ${({ theme }) =>
     theme && {
       backgroundColor: theme.colors.primary.dark,
-      border: `solid 2px ${theme.colors.primary.dark}`
+      border: `solid 2px ${theme.colors.primary.dark}`,
     }}
   ${({ theme, outline }) =>
     outline && {
-      backgroundColor: 'transparent',
-      border: `solid 2px ${theme.colors.white}`
+      backgroundColor: "transparent",
+      border: `solid 2px ${theme.colors.white}`,
     }}
   transition: all .5s ease;
 `;
@@ -39,8 +39,8 @@ const ContainerTitleStyled = styled.div<ToggleListProps>`
   ${({ theme, outline, toggle }) =>
     outline &&
     toggle && {
-      backgroundColor: 'transparent',
-      borderBottom: `solid 2px ${theme.colors.white}`
+      backgroundColor: "transparent",
+      borderBottom: `solid 2px ${theme.colors.white}`,
     }}
   span {
     padding: 10px 0px;
@@ -93,7 +93,7 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
       ${({ theme, outline }) =>
         outline && {
           backgroundColor: theme.colors.white,
-          color: theme.colors.primary.base
+          color: theme.colors.primary.base,
         }}
     }
   }
@@ -101,9 +101,9 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
 
 const AtomToggleList: React.FC<ToggleListProps> = ({ outline, object }) => {
   const [toggle, settoggle] = useState(false);
-  const [option, setoption] = useState('');
+  const [option, setoption] = useState("");
   const {
-    i18n: { language }
+    i18n: { language },
   } = useContext(I18nContext);
   function clickOption(e: React.MouseEvent<HTMLSpanElement>) {
     const eGet = e.target as HTMLSpanElement;

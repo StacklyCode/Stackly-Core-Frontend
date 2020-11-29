@@ -8,7 +8,7 @@
       "@Molecules/*": ["src/components/molecules/*"],
       "@Organisms/*": ["src/components/organisms/*"],
       "@Templates/*": ["src/components/templates/*"],
-      "@Utils/*": ["src/components/utils/*"],
+      "@Utils/*": ["src/utils/*"],
       "@Assets/*": ["src/assets/*"],
       "@Styles/*": ["src/styles/*"]
     },
@@ -27,16 +27,5 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules", ".next"],
-  "include": [
-    "src",
-    "public/**/*.svg",
-    "react-app-env.d.ts",
-    "../types.d.ts",
-    "next-env.d.ts",
-    "../**/*.stories.ts",
-    "../**/*.stories.tsx",
-    "src/config",
-    "src/config",
-    ".js"
-  ]
+  "include": ["next-env.d.ts", "emotion.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -1,8 +1,8 @@
-import AtomBody from '@Atoms/body';
-import AtomButton from '@Atoms/button';
-import AtomImage from '@Atoms/image';
-import AtomTitle from '@Atoms/title';
-import styled from '@Styles/styled';
+import AtomBody from "@Atoms/body";
+import AtomButton from "@Atoms/button";
+import AtomImage from "@Atoms/image";
+import AtomTitle from "@Atoms/title";
+import styled from "@emotion/styled";
 
 type ProjectInfoProps = {
   id?: string;
@@ -43,7 +43,7 @@ const ContainerInfo = styled.div`
       text-align: left;
     }
   }
-  h5 {
+  span {
     text-align: center;
     ${({ theme }) => theme.mediaquery.medium} {
       text-align: left;
@@ -65,20 +65,26 @@ const ContainerInfoTitle = styled.div`
   }
 `;
 
-const MoleculeProjectInfo: React.FC<ProjectInfoProps> = ({ urlImage, title, type, description, link }) => {
+const MoleculeProjectInfo: React.FC<ProjectInfoProps> = ({
+  urlImage,
+  title,
+  type,
+  description,
+  link,
+}) => {
   return (
     <ProjectInfo>
       <AtomImage background image={urlImage} />
       <ContainerInfo>
         <ContainerInfoTitle>
-          <AtomTitle align="left" bold size="SubTitleMedium">
+          <AtomTitle as="span" align="left" bold size="SubTitleMedium">
             {title}
           </AtomTitle>
-          <AtomTitle color="gray" align="left" size="SubTitleMedium">
+          <AtomTitle as="span" color="gray" align="left" size="SubTitleMedium">
             {type}
           </AtomTitle>
         </ContainerInfoTitle>
-        <AtomBody color="gray" align="left" size="BodyMedium">
+        <AtomBody color="white" align="left" size="BodyMedium">
           {description}
         </AtomBody>
         <AtomButton outline href={link}>

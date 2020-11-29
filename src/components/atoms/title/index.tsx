@@ -1,30 +1,34 @@
-import styled, { Theme } from '@Styles/styled';
+import styled from "@emotion/styled";
+import { Theme } from "@Styles/styled";
 
 type Size =
-  | 'TitleLarge'
-  | 'TitleMedium'
-  | 'TitleSmall'
-  | 'SubTitleLarge'
-  | 'SubTitleMedium'
-  | 'SubTitleSmall';
-type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'a' | 'span';
+  | "TitleLarge"
+  | "TitleMedium"
+  | "TitleSmall"
+  | "SubTitleLarge"
+  | "SubTitleMedium"
+  | "SubTitleSmall";
+type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "a" | "span";
 
 type TitleProps = {
   size?: Size;
   as?: Tag;
-  color?: 'white' | 'gray' | 'black';
-  align?: 'left' | 'center';
+  color?: "white" | "gray" | "black";
+  align?: "left" | "center";
   bold?: boolean;
 };
 
-let tag: Tag = 'h1';
-let mobileSize: Size = 'TitleMedium';
+let tag: Tag = "h1";
+let mobileSize: Size = "TitleMedium";
 
-const getColor = (theme: Theme, color: 'white' | 'gray' | 'black' | undefined) => {
+const getColor = (
+  theme: Theme,
+  color: "white" | "gray" | "black" | undefined
+) => {
   switch (color) {
-    case 'black':
+    case "black":
       return theme.colors.primary.dark;
-    case 'gray':
+    case "gray":
       return theme.colors.gray[300];
     default:
       return theme.colors.white;
@@ -33,29 +37,29 @@ const getColor = (theme: Theme, color: 'white' | 'gray' | 'black' | undefined) =
 
 const setValues = (size: Size | undefined) => {
   switch (size) {
-    case 'SubTitleSmall':
-      tag = 'h6';
-      mobileSize = 'SubTitleSmall';
+    case "SubTitleSmall":
+      tag = "h6";
+      mobileSize = "SubTitleSmall";
       break;
-    case 'SubTitleMedium':
-      tag = 'h5';
-      mobileSize = 'SubTitleSmall';
+    case "SubTitleMedium":
+      tag = "h5";
+      mobileSize = "SubTitleSmall";
       break;
-    case 'SubTitleLarge':
-      tag = 'h4';
-      mobileSize = 'SubTitleMedium';
+    case "SubTitleLarge":
+      tag = "h4";
+      mobileSize = "SubTitleMedium";
       break;
-    case 'TitleSmall':
-      tag = 'h3';
-      mobileSize = 'TitleSmall';
+    case "TitleSmall":
+      tag = "h3";
+      mobileSize = "TitleSmall";
       break;
-    case 'TitleMedium':
-      tag = 'h2';
-      mobileSize = 'TitleSmall';
+    case "TitleMedium":
+      tag = "h2";
+      mobileSize = "TitleSmall";
       break;
     default:
-      tag = 'h1';
-      mobileSize = 'TitleMedium';
+      tag = "h1";
+      mobileSize = "TitleMedium";
       break;
   }
 };
@@ -64,22 +68,29 @@ const Title = styled.h1<TitleProps>`
   ${({ theme, color, bold }) => ({
     fontFamily: theme.texts.TitleLarge.FontFamily,
     fontWeight: bold ? 700 : 500,
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: theme.texts[mobileSize].FontSize,
     lineHeight: theme.texts[mobileSize].LineHeight,
-    color: getColor(theme, color)
+    color: getColor(theme, color),
   })}
 
   ${({ theme }) => theme.mediaquery.small} {
     ${({ theme, size, align }) => ({
-      textAlign: align || 'center',
-      fontSize: theme.texts[size || 'TitleLarge'].FontSize,
-      lineHeight: theme.texts[size || 'TitleLarge'].LineHeight
+      textAlign: align || "center",
+      fontSize: theme.texts[size || "TitleLarge"].FontSize,
+      lineHeight: theme.texts[size || "TitleLarge"].LineHeight,
     })}
   }
 `;
 
-const AtomTitle: React.FC<TitleProps> = ({ children, size, color, align, bold, as }) => {
+const AtomTitle: React.FC<TitleProps> = ({
+  children,
+  size,
+  color,
+  align,
+  bold,
+  as,
+}) => {
   setValues(size);
   return (
     <Title as={as || tag} size={size} color={color} align={align} bold={bold}>

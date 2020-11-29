@@ -1,17 +1,22 @@
-import Seo from '@Src/components/utils/seo';
-import Doc, { Html, Main, NextScript, Head, DocumentContext } from 'next/document';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from "next/document";
 
-class Document extends Doc {
+class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Doc.getInitialProps(ctx);
-    return { ...initialProps };
+    const initialProps = await Document.getInitialProps(ctx);
+
+    return initialProps;
   }
 
-  render(): JSX.Element {
+  render() {
     return (
-      <Html lang="en-Es">
+      <Html lang="en">
         <Head />
-        <Seo title="StacklyCode" />
         <body>
           <Main />
           <NextScript />
@@ -21,4 +26,4 @@ class Document extends Doc {
   }
 }
 
-export default Document;
+export default MyDocument;

@@ -1,14 +1,14 @@
-import styled from '@Styles/styled';
-import AtomContainer from '@Atoms/container';
-import IllustrationHero from '@Assets/img/illustration-services.svg';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import MoleculesTags from '@Molecules/tags';
-import AtomButton from '@Atoms/button';
-import React from 'react';
-import { Link } from 'react-scroll';
-import { TFunction } from 'next-i18next';
-import { useSpring, animated } from 'react-spring';
+import styled from "@emotion/styled";
+import AtomContainer from "@Atoms/container";
+import IllustrationHero from "@Assets/img/illustration-services.svg";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import MoleculesTags from "@Molecules/tags";
+import AtomButton from "@Atoms/button";
+import React from "react";
+import { Link } from "react-scroll";
+import { TFunction } from "next-i18next";
+import { useSpring, animated } from "react-spring";
 
 const Services = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -111,14 +111,14 @@ type IServices = {
 
 const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(-20px)" },
+    delay: 700,
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(20px)" },
+    delay: 700,
   });
   return (
     <Services id={idScroll}>
@@ -140,35 +140,35 @@ const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
         </IllustrationContainer>
         <TextContainer style={props2}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            {t && t('services-title')}
+            {t && t("services-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t('services-desc')}
+            {t && t("services-desc")}
           </AtomBody>
           <TagsContainer>
             <MoleculesTags
-              title={t && t('services-tag-1-title')}
-              description={t && t('services-tag-1-desc')}
+              title={t && t("services-tag-1-title")}
+              description={t && t("services-tag-1-desc")}
               color="pink"
             />
             <MoleculesTags
-              title={t && t('services-tag-2-title')}
-              description={t && t('services-tag-2-desc')}
+              title={t && t("services-tag-2-title")}
+              description={t && t("services-tag-2-desc")}
               color="green"
             />
             <MoleculesTags
-              title={t && t('services-tag-3-title')}
-              description={t && t('services-tag-3-desc')}
+              title={t && t("services-tag-3-title")}
+              description={t && t("services-tag-3-desc")}
               color="blue"
             />
             <MoleculesTags
-              title={t && t('services-tag-4-title')}
-              description={t && t('services-tag-4-desc')}
+              title={t && t("services-tag-4-title")}
+              description={t && t("services-tag-4-desc")}
               color="orange"
             />
           </TagsContainer>
           <Link to="ContactScroll" smooth offset={-40}>
-            <AtomButton>{t && t('services-button')}</AtomButton>
+            <AtomButton>{t && t("services-button")}</AtomButton>
           </Link>
         </TextContainer>
       </AtomContainer>

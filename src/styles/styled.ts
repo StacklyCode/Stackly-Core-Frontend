@@ -1,6 +1,3 @@
-import styled, { CreateStyled } from '@emotion/styled';
-import { css } from '@emotion/core';
-
 interface IPrimary {
   dark: string;
   base: string;
@@ -91,7 +88,7 @@ interface IMediaQuery {
   extralarge: string;
 }
 
-export type Theme = {
+export interface Theme {
   colors: IColors;
   texts: IThemeText;
   shadows: IShadows;
@@ -115,7 +112,4 @@ export type Theme = {
     xl: number;
     xxl: number;
   };
-};
-
-export { css };
-export default styled as CreateStyled<Theme>;
+}

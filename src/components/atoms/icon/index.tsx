@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from '@Styles/styled';
-import dynamic from 'next/dynamic';
+import React from "react";
+import styled from "@emotion/styled";
+import dynamic from "next/dynamic";
 
 type IconProps = {
   icon?: string;
-  color?: 'dark' | 'light' | 'grey';
+  color?: "dark" | "light" | "grey";
   size?: string;
 };
 
@@ -17,9 +17,11 @@ const IconStyled = styled.div<IconProps>`
     width: 100%;
     height: 100%;
     path {
-      ${({ color, theme }) => color === 'dark' && { fill: theme.colors.primary.dark }}
-      ${({ color, theme }) => color === 'light' && { fill: theme.colors.white }}
-      ${({ color, theme }) => color === 'grey' && { fill: theme.colors.gray[200] }}
+      ${({ color, theme }) =>
+        color === "dark" && { fill: theme.colors.primary.dark }}
+      ${({ color, theme }) => color === "light" && { fill: theme.colors.white }}
+      ${({ color, theme }) =>
+        color === "grey" && { fill: theme.colors.gray[200] }}
     }
   }
 `;

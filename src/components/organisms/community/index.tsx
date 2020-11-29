@@ -1,13 +1,12 @@
-import React from 'react';
-import styled from '@Styles/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import Lottie from 'react-lottie';
-import animationData from '@Assets/json/animations/drawkit-grape-animation-5-LOOP.json';
-import { useSpring, animated } from 'react-spring';
-import AtomButton from '@Atoms/button';
-import { TFunction } from 'next-i18next';
+import React from "react";
+import styled from "@emotion/styled";
+import AtomContainer from "@Atoms/container";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import { useSpring, animated } from "react-spring";
+import AtomButton from "@Atoms/button";
+import { TFunction } from "next-i18next";
+import IllustrationHero from "@Assets/img/illustration-community.svg";
 
 const Community = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -34,8 +33,7 @@ const IllustrationContainer = styled(animated.div)`
   align-items: center;
   justify-content: center;
   svg {
-    width: 100%;
-    height: 100%;
+    width: 70%;
   }
 `;
 
@@ -62,15 +60,6 @@ const TextContainer = styled(animated.div)`
   }
 `;
 
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-};
-
 type ICommunity = {
   idScroll?: string;
   t?: TFunction;
@@ -78,14 +67,14 @@ type ICommunity = {
 
 const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(-20px)" },
+    delay: 700,
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(20px)" },
+    delay: 700,
   });
   return (
     <Community id={idScroll}>
@@ -104,15 +93,18 @@ const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            {t && t('community-title')}
+            {t && t("community-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t('community-desc')}
+            {t && t("community-desc")}
           </AtomBody>
-          <AtomButton href="https://discord.gg/jjMRrHguPf"> {t && t('community-button')}</AtomButton>
+          <AtomButton href="https://discord.gg/jjMRrHguPf">
+            {" "}
+            {t && t("community-button")}
+          </AtomButton>
         </TextContainer>
         <IllustrationContainer style={props2}>
-          <Lottie options={defaultOptions} />
+          <IllustrationHero />
         </IllustrationContainer>
       </AtomContainer>
     </Community>

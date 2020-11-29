@@ -1,17 +1,17 @@
-import { Theme } from './styled';
-import ThemeColors from './themes/themeColors';
-import ThemeText from './themes/themeTexts';
-import ThemeShadows from './themes/themeShadows';
-import ThemeSpaces from './themes/themeSpaces';
-import ThemeZindex from './themes/themeZIndex';
-import ThemeMediaQuery from './themes/themeMediaQuery';
+import { Theme } from "./styled";
+import ThemeColors from "./themes/themeColors";
+import ThemeText from "./themes/themeTexts";
+import ThemeShadows from "./themes/themeShadows";
+import ThemeSpaces from "./themes/themeSpaces";
+import ThemeZindex from "./themes/themeZIndex";
+import ThemeMediaQuery from "./themes/themeMediaQuery";
 
 const theme: Theme = {
   colors: ThemeColors,
   texts: ThemeText,
   shadows: ThemeShadows,
   spaces: ThemeSpaces,
-  borders: '4px',
+  borders: "4px",
   zindex: ThemeZindex,
   mediaquery: ThemeMediaQuery,
   breakpoints: {
@@ -20,7 +20,7 @@ const theme: Theme = {
     m: 1024,
     l: 1280,
     xl: 1440,
-    xxl: 1920
+    xxl: 1920,
   },
   spacings: {
     xs: 12,
@@ -28,8 +28,8 @@ const theme: Theme = {
     m: 34,
     l: 34,
     xl: 155,
-    xxl: 125
-  }
+    xxl: 125,
+  },
 };
 
 export default theme;

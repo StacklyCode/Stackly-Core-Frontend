@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from '@Styles/styled';
-import { usePalette } from 'react-palette';
+import React from "react";
+import styled from "@emotion/styled";
 
 type ImageProps = {
   background?: boolean;
@@ -15,9 +14,9 @@ const Image = styled.div<ImageProps>`
   border-radius: 4px;
   ${({ background, theme, getColor }) =>
     background && {
-      width: '480px',
-      height: '280px',
-      backgroundColor: getColor || theme.colors.white
+      width: "480px",
+      height: "280px",
+      backgroundColor: getColor || theme.colors.white,
     }}
   display: flex;
   align-items: center;
@@ -28,10 +27,10 @@ const Image = styled.div<ImageProps>`
     border-radius: 4px;
     ${({ background }) =>
       background && {
-        width: '80%',
-        height: '80%',
-        filter: 'drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.5))',
-        borderRadius: '0px'
+        width: "80%",
+        height: "80%",
+        filter: "drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.5))",
+        borderRadius: "0px",
       }}
     object-fit: cover;
   }
@@ -39,9 +38,8 @@ const Image = styled.div<ImageProps>`
 `;
 
 const AtomImage: React.FC<ImageProps> = ({ background, image }) => {
-  const { data } = usePalette(image || '');
   return (
-    <Image background={background} getColor={data.muted}>
+    <Image background={background} getColor="#fff">
       <img src={image} alt="" loading="lazy" />
     </Image>
   );

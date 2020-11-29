@@ -1,99 +1,102 @@
-import styled from '@Styles/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import MoleculesTags from '@Molecules/tags';
-import AtomButton from '@Atoms/button';
-import { TFunction } from 'next-i18next';
+import styled from "@emotion/styled";
+import AtomContainer from "@Atoms/container";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import MoleculesTags from "@Molecules/tags";
+import AtomButton from "@Atoms/button";
+import { TFunction } from "next-i18next";
 
 const fakeUserData = [
   {
-    name: 'Fernando Lopez',
-    description: 'CEO',
+    name: "Fernando Lopez",
+    description: "CEO",
     img:
-      'https://avatars3.githubusercontent.com/u/15000248?s=400&u=2e1dc6e71e73a162aef210b9807890c30bc48c1f&v=4',
+      "https://avatars3.githubusercontent.com/u/15000248?s=400&u=2e1dc6e71e73a162aef210b9807890c30bc48c1f&v=4",
     socialnetwork: [
-      { name: 'github', url: 'https://github.com/Beor18' },
-      { name: 'linkedin', url: 'https://www.linkedin.com/in/fernandogabriellopez/' }
-    ]
+      { name: "github", url: "https://github.com/Beor18" },
+      {
+        name: "linkedin",
+        url: "https://www.linkedin.com/in/fernandogabriellopez/",
+      },
+    ],
   },
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: "Albert Flores",
+    description: "Frontend Design",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ]
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+    ],
   },
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: "Albert Flores",
+    description: "Frontend Design",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ]
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+    ],
   },
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: "Albert Flores",
+    description: "Frontend Design",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ]
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+    ],
   },
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: "Albert Flores",
+    description: "Frontend Design",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ]
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+    ],
   },
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: "Albert Flores",
+    description: "Frontend Design",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ]
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+    ],
   },
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: "Albert Flores",
+    description: "Frontend Design",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ]
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+    ],
   },
   {
-    name: 'Albert Flores',
-    description: 'Frontend Design',
+    name: "Albert Flores",
+    description: "Frontend Design",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
-    ]
-  }
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+    ],
+  },
 ];
 
 const Team = styled.section`
@@ -176,16 +179,16 @@ const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
         </TagsContainer>
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="white">
-            {t && t('team-title')}
+            {t && t("team-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="white">
-            {t && t('team-desc-1')}
+            {t && t("team-desc-1")}
           </AtomBody>
           <AtomBody align="left" size="BodyExtraLarge" color="white">
-            {t && t('team-desc-2')}
+            {t && t("team-desc-2")}
           </AtomBody>
           <AtomButton href="/#ContactScroll" color="primary">
-            {t && t('team-button')}
+            {t && t("team-button")}
           </AtomButton>
         </TextContainer>
       </AtomContainer>

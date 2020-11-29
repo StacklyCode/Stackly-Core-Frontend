@@ -1,49 +1,49 @@
-import styled from '@Styles/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import MoleculesTags from '@Molecules/tags';
-import AtomButton from '@Atoms/button';
-import { Link } from 'react-scroll';
-import { TFunction } from 'next-i18next';
+import styled from "@emotion/styled";
+import AtomContainer from "@Atoms/container";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import MoleculesTags from "@Molecules/tags";
+import AtomButton from "@Atoms/button";
+import { Link } from "react-scroll";
+import { TFunction } from "next-i18next";
 
 const fakeUserData = [
   {
-    name: 'Albert Flores',
-    description: 'client-desc-1',
+    name: "Albert Flores",
+    description: "client-desc-1",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
     ],
-    stars: true
+    stars: true,
   },
   {
-    name: 'Albert Flores',
-    description: 'client-desc-2',
+    name: "Albert Flores",
+    description: "client-desc-2",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
     ],
-    stars: true
+    stars: true,
   },
   {
-    name: 'Albert Flores',
-    description: 'client-desc-3',
+    name: "Albert Flores",
+    description: "client-desc-3",
     img:
-      'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     socialnetwork: [
-      { name: 'facebook', url: 'fb.com/willishakkespeare' },
-      { name: 'twitter', url: 'twitter.com/willishakkespeare' },
-      { name: 'linkedin', url: 'linkedin.com/willishakkespeare' }
+      { name: "facebook", url: "fb.com/willishakkespeare" },
+      { name: "twitter", url: "twitter.com/willishakkespeare" },
+      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
     ],
-    stars: true
-  }
+    stars: true,
+  },
 ];
 
 const Clients = styled.section`
@@ -139,16 +139,16 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            {t && t('clients-title')}
+            {t && t("clients-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t('clients-desc-1')}
+            {t && t("clients-desc-1")}
           </AtomBody>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t('clients-desc-2')}
+            {t && t("clients-desc-2")}
           </AtomBody>
           <Link to="ContactScroll" smooth offset={-40}>
-            <AtomButton> {t && t('clients-button')}</AtomButton>
+            <AtomButton> {t && t("clients-button")}</AtomButton>
           </Link>
         </TextContainer>
         <TagsContainer>

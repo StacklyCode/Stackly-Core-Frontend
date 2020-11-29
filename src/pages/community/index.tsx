@@ -1,14 +1,13 @@
-import React from 'react';
-import TemplateMain from '@Templates/index';
-import OrganismCommunity from '@Organisms/community';
-import { useTranslation } from '@Src/i18n';
-import Seo from '@Src/components/utils/seo';
+import React from "react";
+import TemplateMain from "@Templates/index";
+import OrganismCommunity from "@Organisms/community";
+import { useTranslation } from "@Src/i18n";
+import I18n from "@Src/i18n";
 
 const CommunityPage = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Seo page="Community" />
       <TemplateMain t={t}>
         <OrganismCommunity t={t} />
       </TemplateMain>
@@ -16,4 +15,8 @@ const CommunityPage = () => {
   );
 };
 
-export default CommunityPage;
+CommunityPage.getInitialProps = async () => ({
+  namespacesRequired: ["common"],
+});
+
+export default I18n.withTranslation(["common"])(CommunityPage);

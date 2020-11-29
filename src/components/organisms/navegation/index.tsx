@@ -1,12 +1,12 @@
-import AtomContainer from '@Atoms/container';
-import AtomIcon from '@Atoms/icon';
-import AtomToggleList from '@Atoms/togglelist';
-import styled from '@Styles/styled';
-import { useState } from 'react';
-import { Link } from 'react-scroll';
-import LinkNext from 'next/link';
-import { useRouter } from 'next/router';
-import { TFunction } from 'next-i18next';
+import AtomContainer from "@Atoms/container";
+import AtomIcon from "@Atoms/icon";
+import AtomToggleList from "@Atoms/togglelist";
+import styled from "@emotion/styled";
+import { useState } from "react";
+import { Link } from "react-scroll";
+import LinkNext from "next/link";
+import { useRouter } from "next/router";
+import { TFunction } from "next-i18next";
 
 type NavegationProps = {
   title?: string;
@@ -80,7 +80,7 @@ const NavigationLink = styled.div<NavegationProps>`
   margin-right: 20px;
 `;
 
-const IconSideBar = styled.button<NavegationProps>`
+const IconSideBar = styled.div<NavegationProps>`
   height: 30px;
   width: 30px;
   background-color: transparent;
@@ -158,9 +158,13 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
   const router = useRouter();
   return (
     <Navigation>
-      <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
+      <AtomContainer
+        fullwidth
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <NavigationLogo>
-          {router.pathname !== '/' ? (
+          {router.pathname !== "/" ? (
             <a href="/">
               <AtomIcon icon="stacklycodelogo" />
             </a>
@@ -172,52 +176,55 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
         </NavigationLogo>
         <NavigationLinks>
           <LinkNext href="/about">
-            <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
+            <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
           </LinkNext>
           <LinkNext href="/community">
             <NavigationLink>
-              {t && t('nav-tag-2')} <AtomIcon icon="new" />{' '}
+              {t && t("nav-tag-2")} <AtomIcon icon="new" />{" "}
             </NavigationLink>
           </LinkNext>
-          {router.pathname !== '/' ? (
+          {router.pathname !== "/" ? (
             <LinkNext href="/#ServicesScroll">
-              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
             </LinkNext>
           ) : (
             <Link to="ServicesScroll" smooth offset={-60}>
-              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
             </Link>
           )}
-          {router.pathname !== '/' ? (
+          {router.pathname !== "/" ? (
             <LinkNext href="/#ClientsScroll">
-              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
             </LinkNext>
           ) : (
             <Link to="ClientsScroll" smooth offset={-60}>
-              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
             </Link>
           )}
-          {router.pathname !== '/' ? (
+          {router.pathname !== "/" ? (
             <LinkNext href="/#ProjectsScroll">
-              <NavigationLink>{t && t('nav-tag-5')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
             </LinkNext>
           ) : (
             <Link to="ProjectsScroll" smooth offset={-30}>
-              <NavigationLink>{t && t('nav-tag-5')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
             </Link>
           )}
-          {router.pathname !== '/' ? (
+          {router.pathname !== "/" ? (
             <LinkNext href="/#ContactScroll">
-              <NavigationLink>{t && t('nav-tag-6')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
             </LinkNext>
           ) : (
             <Link to="ContactScroll" smooth offset={-40}>
-              <NavigationLink>{t && t('nav-tag-6')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
             </Link>
           )}
 
           <ToggleContainer>
-            <AtomToggleList outline object={{ title: 'Lenguajes', options: ['en', 'es'] }} />
+            <AtomToggleList
+              outline
+              object={{ title: "Lenguajes", options: ["en", "es"] }}
+            />
           </ToggleContainer>
         </NavigationLinks>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
@@ -228,52 +235,55 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
         <SideBar>
           <ContainerSideBar>
             <ToggleContainer>
-              <AtomToggleList outline object={{ title: 'Lenguajes', options: ['en', 'es'] }} />
+              <AtomToggleList
+                outline
+                object={{ title: "Lenguajes", options: ["en", "es"] }}
+              />
             </ToggleContainer>
           </ContainerSideBar>
           <NavigationLinksSidebar>
             <LinkNext href="/about">
-              <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>
-                {t && t('nav-tag-2')} <AtomIcon icon="new" />{' '}
+                {t && t("nav-tag-2")} <AtomIcon icon="new" />{" "}
               </NavigationLink>
             </LinkNext>
-            {router.pathname !== '/' ? (
+            {router.pathname !== "/" ? (
               <LinkNext href="/#ServicesScroll">
-                <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
               </LinkNext>
             ) : (
               <Link to="ServicesScroll" smooth offset={-60}>
-                <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
               </Link>
             )}
-            {router.pathname !== '/' ? (
+            {router.pathname !== "/" ? (
               <LinkNext href="/#ClientsScroll">
-                <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
               </LinkNext>
             ) : (
               <Link to="ClientsScroll" smooth offset={-60}>
-                <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
               </Link>
             )}
-            {router.pathname !== '/' ? (
+            {router.pathname !== "/" ? (
               <LinkNext href="/#ProjectsScroll">
-                <NavigationLink>{t && t('nav-tag-5')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
               </LinkNext>
             ) : (
               <Link to="ProjectsScroll" smooth offset={-30}>
-                <NavigationLink>{t && t('nav-tag-5')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
               </Link>
             )}
-            {router.pathname !== '/' ? (
+            {router.pathname !== "/" ? (
               <LinkNext href="/#ContactScroll">
-                <NavigationLink>{t && t('nav-tag-6')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
               </LinkNext>
             ) : (
               <Link to="ContactScroll" smooth offset={-40}>
-                <NavigationLink>{t && t('nav-tag-6')}</NavigationLink>
+                <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
               </Link>
             )}
           </NavigationLinksSidebar>

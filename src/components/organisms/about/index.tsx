@@ -1,12 +1,11 @@
-import React from 'react';
-import styled from '@Styles/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import Lottie from 'react-lottie';
-import animationData from '@Assets/json/animations/drawkit-grape-animation-2-LOOP.json';
-import { useSpring, animated } from 'react-spring';
-import { TFunction } from 'next-i18next';
+import React from "react";
+import styled from "@emotion/styled";
+import AtomContainer from "@Atoms/container";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import { useSpring, animated } from "react-spring";
+import { TFunction } from "next-i18next";
+import IllustrationHero from "@Assets/img/illustration-about.svg";
 
 const About = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -61,15 +60,6 @@ const TextContainer = styled(animated.div)`
   }
 `;
 
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-};
-
 type IAbout = {
   idScroll?: string;
   t?: TFunction;
@@ -77,14 +67,14 @@ type IAbout = {
 
 const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(-20px)" },
+    delay: 700,
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(20px)' },
-    delay: 700
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(20px)" },
+    delay: 700,
   });
   return (
     <About id={idScroll}>
@@ -103,14 +93,14 @@ const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            {t && t('about-title')}
+            {t && t("about-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t('about-desc')}
+            {t && t("about-desc")}
           </AtomBody>
         </TextContainer>
         <IllustrationContainer style={props2}>
-          <Lottie options={defaultOptions} />
+          <IllustrationHero />
         </IllustrationContainer>
       </AtomContainer>
     </About>

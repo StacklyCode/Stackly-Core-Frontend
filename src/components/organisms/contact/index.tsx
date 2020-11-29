@@ -1,12 +1,11 @@
-import styled from '@Styles/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import AtomButton from '@Atoms/button';
-import AtomInput from '@Atoms/input';
-import Lottie from 'react-lottie';
-import animationData from '@Assets/json/animations/drawkit-grape-animation-6-LOOP.json';
-import { TFunction } from 'next-i18next';
+import styled from "@emotion/styled";
+import AtomContainer from "@Atoms/container";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import AtomButton from "@Atoms/button";
+import AtomInput from "@Atoms/input";
+import IllustrationHero from "@Assets/img/illustration-contact.svg";
+import { TFunction } from "next-i18next";
 
 const Contact = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -16,7 +15,6 @@ const Contact = styled.section`
   justify-content: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.primary.dark};
-  background-image: url('/assets/img/background2.svg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
@@ -106,14 +104,6 @@ const FormLeftContainer = styled.article`
   }
 `;
 
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-};
 type IContact = {
   idScroll?: string;
   t?: TFunction;
@@ -124,39 +114,43 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="white">
-            {t && t('contact-title')}
+            {t && t("contact-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="white">
-            {t && t('contact-desc')}
+            {t && t("contact-desc")}
           </AtomBody>
           <FormContainer action="mailto:social@stacklycode.com" method="POST">
             <FormLeftContainer>
-              <AtomInput id="name" margin={['15px', '0px']} placeholder={t && t('contact-input-name')} />
+              <AtomInput
+                id="name"
+                margin={["5px", "0px"]}
+                placeholder={t && t("contact-input-name")}
+              />
               <AtomInput
                 id="Subject"
-                margin={['15px', '0px']}
-                placeholder={t && t('contact-input-subject')}
+                margin={["5px", "0px"]}
+                placeholder={t && t("contact-input-subject")}
               />
             </FormLeftContainer>
             <AtomInput
               id="email"
               type="email"
-              margin={['15px', '0px']}
-              placeholder={t && t('contact-input-email')}
+              margin={["5px", "0px"]}
+              placeholder={t && t("contact-input-email")}
             />
             <AtomInput
               id="message"
-              margin={['15px', '0px']}
-              placeholder={t && t('contact-input-message')}
+              margin={["5px", "0px"]}
+              placeholder={t && t("contact-input-message")}
               type="text"
             />
             <AtomButton type="submit" color="primary">
-              {t && t('contact-input-send')}
+              {t && t("contact-input-send")}
             </AtomButton>
           </FormContainer>
         </TextContainer>
         <IllustrationContainer>
-          <Lottie options={defaultOptions} />
+          <IllustrationHero />
         </IllustrationContainer>
       </AtomContainer>
     </Contact>

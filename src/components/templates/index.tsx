@@ -1,7 +1,7 @@
-import styled from '@Styles/styled';
-import OrganismsNavigation from '@Organisms/navegation';
-import OrganismFooter from '@Organisms/footer';
-import { TFunction } from 'next-i18next';
+import styled from "@emotion/styled";
+import OrganismsNavigation from "@Organisms/navegation";
+import OrganismFooter from "@Organisms/footer";
+import { TFunction } from "next-i18next";
 
 const Background = styled.main`
   height: max-content;

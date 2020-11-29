@@ -1,8 +1,8 @@
-import AtomContainer from '@Atoms/container';
-import AtomIcon from '@Atoms/icon';
-import styled from '@Styles/styled';
-import { TFunction } from 'next-i18next';
-import LinkNext from 'next/link';
+import AtomContainer from "@Atoms/container";
+import AtomIcon from "@Atoms/icon";
+import styled from "@emotion/styled";
+import { TFunction } from "next-i18next";
+import LinkNext from "next/link";
 
 type FooterProps = {
   title?: string;
@@ -76,19 +76,25 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
         <FooterContainer>
           <AtomIcon icon="stacklycodelogo" />
           <LinkNext href="/copyrighted">
-            <FooterCopyrighted>{t && t('footer-desc')}</FooterCopyrighted>
+            <FooterCopyrighted>{t && t("footer-desc")}</FooterCopyrighted>
           </LinkNext>
           <FooterSocialContainer>
-            <a href="https://www.facebook.com/StacklyCodeOfficial">
+            <a
+              href="https://www.facebook.com/StacklyCodeOfficial"
+              title="Facebook Page"
+            >
               <AtomIcon icon="facebook" />
             </a>
-            <a href="https://www.linkedin.com/company/68642625/admin/">
+            <a
+              href="https://www.linkedin.com/company/68642625/admin/"
+              title="Linkedin Page"
+            >
               <AtomIcon icon="linkedin" />
             </a>
-            <a href="https://github.com/StacklyCode">
+            <a href="https://github.com/StacklyCode" title="Github Page">
               <AtomIcon icon="github" />
             </a>
-            <a href="https://twitter.com/StacklyCode">
+            <a href="https://twitter.com/StacklyCode" title="Twitter Page">
               <AtomIcon icon="twitter" />
             </a>
           </FooterSocialContainer>

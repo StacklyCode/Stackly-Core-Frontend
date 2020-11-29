@@ -1,12 +1,12 @@
-import styled from '@Styles/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import MoleculeProjectInfo from '@Molecules/projectinfo';
-import AtomImage from '@Atoms/image';
-import { useState } from 'react';
-import { Link } from 'react-scroll';
-import { TFunction } from 'next-i18next';
+import styled from "@emotion/styled";
+import AtomContainer from "@Atoms/container";
+import AtomTitle from "@Atoms/title";
+import AtomBody from "@Atoms/body";
+import MoleculeProjectInfo from "@Molecules/projectinfo";
+import AtomImage from "@Atoms/image";
+import { useState } from "react";
+import { Link } from "react-scroll";
+import { TFunction } from "next-i18next";
 
 type IProject = {
   id?: string;
@@ -105,59 +105,131 @@ const AllProjectsContainer = styled.div`
   display: flex;
   align-self: baseline;
   width: max-content;
+  margin-top: 20px;
+  margin-bottom: 20px;
   button {
     margin: 20px 10px;
   }
 `;
-const ButtonProject = styled.button`
+const ButtonProject = styled.div`
   border: none;
   cursor: pointer;
+  margin-right: 20px;
 `;
 
-const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, projects, t }) => {
+type IProjectProps = {
+  id?: string;
+  title?: string;
+  type?: string;
+  description?: string;
+  urlImage?: string;
+  link?: string;
+};
+
+const ProjectsData: IProjectProps[] = [
+  {
+    id: "0",
+    title: "Landing page for Amara",
+    type: "Web | UI/UX",
+    description: "project-desc-1",
+    urlImage:
+      "https://res.cloudinary.com/stacklycode/image/upload/w_400,c_scale/v1604710707/StacklyCodeImages/project2_stlr9u.png",
+    link: "https://www.google.com.mx",
+  },
+  {
+    id: "1",
+    title: "Landing page for William",
+    type: "Web | UI/UX",
+    description: "project-desc-2",
+    urlImage:
+      "https://res.cloudinary.com/stacklycode/image/upload/w_400,c_scale/v1604981586/StacklyCodeImages/Project7_jyrxur.png",
+    link: "https://www.google.com.mx",
+  },
+  {
+    id: "2",
+    title: "Landing page for Company",
+    type: "Web | UI/UX",
+    description: "project-desc-3",
+    urlImage:
+      "https://res.cloudinary.com/stacklycode/image/upload/w_400,c_scale/v1604981587/StacklyCodeImages/Project6_knc2lj.png",
+    link: "https://www.google.com.mx",
+  },
+  {
+    id: "3",
+    title: "Landing page for Amara",
+    type: "Web | UI/UX",
+    description: "project-desc-4",
+    urlImage:
+      "https://res.cloudinary.com/stacklycode/image/upload/w_400,c_scale/v1604711349/StacklyCodeImages/project5_w7xkti.png",
+    link: "https://www.google.com.mx",
+  },
+  {
+    id: "4",
+    title: "Landing page for Amara",
+    type: "Web | UI/UX",
+    description: "project-desc-5",
+    urlImage:
+      "https://res.cloudinary.com/stacklycode/image/upload/w_400,c_scale/v1604711350/StacklyCodeImages/project3_h3911r.png",
+    link: "https://www.google.com.mx",
+  },
+];
+
+const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, t }) => {
   const [projectID, setProjectID] = useState<IProject | undefined>({});
   return (
     <Projects id={idScroll}>
-      <AtomContainer alignItems="center" justifyContent="space-between" fullwidth>
+      <AtomContainer
+        alignItems="center"
+        justifyContent="space-between"
+        fullwidth
+      >
         <ProjectsContainer>
           <ParagraphTitle>
             <AtomTitle bold size="TitleMedium">
-              {t && t('projects-title')}
+              {t && t("projects-title")}
             </AtomTitle>
-            <AtomBody size="BodyExtraLarge" color="gray">
-              {t && t('projects-desc')}
+            <AtomBody size="BodyExtraLarge" color="white">
+              {t && t("projects-desc")}
             </AtomBody>
           </ParagraphTitle>
           <ParagraphContainer>
-            <AtomBody size="BodyLarge">{t && t('projects-desc-button-1')}</AtomBody>
+            <AtomBody size="BodyLarge">
+              {t && t("projects-desc-button-1")}
+            </AtomBody>
             <Link to="ContactScroll" smooth offset={-40}>
               <AtomBody color="green" size="BodyLarge">
-                {t && t('projects-desc-button-2')}
+                {t && t("projects-desc-button-2")}
               </AtomBody>
             </Link>
           </ParagraphContainer>
           <MoleculeProjectInfo
-            title={projectID?.title || (projects && projects[0].title)}
-            urlImage={projectID?.urlImage || (projects && projects[0].urlImage)}
-            type={projectID?.type || (projects && projects[0].type)}
+            title={projectID?.title || (ProjectsData && ProjectsData[0].title)}
+            urlImage={
+              projectID?.urlImage || (ProjectsData && ProjectsData[0].urlImage)
+            }
+            type={projectID?.type || (ProjectsData && ProjectsData[0].type)}
             description={
               (projectID?.description && t && t(`${projectID.description}`)) ||
-              (t && t(`${projects && projects[0].description}`))
+              (t && t(`${ProjectsData && ProjectsData[0].description}`))
             }
-            id={projectID?.id || (projects && projects[0].id)}
-            link={projectID?.link || (projects && projects[0].link)}
+            id={projectID?.id || (ProjectsData && ProjectsData[0].id)}
+            link={projectID?.link || (ProjectsData && ProjectsData[0].link)}
           />
-          <AtomBody size="BodySmall" color="gray">
-            {t && t('projects-click')}
+          <AtomBody size="BodySmall" color="white">
+            {t && t("projects-click")}
           </AtomBody>
           <ScrollProjectsContainer>
             <AllProjectsContainer>
-              {projects?.map((item) => (
+              {ProjectsData?.map((item) => (
                 <ButtonProject
                   key={item.id}
                   id={item.id}
                   onClick={(e) =>
-                    setProjectID(projects.find((itemFind) => itemFind.id === e.currentTarget.id))
+                    setProjectID(
+                      ProjectsData.find(
+                        (itemFind) => itemFind.id === e.currentTarget.id
+                      )
+                    )
                   }
                 >
                   <AtomImage image={item.urlImage} />
