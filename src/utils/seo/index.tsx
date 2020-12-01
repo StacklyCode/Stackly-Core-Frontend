@@ -1,16 +1,16 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 interface SeoProps {
-  page?: string;
-  title?: string;
-  description?: string;
+  page?: string
+  title?: string
+  description?: string
 }
 
 const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
   return (
     <Head>
       <title>
-        {title || (page ? `${page} | Stackly Code` : "Stackly Code")}
+        {title || (page ? `${page} | Stackly Code` : 'Stackly Code')}
       </title>
       <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=7" />
@@ -30,6 +30,7 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <meta name="copyright" content="Stackly Code" />
       <meta name="title" content={title} />
       <meta name="description" content={description} />
+      <meta name="robots" content="noindex,nofollow" />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://stacklycode.com/" />
@@ -44,7 +45,7 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <meta property="twitter:image" content="/preview.png" />
       <link rel="manifest" href="manifest.webmanifest" />
     </Head>
-  );
-};
+  )
+}
 
-export default Seo;
+export default Seo
