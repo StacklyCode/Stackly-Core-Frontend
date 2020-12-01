@@ -1,12 +1,13 @@
-import TemplateMain from "@Templates/index";
-import OrganismAbout from "@Organisms/about";
-import OrganismTeam from "@Organisms/team";
-import { useTranslation } from "@Src/i18n";
-import Seo from "@Utils/seo";
-import I18n from "@Src/i18n";
+import TemplateMain from '@Templates/index'
+import OrganismAbout from '@Organisms/about'
+import OrganismTeam from '@Organisms/team'
+import { useTranslation } from '@Src/i18n'
+import Seo from '@Utils/seo'
+import I18n from '@Src/i18n'
+import { GetStaticProps } from 'next'
 
 const AboutPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <>
       <Seo page="About" />
@@ -15,11 +16,14 @@ const AboutPage = () => {
         <OrganismTeam t={t} />
       </TemplateMain>
     </>
-  );
-};
+  )
+}
 
-AboutPage.getInitialProps = async () => ({
-  namespacesRequired: ["common"],
-});
-
-export default I18n.withTranslation(["common"])(AboutPage);
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      namespacesRequired: ['common'],
+    },
+  }
+}
+export default I18n.withTranslation(['common'])(AboutPage)
