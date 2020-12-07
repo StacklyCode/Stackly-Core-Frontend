@@ -11,7 +11,7 @@ const fakeUserData = [
     name: "Fernando Lopez",
     description: "CEO",
     img:
-      "https://avatars3.githubusercontent.com/u/15000248?s=400&u=2e1dc6e71e73a162aef210b9807890c30bc48c1f&v=4",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607380127/StacklyTeam/15000248_djw7aa.jpg",
     socialnetwork: [
       { name: "github", url: "https://github.com/Beor18" },
       {
@@ -21,80 +21,88 @@ const fakeUserData = [
     ],
   },
   {
-    name: "Albert Flores",
-    description: "Frontend Design",
+    name: "Carlos Montalvo",
+    description: "CTO",
     img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607379875/StacklyTeam/Carlos-Montalvo-CTO_xzbmq4.png",
     socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+      { name: "github", url: "https://github.com/ZephiroRB" },
+      { name: "twitter", url: "https://twitter.com/CrlosMontalvo" },
+      {
+        name: "linkedin",
+        url: "https://www.linkedin.com/in/carlosmontalvo-ingeniero-software",
+      },
     ],
   },
   {
-    name: "Albert Flores",
-    description: "Frontend Design",
+    name: "Jose Luis Reyes",
+    description: "CTO",
     img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Jose-Luis-Reyes--CTO_bzngai.jpg",
     socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+      { name: "github", url: "https://github.com/joseluisroot" },
+      { name: "linkedin", url: "https://www.linkedin.com/in/joseluisroot/" },
     ],
   },
   {
-    name: "Albert Flores",
-    description: "Frontend Design",
+    name: "William Jesus",
+    description: "Fullstack Developer",
     img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607381258/StacklyTeam/IMG-20191220-WA0003-01_bb51ks.png",
     socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+      { name: "github", url: "https://github.com/Willishakespeare" },
+      { name: "twitter", url: "https://twitter.com/WilliSkr13" },
+      {
+        name: "linkedin",
+        url:
+          "https://www.linkedin.com/in/william-jesus-covarrubias-ramos-84410339/",
+      },
     ],
   },
   {
-    name: "Albert Flores",
-    description: "Frontend Design",
+    name: "Juan Carlos Cruz",
+    description: "UI-UX Designer",
     img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607379874/StacklyTeam/Juan-Carlos-Cruz-UI-Designer_mbjiu6.jpg",
     socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+      { name: "github", url: "https://github.com/juank1791" },
+      { name: "linkedin", url: "https://www.linkedin.com/in/juancarlos-cruz/" },
     ],
   },
   {
-    name: "Albert Flores",
-    description: "Frontend Design",
+    name: "Erick Vargas",
+    description: "Frontend Developer",
     img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Erick-Vargas-Frontend-Developer_piy4fo.png",
     socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+      { name: "github", url: "https://github.com/erianvc" },
+      { name: "linkedin", url: "https://www.linkedin.com/in/erianvc/" },
     ],
   },
   {
-    name: "Albert Flores",
-    description: "Frontend Design",
+    name: "Pablo Sabater",
+    description: "Backend Developer",
     img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Pablo-Sabater-Backend-Developer_ggz171.jpg",
     socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+      { name: "github", url: "https://github.com/Blopaa" },
+      {
+        name: "linkedin",
+        url: "https://www.linkedin.com/in/pablo-sabater-jimenez/",
+      },
     ],
   },
   {
-    name: "Albert Flores",
-    description: "Frontend Design",
+    name: "Dano Reyes",
+    description: "DBA Manager",
     img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Dano-Reyes-DBA-Manager_tbh5ef.png",
     socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+      {
+        name: "github",
+        url: "https://github.com/orgs/StacklyCode/people/DanoRysJan",
+      },
+      { name: "linkedin", url: "https://www.linkedin.com/in/dano-reyes/" },
     ],
   },
 ];
