@@ -87,6 +87,10 @@ const fakeUserData = [
     socialnetwork: [
       { name: "github", url: "https://github.com/Blopaa" },
       {
+        name: "twitter",
+        url: "https://twitter.com/Pabloosabaterr",
+      },
+      {
         name: "linkedin",
         url: "https://www.linkedin.com/in/pablo-sabater-jimenez/",
       },
