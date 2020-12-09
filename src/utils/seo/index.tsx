@@ -12,7 +12,7 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <title>
         {title || (page ? `${page} | Stackly Code` : 'Stackly Code')}
       </title>
-      <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
+      <meta charset="utf-8">
       <meta httpEquiv="X-UA-Compatible" content="IE=7" />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <meta name="canonical" content="https://stacklycode.com/" />
@@ -30,19 +30,21 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <meta name="copyright" content="Stackly Code" />
       <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <meta name="robots" content="noindex,nofollow" />
+      <meta name="googlebot" content="index,follow">
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://stacklycode.com/" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content="/preview.png" />
-
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://stacklycode.com/" />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content="/preview.png" />
+        
+      <meta name="twitter:site" content="@StacklyCode">
+      <meta name="twitter:creator" content="@StacklyCode">
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content="https://stacklycode.com/" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content="/preview.png" />
       <link rel="manifest" href="manifest.webmanifest" />
     </Head>
   )
