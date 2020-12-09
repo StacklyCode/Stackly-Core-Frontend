@@ -3,5 +3,5 @@ User-agent: *
 Allow: /
 Disallow: /404
 
-# Sitemap: http://stacklycode.com/sitemap.xml
+Sitemap: http://stacklycode.com/sitemap.xml
 
