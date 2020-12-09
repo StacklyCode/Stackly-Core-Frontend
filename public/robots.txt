@@ -1,8 +1,4 @@
-# Group 1
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
-# Group 2
+# Simple
 User-agent: *
 Allow: /
 Disallow: /404
