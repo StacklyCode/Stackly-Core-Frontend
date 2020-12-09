@@ -12,7 +12,7 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <title>
         {title || (page ? `${page} | Stackly Code` : 'Stackly Code')}
       </title>
-      <meta charset="utf-8" />
+      <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=7" />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <meta name="canonical" content="https://stacklycode.com/" />
