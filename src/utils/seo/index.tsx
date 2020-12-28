@@ -6,6 +6,29 @@ interface SeoProps {
   description?: string
 }
 
+const StructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'StacklyCode',
+  alternateName: 'StacklyCode',
+  url: 'http://stacklycode.com/',
+  logo: 'http://stacklycode.com/logo-512x512.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '',
+    contactType: 'customer service',
+    areaServed: ['AR', 'CO', 'MX', 'UY', 'SV', 'DO'],
+    availableLanguage: ['en', 'es'],
+  },
+  sameAs: [
+    'http://stacklycode.com/',
+    'http://stacklycode.com/',
+    'https://www.facebook.com/StacklyCodeOfficial',
+    'https://www.linkedin.com/company/stackly-code/',
+    'https://twitter.com/StacklyCode',
+  ],
+}
+
 const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
   return (
     <Head>
@@ -37,7 +60,7 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content="/preview.png" />
-        
+
       <meta name="twitter:site" content="@StacklyCode" />
       <meta name="twitter:creator" content="@StacklyCode" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -46,6 +69,10 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content="/preview.png" />
       <link rel="manifest" href="manifest.webmanifest" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(StructuredData) }}
+      ></script>
     </Head>
   )
 }
