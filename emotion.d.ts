@@ -6,6 +6,11 @@ declare module "@emotion/react" {
     base: string;
     light: string;
   }
+  interface ISecondary {
+    dark: string;
+    base: string;
+    light: string;
+  }
   interface IAccentColor {
     dark: string;
     base: string;
@@ -13,6 +18,7 @@ declare module "@emotion/react" {
   }
 
   interface IAccent {
+    primary: IAccentColor;
     green: IAccentColor;
     red: IAccentColor;
     orange: IAccentColor;
@@ -31,6 +37,7 @@ declare module "@emotion/react" {
 
   interface IColors {
     primary: IPrimary;
+    secondary: ISecondary;
     accent: IAccent;
     gray: IGray;
     black: string;

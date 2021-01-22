@@ -10,14 +10,14 @@ type Size =
 
 type BodyProps = {
   size?: Size;
-  color?: "white" | "green" | "gray" | "black";
+  color?: "white" | "green" | "gray" | "black" | "light" | "accent" 
   align?: "left" | "center";
   bold?: boolean;
 };
 
 const getColor = (
   theme: Theme,
-  color: "white" | "green" | "gray" | "black" | undefined
+  color: "white" | "green" | "gray" | "black" | "light" | "accent" | undefined
 ) => {
   switch (color) {
     case "black":
@@ -26,8 +26,12 @@ const getColor = (
       return theme.colors.gray[500];
     case "green":
       return theme.colors.accent.cyan.light;
+    case "light":
+      return theme.colors.primary.light;
+    case "accent":
+      return theme.colors.accent.primary.base;
     default:
-      return theme.colors.gray[100];
+      return theme.colors.primary.base;
   }
 };
 

@@ -16,11 +16,7 @@ const IconStyled = styled.div<IconProps>`
     width: 100%;
     height: 100%;
     path {
-      ${({ color, theme }) =>
-        color === "dark" && { fill: theme.colors.primary.dark }}
-      ${({ color, theme }) => color === "light" && { fill: theme.colors.white }}
-      ${({ color, theme }) =>
-        color === "grey" && { fill: theme.colors.gray[200] }}
+      fill: ${({ theme }) => theme.colors.primary.base};
     }
   }
 `;

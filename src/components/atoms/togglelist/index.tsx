@@ -16,18 +16,18 @@ const ToggleListStyled = styled.div<ToggleListProps>`
   flex-direction: column;
   width: 60px;
   height: max-content;
-  border-radius: 4px;
+  border-radius: 3px;
   align-self: baseline;
   cursor: pointer;
   ${({ theme }) =>
     theme && {
-      backgroundColor: theme.colors.primary.dark,
-      border: `solid 2px ${theme.colors.primary.dark}`,
+      backgroundColor: theme.colors.primary.base,
+      border: `solid 1px ${theme.colors.primary.base}`,
     }}
   ${({ theme, outline }) =>
     outline && {
       backgroundColor: "transparent",
-      border: `solid 2px ${theme.colors.white}`,
+      border: `solid 1px ${theme.colors.primary.base}`,
     }}
   transition: all .5s ease;
 `;
@@ -35,7 +35,7 @@ const ToggleListStyled = styled.div<ToggleListProps>`
 const ContainerTitleStyled = styled.div<ToggleListProps>`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   ${({ theme, outline, toggle }) =>
     outline &&
     toggle && {
@@ -49,20 +49,22 @@ const ContainerTitleStyled = styled.div<ToggleListProps>`
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    color: white;
+    color: ${({ theme }) => theme.colors.primary.base};
     font-family: Inter;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;
   }
   div {
     svg {
-      height: 13px;
+      margin-right: 5px;
+      height: 9px;
+      width: 9px;
       path {
-        fill: white;
-        stroke: white;
+        fill: ${({ theme }) => theme.colors.primary.base};
+        stroke: ${({ theme }) => theme.colors.primary.base};
       }
     }
   }
@@ -79,11 +81,11 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
     border: none;
     align-items: center;
     justify-content: center;
-    color: white;
-    background-color: ${({ theme }) => theme.colors.primary.dark};
+    color: ${({ theme }) => theme.colors.primary.base};
+    background-color: ${({ theme }) => theme.colors.secondary.base};
     font-family: Inter;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: uppercase;
     font-size: 12px;
     line-height: 15px;
@@ -92,7 +94,7 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
       background-color: #414e6a;
       ${({ theme, outline }) =>
         outline && {
-          backgroundColor: theme.colors.white,
+          backgroundColor: theme.colors.secondary.base,
           color: theme.colors.primary.base,
         }}
     }

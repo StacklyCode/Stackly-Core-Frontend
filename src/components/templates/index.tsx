@@ -6,6 +6,7 @@ import { TFunction } from "next-i18next";
 const Background = styled.main`
   height: max-content;
   width: 100%;
+  margin-top: 110px;
 `;
 
 type ITemplate = {

@@ -11,12 +11,11 @@ import IllustrationHero from "@Assets/img/illustration-hero.svg";
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
   min-height: calc(100vh - 110px);
-  margin-top: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   padding: 50px 0px;
   ${({ theme }) => theme.mediaquery.small} {
     padding: 0px 0px;
@@ -32,8 +31,14 @@ const TextContainer = styled(animated.div)`
     width: 50%;
   }
   margin-bottom: 55px;
+  p:first-of-type {
+    margin-bottom: 5px;
+  }
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  p {
+    max-width: 480px;
   }
 `;
 const IllustrationContainer = styled(animated.div)`
@@ -93,15 +98,18 @@ const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
     <Hero id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
+          <AtomBody color="accent" align="left" size="BodyLarge" bold>
+            Hispanic Software Company
+          </AtomBody>
           <AtomTitle align="left" bold size="TitleLarge">
             {t && t("hero-title")}
           </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge">
+          <AtomBody color="light" align="left" size="BodyLarge">
             {t && t("hero-desc")}
           </AtomBody>
           <ButtonContainer>
             <Link to="ContactScroll" smooth offset={-40}>
-              <AtomButton color="primary">{t && t("hero-btn-1")}</AtomButton>
+              <AtomButton>{t && t("hero-btn-1")}</AtomButton>
             </Link>
             <Link to="ProjectsScroll" smooth offset={-30}>
               <AtomButton outline>{t && t("hero-btn-2")}</AtomButton>

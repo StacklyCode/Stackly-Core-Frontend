@@ -1,4 +1,4 @@
-import styled  from "@emotion/styled";
+import styled from "@emotion/styled";
 import Link from "next/link";
 
 type ButtonProps = {
@@ -23,12 +23,12 @@ const Button = styled.button<ButtonProps>`
     fontWeight: "bold",
     lineHeight: theme.texts.Button.LineHeight,
     outline: "none",
-    border: `2px solid ${theme.colors.primary.base}`,
+    border: `1px solid ${theme.colors.accent.primary.base}`,
     width: "max-content",
     color: theme.colors.white,
-    backgroundColor: theme.colors.primary.base,
-    padding: "10px 20px",
-    borderRadius: "4px",
+    backgroundColor: theme.colors.accent.primary.base,
+    padding: "15px 20px",
+    borderRadius: "2px",
     ":hover": {
       cursor: "pointer",
       backgroundColor: theme.colors.primary.light,
@@ -37,21 +37,23 @@ const Button = styled.button<ButtonProps>`
 
   ${({ theme, color }) =>
     color === "primary" && {
-      border: `2px solid ${theme.colors.accent.green.base}`,
+      border: `1px solid ${theme.colors.accent.green.base}`,
       backgroundColor: theme.colors.accent.green.base,
       ":hover": {
         backgroundColor: theme.colors.accent.green.dark,
-        border: `2px solid ${theme.colors.accent.green.dark}`,
+        border: `1px solid ${theme.colors.accent.green.dark}`,
       },
     }}
     
   ${({ theme, outline }) =>
     outline && {
       backgroundColor: "transparent",
-      border: `2px solid ${theme.colors.white}`,
+      border: `1px solid ${theme.colors.accent.primary.base}`,
+      color: theme.colors.accent.primary.base,
+      fontWeight: 500,
       ":hover": {
         backgroundColor: "transparent",
-        border: `2px solid ${theme.colors.accent.blue.base}`,
+        border: `1px solid ${theme.colors.accent.blue.base}`,
         color: theme.colors.accent.blue.base,
       },
     }}
