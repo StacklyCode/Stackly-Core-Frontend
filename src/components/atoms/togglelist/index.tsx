@@ -14,7 +14,7 @@ const ToggleListStyled = styled.div<ToggleListProps>`
   /* StyleComponent Style with Theme*/
   display: flex;
   flex-direction: column;
-  width: 60px;
+  width: 80px;
   height: max-content;
   border-radius: 3px;
   align-self: baseline;

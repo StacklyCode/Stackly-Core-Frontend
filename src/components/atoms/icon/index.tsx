@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 
 type IconProps = {
   icon?: string;
-  color?: "dark" | "light" | "grey";
+  color?: "dark" | "light" | "grey" | "white";
   size?: string;
 };
 
@@ -16,7 +16,10 @@ const IconStyled = styled.div<IconProps>`
     width: 100%;
     height: 100%;
     path {
-      fill: ${({ theme }) => theme.colors.primary.base};
+      fill: ${({ theme, color }) =>
+        color === "white"
+          ? theme.colors.secondary.base
+          : theme.colors.primary.base};
     }
   }
 `;

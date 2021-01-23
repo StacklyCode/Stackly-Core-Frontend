@@ -72,7 +72,7 @@ const MoleculesTagServices: React.FC<TagsProps> = ({
       >
         {title || "Some Title"}
       </AtomTitle>
-      <AtomBody align="left" size="BodySmall" color="gray">
+      <AtomBody align="left" size="BodySmall" color="light">
         {description ||
           "Marketing strategies to bring a fresh and modern identity for your brand."}
       </AtomBody>

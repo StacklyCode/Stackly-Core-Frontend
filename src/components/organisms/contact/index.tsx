@@ -14,7 +14,7 @@ const Contact = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
@@ -111,12 +111,12 @@ type IContact = {
 const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
   return (
     <Contact id={idScroll}>
-      <AtomContainer alignItems="center" justifyContent="space-between">
+      <AtomContainer alignItems="center" justifyContent="center">
         <TextContainer>
-          <AtomTitle align="left" bold size="TitleMedium" color="white">
+          <AtomTitle align="center" bold size="TitleMedium">
             {t && t("contact-title")}
           </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge" color="white">
+          <AtomBody align="center" size="BodyLarge" color="light">
             {t && t("contact-desc")}
           </AtomBody>
           <FormContainer action="mailto:social@stacklycode.com" method="POST">
@@ -144,14 +144,11 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               placeholder={t && t("contact-input-message")}
               type="text"
             />
-            <AtomButton type="submit" color="primary">
+            <AtomButton type="submit">
               {t && t("contact-input-send")}
             </AtomButton>
           </FormContainer>
         </TextContainer>
-        <IllustrationContainer>
-          <IllustrationHero />
-        </IllustrationContainer>
       </AtomContainer>
     </Contact>
   );

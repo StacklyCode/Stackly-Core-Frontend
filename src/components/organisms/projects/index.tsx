@@ -2,11 +2,9 @@ import styled from "@emotion/styled";
 import AtomContainer from "@Atoms/container";
 import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
-import MoleculeProjectInfo from "@Molecules/projectinfo";
-import AtomImage from "@Atoms/image";
-import { useState } from "react";
 import { Link } from "react-scroll";
 import { TFunction } from "next-i18next";
+import MoleculesTagProject from "@Src/components/molecules/tagprojects";
 
 type IProject = {
   id?: string;
@@ -30,11 +28,8 @@ const Projects = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
-  padding: 50px 0px;
-  ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
-  }
+  background-color: ${({ theme }) => theme.colors.secondary.base};
+
 `;
 
 const ProjectsContainer = styled.div`
@@ -43,8 +38,6 @@ const ProjectsContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  overflow-x: hidden;
 `;
 const ParagraphTitle = styled.div`
   display: flex;
@@ -53,7 +46,7 @@ const ParagraphTitle = styled.div`
   justify-content: center;
   margin-top: 10px;
   h2 {
-    max-width: 700px;
+    max-width: 800px;
     padding: 0px 20px;
   }
   p {
@@ -67,6 +60,7 @@ const ParagraphContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
   ${({ theme }) => theme.mediaquery.extrasmall} {
     flex-direction: row;
     align-items: baseline;
@@ -79,26 +73,18 @@ const ParagraphContainer = styled.div`
     margin-right: 10px;
     width: max-content;
   }
+  a {
+    :hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 const ScrollProjectsContainer = styled.div`
   display: flex;
-  width: 85%;
-  overflow-x: scroll;
+  width: 100%;
+  min-height: 500px;
   justify-content: flex-start;
-
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.primary.light};
-  }
-  ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.primary.base};
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.accent.blue.light};
-  }
 `;
 
 const AllProjectsContainer = styled.div`
@@ -175,7 +161,6 @@ const ProjectsData: IProjectProps[] = [
 ];
 
 const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, t }) => {
-  const [projectID, setProjectID] = useState<IProject | undefined>({});
   return (
     <Projects id={idScroll}>
       <AtomContainer
@@ -188,52 +173,31 @@ const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, t }) => {
             <AtomTitle bold size="TitleMedium">
               {t && t("projects-title")}
             </AtomTitle>
-            <AtomBody size="BodyExtraLarge" color="white">
+            <AtomBody align="center" size="BodyLarge" color="light">
               {t && t("projects-desc")}
             </AtomBody>
           </ParagraphTitle>
           <ParagraphContainer>
-            <AtomBody size="BodyLarge">
+            <AtomBody size="BodyLarge" color="light">
               {t && t("projects-desc-button-1")}
             </AtomBody>
             <Link to="ContactScroll" smooth offset={-40}>
-              <AtomBody color="green" size="BodyLarge">
+              <AtomBody color="accent" size="BodyLarge">
                 {t && t("projects-desc-button-2")}
               </AtomBody>
             </Link>
           </ParagraphContainer>
-          <MoleculeProjectInfo
-            title={projectID?.title || (ProjectsData && ProjectsData[0].title)}
-            urlImage={
-              projectID?.urlImage || (ProjectsData && ProjectsData[0].urlImage)
-            }
-            type={projectID?.type || (ProjectsData && ProjectsData[0].type)}
-            description={
-              (projectID?.description && t && t(`${projectID.description}`)) ||
-              (t && t(`${ProjectsData && ProjectsData[0].description}`))
-            }
-            id={projectID?.id || (ProjectsData && ProjectsData[0].id)}
-            link={projectID?.link || (ProjectsData && ProjectsData[0].link)}
-          />
-          <AtomBody size="BodySmall" color="white">
-            {t && t("projects-click")}
-          </AtomBody>
+
           <ScrollProjectsContainer>
             <AllProjectsContainer>
               {ProjectsData?.map((item) => (
-                <ButtonProject
+                <MoleculesTagProject
                   key={item.id}
-                  id={item.id}
-                  onClick={(e) =>
-                    setProjectID(
-                      ProjectsData.find(
-                        (itemFind) => itemFind.id === e.currentTarget.id
-                      )
-                    )
-                  }
-                >
-                  <AtomImage image={item.urlImage} />
-                </ButtonProject>
+                  title={item.title}
+                  img={item.urlImage}
+                  type={item.type}
+                  link={item.link}
+                />
               ))}
             </AllProjectsContainer>
           </ScrollProjectsContainer>

@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
+import AtomIcon from "@Atoms/icon";
 import AtomContainer from "@Atoms/container";
 import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
-import MoleculesTags from "@Molecules/tags";
-import AtomButton from "@Atoms/button";
-import { Link } from "react-scroll";
+
 import { TFunction } from "next-i18next";
 
 const fakeUserData = [
@@ -49,7 +48,6 @@ const fakeUserData = [
 const Clients = styled.section`
   min-height: calc(100vh - 110px);
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 100%;
   position: relative;
@@ -57,22 +55,20 @@ const Clients = styled.section`
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding: 50px 0px;
+  padding-bottom: 50px;
   ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
+    padding-bottom: 80px;
   }
 `;
 
 const TextContainer = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
+  position: relative;
   ${({ theme }) => theme.mediaquery.small} {
     width: 80%;
   }
-  ${({ theme }) => theme.mediaquery.medium} {
-    width: 50%;
-  }
+  flex-direction: column;
 
   h2 {
     margin-bottom: 20px;
@@ -95,24 +91,79 @@ const TextContainer = styled.div`
   }
 `;
 const TagsContainer = styled.div`
-  display: none;
-  ${({ theme }) => theme.mediaquery.medium} {
-    display: flex;
-  }
-  flex-direction: column;
-  width: 50%;
-  height: 100%;
+  position: absolute;
+  display: flex;
   align-items: center;
-  article {
-    height: 0;
-    margin-top: 15px;
-    margin: 40px 0px;
+  justify-content: center;
+  overflow: hidden;
+  bottom: 0;
+  height: 250px;
+  width: 100%;
+`;
+const TagsContainerClients = styled.div`
+  display: flex;
+  height: 80%;
+  width: max-content;
+`;
+
+const TagsClient = styled.div`
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 40px 110px;
+  background-color: ${({ theme }) => theme.colors.secondary.light};
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  height: 100%;
+  width: 68vw;
+`;
+
+const TagsClientSocial = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: ${({ theme }) => theme.colors.secondary.dark};
+  height: max-content;
+  width: 100%;
+  margin-top: 10px;
+`;
+
+const SocialNetworkContainer = styled.div`
+  display: flex;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+    ${({ theme }) =>
+      true && {
+        width: "20px",
+        height: "20px",
+        marginRight: "15px",
+        svg: {
+          width: "100%",
+          height: "100%",
+          path: {
+            fill: theme.colors.primary.base,
+          },
+        },
+      }}
   }
-  article:nth-of-type(1) {
-    align-self: flex-end;
-  }
-  article:nth-of-type(3) {
-    align-self: flex-end;
+`;
+const StarContainer = styled.div`
+  display: flex;
+  width: fit-content;
+  div {
+    svg {
+      width: 20px;
+      height: 20px;
+      path {
+        fill: #ffd74b;
+      }
+    }
   }
 `;
 
@@ -124,58 +175,53 @@ type IClients = {
 const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
   return (
     <Clients id={idScroll}>
-      <ul className="circles">
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-      </ul>
-      <AtomContainer alignItems="center" justifyContent="space-between">
+      <AtomContainer alignItems="flex-start" justifyContent="center">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
             {t && t("clients-title")}
           </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge" color="gray">
+          <AtomBody align="left" size="BodyLarge" color="light">
             {t && t("clients-desc-1")}
           </AtomBody>
-          <AtomBody align="left" size="BodyExtraLarge" color="gray">
+          <AtomBody align="left" size="BodyLarge" color="light">
             {t && t("clients-desc-2")}
           </AtomBody>
-          <Link to="ContactScroll" smooth offset={-40}>
-            <AtomButton> {t && t("clients-button")}</AtomButton>
-          </Link>
         </TextContainer>
         <TagsContainer>
-          <MoleculesTags
-            title={fakeUserData[0].name}
-            description={t && t(`${fakeUserData[0].description}`)}
-            img={fakeUserData[0].img}
-            socialnetwork={fakeUserData[0].socialnetwork}
-            stars={fakeUserData[0].stars}
-            color="cyan"
-          />
-          <MoleculesTags
-            title={fakeUserData[1].name}
-            description={t && t(`${fakeUserData[1].description}`)}
-            img={fakeUserData[1].img}
-            socialnetwork={fakeUserData[1].socialnetwork}
-            stars={fakeUserData[1].stars}
-            color="blue"
-          />
-          <MoleculesTags
-            title={fakeUserData[2].name}
-            description={t && t(`${fakeUserData[2].description}`)}
-            img={fakeUserData[2].img}
-            socialnetwork={fakeUserData[2].socialnetwork}
-            stars={fakeUserData[2].stars}
-            color="pink"
-          />
+          <TagsContainerClients>
+            <TagsClient />
+            <TagsClient>
+              <AtomTitle bold size="SubTitleLarge">
+                Albert Flores
+              </AtomTitle>
+              <AtomBody align="left" size="BodyMedium">
+                Marketing strategies to bring a fresh and modern identity for
+                your brand. Marketing strategies to bring a fresh and modern
+                identity for your brand.
+              </AtomBody>
+              <TagsClientSocial>
+                <SocialNetworkContainer>
+                  <a>
+                    <AtomIcon icon="facebook" color="dark" size="12px" />
+                  </a>
+                  <a>
+                    <AtomIcon icon="linkedin" color="dark" size="12px" />
+                  </a>
+                  <a>
+                    <AtomIcon icon="twitter" color="dark" size="12px" />
+                  </a>
+                </SocialNetworkContainer>
+                <StarContainer>
+                  <AtomIcon icon="star" />
+                  <AtomIcon icon="star" />
+                  <AtomIcon icon="star" />
+                  <AtomIcon icon="star" />
+                  <AtomIcon icon="star" />
+                </StarContainer>
+              </TagsClientSocial>
+            </TagsClient>
+            <TagsClient />
+          </TagsContainerClients>
         </TagsContainer>
       </AtomContainer>
     </Clients>

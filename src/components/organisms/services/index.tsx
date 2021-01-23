@@ -23,9 +23,9 @@ const Services = styled.section`
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding: 50px 0px;
+  padding-bottom: 50px;
   ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
+    padding-bottom: 80px;
   }
 `;
 
@@ -90,7 +90,7 @@ const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
         justifyContent="space-between"
       >
         <TextContainer style={props2}>
-          <AtomTitle align="left" bold size="TitleMedium" color="black">
+          <AtomTitle align="left" bold size="TitleMedium">
             {t && t("services-title")}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
