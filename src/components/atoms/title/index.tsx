@@ -13,7 +13,7 @@ type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "a" | "span";
 type TitleProps = {
   size?: Size;
   as?: Tag;
-  color?: "white" | "green" | "gray" | "black" | "light" | "accent" 
+  color?: "white" | "green" | "gray" | "black" | "light" | "accent";
   align?: "left" | "center";
   bold?: boolean;
 };
@@ -23,14 +23,13 @@ let mobileSize: Size = "TitleMedium";
 
 const getColor = (
   theme: Theme,
-  color: "white" | "green" | "gray" | "black" | "light" | "accent" 
+  color: "white" | "green" | "gray" | "black" | "light" | "accent" | undefined
 ) => {
   switch (color) {
     case "black":
       return theme.colors.primary.dark;
     case "gray":
       return theme.colors.gray[300];
-      return theme.colors.accent.cyan.light;
     case "light":
       return theme.colors.primary.light;
     case "accent":
