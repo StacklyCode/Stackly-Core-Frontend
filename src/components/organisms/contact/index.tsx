@@ -19,9 +19,9 @@ const Contact = styled.section`
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding: 80px 0px;
+  padding-bottom: 50px;
   ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
+    padding-bottom: 80px;
   }
 `;
 
@@ -72,9 +72,8 @@ const FormContainer = styled.form`
   }
   button {
     align-self: center;
-    width: 200px;
+    padding: 18px 50px;
     ${({ theme }) => theme.mediaquery.small} {
-      align-self: flex-start;
     }
     margin-top: 15px;
   }

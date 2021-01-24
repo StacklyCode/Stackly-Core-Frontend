@@ -31,7 +31,7 @@ const Button = styled.button<ButtonProps>`
     borderRadius: "2px",
     ":hover": {
       cursor: "pointer",
-      backgroundColor: theme.colors.primary.light,
+      backgroundColor: theme.colors.accent.primary.dark,
     },
   })}
 

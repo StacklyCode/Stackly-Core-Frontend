@@ -16,11 +16,14 @@ const InputStyled = styled.div<InputProps>`
   margin: ${({ margin }) => (margin ? `${margin[0]} ${margin[1]}` : "0px")};
   display: flex;
   align-items: center;
+  label:first-of-type {
+    margin-right: 40px;
+  }
   label {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.primary.base};
     input {
       border: none;
       min-width: ${({ type }) => (type === "checkbox" ? "15px" : "180px")};
@@ -31,9 +34,10 @@ const InputStyled = styled.div<InputProps>`
       font-size: 13px;
       line-height: 20px;
       padding-left: ${({ icon }) => (icon ? "43px" : "15px")};
-      transition: all 0.3s ease;
+
       :hover {
         cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       }
       ::placeholder {
       }
@@ -51,30 +55,26 @@ const InputStyled = styled.div<InputProps>`
           ":hover": {
             backgroundColor: theme.colors.primary.base,
           },
-          ":focus": {
-            border: `solid 2px ${theme.colors.primary.dark}`,
-          },
         }) ||
         (color === "light" && {
-          backgroundColor: theme.colors.gray[100],
-          color: theme.colors.gray[500],
+          backgroundColor: theme.colors.secondary.light,
           height: "40px",
           borderRadius: "2px",
           border: `solid 2px ${theme.colors.gray[100]}`,
           "::placeholder": {
-            color: theme.colors.gray[400],
+            color: theme.colors.primary.base,
           },
           ":hover": {
-            border: `solid 2px ${theme.colors.gray[500]}`,
             backgroundColor: theme.colors.gray[100],
             "::placeholder": {
-              color: theme.colors.gray[500],
+              color: theme.colors.primary.base,
             },
           },
           ":focus": {
-            border: `solid 2px ${theme.colors.gray[500]}`,
+            border: `solid 2px ${theme.colors.primary.base}`,
           },
         })}
+      transition: all 0.3s ease;
     }
   }
 `;
@@ -139,7 +139,6 @@ const AtomInput: React.FC<InputProps> = ({
         </IconContainerStyled>
       )}
       <label htmlFor={id}>
-        {placeholder}
         <input
           id={id}
           type={(eye ? "text" : type) || "text"}

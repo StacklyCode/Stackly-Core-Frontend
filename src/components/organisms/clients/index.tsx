@@ -48,6 +48,7 @@ const fakeUserData = [
 const Clients = styled.section`
   min-height: calc(100vh - 110px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   position: relative;
@@ -64,7 +65,6 @@ const Clients = styled.section`
 const TextContainer = styled.div`
   width: 100%;
   display: flex;
-  position: relative;
   ${({ theme }) => theme.mediaquery.small} {
     width: 80%;
   }
@@ -91,32 +91,43 @@ const TextContainer = styled.div`
   }
 `;
 const TagsContainer = styled.div`
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   bottom: 0;
-  height: 250px;
+  height: max-content;
   width: 100%;
+  margin-top: 30px;
 `;
 const TagsContainerClients = styled.div`
   display: flex;
   height: 80%;
   width: max-content;
+  align-items: center;
 `;
 
 const TagsClient = styled.div`
   margin: 0 30px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  padding: 40px 110px;
+  padding: 40px 30px;
+  h4 {
+    margin-bottom: 5px;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  ${({ theme }) => theme.mediaquery.small} {
+    align-items: flex-start;
+    padding: 40px 110px;
+  }
   background-color: ${({ theme }) => theme.colors.secondary.light};
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  height: 100%;
+  height: max-content;
   width: 68vw;
 `;
 
@@ -124,7 +135,6 @@ const TagsClientSocial = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.colors.secondary.dark};
   height: max-content;
   width: 100%;
   margin-top: 10px;
@@ -187,43 +197,43 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
             {t && t("clients-desc-2")}
           </AtomBody>
         </TextContainer>
-        <TagsContainer>
-          <TagsContainerClients>
-            <TagsClient />
-            <TagsClient>
-              <AtomTitle bold size="SubTitleLarge">
-                Albert Flores
-              </AtomTitle>
-              <AtomBody align="left" size="BodyMedium">
-                Marketing strategies to bring a fresh and modern identity for
-                your brand. Marketing strategies to bring a fresh and modern
-                identity for your brand.
-              </AtomBody>
-              <TagsClientSocial>
-                <SocialNetworkContainer>
-                  <a>
-                    <AtomIcon icon="facebook" color="dark" size="12px" />
-                  </a>
-                  <a>
-                    <AtomIcon icon="linkedin" color="dark" size="12px" />
-                  </a>
-                  <a>
-                    <AtomIcon icon="twitter" color="dark" size="12px" />
-                  </a>
-                </SocialNetworkContainer>
-                <StarContainer>
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
-                </StarContainer>
-              </TagsClientSocial>
-            </TagsClient>
-            <TagsClient />
-          </TagsContainerClients>
-        </TagsContainer>
       </AtomContainer>
+      <TagsContainer>
+        <TagsContainerClients>
+          <TagsClient />
+          <TagsClient>
+            <AtomTitle bold size="SubTitleLarge">
+              Albert Flores
+            </AtomTitle>
+            <AtomBody align="left" size="BodyMedium">
+              Marketing strategies to bring a fresh and modern identity for your
+              brand. Marketing strategies to bring a fresh and modern identity
+              for your brand.
+            </AtomBody>
+            <TagsClientSocial>
+              <SocialNetworkContainer>
+                <a>
+                  <AtomIcon icon="facebook" color="dark" size="12px" />
+                </a>
+                <a>
+                  <AtomIcon icon="linkedin" color="dark" size="12px" />
+                </a>
+                <a>
+                  <AtomIcon icon="twitter" color="dark" size="12px" />
+                </a>
+              </SocialNetworkContainer>
+              <StarContainer>
+                <AtomIcon icon="star" />
+                <AtomIcon icon="star" />
+                <AtomIcon icon="star" />
+                <AtomIcon icon="star" />
+                <AtomIcon icon="star" />
+              </StarContainer>
+            </TagsClientSocial>
+          </TagsClient>
+          <TagsClient />
+        </TagsContainerClients>
+      </TagsContainer>
     </Clients>
   );
 };

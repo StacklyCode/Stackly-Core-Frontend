@@ -1,11 +1,7 @@
 import AtomContainer from "@Atoms/container";
-import IllustrationHero from "@Assets/img/illustration-services.svg";
 import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
-import MoleculesTags from "@Molecules/tags";
-import AtomButton from "@Atoms/button";
 import styled from "@emotion/styled";
-import { Link } from "react-scroll";
 import { TFunction } from "next-i18next";
 import { useSpring, animated } from "react-spring";
 import MoleculesTagServices from "@Src/components/molecules/tagservices";

@@ -10,13 +10,19 @@ type TagsProps = {
 };
 
 const Tags = styled.article<TagsProps>`
-  width: 240px;
-  height: 240px;
-  padding: 20px 30px;
+  width: 180px;
+  height: 250px;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
+  ${({ theme }) => theme.mediaquery.small} {
+    align-items: flex-start;
+    width: 240px;
+    height: 240px;
+    padding: 20px 30px;
+  }
   border-radius: 10px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0);
   :hover {

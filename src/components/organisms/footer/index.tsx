@@ -39,6 +39,15 @@ const FooterContainer = styled.div<FooterProps>`
     }
   }
 `;
+const FooterContainerLogo = styled.div<FooterProps>`
+  min-width: 190px;
+  display: flex;
+  align-items: flex-start;
+  svg {
+    height: 35px;
+    width: 35px;
+  }
+`;
 const FooterSocialContainer = styled.div<FooterProps>`
   width: max-content;
   height: 100%;
@@ -72,7 +81,9 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
     <Footer>
       <AtomContainer fullwidth alignItems="center" justifyContent="center">
         <FooterContainer>
-          <AtomIcon icon="stacklycodelogo" />
+          <FooterContainerLogo>
+            <AtomIcon icon="stacklycodelogo" />
+          </FooterContainerLogo>
           <LinkNext href="/copyrighted">
             <FooterCopyrighted>{t && t("footer-desc")}</FooterCopyrighted>
           </LinkNext>
