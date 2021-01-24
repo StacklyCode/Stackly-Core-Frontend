@@ -1,17 +1,14 @@
 import AtomContainer from "@Atoms/container";
-import IllustrationHero from "@Assets/img/illustration-services.svg";
 import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
-import MoleculesTags from "@Molecules/tags";
-import AtomButton from "@Atoms/button";
 import styled from "@emotion/styled";
-import { Link } from "react-scroll";
 import { TFunction } from "next-i18next";
 import { useSpring, animated } from "react-spring";
+import MoleculesTagServices from "@Src/components/molecules/tagservices";
 
 const Services = styled.section`
   background: ${({ theme }) => theme.colors.white};
-  min-height: calc(100vh - 110px);
+  height: max-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,23 +19,9 @@ const Services = styled.section`
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding: 50px 0px;
+  padding-bottom: 50px;
   ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
-  }
-`;
-
-const IllustrationContainer = styled(animated.div)`
-  width: 30%;
-  display: none;
-  ${({ theme }) => theme.mediaquery.medium} {
-    display: flex;
-  }
-  align-items: center;
-  justify-content: center;
-  svg {
-    width: 100%;
-    height: 100%;
+    padding-bottom: 80px;
   }
 `;
 
@@ -46,15 +29,13 @@ const TextContainer = styled(animated.div)`
   width: 100%;
   display: flex;
   flex-direction: column;
-  ${({ theme }) => theme.mediaquery.small} {
-    width: 80%;
-  }
-  ${({ theme }) => theme.mediaquery.medium} {
-    width: 60%;
-  }
 
   h2 {
     margin-bottom: 20px;
+    max-width: 620px;
+  }
+  p {
+    max-width: 500px;
   }
   a {
     align-self: center;
@@ -74,32 +55,10 @@ const TagsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 30px;
   justify-content: center;
   ${({ theme }) => theme.mediaquery.small} {
-    justify-content: space-between;
-  }
-  article {
-    margin-top: 15px;
-    ${({ theme }) => theme.mediaquery.small} {
-      width: 30vw;
-      div {
-        div {
-          p {
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 3;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-          }
-        }
-      }
-    }
-    ${({ theme }) => theme.mediaquery.medium} {
-      width: 23vw;
-    }
-    ${({ theme }) => theme.mediaquery.large} {
-      width: 320px;
-    }
+    justify-content: space-evenly;
   }
 `;
 
@@ -121,54 +80,40 @@ const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
   });
   return (
     <Services id={idScroll}>
-      <ul className="circles">
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-      </ul>
-      <AtomContainer alignItems="center" justifyContent="space-between">
-        <IllustrationContainer style={props}>
-          <IllustrationHero />
-        </IllustrationContainer>
+      <AtomContainer
+        fullwidth
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <TextContainer style={props2}>
-          <AtomTitle align="left" bold size="TitleMedium" color="black">
+          <AtomTitle align="left" bold size="TitleMedium">
             {t && t("services-title")}
           </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge" color="gray">
+          <AtomBody align="left" size="BodyLarge" color="light">
             {t && t("services-desc")}
           </AtomBody>
           <TagsContainer>
-            <MoleculesTags
+            <MoleculesTagServices
               title={t && t("services-tag-1-title")}
               description={t && t("services-tag-1-desc")}
-              color="pink"
+              icon="design"
             />
-            <MoleculesTags
+            <MoleculesTagServices
               title={t && t("services-tag-2-title")}
               description={t && t("services-tag-2-desc")}
-              color="green"
+              icon="apps-services"
             />
-            <MoleculesTags
+            <MoleculesTagServices
               title={t && t("services-tag-3-title")}
               description={t && t("services-tag-3-desc")}
-              color="blue"
+              icon="web-mobile"
             />
-            <MoleculesTags
+            <MoleculesTagServices
               title={t && t("services-tag-4-title")}
               description={t && t("services-tag-4-desc")}
-              color="orange"
+              icon="consultancy"
             />
           </TagsContainer>
-          <Link to="ContactScroll" smooth offset={-40}>
-            <AtomButton>{t && t("services-button")}</AtomButton>
-          </Link>
         </TextContainer>
       </AtomContainer>
     </Services>

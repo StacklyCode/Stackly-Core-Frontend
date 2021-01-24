@@ -7,26 +7,29 @@ import { Link } from "react-scroll";
 import LinkNext from "next/link";
 import { useRouter } from "next/router";
 import { TFunction } from "next-i18next";
+import AtomButton from "@Src/components/atoms/button";
 
 type NavegationProps = {
   title?: string;
   t?: TFunction;
 };
 
-const Navigation = styled.div<NavegationProps>`
+const Navigation = styled.header<NavegationProps>`
   width: 100vw;
   height: 110px;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
   z-index: ${({ theme }) => theme.zindex.zFixed};
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
 `;
 const NavigationLogo = styled.div`
   div {
     width: 35px;
     height: 35px;
+    margin-right: 40px;
     cursor: pointer;
     svg {
       g {
@@ -37,7 +40,6 @@ const NavigationLogo = styled.div`
 
   ${({ theme }) => theme.mediaquery.medium} {
     div {
-      width: 195px;
       svg {
         g {
           display: block;
@@ -63,10 +65,10 @@ const NavigationLinks = styled.div<NavegationProps>`
 const NavigationLink = styled.div<NavegationProps>`
   font-family: Inter;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: white;
+  color: ${({ theme }) => theme.colors.primary.base};
   cursor: pointer;
   display: flex;
   position: relative;
@@ -89,6 +91,13 @@ const IconSideBar = styled.div<NavegationProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  div {
+    svg {
+      path {
+        stroke: ${({ theme }) => theme.colors.primary.base};
+      }
+    }
+  }
   ${({ theme }) => theme.mediaquery.medium} {
     display: none;
   }
@@ -99,7 +108,7 @@ const IconSideBar = styled.div<NavegationProps>`
 const SideBar = styled.div<NavegationProps>`
   height: 100vh;
   width: 300px;
-  background-color: ${({ theme }) => theme.colors.primary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   position: absolute;
   top: 0;
   right: 0;
@@ -109,39 +118,23 @@ const SideBar = styled.div<NavegationProps>`
   ${({ theme }) => theme.mediaquery.medium} {
     display: none;
   }
+  box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.05);
 `;
 const ContainerSideBar = styled.div<NavegationProps>`
   width: 100%;
   height: 110px;
-  top: 0;
-  right: 0;
   display: flex;
   align-items: center;
-  position: fixed;
-  justify-content: flex-end;
-  padding: 0px 200px;
-  button {
-    justify-self: flex-end;
-  }
-  ${({ theme }) => theme.mediaquery.extrasmall} {
-    padding: 0px 190px;
-  }
-  ${({ theme }) => theme.mediaquery.small} {
-    padding: 0px 190px;
-  }
-  ${({ theme }) => theme.mediaquery.medium} {
-    display: none;
-  }
+  justify-content: flex-start;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
 `;
 
 const NavigationLinksSidebar = styled.div<NavegationProps>`
-  height: 100%;
+  height: max-content;
   width: 100%;
-  margin-top: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   div {
     margin-bottom: 50px;
   }
@@ -149,8 +142,28 @@ const NavigationLinksSidebar = styled.div<NavegationProps>`
 const ToggleContainer = styled.div<NavegationProps>`
   height: max-content;
   width: max-content;
-  align-self: baseline;
-  margin-top: 36px;
+  margin-right: 40px;
+`;
+
+const NavigationContainer = styled.div<NavegationProps>`
+  height: 45px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+`;
+const NavigationContainerButtons = styled.div<NavegationProps>`
+  height: max-content;
+  width: max-content;
+  display: none;
+  ${({ theme }) => theme.mediaquery.medium} {
+    display: flex;
+  }
+  button {
+    margin: 0 10px;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 500;
+  }
 `;
 
 const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
@@ -163,91 +176,85 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <NavigationLogo>
-          {router.pathname !== "/" ? (
-            <a href="/">
-              <AtomIcon icon="stacklycodelogo" />
-            </a>
-          ) : (
-            <Link to="HeroScroll" smooth offset={-110}>
-              <AtomIcon icon="stacklycodelogo" />
-            </Link>
-          )}
-        </NavigationLogo>
-        <NavigationLinks>
-          <LinkNext href="/about">
-            <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
-          </LinkNext>
-          <LinkNext href="/community">
-            <NavigationLink>
-              {t && t("nav-tag-2")} <AtomIcon icon="new" />{" "}
-            </NavigationLink>
-          </LinkNext>
-          {router.pathname !== "/" ? (
-            <LinkNext href="/#ServicesScroll">
-              <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
-            </LinkNext>
-          ) : (
-            <Link to="ServicesScroll" smooth offset={-60}>
-              <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
-            </Link>
-          )}
-          {router.pathname !== "/" ? (
-            <LinkNext href="/#ClientsScroll">
-              <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
-            </LinkNext>
-          ) : (
-            <Link to="ClientsScroll" smooth offset={-60}>
-              <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
-            </Link>
-          )}
-          {router.pathname !== "/" ? (
-            <LinkNext href="/#ProjectsScroll">
-              <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
-            </LinkNext>
-          ) : (
-            <Link to="ProjectsScroll" smooth offset={-30}>
-              <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
-            </Link>
-          )}
-          {router.pathname !== "/" ? (
-            <LinkNext href="/#ContactScroll">
-              <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
-            </LinkNext>
-          ) : (
-            <Link to="ContactScroll" smooth offset={-40}>
-              <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
-            </Link>
-          )}
-
+        <NavigationContainer>
+          <NavigationLogo>
+            {router.pathname !== "/" ? (
+              <a href="/">
+                <AtomIcon icon="stacklycodelogo" />
+              </a>
+            ) : (
+              <Link to="HeroScroll" smooth offset={-110}>
+                <AtomIcon icon="stacklycodelogo" />
+              </Link>
+            )}
+          </NavigationLogo>
           <ToggleContainer>
             <AtomToggleList
               outline
               object={{ title: "Lenguajes", options: ["en", "es"] }}
             />
           </ToggleContainer>
-        </NavigationLinks>
-        <IconSideBar onClick={() => setSidebar(!sidebar)}>
-          <AtomIcon icon="menu" />
-        </IconSideBar>
-      </AtomContainer>
-      {sidebar && (
-        <SideBar>
-          <ContainerSideBar>
-            <ToggleContainer>
-              <AtomToggleList
-                outline
-                object={{ title: "Lenguajes", options: ["en", "es"] }}
-              />
-            </ToggleContainer>
-          </ContainerSideBar>
-          <NavigationLinksSidebar>
+          <NavigationLinks>
+            {router.pathname !== "/" ? (
+              <>
+                <LinkNext href="/#ServicesScroll">
+                  <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
+                </LinkNext>
+                <LinkNext href="/#ProjectsScroll">
+                  <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
+                </LinkNext>
+                <LinkNext href="/#ClientsScroll">
+                  <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
+                </LinkNext>
+
+                <LinkNext href="/#ContactScroll">
+                  <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
+                </LinkNext>
+              </>
+            ) : (
+              <>
+                <Link to="ServicesScroll" smooth offset={-140}>
+                  <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
+                </Link>
+                <Link to="ProjectsScroll" smooth offset={-140}>
+                  <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
+                </Link>
+                <Link to="ClientsScroll" smooth offset={-140}>
+                  <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
+                </Link>
+                <Link to="ContactScroll" smooth offset={-140}>
+                  <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
+                </Link>
+              </>
+            )}
             <LinkNext href="/about">
               <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>
-                {t && t("nav-tag-2")} <AtomIcon icon="new" />{" "}
+                {t && t("nav-tag-2")} <AtomIcon color="white" icon="new" />
+              </NavigationLink>
+            </LinkNext>
+          </NavigationLinks>
+        </NavigationContainer>
+        <IconSideBar onClick={() => setSidebar(!sidebar)}>
+          <AtomIcon icon="menu" />
+        </IconSideBar>
+        <NavigationContainerButtons>
+          {/* <AtomButton outline>Sign In</AtomButton>
+          <AtomButton>Sign Up</AtomButton> */}
+        </NavigationContainerButtons>
+      </AtomContainer>
+      {sidebar && (
+        <SideBar>
+          <NavigationLinksSidebar>
+            <ContainerSideBar></ContainerSideBar>
+            <LinkNext href="/about">
+              <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/community">
+              <NavigationLink>
+                {t && t("nav-tag-2")} <AtomIcon color="white" icon="new" />
               </NavigationLink>
             </LinkNext>
             {router.pathname !== "/" ? (

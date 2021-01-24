@@ -6,20 +6,21 @@ import AtomButton from "@Atoms/button";
 import { useSpring, animated } from "react-spring";
 import { TFunction } from "next-i18next";
 import { Link } from "react-scroll";
-import IllustrationHero from "@Assets/img/illustration-hero.svg";
 
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
   min-height: calc(100vh - 110px);
-  margin-top: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   padding: 50px 0px;
   ${({ theme }) => theme.mediaquery.small} {
     padding: 0px 0px;
+  }
+  div {
+    position: relative;
   }
 `;
 
@@ -31,22 +32,42 @@ const TextContainer = styled(animated.div)`
   ${({ theme }) => theme.mediaquery.medium} {
     width: 50%;
   }
-  margin-bottom: 55px;
+  margin-bottom: 45px;
+  p:first-of-type {
+    margin-bottom: 5px;
+  }
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  p {
+    max-width: 480px;
   }
 `;
 const IllustrationContainer = styled(animated.div)`
+  position: absolute;
+  left: 100px;
   width: 40%;
-  margin-bottom: 55px;
+  height: 70vh;
   display: none;
   ${({ theme }) => theme.mediaquery.medium} {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
   align-items: center;
   justify-content: center;
   svg {
     width: 100%;
+  }
+  img:nth-of-type(2) {
+    margin-left: 40px;
+  }
+  img {
+    height: 100%;
+    width: 300px;
+    object-fit: cover;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.15));
+    border-radius: 10px;
   }
 `;
 
@@ -93,15 +114,18 @@ const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
     <Hero id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
+          <AtomBody color="accent" align="left" size="BodyLarge" bold>
+            Hispanic Software Company
+          </AtomBody>
           <AtomTitle align="left" bold size="TitleLarge">
             {t && t("hero-title")}
           </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge">
+          <AtomBody color="light" align="left" size="BodyLarge">
             {t && t("hero-desc")}
           </AtomBody>
           <ButtonContainer>
             <Link to="ContactScroll" smooth offset={-40}>
-              <AtomButton color="primary">{t && t("hero-btn-1")}</AtomButton>
+              <AtomButton>{t && t("hero-btn-1")}</AtomButton>
             </Link>
             <Link to="ProjectsScroll" smooth offset={-30}>
               <AtomButton outline>{t && t("hero-btn-2")}</AtomButton>
@@ -109,7 +133,14 @@ const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
           </ButtonContainer>
         </TextContainer>
         <IllustrationContainer style={props2}>
-          <IllustrationHero />
+          <img
+            src="https://images.pexels.com/photos/443383/pexels-photo-443383.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=300"
+            alt=""
+          />
+          <img
+            src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=300"
+            alt=""
+          />
         </IllustrationContainer>
       </AtomContainer>
     </Hero>
