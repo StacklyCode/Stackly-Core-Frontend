@@ -29,7 +29,6 @@ const Projects = styled.section`
   justify-content: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.secondary.base};
-
 `;
 
 const ProjectsContainer = styled.div`
@@ -85,6 +84,8 @@ const ScrollProjectsContainer = styled.div`
   width: 100%;
   min-height: 500px;
   justify-content: flex-start;
+  overflow: hidden;
+  overflow-x: scroll;
 `;
 
 const AllProjectsContainer = styled.div`

@@ -42,7 +42,11 @@ const FooterContainer = styled.div<FooterProps>`
 const FooterContainerLogo = styled.div<FooterProps>`
   min-width: 190px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  ${({ theme }) => theme.mediaquery.small} {
+    justify-content: flex-start;
+  }
   svg {
     height: 35px;
     width: 35px;

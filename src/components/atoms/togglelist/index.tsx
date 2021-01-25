@@ -11,11 +11,11 @@ type ToggleListProps = {
 };
 
 const ToggleListStyled = styled.div<ToggleListProps>`
-  /* StyleComponent Style with Theme*/
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 80px;
-  height: max-content;
+  width: 70px;
+  height: 35px;
   border-radius: 3px;
   align-self: baseline;
   cursor: pointer;
@@ -33,7 +33,10 @@ const ToggleListStyled = styled.div<ToggleListProps>`
 `;
 
 const ContainerTitleStyled = styled.div<ToggleListProps>`
+  width: 100%;
+  height: 100%;
   display: flex;
+  padding: 0px 10px;
   align-items: center;
   justify-content: space-evenly;
   ${({ theme, outline, toggle }) =>
@@ -43,8 +46,6 @@ const ContainerTitleStyled = styled.div<ToggleListProps>`
       borderBottom: `solid 2px ${theme.colors.white}`,
     }}
   span {
-    padding: 10px 0px;
-    padding-left: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -70,10 +71,13 @@ const ContainerTitleStyled = styled.div<ToggleListProps>`
   }
 `;
 const ContainerOptionsStyled = styled.div<ToggleListProps>`
-  /* StyleComponent Style with Theme*/
+  position: absolute;
+  top: 33px;
+  left: -1px;
+  border: solid 1px ${({ theme }) => theme.colors.primary.base};
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70px;
   height: max-content;
   button {
     padding: 8px 0px;

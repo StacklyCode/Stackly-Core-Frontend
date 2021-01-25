@@ -45,6 +45,7 @@ const TextContainer = styled(animated.div)`
 `;
 const IllustrationContainer = styled(animated.div)`
   position: absolute;
+  overflow: hidden;
   left: 100px;
   width: 40%;
   height: 70vh;
