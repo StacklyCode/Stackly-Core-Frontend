@@ -27,7 +27,7 @@ const ThemeText = {
     FontFamily:
       "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
     FontSize: '16px',
-    LineHeight: '35px'
+    LineHeight: '20px'
   },
   SubTitleSmall: {
     FontFamily:
@@ -69,8 +69,8 @@ const ThemeText = {
   Button: {
     FontFamily:
       "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
-    FontSize: '16px',
-    LineHeight: '25px'
+    FontSize: '15px',
+    LineHeight: '11px'
   }
 };
 

@@ -14,7 +14,8 @@ const Footer = styled.div<FooterProps>`
   min-height: 110px;
   display: flex;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.05);
 `;
 
 const FooterContainer = styled.div<FooterProps>`
@@ -28,7 +29,7 @@ const FooterContainer = styled.div<FooterProps>`
   ${({ theme }) => theme.mediaquery.small} {
     flex-direction: row;
     justify-content: space-between;
-    margin: 00px 0px;
+    margin: 0px 30px;
   }
   span {
     display: none;
@@ -37,8 +38,18 @@ const FooterContainer = styled.div<FooterProps>`
       display: flex;
     }
   }
+`;
+const FooterContainerLogo = styled.div<FooterProps>`
+  min-width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${({ theme }) => theme.mediaquery.small} {
+    justify-content: flex-start;
+  }
   svg {
-    display: flex;
+    height: 35px;
+    width: 35px;
   }
 `;
 const FooterSocialContainer = styled.div<FooterProps>`
@@ -62,7 +73,7 @@ const FooterCopyrighted = styled.span`
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
-  color: ${({ theme }) => theme && theme.colors.white};
+  color: ${({ theme }) => theme && theme.colors.primary.base};
   display: flex;
   align-items: center;
   text-align: center;
@@ -74,7 +85,9 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
     <Footer>
       <AtomContainer fullwidth alignItems="center" justifyContent="center">
         <FooterContainer>
-          <AtomIcon icon="stacklycodelogo" />
+          <FooterContainerLogo>
+            <AtomIcon icon="stacklycodelogo" />
+          </FooterContainerLogo>
           <LinkNext href="/copyrighted">
             <FooterCopyrighted>{t && t("footer-desc")}</FooterCopyrighted>
           </LinkNext>

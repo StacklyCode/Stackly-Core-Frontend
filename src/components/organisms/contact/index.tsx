@@ -14,14 +14,14 @@ const Contact = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding: 80px 0px;
+  padding-bottom: 50px;
   ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
+    padding-bottom: 80px;
   }
 `;
 
@@ -72,9 +72,8 @@ const FormContainer = styled.form`
   }
   button {
     align-self: center;
-    width: 200px;
+    padding: 18px 50px;
     ${({ theme }) => theme.mediaquery.small} {
-      align-self: flex-start;
     }
     margin-top: 15px;
   }
@@ -111,15 +110,15 @@ type IContact = {
 const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
   return (
     <Contact id={idScroll}>
-      <AtomContainer alignItems="center" justifyContent="space-between">
+      <AtomContainer alignItems="center" justifyContent="center">
         <TextContainer>
-          <AtomTitle align="left" bold size="TitleMedium" color="white">
+          <AtomTitle align="center" bold size="TitleMedium">
             {t && t("contact-title")}
           </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge" color="white">
+          <AtomBody align="center" size="BodyLarge" color="light">
             {t && t("contact-desc")}
           </AtomBody>
-          <FormContainer action="mailto:social@stacklycode.com" method="POST">
+          <FormContainer action="" method="POST">
             <FormLeftContainer>
               <AtomInput
                 id="name"
@@ -144,14 +143,11 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               placeholder={t && t("contact-input-message")}
               type="text"
             />
-            <AtomButton type="submit" color="primary">
+            <AtomButton type="submit">
               {t && t("contact-input-send")}
             </AtomButton>
           </FormContainer>
         </TextContainer>
-        <IllustrationContainer>
-          <IllustrationHero />
-        </IllustrationContainer>
       </AtomContainer>
     </Contact>
   );

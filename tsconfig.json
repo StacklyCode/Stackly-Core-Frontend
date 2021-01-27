@@ -27,5 +27,5 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules", ".next"],
-  "include": ["next-env.d.ts", "emotion.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "emotion.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/contact/index.js"]
 }

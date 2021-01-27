@@ -3,11 +3,13 @@ import AtomContainer from "@Atoms/container";
 import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
 import MoleculesTags from "@Molecules/tags";
-import AtomButton from "@Atoms/button";
+import { useSpring, animated } from "react-spring";
 import { TFunction } from "next-i18next";
+import MoleculesTagTeam from "@Src/components/molecules/tagteam";
 
 const fakeUserData = [
   {
+    id: "0",
     name: "Fernando Lopez",
     description: "CEO",
     img:
@@ -21,6 +23,7 @@ const fakeUserData = [
     ],
   },
   {
+    id: "1",
     name: "Carlos Montalvo",
     description: "CTO",
     img:
@@ -35,6 +38,7 @@ const fakeUserData = [
     ],
   },
   {
+    id: "2",
     name: "Jose Luis Reyes",
     description: "CTO",
     img:
@@ -45,6 +49,7 @@ const fakeUserData = [
     ],
   },
   {
+    id: "3",
     name: "William Jesus",
     description: "Fullstack Developer",
     img:
@@ -60,6 +65,7 @@ const fakeUserData = [
     ],
   },
   {
+    id: "4",
     name: "Juan Carlos Cruz",
     description: "UI-UX Designer",
     img:
@@ -70,6 +76,7 @@ const fakeUserData = [
     ],
   },
   {
+    id: "5",
     name: "Erick Vargas",
     description: "Frontend Developer",
     img:
@@ -80,8 +87,9 @@ const fakeUserData = [
     ],
   },
   {
+    id: "6",
     name: "Pablo Sabater",
-    description: "Backend Developer",
+    description: "Fullstack Developer",
     img:
       "https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Pablo-Sabater-Backend-Developer_ggz171.jpg",
     socialnetwork: [
@@ -97,6 +105,7 @@ const fakeUserData = [
     ],
   },
   {
+    id: "7",
     name: "Dano Reyes",
     description: "DBA Manager",
     img:
@@ -112,38 +121,24 @@ const fakeUserData = [
 ];
 
 const Team = styled.section`
-  min-height: calc(100vh - 110px);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
-  position: relative;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  background-size: cover;
-  padding: 50px 0px;
-  ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
-  }
 `;
 
 const TextContainer = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  ${({ theme }) => theme.mediaquery.small} {
-    width: 80%;
-  }
-  ${({ theme }) => theme.mediaquery.medium} {
-    width: 50%;
-  }
 
   h2 {
+    max-width: 900px;
     margin-bottom: 20px;
   }
   p {
+    max-width: 900px;
     margin-bottom: 20px;
   }
   a {
@@ -155,17 +150,25 @@ const TextContainer = styled.div`
   }
 `;
 const TagsContainer = styled.div`
-  display: none;
-  ${({ theme }) => theme.mediaquery.medium} {
-    display: flex;
-  }
+  display: flex;
   flex-wrap: wrap;
-  width: 50%;
+  justify-content: center;
+  margin: 50px 0;
+  max-width: 1440px;
+  width: 100%;
   height: 100%;
   article {
     margin-bottom: 20px;
     margin-right: 20px;
   }
+`;
+
+const TeamContainer = styled(animated.div)`
+  display: flex;
+  width: 100%;
+  height: max-content;
+  flex-direction: column;
+  align-items: center;
 `;
 
 type ITeam = {
@@ -174,35 +177,33 @@ type ITeam = {
 };
 
 const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
+  const props = useSpring({
+    to: { opacity: 1, transform: "translateX(0px)" },
+    from: { opacity: 0, transform: "translateX(-20px)" },
+    delay: 700,
+  });
   return (
     <Team id={idScroll}>
-      <AtomContainer alignItems="center" justifyContent="space-between">
-        <TagsContainer>
-          {fakeUserData.map((item) => (
-            <MoleculesTags
-              key={item.description}
-              title={item.name}
-              description={item.description}
-              img={item.img}
-              socialnetwork={item.socialnetwork}
-              color="cyan"
-            />
-          ))}
-        </TagsContainer>
-        <TextContainer>
-          <AtomTitle align="left" bold size="TitleMedium" color="white">
-            {t && t("team-title")}
-          </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge" color="white">
-            {t && t("team-desc-1")}
-          </AtomBody>
-          <AtomBody align="left" size="BodyExtraLarge" color="white">
-            {t && t("team-desc-2")}
-          </AtomBody>
-          <AtomButton href="/#ContactScroll" color="primary">
-            {t && t("team-button")}
-          </AtomButton>
-        </TextContainer>
+      <AtomContainer alignItems="center" justifyContent="center">
+        <TeamContainer style={props}>
+          <TextContainer>
+            <AtomTitle align="center" bold size="TitleMedium">
+              {t && t("team-title")}
+            </AtomTitle>
+            <AtomBody align="center" size="BodyLarge" color="light">
+              {t && t("team-desc-1")}
+            </AtomBody>
+            <AtomBody align="center" size="BodyLarge" color="light">
+              {t && t("team-desc-2")}
+            </AtomBody>
+          </TextContainer>
+
+          <TagsContainer>
+            {fakeUserData.map((item) => (
+              <MoleculesTagTeam key={item.id} name={item.name} description={item.description} social={item.socialnetwork} image={item.img}/>
+            ))}
+          </TagsContainer>
+        </TeamContainer>
       </AtomContainer>
     </Team>
   );

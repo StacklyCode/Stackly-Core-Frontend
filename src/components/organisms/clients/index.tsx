@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
+import AtomIcon from "@Atoms/icon";
 import AtomContainer from "@Atoms/container";
 import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
-import MoleculesTags from "@Molecules/tags";
-import AtomButton from "@Atoms/button";
-import { Link } from "react-scroll";
+
 import { TFunction } from "next-i18next";
 
 const fakeUserData = [
@@ -49,17 +48,18 @@ const fakeUserData = [
 const Clients = styled.section`
   min-height: calc(100vh - 110px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
   position: relative;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding: 50px 0px;
+  padding-bottom: 50px;
   ${({ theme }) => theme.mediaquery.small} {
-    padding: 80px 0px;
+    padding-bottom: 80px;
   }
 `;
 
@@ -67,17 +67,12 @@ const TextContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  ${({ theme }) => theme.mediaquery.small} {
-    width: 80%;
-  }
-  ${({ theme }) => theme.mediaquery.medium} {
-    width: 50%;
-  }
 
   h2 {
     margin-bottom: 20px;
   }
   p {
+    max-width: 900px;
     margin-bottom: 20px;
   }
   a {
@@ -95,24 +90,97 @@ const TextContainer = styled.div`
   }
 `;
 const TagsContainer = styled.div`
-  display: none;
-  ${({ theme }) => theme.mediaquery.medium} {
-    display: flex;
-  }
-  flex-direction: column;
-  width: 50%;
-  height: 100%;
+  display: flex;
   align-items: center;
-  article {
-    height: 0;
-    margin-top: 15px;
-    margin: 40px 0px;
+  justify-content: center;
+  bottom: 0;
+  height: max-content;
+  width: 100%;
+  margin-top: 50px;
+`;
+const TagsContainerClients = styled.div`
+  display: flex;
+  height: 80%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TagsClient = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 30px;
+  h4 {
+    margin-bottom: 5px;
   }
-  article:nth-of-type(1) {
-    align-self: flex-end;
+  p {
+    margin-bottom: 5px;
+    font-style: italic;
   }
-  article:nth-of-type(3) {
-    align-self: flex-end;
+  ${({ theme }) => theme.mediaquery.small} {
+    align-items: flex-start;
+    padding: 40px 110px;
+  }
+  background-color: ${({ theme }) => theme.colors.secondary.light};
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  height: max-content;
+  width: 68vw;
+`;
+
+const TagsClientSocial = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${({ theme }) => theme.mediaquery.small} {
+    flex-direction: row;
+  }
+  align-items: center;
+  justify-content: space-between;
+  height: max-content;
+  width: 100%;
+  margin-top: 10px;
+`;
+
+const SocialNetworkContainer = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+  ${({ theme }) => theme.mediaquery.small} {
+    margin-bottom: 0px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+    ${({ theme }) =>
+      true && {
+        width: "20px",
+        height: "20px",
+        marginRight: "15px",
+        svg: {
+          width: "100%",
+          height: "100%",
+          path: {
+            fill: theme.colors.primary.base,
+          },
+        },
+      }}
+  }
+`;
+const StarContainer = styled.div`
+  display: flex;
+  width: fit-content;
+  div {
+    svg {
+      width: 20px;
+      height: 20px;
+      path {
+        fill: #ffd74b;
+      }
+    }
   }
 `;
 
@@ -124,59 +192,47 @@ type IClients = {
 const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
   return (
     <Clients id={idScroll}>
-      <ul className="circles">
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-      </ul>
-      <AtomContainer alignItems="center" justifyContent="space-between">
+      <AtomContainer alignItems="flex-start" justifyContent="flex-start">
         <TextContainer>
-          <AtomTitle align="left" bold size="TitleMedium" color="black">
+          <AtomTitle align="left" bold size="TitleMedium">
             {t && t("clients-title")}
           </AtomTitle>
-          <AtomBody align="left" size="BodyExtraLarge" color="gray">
+          <AtomBody align="left" size="BodyLarge" color="light">
             {t && t("clients-desc-1")}
           </AtomBody>
-          <AtomBody align="left" size="BodyExtraLarge" color="gray">
+          <AtomBody align="left" size="BodyLarge" color="light">
             {t && t("clients-desc-2")}
           </AtomBody>
-          <Link to="ContactScroll" smooth offset={-40}>
-            <AtomButton> {t && t("clients-button")}</AtomButton>
-          </Link>
+          <TagsContainer>
+            <TagsContainerClients>
+              <TagsClient>
+                <AtomTitle bold size="SubTitleLarge">
+                  COMFECO
+                </AtomTitle>
+                <AtomBody align="left" size="BodyMedium" color="light">
+                  {t && `"${t("client-desc-1")}"`}
+                </AtomBody>
+                <TagsClientSocial>
+                  <SocialNetworkContainer>
+                    <a href="https://www.comfeco.com/">
+                      <AtomIcon icon="web" color="dark" size="12px" />
+                    </a>
+                    <a href="https://twitter.com/comfeco">
+                      <AtomIcon icon="twitter" color="dark" size="12px" />
+                    </a>
+                  </SocialNetworkContainer>
+                  <StarContainer>
+                    <AtomIcon icon="star" />
+                    <AtomIcon icon="star" />
+                    <AtomIcon icon="star" />
+                    <AtomIcon icon="star" />
+                    <AtomIcon icon="star" />
+                  </StarContainer>
+                </TagsClientSocial>
+              </TagsClient>
+            </TagsContainerClients>
+          </TagsContainer>
         </TextContainer>
-        <TagsContainer>
-          <MoleculesTags
-            title={fakeUserData[0].name}
-            description={t && t(`${fakeUserData[0].description}`)}
-            img={fakeUserData[0].img}
-            socialnetwork={fakeUserData[0].socialnetwork}
-            stars={fakeUserData[0].stars}
-            color="cyan"
-          />
-          <MoleculesTags
-            title={fakeUserData[1].name}
-            description={t && t(`${fakeUserData[1].description}`)}
-            img={fakeUserData[1].img}
-            socialnetwork={fakeUserData[1].socialnetwork}
-            stars={fakeUserData[1].stars}
-            color="blue"
-          />
-          <MoleculesTags
-            title={fakeUserData[2].name}
-            description={t && t(`${fakeUserData[2].description}`)}
-            img={fakeUserData[2].img}
-            socialnetwork={fakeUserData[2].socialnetwork}
-            stars={fakeUserData[2].stars}
-            color="pink"
-          />
-        </TagsContainer>
       </AtomContainer>
     </Clients>
   );

@@ -1,10 +1,20 @@
 const ThemeColor = {
   primary: {
-    base: "#414E6A",
-    light: "#58698C",
+    base: "#162C5B",
+    light: "#6A7FA8",
     dark: "#2E384C",
   },
+  secondary: {
+    base: "#FAFAFA",
+    light: "#FFFFFF",
+    dark: "#F1F5FF",
+  },
   accent: {
+    primary: {
+      base: "#2770F1",
+      light: "#92B6F8",
+      dark: "#1755C2",
+    },
     green: {
       base: "#1E7732",
       light: "#3E8347",
