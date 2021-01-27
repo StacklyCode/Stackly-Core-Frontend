@@ -210,7 +210,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
                   COMFECO
                 </AtomTitle>
                 <AtomBody align="left" size="BodyMedium" color="light">
-                  {t && `"${t("client-desc-1")}"`}
+                  {t && t("client-desc-1")}
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>
