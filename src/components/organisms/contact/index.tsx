@@ -118,7 +118,7 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
           <AtomBody align="center" size="BodyLarge" color="light">
             {t && t("contact-desc")}
           </AtomBody>
-          <FormContainer action="mailto:social@stacklycode.com" method="POST">
+          <FormContainer action="" method="POST">
             <FormLeftContainer>
               <AtomInput
                 id="name"
