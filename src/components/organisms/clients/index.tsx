@@ -117,6 +117,7 @@ const TagsClient = styled.div`
   }
   p {
     margin-bottom: 5px;
+    font-style: italic;
   }
   ${({ theme }) => theme.mediaquery.small} {
     align-items: flex-start;
@@ -206,22 +207,17 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
             <TagsContainerClients>
               <TagsClient>
                 <AtomTitle bold size="SubTitleLarge">
-                  Albert Flores
+                  COMFECO
                 </AtomTitle>
                 <AtomBody align="left" size="BodyMedium" color="light">
-                  Marketing strategies to bring a fresh and modern identity for
-                  your brand. Marketing strategies to bring a fresh and modern
-                  identity for your brand.
+                  {t && `"${t("client-desc-1")}"`}
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>
-                    <a>
-                      <AtomIcon icon="facebook" color="dark" size="12px" />
+                    <a href="https://www.comfeco.com/">
+                      <AtomIcon icon="web" color="dark" size="12px" />
                     </a>
-                    <a>
-                      <AtomIcon icon="linkedin" color="dark" size="12px" />
-                    </a>
-                    <a>
+                    <a href="https://twitter.com/comfeco">
                       <AtomIcon icon="twitter" color="dark" size="12px" />
                     </a>
                   </SocialNetworkContainer>
