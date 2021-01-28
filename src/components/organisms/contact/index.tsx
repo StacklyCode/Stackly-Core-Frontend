@@ -7,6 +7,7 @@ import AtomInput from "@Atoms/input";
 import { TFunction } from "next-i18next";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useMutation, gql } from "@apollo/client";
 import Axios from "axios";
 
 const Contact = styled.section`
@@ -124,7 +125,15 @@ const initialValues: FormValues = {
   message: "",
 };
 
+const NEW_CONTACT = gql`
+  mutation($input: ContactInput) {
+    newContact(input: $input)
+  }
+`;
+
 const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
+  const [newUser] = useMutation(NEW_CONTACT);
+
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
@@ -136,12 +145,17 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
       message: Yup.string().required("Por favor, ingrese un Mensage."),
     }),
     onSubmit: async (valores) => {
-      const result = await Axios.post("/api/contact", valores).catch(
-        () => null
-      );
-      if (result?.status === 200) {
-        location.href = "/";
-      }
+      await newUser({
+        variables: {
+          input: valores,
+        },
+      })
+        .catch((error) => {
+          throw new Error(error.message);
+        })
+        .then(() => {
+          location.href = "/";
+        });
     },
   });
   return (

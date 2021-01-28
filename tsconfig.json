@@ -3,7 +3,9 @@
     "baseUrl": "./",
     "paths": {
       "@Src/*": ["src/*"],
+      "@Apollo/*": ["src/apollo/*"],
       "@Public/*": ["public/*"],
+      "@Config/*": ["src/config/*"],
       "@Atoms/*": ["src/components/atoms/*"],
       "@Molecules/*": ["src/components/molecules/*"],
       "@Organisms/*": ["src/components/organisms/*"],
