@@ -214,10 +214,10 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>
-                    <a href="https://www.comfeco.com/">
+                    <a target="_blank" href="https://www.comfeco.com/">
                       <AtomIcon icon="web" color="dark" size="12px" />
                     </a>
-                    <a href="https://twitter.com/comfeco">
+                    <a target="_blank" href="https://twitter.com/comfeco">
                       <AtomIcon icon="twitter" color="dark" size="12px" />
                     </a>
                   </SocialNetworkContainer>

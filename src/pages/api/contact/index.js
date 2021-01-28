@@ -1,51 +1,49 @@
 import nodemailer from "nodemailer";
 
-const emailPass = "yourPassword";
+const emailPass = "Stacklycode77.";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ionos.de",
-  port: 25,
+  service: "gmail",
   auth: {
-    user: "yourUser@example.com",
+    user: "Stacklycode@gmail.com",
     pass: emailPass,
   },
 });
 
 export default async (req, res) => {
-  const { senderMail, name, content, recipientMail } = req.body;
+  if (req.method === "POST") {
+    const { email, name, message, subject } = req.body;
 
-  if (
-    senderMail === "" ||
-    name === "" ||
-    content === "" ||
-    recipientMail === ""
-  ) {
-    res.status(403).send("");
+    if (email === "" || name === "" || message === "" || subject === "") {
+      res.status(403).send("");
+      return;
+    }
+
+    await mailer({
+      email,
+      name,
+      message,
+      subject,
+    });
+    res.status(200).send("Message send correctly");
+  } else {
+    res.status(400).send("Api not method POST");
     return;
   }
-
-  const mailerRes = await mailer({
-    senderMail,
-    name,
-    text: content,
-    recipientMail,
-  });
-  res.send(mailerRes);
 };
 
-const mailer = ({ senderMail, name, text, recipientMail }) => {
-  const from =
-    name && senderMail ? `${name} <${senderMail}>` : `${name || senderMail}`;
-  const message = {
+const mailer = ({ email, name, message, subject }) => {
+  const from = name && email ? `${name} <${email}>` : `${name || email}`;
+  const messageSend = {
     from,
-    to: `${recipientMail}`,
-    subject: `New message from ${from}`,
-    text,
+    to: "stacklycode@gmail.com",
+    subject: `${subject} : Mensaje de ${from} `,
+    message,
     replyTo: from,
   };
 
   return new Promise((resolve, reject) => {
-    transporter.sendMail(message, (error, info) =>
+    transporter.sendMail(messageSend, (error, info) =>
       error ? reject(error) : resolve(info)
     );
   });

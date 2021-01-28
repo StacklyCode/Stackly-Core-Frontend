@@ -77,18 +77,6 @@ const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
   });
   return (
     <Community id={idScroll}>
-      <ul className="circles">
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-        <li />
-      </ul>
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
@@ -98,7 +86,6 @@ const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
             {t && t("community-desc")}
           </AtomBody>
           <AtomButton href="https://discord.gg/jjMRrHguPf">
-            {" "}
             {t && t("community-button")}
           </AtomButton>
         </TextContainer>

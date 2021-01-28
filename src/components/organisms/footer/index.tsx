@@ -92,22 +92,22 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
             <FooterCopyrighted>{t && t("footer-desc")}</FooterCopyrighted>
           </LinkNext>
           <FooterSocialContainer>
-            <a
+            <a target="_blank"
               href="https://www.facebook.com/StacklyCodeOfficial"
               title="Facebook Page"
             >
               <AtomIcon icon="facebook" />
             </a>
-            <a
+            <a target="_blank"
               href="https://www.linkedin.com/company/68642625/admin/"
               title="Linkedin Page"
             >
               <AtomIcon icon="linkedin" />
             </a>
-            <a href="https://github.com/StacklyCode" title="Github Page">
+            <a target="_blank" href="https://github.com/StacklyCode" title="Github Page">
               <AtomIcon icon="github" />
             </a>
-            <a href="https://twitter.com/StacklyCode" title="Twitter Page">
+            <a target="_blank" href="https://twitter.com/StacklyCode" title="Twitter Page">
               <AtomIcon icon="twitter" />
             </a>
           </FooterSocialContainer>

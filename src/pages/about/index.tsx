@@ -12,7 +12,6 @@ const AboutPage = () => {
     <>
       <Seo page="About" />
       <TemplateMain t={t}>
-        <OrganismAbout t={t} />
         <OrganismTeam t={t} />
       </TemplateMain>
     </>
