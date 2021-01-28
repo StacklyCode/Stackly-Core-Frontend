@@ -2,7 +2,9 @@ import { IContact } from "../interfaces/interfaces";
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: "Stacklycode@gmail.com",
     pass: "Stacklycode77.",
