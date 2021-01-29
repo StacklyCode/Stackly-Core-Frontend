@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { TFunction } from "next-i18next";
 import AtomButton from "@Src/components/atoms/button";
 import AtomTitle from "@Src/components/atoms/title";
+import AtomSwitch from "@Src/components/atoms/switch";
 
 type NavegationProps = {
   title?: string;
@@ -24,7 +25,7 @@ const Navigation = styled.header<NavegationProps>`
   position: fixed;
   top: 0;
   z-index: ${({ theme }) => theme.zindex.zFixed};
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 10px ${({ theme }) => `${theme.colors.primary.base}0D`};
 `;
 const NavigationLogo = styled.div`
   div {
@@ -251,12 +252,11 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           <AtomIcon icon="menu" />
         </IconSideBar>
         <NavigationContainerButtons>
-          {/*  <ToggleDarkModeContainer>
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round"></span>
-            </label>
+          {/* 
+          <ToggleDarkModeContainer>
+            <AtomSwitch />
           </ToggleDarkModeContainer>
+         
           <AtomButton outline>Sign In</AtomButton>
           <AtomButton>Sign Up</AtomButton> */}
         </NavigationContainerButtons>

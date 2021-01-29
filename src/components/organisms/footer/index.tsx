@@ -15,7 +15,7 @@ const Footer = styled.div<FooterProps>`
   display: flex;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.secondary.base};
-  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px -5px 10px ${({ theme }) => `${theme.colors.primary.base}0D`};
 `;
 
 const FooterContainer = styled.div<FooterProps>`

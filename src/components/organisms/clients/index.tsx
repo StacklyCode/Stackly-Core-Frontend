@@ -47,6 +47,7 @@ const fakeUserData = [
 
 const Clients = styled.section`
   min-height: calc(100vh - 110px);
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   display: flex;
   flex-direction: column;
   justify-content: center;

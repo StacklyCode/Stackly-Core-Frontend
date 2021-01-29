@@ -14,7 +14,7 @@ const Services = styled.section`
   justify-content: center;
   position: relative;
   width: 100%;
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.secondary.base};
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;

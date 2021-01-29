@@ -3,6 +3,7 @@
     "baseUrl": "./",
     "paths": {
       "@Src/*": ["src/*"],
+      "@Hooks/*": ["src/hooks/*"],
       "@Apollo/*": ["src/apollo/*"],
       "@Public/*": ["public/*"],
       "@Config/*": ["src/config/*"],
@@ -29,5 +30,11 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules", ".next"],
-  "include": ["next-env.d.ts", "emotion.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/contact/index.js"]
+  "include": [
+    "next-env.d.ts",
+    "emotion.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/api/contact/index.js"
+  ]
 }

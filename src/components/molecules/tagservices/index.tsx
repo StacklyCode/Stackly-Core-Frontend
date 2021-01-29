@@ -26,7 +26,7 @@ const Tags = styled.article<TagsProps>`
   border-radius: 10px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0);
   :hover {
-    background-color: ${({ theme }) => theme.colors.secondary.base};
+    background-color: ${({ theme }) => theme.colors.secondary.light};
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     div {
