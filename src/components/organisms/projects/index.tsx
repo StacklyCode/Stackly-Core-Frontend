@@ -4,7 +4,7 @@ import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
 import { Link } from "react-scroll";
 import { TFunction } from "next-i18next";
-import MoleculesTagProject from "@Src/components/molecules/tagprojects";
+import MoleculeCarrusel from "@Src/components/molecules/carrusel";
 
 type IProject = {
   id?: string;
@@ -83,8 +83,9 @@ const AllProjectsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  max-width: 1150px;
   width: 100%;
-  height: max-content;
+  height: 280px;
   padding-bottom: 100px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -94,16 +95,7 @@ const AllProjectsContainer = styled.div`
   transition: all 2s ease;
 `;
 
-type IProjectProps = {
-  id?: string;
-  title?: string;
-  type?: string;
-  description?: string;
-  urlImage?: string;
-  link?: string;
-};
-
-const ProjectsData: IProjectProps[] = [
+const ProjectsData: IProject[] = [
   {
     id: "0",
     title: "Landing page for COMFECO",
@@ -200,17 +192,7 @@ const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, t }) => {
           </ParagraphContainer>
 
           <AllProjectsContainer>
-            {ProjectsData?.map((item) => (
-              <MoleculesTagProject
-                t={t}
-                key={item.id}
-                title={item.title}
-                img={item.urlImage}
-                description={item.description}
-                type={item.type}
-                link={item.link}
-              />
-            ))}
+            <MoleculeCarrusel t={t} data={ProjectsData}></MoleculeCarrusel>
           </AllProjectsContainer>
         </ProjectsContainer>
       </AtomContainer>

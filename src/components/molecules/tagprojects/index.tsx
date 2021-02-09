@@ -15,7 +15,6 @@ type TagsProps = {
 
 const Tags = styled.article<TagsProps>`
   width: 240px;
-  margin-bottom: 30px;
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
@@ -31,15 +30,23 @@ const Tags = styled.article<TagsProps>`
       filter: drop-shadow(0px 4px 11px rgba(0, 0, 0, 0.25));
     }
     div {
-      height: 250px;
       opacity: 1;
     }
   }
   span {
-    text-align: left;
-    margin-top: 10px;
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+    ${({ theme }) => theme.mediaquery.small} {
+      margin-top: 10px;
+      text-align: left;
+    }
   }
   p {
+    text-align: center;
+    ${({ theme }) => theme.mediaquery.small} {
+      text-align: left;
+    }
     margin-top: 5px;
   }
   transition: all 0.6s ease;
@@ -54,6 +61,8 @@ const TagImage = styled.img<TagsProps>`
 
 const TagImageDesc = styled.desc<TagsProps>`
   width: 100%;
+  display: flex;
+  flex-direction: column;
   height: max-content;
   img {
     margin-bottom: 5px;
@@ -61,10 +70,9 @@ const TagImageDesc = styled.desc<TagsProps>`
 `;
 
 const TagDescContainer = styled.div<TagsProps>`
-  margin-top: 5px;
   width: 100%;
   overflow: hidden;
-  height: 0px;
+  height: max-content;
   opacity: 0;
   display: flex;
   align-items: center;
@@ -119,11 +127,6 @@ const MoleculesTagProject: React.FC<TagsProps> = ({
         </AtomBody>
       </TagImageDesc>
       <TagDescContainer>
-        <AtomBody align="left" size="BodySmall" color="light">
-          {description
-            ? t && t(description)
-            : "We delivered a nice looking and well crafted user experience for Amara’s website, to bring customers to their platform for flower services and increasing their user’s traffic and sells."}
-        </AtomBody>
         <AtomButton href={link}>View Project</AtomButton>
       </TagDescContainer>
     </Tags>
