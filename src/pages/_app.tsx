@@ -3,7 +3,7 @@ import { ThemeProvider } from "@emotion/react";
 import GlobalStyles from "@Styles/globalStyled";
 import { ApolloProvider } from "@apollo/client";
 import Theme from "@Styles/theme";
-import client from "@Config/apollo";
+import client from "@Apollo/config/apollo";
 import ThemeContext from "@Hooks/ThemeContext";
 import { useEffect, useContext, useState } from "react";
 import { I18nContext } from "next-i18next";
