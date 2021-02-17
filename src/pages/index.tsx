@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import TemplateMain from "@Templates/index";
-import OrganismHero from "@Organisms/hero";
+import OrganismHero from "@Section/web/hero";
 import I18n from "@Src/i18n";
 import { TFunction } from "next-i18next";
 import LazyLoad from "react-lazyload";
@@ -67,10 +67,10 @@ type Props = {
 };
 
 const PageHome = ({ t }: Props) => {
-  const OrganismServices = dynamic(() => import("@Organisms/services"));
-  const OrganismProjects = dynamic(() => import("@Organisms/projects"));
-  const OrganismClients = dynamic(() => import("@Organisms/clients"));
-  const OrganismContact = dynamic(() => import("@Organisms/contact"));
+  const OrganismServices = dynamic(() => import("@Section/web/services"));
+  const OrganismProjects = dynamic(() => import("@Section/web/projects"));
+  const OrganismClients = dynamic(() => import("@Section/web/clients"));
+  const OrganismContact = dynamic(() => import("@Section/web/contact"));
 
   return (
     <TemplateMain

@@ -10,6 +10,7 @@
       "@Atoms/*": ["src/components/atoms/*"],
       "@Molecules/*": ["src/components/molecules/*"],
       "@Organisms/*": ["src/components/organisms/*"],
+      "@Section/*": ["src/components/sections/*"],
       "@Templates/*": ["src/components/templates/*"],
       "@Utils/*": ["src/utils/*"],
       "@Assets/*": ["src/assets/*"],
