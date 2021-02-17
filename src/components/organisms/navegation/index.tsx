@@ -8,6 +8,8 @@ import LinkNext from "next/link";
 import { useRouter } from "next/router";
 import { TFunction } from "next-i18next";
 import AtomButton from "@Src/components/atoms/button";
+import AtomTitle from "@Src/components/atoms/title";
+import AtomSwitch from "@Src/components/atoms/switch";
 
 type NavegationProps = {
   title?: string;
@@ -23,7 +25,7 @@ const Navigation = styled.header<NavegationProps>`
   position: fixed;
   top: 0;
   z-index: ${({ theme }) => theme.zindex.zFixed};
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 10px ${({ theme }) => `${theme.colors.primary.base}0D`};
 `;
 const NavigationLogo = styled.div`
   div {
@@ -154,16 +156,25 @@ const NavigationContainer = styled.div<NavegationProps>`
 const NavigationContainerButtons = styled.div<NavegationProps>`
   height: max-content;
   width: max-content;
+  align-items: center;
   display: none;
   ${({ theme }) => theme.mediaquery.medium} {
     display: flex;
   }
   button {
+    max-height: 35px;
     margin: 0 10px;
     padding: 10px 25px;
     font-size: 14px;
     font-weight: 500;
   }
+`;
+
+const ToggleDarkModeContainer = styled.div<NavegationProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
@@ -241,7 +252,12 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           <AtomIcon icon="menu" />
         </IconSideBar>
         <NavigationContainerButtons>
-          {/* <AtomButton outline>Sign In</AtomButton>
+          {/* 
+          <ToggleDarkModeContainer>
+            <AtomSwitch />
+          </ToggleDarkModeContainer>
+         
+          <AtomButton outline>Sign In</AtomButton>
           <AtomButton>Sign Up</AtomButton> */}
         </NavigationContainerButtons>
       </AtomContainer>

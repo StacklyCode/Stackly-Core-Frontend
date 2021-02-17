@@ -95,7 +95,7 @@ interface IMediaQuery {
   extralarge: string;
 }
 
-export interface Theme {
+export type Theme = {
   colors: IColors;
   texts: IThemeText;
   shadows: IShadows;
@@ -119,4 +119,4 @@ export interface Theme {
     xl: number;
     xxl: number;
   };
-}
+};

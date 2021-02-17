@@ -83,7 +83,7 @@ const AtomButton: React.FC<ButtonProps> = ({
   }
   if (href) {
     return (
-      <a href={href}>
+      <a target="_blank" href={href}>
         <Button color={color} outline={outline}>
           {children}
         </Button>

@@ -15,7 +15,7 @@ const Footer = styled.div<FooterProps>`
   display: flex;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.secondary.base};
-  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px -5px 10px ${({ theme }) => `${theme.colors.primary.base}0D`};
 `;
 
 const FooterContainer = styled.div<FooterProps>`
@@ -92,22 +92,22 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
             <FooterCopyrighted>{t && t("footer-desc")}</FooterCopyrighted>
           </LinkNext>
           <FooterSocialContainer>
-            <a
+            <a target="_blank"
               href="https://www.facebook.com/StacklyCodeOfficial"
               title="Facebook Page"
             >
               <AtomIcon icon="facebook" />
             </a>
-            <a
+            <a target="_blank"
               href="https://www.linkedin.com/company/68642625/admin/"
               title="Linkedin Page"
             >
               <AtomIcon icon="linkedin" />
             </a>
-            <a href="https://github.com/StacklyCode" title="Github Page">
+            <a target="_blank" href="https://github.com/StacklyCode" title="Github Page">
               <AtomIcon icon="github" />
             </a>
-            <a href="https://twitter.com/StacklyCode" title="Twitter Page">
+            <a target="_blank" href="https://twitter.com/StacklyCode" title="Twitter Page">
               <AtomIcon icon="twitter" />
             </a>
           </FooterSocialContainer>

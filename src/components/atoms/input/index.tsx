@@ -3,12 +3,20 @@ import styled from "@emotion/styled";
 import Icon from "@Atoms/icon";
 
 type InputProps = {
-  type?: "password" | "checkbox" | "email" | "text" | "search" | "number";
+  type?:
+    | "password"
+    | "checkbox"
+    | "email"
+    | "text"
+    | "search"
+    | "number"
+    | "textbox";
   color?: "dark" | "light";
   placeholder?: string;
   id?: string;
   icon?: string;
   margin?: [string, string];
+  formik?: any;
 };
 
 const InputStyled = styled.div<InputProps>`
@@ -20,7 +28,9 @@ const InputStyled = styled.div<InputProps>`
     margin-right: 40px;
   }
   label {
+    margin-bottom: 5px;
     font-family: Roboto;
+    font-size: 15px;
     font-style: normal;
     font-weight: bold;
     color: ${({ theme }) => theme.colors.primary.base};
@@ -72,6 +82,61 @@ const InputStyled = styled.div<InputProps>`
           },
           ":focus": {
             border: `solid 2px ${theme.colors.primary.base}`,
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          },
+        })}
+      transition: all 0.3s ease;
+    }
+    textarea {
+      border: none;
+      width: 100%;
+      min-height: 200px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 20px;
+      padding-left: ${({ icon }) => (icon ? "43px" : "15px")};
+
+      :hover {
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      ::placeholder {
+      }
+
+      ${({ color, theme }) =>
+        (color === "dark" && {
+          backgroundColor: theme.colors.primary.dark,
+          color: theme.colors.white,
+          height: "40px",
+          borderRadius: "2px",
+          border: `solid 2px ${theme.colors.primary.dark}`,
+          "::placeholder": {
+            color: theme.colors.white,
+          },
+          ":hover": {
+            backgroundColor: theme.colors.primary.base,
+          },
+        }) ||
+        (color === "light" && {
+          backgroundColor: theme.colors.secondary.light,
+          height: "40px",
+          borderRadius: "2px",
+          border: `solid 2px ${theme.colors.gray[100]}`,
+          "::placeholder": {
+            color: theme.colors.primary.base,
+          },
+          ":hover": {
+            backgroundColor: theme.colors.gray[100],
+            "::placeholder": {
+              color: theme.colors.primary.base,
+            },
+          },
+          ":focus": {
+            border: `solid 2px ${theme.colors.primary.base}`,
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
           },
         })}
       transition: all 0.3s ease;
@@ -117,6 +182,18 @@ const IconContainerStyled = styled.div<InputProps>`
   }
 `;
 
+const StyledInputError = styled.span`
+  margin-top: 20px;
+  font-family: ${({ theme }) => theme.texts.BodyLarge.FontFamily};
+  max-width: 312px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: #ff295f;
+`;
+
+
 const AtomInput: React.FC<InputProps> = ({
   type,
   color,
@@ -124,6 +201,7 @@ const AtomInput: React.FC<InputProps> = ({
   id,
   icon,
   margin,
+  formik,
 }) => {
   const [eye, seteye] = useState(false);
   return (
@@ -139,11 +217,26 @@ const AtomInput: React.FC<InputProps> = ({
         </IconContainerStyled>
       )}
       <label htmlFor={id}>
-        <input
-          id={id}
-          type={(eye ? "text" : type) || "text"}
-          placeholder={placeholder || `Placeholder ${type || "Text"}`}
-        />
+        {placeholder}
+        {type === "textbox" ? (
+          <textarea
+            id={id}
+            value={formik.values[`${id}`]}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          ></textarea>
+        ) : (
+          <input
+            id={id}
+            type={(eye ? "text" : type) || "text"}
+            value={formik.values[`${id}`]}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        )}
+          {(formik.values[`${id}`] !== '' || formik.touched[`${id}`]) && formik.errors[`${id}`] ? (
+          <StyledInputError>{formik.errors[`${id}`]}</StyledInputError>
+        ) : null}
       </label>
       {type === "password" && (
         <PasswordContainerStyled

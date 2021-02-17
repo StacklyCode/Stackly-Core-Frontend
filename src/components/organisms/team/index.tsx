@@ -132,6 +132,7 @@ const TextContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 30px;
 
   h2 {
     max-width: 900px;
@@ -188,8 +189,11 @@ const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
         <TeamContainer style={props}>
           <TextContainer>
             <AtomTitle align="center" bold size="TitleMedium">
-              {t && t("team-title")}
+              {t && t("about-title")}
             </AtomTitle>
+            <AtomBody align="center" size="BodyLarge" color="light">
+              {t && t("about-desc")}
+            </AtomBody>
             <AtomBody align="center" size="BodyLarge" color="light">
               {t && t("team-desc-1")}
             </AtomBody>
@@ -200,7 +204,13 @@ const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
 
           <TagsContainer>
             {fakeUserData.map((item) => (
-              <MoleculesTagTeam key={item.id} name={item.name} description={item.description} social={item.socialnetwork} image={item.img}/>
+              <MoleculesTagTeam
+                key={item.id}
+                name={item.name}
+                description={item.description}
+                social={item.socialnetwork}
+                image={item.img}
+              />
             ))}
           </TagsContainer>
         </TeamContainer>

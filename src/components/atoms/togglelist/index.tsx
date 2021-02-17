@@ -114,11 +114,12 @@ const AtomToggleList: React.FC<ToggleListProps> = ({ outline, object }) => {
   function clickOption(e: React.MouseEvent<HTMLSpanElement>) {
     const eGet = e.target as HTMLSpanElement;
     const optionGet = eGet.innerText.toLowerCase();
+    localStorage.setItem("language", optionGet);
     i18n.changeLanguage(optionGet);
     setoption(optionGet);
     /*  Function to Do */
   }
-  useEffect(() => {
+  useEffect(() => { 
     setoption(language);
   });
   return (

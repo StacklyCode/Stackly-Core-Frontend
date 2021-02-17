@@ -115,7 +115,7 @@ const MoleculesTagTeam: React.FC<TagsProps> = ({
       </AtomBody>
       <SocialNetworkContainer>
         {social?.map((item, index) => (
-          <a key={`${item.name}key${index}`} href={item.url}>
+          <a target="_blank" key={`${item.name}key${index}`} href={item.url}>
             <AtomIcon icon={item.name} color="dark" size="12px" />
           </a>
         ))}
