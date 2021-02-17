@@ -252,13 +252,14 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           <AtomIcon icon="menu" />
         </IconSideBar>
         <NavigationContainerButtons>
-          {/* 
-          <ToggleDarkModeContainer>
+          {/*        <ToggleDarkModeContainer>
             <AtomSwitch />
-          </ToggleDarkModeContainer>
-         
-          <AtomButton outline>Sign In</AtomButton>
-          <AtomButton>Sign Up</AtomButton> */}
+          </ToggleDarkModeContainer> */}
+
+          <AtomButton  link="/login">
+            Login
+          </AtomButton>
+          <AtomButton outline link="/signup">Sign Up</AtomButton>
         </NavigationContainerButtons>
       </AtomContainer>
       {sidebar && (
