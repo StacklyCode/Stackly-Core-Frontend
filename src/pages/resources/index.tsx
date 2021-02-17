@@ -11,11 +11,11 @@ const PageResources = ({ t }: TTeam) => {
   return (
     <TemplateMain
       t={t}
-      SeoTitle="Stackly Team"
-      SeoDesc="Team"
+      SeoTitle="Stackly Resources"
+      SeoDesc="Resources"
       SeoPage="In Stackly Code we understand that time is the most valuable asset and if you put it in our hands, we will make sure to bring the best product for your needs."
     >
-      Page To Team
+      Page To Resources
     </TemplateMain>
   );
 };
