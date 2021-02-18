@@ -177,6 +177,57 @@ const ToggleDarkModeContainer = styled.div<NavegationProps>`
   justify-content: center;
 `;
 
+const SettingsNavigation = styled.div`
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.gray[200]};
+  transition: all 0.6s ease;
+  :hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors.primary.base};
+    div:first-of-type {
+      svg {
+        path {
+          fill: ${({ theme }) => theme.colors.secondary.light};
+        }
+      }
+    }
+    div:nth-of-type(2) {
+      display: flex;
+      opacity: 1;
+    }
+  }
+  div:first-of-type {
+    width: 50%;
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.primary.base};
+      }
+    }
+  }
+`;
+
+const SettingsOptionsNavigation = styled.div`
+  top: 50px;
+  position: absolute;
+  opacity: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 120px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.secondary.light};
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+`;
+
 const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
   const [sidebar, setSidebar] = useState(false);
   const router = useRouter();
@@ -195,13 +246,11 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
               </a>
             </LinkNext>
           </NavigationLogo>
-          <ToggleContainer>
-            <AtomToggleList
-              outline
-              object={{ title: "Lenguajes", options: ["en", "es"] }}
-            />
-          </ToggleContainer>
+
           <NavigationLinks>
+            <LinkNext href="/team">
+              <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
+            </LinkNext>
             <LinkNext href="/team">
               <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
             </LinkNext>
@@ -223,10 +272,20 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           <AtomIcon icon="menu" />
         </IconSideBar>
         <NavigationContainerButtons>
-          {/*        <ToggleDarkModeContainer>
-            <AtomSwitch />
-          </ToggleDarkModeContainer> */}
-
+          <SettingsNavigation>
+            <AtomIcon icon="settings" />
+            <SettingsOptionsNavigation>
+              <ToggleContainer>
+                <AtomToggleList
+                  outline
+                  object={{ title: "Lenguajes", options: ["en", "es"] }}
+                />
+              </ToggleContainer>
+              <ToggleDarkModeContainer>
+                <AtomSwitch />
+              </ToggleDarkModeContainer>
+            </SettingsOptionsNavigation>
+          </SettingsNavigation>
           <AtomButton link="/login">Login</AtomButton>
           <AtomButton outline link="/signup">
             Sign Up
