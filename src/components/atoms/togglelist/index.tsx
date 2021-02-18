@@ -14,7 +14,7 @@ const ToggleListStyled = styled.div<ToggleListProps>`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 70px;
+  width: 80px;
   height: 35px;
   border-radius: 3px;
   align-self: baseline;
@@ -77,7 +77,7 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
   border: solid 1px ${({ theme }) => theme.colors.primary.base};
   display: flex;
   flex-direction: column;
-  width: 70px;
+  width: 80px;
   height: max-content;
   button {
     padding: 8px 0px;

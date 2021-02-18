@@ -17,6 +17,7 @@ type InputProps = {
   icon?: string;
   margin?: [string, string];
   formik?: any;
+  name?: string;
 };
 
 const InputStyled = styled.div<InputProps>`
@@ -24,10 +25,11 @@ const InputStyled = styled.div<InputProps>`
   margin: ${({ margin }) => (margin ? `${margin[0]} ${margin[1]}` : "0px")};
   display: flex;
   align-items: center;
-  label:first-of-type {
-    margin-right: 40px;
-  }
   label {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    min-width: 300px;
     margin-bottom: 5px;
     font-family: Roboto;
     font-size: 15px;
@@ -50,6 +52,7 @@ const InputStyled = styled.div<InputProps>`
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       }
       ::placeholder {
+        color: ${({ theme }) => theme.colors.primary.light};
       }
 
       ${({ color, theme }) =>
@@ -71,6 +74,7 @@ const InputStyled = styled.div<InputProps>`
           height: "40px",
           borderRadius: "2px",
           border: `solid 2px ${theme.colors.gray[100]}`,
+          boxShadow: "0px 0px 7px rgba(0, 0, 0, 0.1)",
           "::placeholder": {
             color: theme.colors.primary.base,
           },
@@ -125,6 +129,7 @@ const InputStyled = styled.div<InputProps>`
           height: "40px",
           borderRadius: "2px",
           border: `solid 2px ${theme.colors.gray[100]}`,
+          boxShadow: "0px 0px 7px rgba(0, 0, 0, 0.1)",
           "::placeholder": {
             color: theme.colors.primary.base,
           },
@@ -145,8 +150,9 @@ const InputStyled = styled.div<InputProps>`
 `;
 
 const PasswordContainerStyled = styled.div<InputProps>`
-  position: relative;
-  left: -40px;
+  position: absolute;
+  right: 20px;
+  top: 16px;
   display: flex;
   padding: 3px;
   border-radius: 2px;
@@ -154,7 +160,7 @@ const PasswordContainerStyled = styled.div<InputProps>`
   svg {
     width: 16px;
     path {
-      fill: white;
+      fill: ${({ theme }) => theme.colors.primary.light};
     }
   }
 `;
@@ -176,7 +182,7 @@ const IconContainerStyled = styled.div<InputProps>`
       path {
         ${({ theme }) => theme && { fill: theme.colors.gray[400] }}
         ${({ color, theme }) =>
-          color === "dark" && { fill: theme.colors.white }}
+          color === "dark" && { fill: theme.colors.secondary.base }}
       }
     }
   }
@@ -193,7 +199,6 @@ const StyledInputError = styled.span`
   color: #ff295f;
 `;
 
-
 const AtomInput: React.FC<InputProps> = ({
   type,
   color,
@@ -202,6 +207,7 @@ const AtomInput: React.FC<InputProps> = ({
   icon,
   margin,
   formik,
+  name,
 }) => {
   const [eye, seteye] = useState(false);
   return (
@@ -217,36 +223,38 @@ const AtomInput: React.FC<InputProps> = ({
         </IconContainerStyled>
       )}
       <label htmlFor={id}>
-        {placeholder}
+        {name}
         {type === "textbox" ? (
           <textarea
             id={id}
-            value={formik.values[`${id}`]}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            value={formik?.values[`${id}`]}
+            onChange={formik?.handleChange}
+            onBlur={formik?.handleBlur}
           ></textarea>
         ) : (
           <input
             id={id}
             type={(eye ? "text" : type) || "text"}
-            value={formik.values[`${id}`]}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            value={formik?.values[`${id}`]}
+            onChange={formik?.handleChange}
+            onBlur={formik?.handleBlur}
+            placeholder={placeholder}
           />
         )}
-          {(formik.values[`${id}`] !== '' || formik.touched[`${id}`]) && formik.errors[`${id}`] ? (
-          <StyledInputError>{formik.errors[`${id}`]}</StyledInputError>
+        {(formik?.values[`${id}`] !== "" || formik?.touched[`${id}`]) &&
+        formik?.errors[`${id}`] ? (
+          <StyledInputError>{formik?.errors[`${id}`]}</StyledInputError>
         ) : null}
+        {type === "password" && (
+          <PasswordContainerStyled
+            onClick={() => {
+              seteye(!eye);
+            }}
+          >
+            {eye ? <Icon icon="eye-close" /> : <Icon icon="eye-open" />}
+          </PasswordContainerStyled>
+        )}
       </label>
-      {type === "password" && (
-        <PasswordContainerStyled
-          onClick={() => {
-            seteye(!eye);
-          }}
-        >
-          {eye ? <Icon icon="eye-close" /> : <Icon icon="eye-open" />}
-        </PasswordContainerStyled>
-      )}
     </InputStyled>
   );
 };

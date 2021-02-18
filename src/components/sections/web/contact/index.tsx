@@ -174,13 +174,15 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               <AtomInput
                 id="name"
                 margin={["5px", "0px"]}
-                placeholder={t && t("contact-input-name")}
+                name={t && t("contact-input-name")}
+                placeholder="My Name is ..."
                 formik={formik}
               />
               <AtomInput
                 id="subject"
                 margin={["5px", "0px"]}
-                placeholder={t && t("contact-input-subject")}
+                name={t && t("contact-input-subject")}
+                placeholder="Is Important"
                 formik={formik}
               />
             </FormLeftContainer>
@@ -188,14 +190,15 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               id="email"
               type="email"
               margin={["5px", "0px"]}
-              placeholder={t && t("contact-input-email")}
+              name={t && t("contact-input-email")}
+              placeholder="email@gmail.com"
               formik={formik}
             />
 
             <AtomInput
               id="message"
               margin={["5px", "0px"]}
-              placeholder={t && t("contact-input-message")}
+              name={t && t("contact-input-message")}
               type="textbox"
               formik={formik}
             />
