@@ -9,7 +9,7 @@ import { Link } from "react-scroll";
 
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 90px);
   display: flex;
   align-items: center;
   justify-content: center;

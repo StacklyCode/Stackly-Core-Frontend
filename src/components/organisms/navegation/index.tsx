@@ -1,6 +1,5 @@
 import AtomContainer from "@Atoms/container";
 import AtomIcon from "@Atoms/icon";
-import AtomToggleList from "@Atoms/togglelist";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { Link } from "react-scroll";
@@ -8,8 +7,9 @@ import LinkNext from "next/link";
 import { useRouter } from "next/router";
 import { TFunction } from "next-i18next";
 import AtomButton from "@Src/components/atoms/button";
-import AtomTitle from "@Src/components/atoms/title";
-import AtomSwitch from "@Src/components/atoms/switch";
+
+import MoleculesNavSetting from "@Src/components/molecules/navseemore";
+import MoleculesSetting from "@Src/components/molecules/navsettings";
 
 type NavegationProps = {
   title?: string;
@@ -18,7 +18,7 @@ type NavegationProps = {
 
 const Navigation = styled.header<NavegationProps>`
   width: 100vw;
-  height: 110px;
+  height: 90px;
   background-color: ${({ theme }) => theme.colors.secondary.base};
   display: flex;
   justify-content: center;
@@ -29,8 +29,8 @@ const Navigation = styled.header<NavegationProps>`
 `;
 const NavigationLogo = styled.div`
   div {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     margin-right: 40px;
     cursor: pointer;
     svg {
@@ -68,8 +68,8 @@ const NavigationLink = styled.div<NavegationProps>`
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 25px;
   color: ${({ theme }) => theme.colors.primary.base};
   cursor: pointer;
   display: flex;
@@ -141,11 +141,6 @@ const NavigationLinksSidebar = styled.div<NavegationProps>`
     margin-bottom: 50px;
   }
 `;
-const ToggleContainer = styled.div<NavegationProps>`
-  height: max-content;
-  width: max-content;
-  margin-right: 40px;
-`;
 
 const NavigationContainer = styled.div<NavegationProps>`
   height: 45px;
@@ -170,62 +165,13 @@ const NavigationContainerButtons = styled.div<NavegationProps>`
   }
 `;
 
-const ToggleDarkModeContainer = styled.div<NavegationProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const SettingsNavigation = styled.div`
-  position: relative;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  margin-right: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.gray[200]};
-  transition: all 0.6s ease;
-  :hover {
-    cursor: pointer;
-    background-color: ${({ theme }) => theme.colors.primary.base};
-    div:first-of-type {
-      svg {
-        path {
-          fill: ${({ theme }) => theme.colors.secondary.light};
-        }
-      }
-    }
-    div:nth-of-type(2) {
-      display: flex;
-      opacity: 1;
-    }
-  }
-  div:first-of-type {
-    width: 50%;
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors.primary.base};
-      }
-    }
-  }
-`;
-
-const SettingsOptionsNavigation = styled.div`
-  top: 50px;
-  position: absolute;
-  opacity: 0;
-  display: none;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 120px;
-  height: 100px;
-  border-radius: 5px;
-  background-color: ${({ theme }) => theme.colors.secondary.light};
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+const SearchBarNavigation = styled.div`
+  width: 30%;
+  max-width: 300px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: ${({ theme }) => theme.colors.secondary.dark};
+  box-shadow: 0px 0px 3px rgba(72, 72, 72, 0.1);
 `;
 
 const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
@@ -254,42 +200,31 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
             <LinkNext href="/team">
               <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
             </LinkNext>
-            <LinkNext href="/live">
-              <NavigationLink>{t && t("nav-tag-2")}</NavigationLink>
-            </LinkNext>
             <LinkNext href="/resources">
               <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
+            </LinkNext>
+            {/*             <LinkNext href="/live">
+              <NavigationLink>{t && t("nav-tag-2")}</NavigationLink>
             </LinkNext>
             <LinkNext href="/about">
               <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
-            </LinkNext>
+            </LinkNext> */}
+            <MoleculesNavSetting />
           </NavigationLinks>
         </NavigationContainer>
+        <SearchBarNavigation></SearchBarNavigation>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
           <AtomIcon icon="menu" />
         </IconSideBar>
         <NavigationContainerButtons>
-          <SettingsNavigation>
-            <AtomIcon icon="settings" />
-            <SettingsOptionsNavigation>
-              <ToggleContainer>
-                <AtomToggleList
-                  outline
-                  object={{ title: "Lenguajes", options: ["en", "es"] }}
-                />
-              </ToggleContainer>
-              <ToggleDarkModeContainer>
-                <AtomSwitch />
-              </ToggleDarkModeContainer>
-            </SettingsOptionsNavigation>
-          </SettingsNavigation>
           <AtomButton link="/login">Login</AtomButton>
           <AtomButton outline link="/signup">
             Sign Up
           </AtomButton>
+          <MoleculesSetting />
         </NavigationContainerButtons>
       </AtomContainer>
       {sidebar && (

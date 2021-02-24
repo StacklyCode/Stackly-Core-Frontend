@@ -7,7 +7,7 @@ import Seo from "@Utils/seo";
 const Background = styled.main`
   height: max-content;
   width: 100%;
-  margin-top: 110px;
+  margin-top: 90px;
 `;
 
 type ITemplate = {
