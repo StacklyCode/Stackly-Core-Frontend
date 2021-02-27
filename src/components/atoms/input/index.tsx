@@ -68,8 +68,8 @@ const InputStyled = styled.div<InputProps>`
           height: '40px',
           borderRadius: '2px',
           border: `solid 2px ${theme.colors.gray[100]}`,
-          boxShadow: "0px 0px 7px rgba(0, 0, 0, 0.1)",
-          "::placeholder": {
+          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.1)',
+          '::placeholder': {
             color: theme.colors.primary.base,
           },
           ':hover': {
@@ -123,8 +123,8 @@ const InputStyled = styled.div<InputProps>`
           height: '40px',
           borderRadius: '2px',
           border: `solid 2px ${theme.colors.gray[100]}`,
-          boxShadow: "0px 0px 7px rgba(0, 0, 0, 0.1)",
-          "::placeholder": {
+          boxShadow: '0px 0px 7px rgba(0, 0, 0, 0.1)',
+          '::placeholder': {
             color: theme.colors.primary.base,
           },
           ':hover': {
@@ -175,8 +175,7 @@ const IconContainerStyled = styled.div<InputProps>`
       height: 18px;
       path {
         ${({ theme }) => theme && { fill: theme.colors.gray[400] }}
-        ${({ color, theme }) =>
-          color === "dark" && { fill: theme.colors.secondary.base }}
+        ${({ color, theme }) => color === 'dark' && { fill: theme.colors.secondary.base }}
       }
     }
   }
@@ -218,7 +217,7 @@ const AtomInput: React.FC<InputProps> = ({
       )}
       <label htmlFor={id}>
         {name}
-        {type === "textbox" ? (
+        {type === 'textbox' ? (
           <textarea
             id={id}
             value={formik?.values[`${id}`]}
@@ -228,18 +227,18 @@ const AtomInput: React.FC<InputProps> = ({
         ) : (
           <input
             id={id}
-            type={(eye ? "text" : type) || "text"}
+            type={(eye ? 'text' : type) || 'text'}
             value={formik?.values[`${id}`]}
             onChange={formik?.handleChange}
             onBlur={formik?.handleBlur}
             placeholder={placeholder}
           />
         )}
-        {(formik?.values[`${id}`] !== "" || formik?.touched[`${id}`]) &&
+        {(formik?.values[`${id}`] !== '' || formik?.touched[`${id}`]) &&
         formik?.errors[`${id}`] ? (
           <StyledInputError>{formik?.errors[`${id}`]}</StyledInputError>
         ) : null}
-        {type === "password" && (
+        {type === 'password' && (
           <PasswordContainerStyled
             onClick={() => {
               seteye(!eye);
