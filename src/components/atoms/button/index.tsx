@@ -1,12 +1,12 @@
-import styled from "@emotion/styled";
-import Link from "next/link";
+import styled from '@emotion/styled';
+import Link from '@Src/utils/link';
 
 type ButtonProps = {
-  color?: "primary" | "secondary";
+  color?: 'primary' | 'secondary';
   outline?: boolean;
   link?: string;
   href?: string;
-  type?: "button" | "reset" | "submit";
+  type?: 'button' | 'reset' | 'submit';
 };
 
 const Button = styled.button<ButtonProps>`
@@ -20,26 +20,26 @@ const Button = styled.button<ButtonProps>`
   ${({ theme }) => ({
     fontSize: theme.texts.Button.FontSize,
     fontFamily: theme.texts.Button.FontFamily,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     lineHeight: theme.texts.Button.LineHeight,
-    outline: "none",
+    outline: 'none',
     border: `1px solid ${theme.colors.accent.primary.base}`,
-    width: "max-content",
+    width: 'max-content',
     color: theme.colors.white,
     backgroundColor: theme.colors.accent.primary.base,
-    padding: "15px 20px",
-    borderRadius: "2px",
-    ":hover": {
-      cursor: "pointer",
+    padding: '15px 20px',
+    borderRadius: '2px',
+    ':hover': {
+      cursor: 'pointer',
       backgroundColor: theme.colors.accent.primary.dark,
     },
   })}
 
   ${({ theme, color }) =>
-    color === "primary" && {
+    color === 'primary' && {
       border: `1px solid ${theme.colors.accent.green.base}`,
       backgroundColor: theme.colors.accent.green.base,
-      ":hover": {
+      ':hover': {
         backgroundColor: theme.colors.accent.green.dark,
         border: `1px solid ${theme.colors.accent.green.dark}`,
       },
@@ -47,12 +47,12 @@ const Button = styled.button<ButtonProps>`
     
   ${({ theme, outline }) =>
     outline && {
-      backgroundColor: "transparent",
+      backgroundColor: 'transparent',
       border: `1px solid ${theme.colors.accent.primary.base}`,
       color: theme.colors.accent.primary.base,
       fontWeight: 500,
-      ":hover": {
-        backgroundColor: "transparent",
+      ':hover': {
+        backgroundColor: 'transparent',
         border: `1px solid ${theme.colors.accent.blue.base}`,
         color: theme.colors.accent.blue.base,
       },
@@ -74,7 +74,7 @@ const AtomButton: React.FC<ButtonProps> = ({
 }) => {
   if (link) {
     return (
-      <Link href={link}>
+      <Link to={link}>
         <Button color={color} outline={outline}>
           {children}
         </Button>
@@ -83,11 +83,11 @@ const AtomButton: React.FC<ButtonProps> = ({
   }
   if (href) {
     return (
-      <a target="_blank" href={href}>
+      <Link to={href} isExternal>
         <Button color={color} outline={outline}>
           {children}
         </Button>
-      </a>
+      </Link>
     );
   }
   return (

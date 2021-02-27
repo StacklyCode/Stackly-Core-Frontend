@@ -1,7 +1,6 @@
-const LoadablePlugin = require('@loadable/webpack-plugin')
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
-const mode =
-  process.env.NODE_ENV === 'production' ? 'production' : 'development'
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
   plugins: [new LoadablePlugin()],
@@ -11,4 +10,4 @@ module.exports = {
       chunks: 'all',
     },
   },
-}
+};

@@ -1,15 +1,15 @@
-import styled from "@emotion/styled";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
-import AtomContainer from "@Atoms/container";
-import AtomButton from "@Atoms/button";
-import { useSpring, animated } from "react-spring";
-import { TFunction } from "next-i18next";
-import { Link } from "react-scroll";
+import styled from '@emotion/styled';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
+import AtomContainer from '@Atoms/container';
+import AtomButton from '@Atoms/button';
+import { useSpring, animated } from 'react-spring';
+import { TFunction } from 'next-i18next';
+import { Link } from 'react-scroll';
 
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 90px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,13 +102,13 @@ type IHero = {
 
 const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(-20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(-20px)' },
     delay: 700,
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(20px)' },
     delay: 700,
   });
   return (
@@ -119,17 +119,17 @@ const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
             Hispanic Software Company
           </AtomBody>
           <AtomTitle align="left" bold size="TitleLarge">
-            {t && t("hero-title")}
+            {t && t('hero-title')}
           </AtomTitle>
           <AtomBody color="light" align="left" size="BodyLarge">
-            {t && t("hero-desc")}
+            {t && t('hero-desc')}
           </AtomBody>
           <ButtonContainer>
             <Link to="ContactScroll" smooth offset={-40}>
-              <AtomButton>{t && t("hero-btn-1")}</AtomButton>
+              <AtomButton>{t && t('hero-btn-1')}</AtomButton>
             </Link>
             <Link to="ProjectsScroll" smooth offset={-30}>
-              <AtomButton outline>{t && t("hero-btn-2")}</AtomButton>
+              <AtomButton outline>{t && t('hero-btn-2')}</AtomButton>
             </Link>
           </ButtonContainer>
         </TextContainer>

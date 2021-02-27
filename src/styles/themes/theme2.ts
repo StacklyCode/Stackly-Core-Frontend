@@ -1,17 +1,17 @@
-import { Theme } from "@Styles/styled";
-import ThemeColors from "@Styles/global/themesColors/dark";
-import ThemeText from "@Styles/global/themeTexts";
-import ThemeShadows from "@Styles/global/themeShadows";
-import ThemeSpaces from "@Styles/global/themeSpaces";
-import ThemeZindex from "@Styles/global/themeZIndex";
-import ThemeMediaQuery from "@Styles/global/themeMediaQuery";
+import { Theme } from '@Styles/styled';
+import ThemeColors from '@Styles/global/themesColors/dark';
+import ThemeText from '@Styles/global/themeTexts';
+import ThemeShadows from '@Styles/global/themeShadows';
+import ThemeSpaces from '@Styles/global/themeSpaces';
+import ThemeZindex from '@Styles/global/themeZIndex';
+import ThemeMediaQuery from '@Styles/global/themeMediaQuery';
 
 const theme: Theme = {
   colors: ThemeColors,
   texts: ThemeText,
   shadows: ThemeShadows,
   spaces: ThemeSpaces,
-  borders: "4px",
+  borders: '4px',
   zindex: ThemeZindex,
   mediaquery: ThemeMediaQuery,
   breakpoints: {
