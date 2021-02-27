@@ -13,7 +13,12 @@ const PageLive = ({ t }: Props) => {
   return (
     <TemplateMain t={t}>
       <AtomContainer>
-        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+        <ReactPlayer url={"http://amssamples.streaming.mediaservices.windows.net/69fbaeba-8e92-4740-aedc-ce09ae945073/AzurePromo.ism/manifest(format=mpd-time-csf)"} config={
+          {
+            file: {
+              forceDASH: true
+            }
+          }} />
       </AtomContainer>
     </TemplateMain>
   );
