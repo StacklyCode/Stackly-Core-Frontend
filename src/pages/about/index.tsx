@@ -1,5 +1,5 @@
 import TemplateMain from '@Templates/index';
-import OrganismTeam from '@Organisms/team';
+import OrganismTeam from '@Section/web/team';
 import { useTranslation } from '@Src/i18n';
 import Seo from '@Utils/seo';
 import I18n from '@Src/i18n';

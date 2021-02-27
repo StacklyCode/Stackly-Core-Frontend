@@ -1,5 +1,5 @@
 import TemplateMain from '@Templates/index';
-import OrganismCommunity from '@Organisms/community';
+import OrganismCommunity from '@Section/web/community';
 import { useTranslation } from '@Src/i18n';
 import I18n from '@Src/i18n';
 import { GetStaticProps } from 'next';
