@@ -1,11 +1,11 @@
-import styled from "@emotion/styled";
-import AtomContainer from "@Atoms/container";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
-import { useSpring, animated } from "react-spring";
-import AtomButton from "@Atoms/button";
-import { TFunction } from "next-i18next";
-import IllustrationHero from "@Assets/img/illustration-community.svg";
+import styled from '@emotion/styled';
+import AtomContainer from '@Atoms/container';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
+import { useSpring, animated } from 'react-spring';
+import AtomButton from '@Atoms/button';
+import { TFunction } from 'next-i18next';
+import IllustrationHero from '@Assets/img/illustration-community.svg';
 
 const Community = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -66,13 +66,13 @@ type ICommunity = {
 
 const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(-20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(-20px)' },
     delay: 700,
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(20px)' },
     delay: 700,
   });
   return (
@@ -80,13 +80,13 @@ const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            {t && t("community-title")}
+            {t && t('community-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t("community-desc")}
+            {t && t('community-desc')}
           </AtomBody>
           <AtomButton href="https://discord.gg/jjMRrHguPf">
-            {t && t("community-button")}
+            {t && t('community-button')}
           </AtomButton>
         </TextContainer>
         <IllustrationContainer style={props2}>

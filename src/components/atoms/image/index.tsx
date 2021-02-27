@@ -1,10 +1,10 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 type ImageProps = {
-  background?: boolean
-  image?: string
-  getColor?: string
-}
+  background?: boolean;
+  image?: string;
+  getColor?: string;
+};
 
 const Image = styled.div<ImageProps>`
   /* StyleComponent Style with Theme*/
@@ -32,14 +32,14 @@ const Image = styled.div<ImageProps>`
     object-fit: cover;
   }
   transition: all 0.5s ease;
-`
+`;
 
 const AtomImage: React.FC<ImageProps> = ({ background, image }) => {
   return (
     <Image background={background} getColor="#fff">
       <img src={image} width="100%" height="100%" alt="" loading="lazy" />
     </Image>
-  )
-}
+  );
+};
 
-export default AtomImage
+export default AtomImage;

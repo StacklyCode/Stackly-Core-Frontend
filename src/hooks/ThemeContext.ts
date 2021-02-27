@@ -1,5 +1,5 @@
-import React from "react";
-import { Theme } from "@Styles/styled";
+import React from 'react';
+import { Theme } from '@Styles/styled';
 
 interface IContextProps {
   theme: Theme;

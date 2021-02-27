@@ -1,11 +1,11 @@
-import styled from "@emotion/styled";
-import AtomIcon from "@Atoms/icon";
-import AtomContainer from "@Atoms/container";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
+import styled from '@emotion/styled';
+import AtomIcon from '@Atoms/icon';
+import AtomContainer from '@Atoms/container';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
 
-import { TFunction } from "next-i18next";
-import Link from "@Src/utils/link";
+import { TFunction } from 'next-i18next';
+import Link from '@Src/utils/link';
 
 // const fakeUserData = [
 //   {
@@ -159,12 +159,12 @@ const SocialNetworkContainer = styled.div`
 
     ${({ theme }) =>
       true && {
-        width: "20px",
-        height: "20px",
-        marginRight: "15px",
+        width: '20px',
+        height: '20px',
+        marginRight: '15px',
         svg: {
-          width: "100%",
-          height: "100%",
+          width: '100%',
+          height: '100%',
           path: {
             fill: theme.colors.primary.base,
           },
@@ -197,13 +197,13 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
       <AtomContainer alignItems="flex-start" justifyContent="flex-start">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium">
-            {t && t("clients-title")}
+            {t && t('clients-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t("clients-desc-1")}
+            {t && t('clients-desc-1')}
           </AtomBody>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t("clients-desc-2")}
+            {t && t('clients-desc-2')}
           </AtomBody>
           <TagsContainer>
             <TagsContainerClients>
@@ -212,7 +212,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
                   COMFECO
                 </AtomTitle>
                 <AtomBody align="left" size="BodyMedium" color="light">
-                  {t && t("client-desc-1")}
+                  {t && t('client-desc-1')}
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>

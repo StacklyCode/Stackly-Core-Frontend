@@ -1,4 +1,4 @@
-import NexLink from "next/link";
+import NexLink from 'next/link';
 
 type LinkProps = {
   to: string;

@@ -1,13 +1,13 @@
-import styled from "@emotion/styled";
-import AtomContainer from "@Atoms/container";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
-import AtomButton from "@Atoms/button";
-import AtomInput from "@Atoms/input";
-import { TFunction } from "next-i18next";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { useMutation, gql } from "@apollo/client";
+import styled from '@emotion/styled';
+import AtomContainer from '@Atoms/container';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
+import AtomButton from '@Atoms/button';
+import AtomInput from '@Atoms/input';
+import { TFunction } from 'next-i18next';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useMutation, gql } from '@apollo/client';
 
 const Contact = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -118,10 +118,10 @@ interface FormValues {
 }
 
 const initialValues: FormValues = {
-  name: "",
-  subject: "",
-  email: "",
-  message: "",
+  name: '',
+  subject: '',
+  email: '',
+  message: '',
 };
 
 const NEW_CONTACT = gql`
@@ -136,12 +136,12 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
-      name: Yup.string().required("Por favor, ingrese un Nombre."),
-      subject: Yup.string().required("Por favor, ingrese un Sujeto."),
+      name: Yup.string().required('Por favor, ingrese un Nombre.'),
+      subject: Yup.string().required('Por favor, ingrese un Sujeto.'),
       email: Yup.string()
-        .email("Debe ingresar un correo válido")
-        .required("Por favor, ingrese un correo."),
-      message: Yup.string().required("Por favor, ingrese un Mensage."),
+        .email('Debe ingresar un correo válido')
+        .required('Por favor, ingrese un correo.'),
+      message: Yup.string().required('Por favor, ingrese un Mensage.'),
     }),
     onSubmit: async (valores) => {
       await newUser({
@@ -153,7 +153,7 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
           throw new Error(error.message);
         })
         .then(() => {
-          location.href = "/";
+          location.href = '/';
         });
     },
   });
@@ -162,45 +162,43 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="center">
         <TextContainer>
           <AtomTitle align="center" bold size="TitleMedium">
-            {t && t("contact-title")}
+            {t && t('contact-title')}
           </AtomTitle>
           <AtomBody align="center" size="BodyLarge" color="light">
-            {t && t("contact-desc")}
+            {t && t('contact-desc')}
           </AtomBody>
 
           <FormContainer onSubmit={formik.handleSubmit}>
             <FormLeftContainer>
               <AtomInput
                 id="name"
-                margin={["5px", "0px"]}
-                placeholder={t && t("contact-input-name")}
+                margin={['5px', '0px']}
+                placeholder={t && t('contact-input-name')}
                 formik={formik}
               />
               <AtomInput
                 id="subject"
-                margin={["5px", "0px"]}
-                placeholder={t && t("contact-input-subject")}
+                margin={['5px', '0px']}
+                placeholder={t && t('contact-input-subject')}
                 formik={formik}
               />
             </FormLeftContainer>
             <AtomInput
               id="email"
               type="email"
-              margin={["5px", "0px"]}
-              placeholder={t && t("contact-input-email")}
+              margin={['5px', '0px']}
+              placeholder={t && t('contact-input-email')}
               formik={formik}
             />
 
             <AtomInput
               id="message"
-              margin={["5px", "0px"]}
-              placeholder={t && t("contact-input-message")}
+              margin={['5px', '0px']}
+              placeholder={t && t('contact-input-message')}
               type="textbox"
               formik={formik}
             />
-            <AtomButton type="submit">
-              {t && t("contact-input-send")}
-            </AtomButton>
+            <AtomButton type="submit">{t && t('contact-input-send')}</AtomButton>
           </FormContainer>
         </TextContainer>
       </AtomContainer>

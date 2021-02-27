@@ -1,8 +1,8 @@
-import AtomBody from "@Atoms/body";
-import AtomIcon from "@Atoms/icon";
-import AtomTitle from "@Atoms/title";
-import styled from "@emotion/styled";
-import Link from "@Src/utils/link";
+import AtomBody from '@Atoms/body';
+import AtomIcon from '@Atoms/icon';
+import AtomTitle from '@Atoms/title';
+import styled from '@emotion/styled';
+import Link from '@Src/utils/link';
 
 type TagsProps = {
   image?: string;
@@ -79,12 +79,12 @@ const SocialNetworkContainer = styled.div`
 
     ${({ theme }) =>
       true && {
-        width: "20px",
-        height: "20px",
-        marginRight: "15px",
+        width: '20px',
+        height: '20px',
+        marginRight: '15px',
         svg: {
-          width: "100%",
-          height: "100%",
+          width: '100%',
+          height: '100%',
           path: {
             fill: theme.colors.primary.base,
           },
@@ -93,26 +93,15 @@ const SocialNetworkContainer = styled.div`
   }
 `;
 
-const MoleculesTagTeam: React.FC<TagsProps> = ({
-  image,
-  name,
-  description,
-  social,
-}) => {
+const MoleculesTagTeam: React.FC<TagsProps> = ({ image, name, description, social }) => {
   return (
     <Tags>
-      <img src={image || "https://i.stack.imgur.com/l60Hf.png"} alt={name} />
-      <AtomTitle
-        align="left"
-        as="span"
-        size="SubTitleMedium"
-        color="black"
-        bold
-      >
-        {name || "Some Name"}
+      <img src={image || 'https://i.stack.imgur.com/l60Hf.png'} alt={name} />
+      <AtomTitle align="left" as="span" size="SubTitleMedium" color="black" bold>
+        {name || 'Some Name'}
       </AtomTitle>
       <AtomBody align="left" size="BodySmall" color="light">
-        {description || "CTO"}
+        {description || 'CTO'}
       </AtomBody>
       <SocialNetworkContainer>
         {social?.map((item, index) => (

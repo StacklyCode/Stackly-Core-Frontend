@@ -1,10 +1,10 @@
-import AtomContainer from "@Atoms/container";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
-import styled from "@emotion/styled";
-import { TFunction } from "next-i18next";
-import { useSpring, animated } from "react-spring";
-import MoleculesTagServices from "@Src/components/molecules/tagservices";
+import AtomContainer from '@Atoms/container';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
+import styled from '@emotion/styled';
+import { TFunction } from 'next-i18next';
+import { useSpring, animated } from 'react-spring';
+import MoleculesTagServices from '@Src/components/molecules/tagservices';
 
 const Services = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -69,48 +69,44 @@ type IServices = {
 
 const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
   useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(-20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(-20px)' },
     delay: 700,
   });
   const props2 = useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(20px)' },
     delay: 700,
   });
   return (
     <Services id={idScroll}>
-      <AtomContainer
-        fullwidth
-        alignItems="center"
-        justifyContent="space-between"
-      >
+      <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
         <TextContainer style={props2}>
           <AtomTitle align="left" bold size="TitleMedium">
-            {t && t("services-title")}
+            {t && t('services-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t("services-desc")}
+            {t && t('services-desc')}
           </AtomBody>
           <TagsContainer>
             <MoleculesTagServices
-              title={t && t("services-tag-1-title")}
-              description={t && t("services-tag-1-desc")}
+              title={t && t('services-tag-1-title')}
+              description={t && t('services-tag-1-desc')}
               icon="design"
             />
             <MoleculesTagServices
-              title={t && t("services-tag-2-title")}
-              description={t && t("services-tag-2-desc")}
+              title={t && t('services-tag-2-title')}
+              description={t && t('services-tag-2-desc')}
               icon="apps-services"
             />
             <MoleculesTagServices
-              title={t && t("services-tag-3-title")}
-              description={t && t("services-tag-3-desc")}
+              title={t && t('services-tag-3-title')}
+              description={t && t('services-tag-3-desc')}
               icon="web-mobile"
             />
             <MoleculesTagServices
-              title={t && t("services-tag-4-title")}
-              description={t && t("services-tag-4-desc")}
+              title={t && t('services-tag-4-title')}
+              description={t && t('services-tag-4-desc')}
               icon="consultancy"
             />
           </TagsContainer>
