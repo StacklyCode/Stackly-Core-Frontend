@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import { useContext, useState } from "react";
-import Theme from "@Styles/theme";
-import LoadContext from "@Hooks/ThemeContext";
+import styled from '@emotion/styled';
+import { useContext, useState } from 'react';
+import Theme from '@Styles/theme';
+import LoadContext from '@Hooks/ThemeContext';
 
 type SwitchProps = {
   check?: boolean;
@@ -42,7 +42,7 @@ const SwitchSpanStyled = styled.span<SwitchProps>`
   right: 0;
   bottom: 0;
   background-color: ${({ theme, check }) =>
-    check ? theme.colors.accent.primary.base : "#ccc"};
+    check ? theme.colors.accent.primary.base : '#ccc'};
   -webkit-transition: 0.4s;
   transition: 0.4s;
 
@@ -50,7 +50,7 @@ const SwitchSpanStyled = styled.span<SwitchProps>`
 
   :before {
     position: absolute;
-    content: "";
+    content: '';
     height: 15px;
     width: 15px;
     left: 5px;
@@ -74,10 +74,10 @@ const AtomSwitch: React.FC<SwitchProps> = () => {
           setChecked(!checked);
           if (checked) {
             setTheme(Theme.theme1);
-            localStorage.setItem("theme", "theme1");
+            localStorage.setItem('theme', 'theme1');
           } else {
             setTheme(Theme.theme2);
-            localStorage.setItem("theme", "theme2");
+            localStorage.setItem('theme', 'theme2');
           }
         }}
         type="checkbox"

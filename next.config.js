@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const withReactSvg = require("next-react-svg");
-const path = require("path");
-const { nextI18NextRewrites } = require("next-i18next/rewrites");
+const withReactSvg = require('next-react-svg');
+const { nextI18NextRewrites } = require('next-i18next/rewrites');
+const path = require('path');
+const withPWA = require('next-pwa');
 const localeSubpaths = {};
-const withPWA = require("next-pwa");
 
 module.exports = withPWA(
   withReactSvg({
-    include: path.resolve(__dirname, "src/assets/icons"),
+    include: path.resolve(__dirname, 'src/assets/icons'),
     webpack(config) {
       config.module.rules.push({
         test: /\.svg$/,
         issuer: {
           test: /\.(js|ts)x?$/,
         },
-        use: ["@svgr/webpack"],
+        use: ['@svgr/webpack'],
       });
 
       return config;
@@ -24,7 +24,7 @@ module.exports = withPWA(
       localeSubpaths,
     },
     pwa: {
-      dest: "public",
+      dest: 'public',
     },
   })
 );

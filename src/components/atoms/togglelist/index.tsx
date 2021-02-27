@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import styled from "@emotion/styled";
-import AtomIcon from "@Atoms/icon";
-import { i18n } from "@Src/i18n";
-import { I18nContext } from "next-i18next";
+import { useContext, useEffect, useState } from 'react';
+import styled from '@emotion/styled';
+import AtomIcon from '@Atoms/icon';
+import { i18n } from '@Src/i18n';
+import { I18nContext } from 'next-i18next';
 
 type ToggleListProps = {
   outline?: boolean;
@@ -26,7 +26,7 @@ const ToggleListStyled = styled.div<ToggleListProps>`
     }}
   ${({ theme, outline }) =>
     outline && {
-      backgroundColor: "transparent",
+      backgroundColor: 'transparent',
       border: `solid 1px ${theme.colors.primary.base}`,
     }}
   transition: all .5s ease;
@@ -42,7 +42,7 @@ const ContainerTitleStyled = styled.div<ToggleListProps>`
   ${({ theme, outline, toggle }) =>
     outline &&
     toggle && {
-      backgroundColor: "transparent",
+      backgroundColor: 'transparent',
       borderBottom: `solid 2px ${theme.colors.white}`,
     }}
   span {
@@ -107,19 +107,19 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
 
 const AtomToggleList: React.FC<ToggleListProps> = ({ outline, object }) => {
   const [toggle, settoggle] = useState(false);
-  const [option, setoption] = useState("");
+  const [option, setoption] = useState('');
   const {
     i18n: { language },
   } = useContext(I18nContext);
   function clickOption(e: React.MouseEvent<HTMLSpanElement>) {
     const eGet = e.target as HTMLSpanElement;
     const optionGet = eGet.innerText.toLowerCase();
-    localStorage.setItem("language", optionGet);
+    localStorage.setItem('language', optionGet);
     i18n.changeLanguage(optionGet);
     setoption(optionGet);
     /*  Function to Do */
   }
-  useEffect(() => { 
+  useEffect(() => {
     setoption(language);
   });
   return (

@@ -1,15 +1,13 @@
-import AtomContainer from "@Atoms/container";
-import AtomIcon from "@Atoms/icon";
-import styled from "@emotion/styled";
-import { useState } from "react";
-import { Link } from "react-scroll";
-import LinkNext from "next/link";
-import { useRouter } from "next/router";
-import { TFunction } from "next-i18next";
-import AtomButton from "@Src/components/atoms/button";
+import AtomContainer from '@Atoms/container';
+import AtomIcon from '@Atoms/icon';
+import styled from '@emotion/styled';
+import { useState } from 'react';
+import LinkNext from 'next/link';
+import { TFunction } from 'next-i18next';
+import AtomButton from '@Src/components/atoms/button';
 
-import MoleculesNavSetting from "@Src/components/molecules/navseemore";
-import MoleculesSetting from "@Src/components/molecules/navsettings";
+import MoleculesNavSetting from '@Src/components/molecules/navseemore';
+import MoleculesSetting from '@Src/components/molecules/navsettings';
 
 type NavegationProps = {
   title?: string;
@@ -176,14 +174,9 @@ const SearchBarNavigation = styled.div`
 
 const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
   const [sidebar, setSidebar] = useState(false);
-  const router = useRouter();
   return (
     <Navigation>
-      <AtomContainer
-        fullwidth
-        alignItems="center"
-        justifyContent="space-between"
-      >
+      <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
         <NavigationContainer>
           <NavigationLogo>
             <LinkNext href="/">
@@ -195,13 +188,13 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
 
           <NavigationLinks>
             <LinkNext href="/team">
-              <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/team">
-              <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/resources">
-              <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
             </LinkNext>
             {/*             <LinkNext href="/live">
               <NavigationLink>{t && t("nav-tag-2")}</NavigationLink>
@@ -232,20 +225,20 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           <NavigationLinksSidebar>
             <ContainerSideBar></ContainerSideBar>
             <LinkNext href="/live">
-              <NavigationLink>{t && t("nav-tag-2")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-2')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/team">
-              <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/resources">
-              <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/about">
-              <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-5')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>
-                {t && t("nav-tag-6")} <AtomIcon color="white" icon="new" />
+                {t && t('nav-tag-6')} <AtomIcon color="white" icon="new" />
               </NavigationLink>
             </LinkNext>
           </NavigationLinksSidebar>

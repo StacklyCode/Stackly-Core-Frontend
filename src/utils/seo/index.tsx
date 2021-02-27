@@ -1,9 +1,9 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 interface SeoProps {
-  page?: string
-  title?: string
-  description?: string
+  page?: string;
+  title?: string;
+  description?: string;
 }
 
 const StructuredData = {
@@ -27,14 +27,12 @@ const StructuredData = {
     'https://www.linkedin.com/company/stackly-code/',
     'https://twitter.com/StacklyCode',
   ],
-}
+};
 
 const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
   return (
     <Head>
-      <title>
-        {title || (page ? `${page} | Stackly Code` : 'Stackly Code')}
-      </title>
+      <title>{title || (page ? `${page} | Stackly Code` : 'Stackly Code')}</title>
       <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=7" />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
@@ -74,7 +72,7 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(StructuredData) }}
       ></script>
     </Head>
-  )
-}
+  );
+};
 
-export default Seo
+export default Seo;

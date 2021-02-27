@@ -1,5 +1,5 @@
-import { gql } from "apollo-server-micro";
-import tdContact from "./tdContact";
+import { gql } from 'apollo-server-micro';
+import tdContact from './tdContact';
 
 const typeDefs = gql`
   ${tdContact}

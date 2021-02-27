@@ -1,12 +1,9 @@
-import AtomBody from "@Atoms/body";
-import AtomIcon from "@Atoms/icon";
-import AtomTitle from "@Src/components/atoms/title";
-import AtomSwitch from "@Src/components/atoms/switch";
-import AtomToggleList from "@Atoms/togglelist";
-import styled from "@emotion/styled";
-import Link from "next/link";
-import { useSpring, animated, useTransition, useChain } from "react-spring";
-import { useEffect, useRef, useState } from "react";
+import AtomBody from '@Atoms/body';
+import AtomIcon from '@Atoms/icon';
+import AtomSwitch from '@Src/components/atoms/switch';
+import styled from '@emotion/styled';
+import { animated, useTransition } from 'react-spring';
+import { useEffect, useRef, useState } from 'react';
 
 const SettingsNavigation = styled.div`
   position: relative;
@@ -54,19 +51,6 @@ const SettingsOptionsNavigation = styled(animated.div)`
   padding: 5px 10px;
 `;
 
-const ToggleDarkModeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const ToggleContainer = styled.div`
-  height: max-content;
-  width: max-content;
-  margin-right: 40px;
-`;
-
 const ToggleContainerOption = styled.div`
   width: 100%;
   height: 50px;
@@ -111,62 +95,43 @@ const ToggleContainerOptionContainer = styled.div`
   }
 `;
 
-const data = [
-  {
-    name: "GENERAL",
-    data: [
-      { name: "Contacto", link: "/link" },
-      { name: "Nosotros", link: "/link" },
-      { name: "Comunidad", link: "/link" },
-    ],
-  },
-  {
-    name: "AYUDA E INFORMACIÓN LEGAL",
-    data: [
-      { name: "Ayuda", link: "/link" },
-      { name: "Politica de Privacidad", link: "/link" },
-      { name: "Politica sobre cookies", link: "/link" },
-      { name: "Terminos", link: "/link" },
-    ],
-  },
-];
-
 function useOutsideAlerter(
-  ref: any,
-  [toggle, settoggle]: any,
-  [option, setoption]: any
+  ref: React.RefObject<HTMLDivElement>,
+  settoggle: React.Dispatch<boolean>,
+  setoption: React.Dispatch<number>
 ) {
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
         settoggle(false);
         setoption(0);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
 }
 
-const MoleculesSetting: React.FC = ({}) => {
+const MoleculesSetting: React.FC = () => {
   const [toggle, settoggle] = useState(false);
   const [option, setoption] = useState(0);
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, [toggle, settoggle], [option, setoption]);
+  useOutsideAlerter(wrapperRef, settoggle, setoption);
 
   const transitions = useTransition(toggle, null, {
-    from: { opacity: 0, transform: "translateY(-10px)" },
-    enter: { opacity: 1, transform: "translateY(0px)" },
-    leave: { opacity: 0, transform: "translateY(-10px)" },
+    from: { opacity: 0, transform: 'translateY(-10px)' },
+    enter: { opacity: 1, transform: 'translateY(0px)' },
+    leave: { opacity: 0, transform: 'translateY(-10px)' },
     delay: 100,
   });
 
   const optionAnim = useTransition(option, null, {
-    from: { opacity: 0, transform: "translateX(-10px)" },
-    enter: { opacity: 1, transform: "translateX(0px)", display: "flex" },
-    leave: { opacity: 0, transform: "translateX(-10px)", display: "none" },
+    from: { opacity: 0, transform: 'translateX(-10px)' },
+    enter: { opacity: 1, transform: 'translateX(0px)', display: 'flex' },
+    leave: { opacity: 0, transform: 'translateX(-10px)', display: 'none' },
     delay: 100,
   });
 
@@ -176,11 +141,11 @@ const MoleculesSetting: React.FC = ({}) => {
         <AtomIcon icon="arrow" />
       </SettingsNavigation>
       {transitions.map(
-        ({ item, key, props }) =>
+        ({ item, props }) =>
           item && (
             <SettingsOptionsNavigation ref={wrapperRef} style={props}>
               {optionAnim.map(
-                ({ item, key, props }) =>
+                ({ item, props }) =>
                   item === 0 && (
                     <SettingsOptionsNavigationContainer style={props}>
                       <ToggleContainerOption>
@@ -201,7 +166,7 @@ const MoleculesSetting: React.FC = ({}) => {
                   )
               )}
               {optionAnim.map(
-                ({ item, key, props }) =>
+                ({ item, props }) =>
                   item === 1 && (
                     <SettingsOptionsNavigationContainer style={props}>
                       <ToggleContainerOption onClick={() => setoption(0)}>

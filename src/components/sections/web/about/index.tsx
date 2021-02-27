@@ -1,10 +1,9 @@
-import styled from "@emotion/styled";
-import AtomContainer from "@Atoms/container";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
-import { useSpring, animated } from "react-spring";
-import { TFunction } from "next-i18next";
-import IllustrationHero from "@Assets/img/illustration-about.svg";
+import styled from '@emotion/styled';
+import AtomContainer from '@Atoms/container';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
+import { useSpring, animated } from 'react-spring';
+import { TFunction } from 'next-i18next';
 
 const About = styled.section`
   display: flex;
@@ -45,8 +44,8 @@ type IAbout = {
 
 const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(-20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(-20px)' },
     delay: 700,
   });
 
@@ -55,10 +54,10 @@ const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="center" bold size="TitleMedium">
-            {t && t("about-title")}
+            {t && t('about-title')}
           </AtomTitle>
           <AtomBody align="center" size="BodyLarge" color="light">
-            {t && t("about-desc")}
+            {t && t('about-desc')}
           </AtomBody>
         </TextContainer>
       </AtomContainer>

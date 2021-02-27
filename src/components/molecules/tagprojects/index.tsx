@@ -1,8 +1,8 @@
-import AtomBody from "@Atoms/body";
-import AtomTitle from "@Atoms/title";
-import styled from "@emotion/styled";
-import { TFunction } from "next-i18next";
-import AtomButton from "@Src/components/atoms/button";
+import AtomBody from '@Atoms/body';
+import AtomTitle from '@Atoms/title';
+import styled from '@emotion/styled';
+import { TFunction } from 'next-i18next';
+import AtomButton from '@Src/components/atoms/button';
 
 type TagsProps = {
   img?: string;
@@ -96,34 +96,21 @@ const TagDescContainer = styled.div<TagsProps>`
   transition: all 0.6s ease;
 `;
 
-const MoleculesTagProject: React.FC<TagsProps> = ({
-  img,
-  type,
-  title,
-  link,
-  description,
-  t,
-}) => {
+const MoleculesTagProject: React.FC<TagsProps> = ({ img, type, title, link }) => {
   return (
     <Tags>
       <TagImageDesc>
         <TagImage
           src={
             img ||
-            "https://assets-global.website-files.com/583347ca8f6c7ee058111b55/5f86270f93330c1ddd36c821_best-website-gallery.jpg"
+            'https://assets-global.website-files.com/583347ca8f6c7ee058111b55/5f86270f93330c1ddd36c821_best-website-gallery.jpg'
           }
         />
-        <AtomTitle
-          align="left"
-          as="span"
-          size="SubTitleMedium"
-          color="black"
-          bold
-        >
-          {title || "Some Title"}
+        <AtomTitle align="left" as="span" size="SubTitleMedium" color="black" bold>
+          {title || 'Some Title'}
         </AtomTitle>
         <AtomBody align="left" size="BodySmall" color="light">
-          {type || "Web | UI/UX"}
+          {type || 'Web | UI/UX'}
         </AtomBody>
       </TagImageDesc>
       <TagDescContainer>

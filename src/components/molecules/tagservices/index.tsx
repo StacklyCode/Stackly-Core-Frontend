@@ -1,7 +1,7 @@
-import AtomBody from "@Atoms/body";
-import AtomIcon from "@Atoms/icon";
-import AtomTitle from "@Atoms/title";
-import styled from "@emotion/styled";
+import AtomBody from '@Atoms/body';
+import AtomIcon from '@Atoms/icon';
+import AtomTitle from '@Atoms/title';
+import styled from '@emotion/styled';
 
 type TagsProps = {
   icon?: string;
@@ -61,26 +61,16 @@ const Tags = styled.article<TagsProps>`
   transition: all 0.3s ease;
 `;
 
-const MoleculesTagServices: React.FC<TagsProps> = ({
-  icon,
-  title,
-  description,
-}) => {
+const MoleculesTagServices: React.FC<TagsProps> = ({ icon, title, description }) => {
   return (
     <Tags>
       <AtomIcon icon={icon} />
-      <AtomTitle
-        align="left"
-        as="span"
-        size="SubTitleMedium"
-        color="black"
-        bold
-      >
-        {title || "Some Title"}
+      <AtomTitle align="left" as="span" size="SubTitleMedium" color="black" bold>
+        {title || 'Some Title'}
       </AtomTitle>
       <AtomBody align="left" size="BodySmall" color="light">
         {description ||
-          "Marketing strategies to bring a fresh and modern identity for your brand."}
+          'Marketing strategies to bring a fresh and modern identity for your brand.'}
       </AtomBody>
     </Tags>
   );
