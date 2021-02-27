@@ -1,6 +1,6 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { TFunction } from "next-i18next";
-import MoleculesTagProject from "@Src/components/molecules/tagprojects";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { TFunction } from 'next-i18next';
+import MoleculesTagProject from '@Src/components/molecules/tagprojects';
 
 interface IProject {
   id?: string;
@@ -43,9 +43,10 @@ const MoleculeCarrusel: React.FC<TCarrusel> = ({ data, t }) => {
       {data &&
         data?.map((item) => (
           <SwiperSlide
+            key={item.title}
             style={{
-              display: "flex",
-              justifyContent: "center",
+              display: 'flex',
+              justifyContent: 'center',
             }}
           >
             <MoleculesTagProject

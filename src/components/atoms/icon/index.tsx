@@ -1,9 +1,9 @@
-import styled from "@emotion/styled";
-import dynamic from "next/dynamic";
+import styled from '@emotion/styled';
+import dynamic from 'next/dynamic';
 
 type IconProps = {
   icon?: string;
-  color?: "dark" | "light" | "grey" | "white";
+  color?: 'dark' | 'light' | 'grey' | 'white';
   size?: string;
 };
 
@@ -17,9 +17,7 @@ const IconStyled = styled.div<IconProps>`
     height: 100%;
     path {
       fill: ${({ theme, color }) =>
-        color === "white"
-          ? theme.colors.secondary.base
-          : theme.colors.primary.base};
+        color === 'white' ? theme.colors.secondary.base : theme.colors.primary.base};
     }
   }
 `;

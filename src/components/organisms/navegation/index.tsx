@@ -2,7 +2,6 @@ import AtomContainer from "@Atoms/container";
 import AtomIcon from "@Atoms/icon";
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { Link } from "react-scroll";
 import LinkNext from "next/link";
 import { useRouter } from "next/router";
 import { TFunction } from "next-i18next";
@@ -179,11 +178,7 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
   const router = useRouter();
   return (
     <Navigation>
-      <AtomContainer
-        fullwidth
-        alignItems="center"
-        justifyContent="space-between"
-      >
+      <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
         <NavigationContainer>
           <NavigationLogo>
             <LinkNext href="/">

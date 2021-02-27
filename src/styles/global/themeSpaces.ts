@@ -4,7 +4,7 @@ const ThemeSpace = {
   l: '24px',
   m: '16px',
   s: '8px',
-  xs: '4px'
+  xs: '4px',
 };
 
 export default ThemeSpace;

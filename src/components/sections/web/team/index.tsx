@@ -1,121 +1,119 @@
-import styled from "@emotion/styled";
-import AtomContainer from "@Atoms/container";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
-import MoleculesTags from "@Molecules/tags";
-import { useSpring, animated } from "react-spring";
-import { TFunction } from "next-i18next";
-import MoleculesTagTeam from "@Src/components/molecules/tagteam";
+import styled from '@emotion/styled';
+import AtomContainer from '@Atoms/container';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
+import { useSpring, animated } from 'react-spring';
+import { TFunction } from 'next-i18next';
+import MoleculesTagTeam from '@Src/components/molecules/tagteam';
 
 const fakeUserData = [
   {
-    id: "0",
-    name: "Fernando Lopez",
-    description: "CEO",
+    id: '0',
+    name: 'Fernando Lopez',
+    description: 'CEO',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607380127/StacklyTeam/15000248_djw7aa.jpg",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607380127/StacklyTeam/15000248_djw7aa.jpg',
     socialnetwork: [
-      { name: "github", url: "https://github.com/Beor18" },
+      { name: 'github', url: 'https://github.com/Beor18' },
       {
-        name: "linkedin",
-        url: "https://www.linkedin.com/in/fernandogabriellopez/",
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/fernandogabriellopez/',
       },
     ],
   },
   {
-    id: "1",
-    name: "Carlos Montalvo",
-    description: "CTO",
+    id: '1',
+    name: 'Carlos Montalvo',
+    description: 'CTO',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607379875/StacklyTeam/Carlos-Montalvo-CTO_xzbmq4.png",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607379875/StacklyTeam/Carlos-Montalvo-CTO_xzbmq4.png',
     socialnetwork: [
-      { name: "github", url: "https://github.com/ZephiroRB" },
-      { name: "twitter", url: "https://twitter.com/CrlosMontalvo" },
+      { name: 'github', url: 'https://github.com/ZephiroRB' },
+      { name: 'twitter', url: 'https://twitter.com/CrlosMontalvo' },
       {
-        name: "linkedin",
-        url: "https://www.linkedin.com/in/carlosmontalvo-ingeniero-software",
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/carlosmontalvo-ingeniero-software',
       },
     ],
   },
   {
-    id: "2",
-    name: "Jose Luis Reyes",
-    description: "CTO",
+    id: '2',
+    name: 'Jose Luis Reyes',
+    description: 'CTO',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Jose-Luis-Reyes--CTO_bzngai.jpg",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Jose-Luis-Reyes--CTO_bzngai.jpg',
     socialnetwork: [
-      { name: "github", url: "https://github.com/joseluisroot" },
-      { name: "linkedin", url: "https://www.linkedin.com/in/joseluisroot/" },
+      { name: 'github', url: 'https://github.com/joseluisroot' },
+      { name: 'linkedin', url: 'https://www.linkedin.com/in/joseluisroot/' },
     ],
   },
   {
-    id: "3",
-    name: "William Jesus",
-    description: "Fullstack Developer",
+    id: '3',
+    name: 'William Jesus',
+    description: 'Fullstack Developer',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607381258/StacklyTeam/IMG-20191220-WA0003-01_bb51ks.png",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607381258/StacklyTeam/IMG-20191220-WA0003-01_bb51ks.png',
     socialnetwork: [
-      { name: "github", url: "https://github.com/Willishakespeare" },
-      { name: "twitter", url: "https://twitter.com/WilliSkr13" },
+      { name: 'github', url: 'https://github.com/Willishakespeare' },
+      { name: 'twitter', url: 'https://twitter.com/WilliSkr13' },
       {
-        name: "linkedin",
-        url:
-          "https://www.linkedin.com/in/william-jesus-covarrubias-ramos-84410339/",
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/william-jesus-covarrubias-ramos-84410339/',
       },
     ],
   },
   {
-    id: "4",
-    name: "Juan Carlos Cruz",
-    description: "UI-UX Designer",
+    id: '4',
+    name: 'Juan Carlos Cruz',
+    description: 'UI-UX Designer',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607379874/StacklyTeam/Juan-Carlos-Cruz-UI-Designer_mbjiu6.jpg",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607379874/StacklyTeam/Juan-Carlos-Cruz-UI-Designer_mbjiu6.jpg',
     socialnetwork: [
-      { name: "github", url: "https://github.com/juank1791" },
-      { name: "linkedin", url: "https://www.linkedin.com/in/juancarlos-cruz/" },
+      { name: 'github', url: 'https://github.com/juank1791' },
+      { name: 'linkedin', url: 'https://www.linkedin.com/in/juancarlos-cruz/' },
     ],
   },
   {
-    id: "5",
-    name: "Erick Vargas",
-    description: "Frontend Developer",
+    id: '5',
+    name: 'Erick Vargas',
+    description: 'Frontend Developer',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Erick-Vargas-Frontend-Developer_piy4fo.png",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Erick-Vargas-Frontend-Developer_piy4fo.png',
     socialnetwork: [
-      { name: "github", url: "https://github.com/erianvc" },
-      { name: "linkedin", url: "https://www.linkedin.com/in/erianvc/" },
+      { name: 'github', url: 'https://github.com/erianvc' },
+      { name: 'linkedin', url: 'https://www.linkedin.com/in/erianvc/' },
     ],
   },
   {
-    id: "6",
-    name: "Pablo Sabater",
-    description: "Fullstack Developer",
+    id: '6',
+    name: 'Pablo Sabater',
+    description: 'Fullstack Developer',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Pablo-Sabater-Backend-Developer_ggz171.jpg",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Pablo-Sabater-Backend-Developer_ggz171.jpg',
     socialnetwork: [
-      { name: "github", url: "https://github.com/Blopaa" },
+      { name: 'github', url: 'https://github.com/Blopaa' },
       {
-        name: "twitter",
-        url: "https://twitter.com/Pabloosabaterr",
+        name: 'twitter',
+        url: 'https://twitter.com/Pabloosabaterr',
       },
       {
-        name: "linkedin",
-        url: "https://www.linkedin.com/in/pablo-sabater-jimenez/",
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/pablo-sabater-jimenez/',
       },
     ],
   },
   {
-    id: "7",
-    name: "Dano Reyes",
-    description: "DBA Manager",
+    id: '7',
+    name: 'Dano Reyes',
+    description: 'DBA Manager',
     img:
-      "https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Dano-Reyes-DBA-Manager_tbh5ef.png",
+      'https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Dano-Reyes-DBA-Manager_tbh5ef.png',
     socialnetwork: [
       {
-        name: "github",
-        url: "https://github.com/orgs/StacklyCode/people/DanoRysJan",
+        name: 'github',
+        url: 'https://github.com/orgs/StacklyCode/people/DanoRysJan',
       },
-      { name: "linkedin", url: "https://www.linkedin.com/in/dano-reyes/" },
+      { name: 'linkedin', url: 'https://www.linkedin.com/in/dano-reyes/' },
     ],
   },
 ];
@@ -179,8 +177,8 @@ type ITeam = {
 
 const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
   const props = useSpring({
-    to: { opacity: 1, transform: "translateX(0px)" },
-    from: { opacity: 0, transform: "translateX(-20px)" },
+    to: { opacity: 1, transform: 'translateX(0px)' },
+    from: { opacity: 0, transform: 'translateX(-20px)' },
     delay: 700,
   });
   return (
@@ -189,16 +187,16 @@ const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
         <TeamContainer style={props}>
           <TextContainer>
             <AtomTitle align="center" bold size="TitleMedium">
-              {t && t("about-title")}
+              {t && t('about-title')}
             </AtomTitle>
             <AtomBody align="center" size="BodyLarge" color="light">
-              {t && t("about-desc")}
+              {t && t('about-desc')}
             </AtomBody>
             <AtomBody align="center" size="BodyLarge" color="light">
-              {t && t("team-desc-1")}
+              {t && t('team-desc-1')}
             </AtomBody>
             <AtomBody align="center" size="BodyLarge" color="light">
-              {t && t("team-desc-2")}
+              {t && t('team-desc-2')}
             </AtomBody>
           </TextContainer>
 

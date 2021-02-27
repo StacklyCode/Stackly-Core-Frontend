@@ -1,8 +1,8 @@
-import AtomBody from "@Atoms/body";
-import AtomButton from "@Atoms/button";
-import AtomImage from "@Atoms/image";
-import AtomTitle from "@Atoms/title";
-import styled from "@emotion/styled";
+import AtomBody from '@Atoms/body';
+import AtomButton from '@Atoms/button';
+import AtomImage from '@Atoms/image';
+import AtomTitle from '@Atoms/title';
+import styled from '@emotion/styled';
 
 type ProjectInfoProps = {
   id?: string;

@@ -26,10 +26,7 @@
     },
     "test": {
       "plugins": [
-        [
-          "@emotion",
-          { "sourceMap": true, "autoLabel": true, "labelFormat": "⚡[local]" }
-        ]
+        ["@emotion", { "sourceMap": true, "autoLabel": true, "labelFormat": "⚡[local]" }]
       ]
     }
   }
