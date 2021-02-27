@@ -1,11 +1,10 @@
-import AtomBody from "@Atoms/body";
-import AtomIcon from "@Atoms/icon";
-import AtomTitle from "@Atoms/title";
-import styled from "@emotion/styled";
-import Link from "next/link";
-import { useSpring, animated, useTransition, useChain } from "react-spring";
-import { css } from "@emotion/react";
-import { useEffect, useRef, useState, useCallback } from "react";
+import AtomBody from '@Atoms/body';
+import AtomIcon from '@Atoms/icon';
+import AtomTitle from '@Atoms/title';
+import styled from '@emotion/styled';
+import Link from 'next/link';
+import { animated, useTransition } from 'react-spring';
+import { useEffect, useRef, useState } from 'react';
 
 const NavigationSeeMore = styled.div`
   position: relative;
@@ -56,47 +55,51 @@ const NavigationSettingsOption = styled(animated.div)`
 
 const data = [
   {
-    name: "GENERAL",
+    name: 'GENERAL',
     data: [
-      { name: "Contacto", link: "/link" },
-      { name: "Nosotros", link: "/link" },
-      { name: "Comunidad", link: "/link" },
+      { name: 'Contacto', link: '/link' },
+      { name: 'Nosotros', link: '/link' },
+      { name: 'Comunidad', link: '/link' },
     ],
   },
   {
-    name: "AYUDA E INFORMACIÓN LEGAL",
+    name: 'AYUDA E INFORMACIÓN LEGAL',
     data: [
-      { name: "Ayuda", link: "/link" },
-      { name: "Politica de Privacidad", link: "/link" },
-      { name: "Politica sobre cookies", link: "/link" },
-      { name: "Terminos", link: "/link" },
+      { name: 'Ayuda', link: '/link' },
+      { name: 'Politica de Privacidad', link: '/link' },
+      { name: 'Politica sobre cookies', link: '/link' },
+      { name: 'Terminos', link: '/link' },
     ],
   },
 ];
 
-function useOutsideAlerter(ref: any, [toggle, settoggle]: any) {
+function useOutsideAlerter(
+  ref: React.RefObject<HTMLDivElement>,
+  settoggle: React.Dispatch<boolean>
+) {
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
         settoggle(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
 }
 
-const MoleculesNavSetting: React.FC = ({}) => {
+const MoleculesNavSetting: React.FC = () => {
   const [toggle, settoggle] = useState(false);
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, [toggle, settoggle]);
+  useOutsideAlerter(wrapperRef, settoggle);
 
   const transitions = useTransition(toggle, null, {
-    from: { opacity: 0, transform: "translateY(-10px)" },
-    enter: { opacity: 1, transform: "translateY(0px)" },
-    leave: { opacity: 0, transform: "translateY(-10px)" },
+    from: { opacity: 0, transform: 'translateY(-10px)' },
+    enter: { opacity: 1, transform: 'translateY(0px)' },
+    leave: { opacity: 0, transform: 'translateY(-10px)' },
     delay: 100,
   });
 
@@ -113,7 +116,7 @@ const MoleculesNavSetting: React.FC = ({}) => {
                     {item.name}
                   </AtomTitle>
                   {item.data.map((item) => (
-                    <Link href={item.link}>
+                    <Link href={item.link} key={item.name}>
                       <NavigationSettingsOption key={key}>
                         <AtomBody size="BodySmall">{item.name}</AtomBody>
                       </NavigationSettingsOption>

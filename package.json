@@ -8,7 +8,7 @@
     "start": "next start",
     "precommit": "npm run lint:fix",
     "lint": "eslint ./src/**/*.{ts,tsx}",
-    "lint:fix": "eslint --fix-dry --ext .ts,.tsx .",
+    "lint:fix": "eslint --fix --ext .ts,.tsx .",
     "format": "prettier . --write",
     "deploy": "npm run build && pm2 start npm --name 'stacklycode' -- start",
     "server": "node ./src/server.js"

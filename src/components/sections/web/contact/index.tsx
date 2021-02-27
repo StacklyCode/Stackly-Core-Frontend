@@ -27,20 +27,6 @@ const Contact = styled.section`
   }
 `;
 
-const IllustrationContainer = styled.div`
-  width: 30%;
-  display: none;
-  ${({ theme }) => theme.mediaquery.medium} {
-    display: flex;
-  }
-  align-items: center;
-  justify-content: center;
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
 const TextContainer = styled.div`
   width: 100%;
   display: flex;
@@ -172,15 +158,15 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
             <FormLeftContainer>
               <AtomInput
                 id="name"
-                margin={["5px", "0px"]}
-                name={t && t("contact-input-name")}
+                margin={['5px', '0px']}
+                name={t && t('contact-input-name')}
                 placeholder="My Name is ..."
                 formik={formik}
               />
               <AtomInput
                 id="subject"
-                margin={["5px", "0px"]}
-                name={t && t("contact-input-subject")}
+                margin={['5px', '0px']}
+                name={t && t('contact-input-subject')}
                 placeholder="Is Important"
                 formik={formik}
               />
@@ -188,16 +174,16 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
             <AtomInput
               id="email"
               type="email"
-              margin={["5px", "0px"]}
-              name={t && t("contact-input-email")}
+              margin={['5px', '0px']}
+              name={t && t('contact-input-email')}
               placeholder="email@gmail.com"
               formik={formik}
             />
 
             <AtomInput
               id="message"
-              margin={["5px", "0px"]}
-              name={t && t("contact-input-message")}
+              margin={['5px', '0px']}
+              name={t && t('contact-input-message')}
               type="textbox"
               formik={formik}
             />

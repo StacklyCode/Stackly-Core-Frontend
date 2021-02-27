@@ -4,7 +4,6 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import { useSpring, animated } from 'react-spring';
 import { TFunction } from 'next-i18next';
-import IllustrationHero from '@Assets/img/illustration-about.svg';
 
 const About = styled.section`
   display: flex;
