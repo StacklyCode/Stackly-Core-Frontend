@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withReactSvg = require("next-react-svg");
-const path = require("path");
 const { nextI18NextRewrites } = require("next-i18next/rewrites");
-const localeSubpaths = {};
+const path = require("path");
 const withPWA = require("next-pwa");
+const localeSubpaths = {};
 
 module.exports = withPWA(
   withReactSvg({

@@ -101,8 +101,6 @@ const MoleculesTagProject: React.FC<TagsProps> = ({
   type,
   title,
   link,
-  description,
-  t,
 }) => {
   return (
     <Tags>

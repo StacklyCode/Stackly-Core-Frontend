@@ -6,6 +6,11 @@ import { TFunction } from "next-i18next";
 import LazyLoad from "react-lazyload";
 import { GetStaticProps } from "next";
 
+const OrganismServices = dynamic(() => import("@Organisms/services"));
+const OrganismProjects = dynamic(() => import("@Organisms/projects"));
+const OrganismClients = dynamic(() => import("@Organisms/clients"));
+const OrganismContact = dynamic(() => import("@Organisms/contact"));
+
 type IProject = {
   id?: string;
   title?: string;
@@ -14,6 +19,11 @@ type IProject = {
   urlImage?: string;
   link?: string;
 };
+
+type Props = {
+  t?: TFunction;
+};
+
 const ProjectsDataFake: IProject[] = [
   {
     id: "0",
@@ -62,16 +72,7 @@ const ProjectsDataFake: IProject[] = [
   },
 ];
 
-type Props = {
-  t?: TFunction;
-};
-
 const PageHome = ({ t }: Props) => {
-  const OrganismServices = dynamic(() => import("@Organisms/services"));
-  const OrganismProjects = dynamic(() => import("@Organisms/projects"));
-  const OrganismClients = dynamic(() => import("@Organisms/clients"));
-  const OrganismContact = dynamic(() => import("@Organisms/contact"));
-
   return (
     <TemplateMain
       t={t}
@@ -107,4 +108,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
 export default I18n.withTranslation(["common"])(PageHome);

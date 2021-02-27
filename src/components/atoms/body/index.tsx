@@ -10,7 +10,7 @@ type Size =
 
 type BodyProps = {
   size?: Size;
-  color?: "white" | "green" | "gray" | "black" | "light" | "accent" 
+  color?: "white" | "green" | "gray" | "black" | "light" | "accent";
   align?: "left" | "center";
   bold?: boolean;
 };

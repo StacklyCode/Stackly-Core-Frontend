@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import Icon from "@Atoms/icon";
+import { FormikValues } from "formik";
 
 type InputProps = {
   type?:
@@ -16,7 +17,7 @@ type InputProps = {
   id?: string;
   icon?: string;
   margin?: [string, string];
-  formik?: any;
+  formik?: FormikValues;
 };
 
 const InputStyled = styled.div<InputProps>`
@@ -193,7 +194,6 @@ const StyledInputError = styled.span`
   color: #ff295f;
 `;
 
-
 const AtomInput: React.FC<InputProps> = ({
   type,
   color,
@@ -221,21 +221,22 @@ const AtomInput: React.FC<InputProps> = ({
         {type === "textbox" ? (
           <textarea
             id={id}
-            value={formik.values[`${id}`]}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            value={formik?.values[`${id}`]}
+            onChange={formik?.handleChange}
+            onBlur={formik?.handleBlur}
           ></textarea>
         ) : (
           <input
             id={id}
             type={(eye ? "text" : type) || "text"}
-            value={formik.values[`${id}`]}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            value={formik?.values[`${id}`]}
+            onChange={formik?.handleChange}
+            onBlur={formik?.handleBlur}
           />
         )}
-          {(formik.values[`${id}`] !== '' || formik.touched[`${id}`]) && formik.errors[`${id}`] ? (
-          <StyledInputError>{formik.errors[`${id}`]}</StyledInputError>
+        {(formik?.values[`${id}`] !== "" || formik?.touched[`${id}`]) &&
+        formik?.errors[`${id}`] ? (
+          <StyledInputError>{formik?.errors[`${id}`]}</StyledInputError>
         ) : null}
       </label>
       {type === "password" && (

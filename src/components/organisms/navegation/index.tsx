@@ -7,9 +7,6 @@ import { Link } from "react-scroll";
 import LinkNext from "next/link";
 import { useRouter } from "next/router";
 import { TFunction } from "next-i18next";
-import AtomButton from "@Src/components/atoms/button";
-import AtomTitle from "@Src/components/atoms/title";
-import AtomSwitch from "@Src/components/atoms/switch";
 
 type NavegationProps = {
   title?: string;

@@ -2,6 +2,7 @@ import AtomBody from "@Atoms/body";
 import AtomIcon from "@Atoms/icon";
 import AtomTitle from "@Atoms/title";
 import styled from "@emotion/styled";
+import Link from "@Src/utils/link";
 
 type TagsProps = {
   image?: string;
@@ -115,9 +116,9 @@ const MoleculesTagTeam: React.FC<TagsProps> = ({
       </AtomBody>
       <SocialNetworkContainer>
         {social?.map((item, index) => (
-          <a target="_blank" key={`${item.name}key${index}`} href={item.url}>
+          <Link key={`${item.name}key${index}`} to={item.url}>
             <AtomIcon icon={item.name} color="dark" size="12px" />
-          </a>
+          </Link>
         ))}
       </SocialNetworkContainer>
     </Tags>

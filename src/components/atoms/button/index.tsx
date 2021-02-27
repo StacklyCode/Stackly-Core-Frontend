@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Link from "next/link";
+import Link from "@Src/utils/link";
 
 type ButtonProps = {
   color?: "primary" | "secondary";
@@ -74,7 +74,7 @@ const AtomButton: React.FC<ButtonProps> = ({
 }) => {
   if (link) {
     return (
-      <Link href={link}>
+      <Link to={link}>
         <Button color={color} outline={outline}>
           {children}
         </Button>
@@ -83,11 +83,11 @@ const AtomButton: React.FC<ButtonProps> = ({
   }
   if (href) {
     return (
-      <a target="_blank" href={href}>
+      <Link to={href} isExternal>
         <Button color={color} outline={outline}>
           {children}
         </Button>
-      </a>
+      </Link>
     );
   }
   return (

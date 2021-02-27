@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import AtomContainer from "@Atoms/container";
 import AtomTitle from "@Atoms/title";
 import AtomBody from "@Atoms/body";
-import MoleculesTags from "@Molecules/tags";
 import { useSpring, animated } from "react-spring";
 import { TFunction } from "next-i18next";
 import MoleculesTagTeam from "@Src/components/molecules/tagteam";

@@ -8,7 +8,6 @@ import { TFunction } from "next-i18next";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation, gql } from "@apollo/client";
-import Axios from "axios";
 
 const Contact = styled.section`
   background: ${({ theme }) => theme.colors.white};

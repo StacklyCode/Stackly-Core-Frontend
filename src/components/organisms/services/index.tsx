@@ -68,7 +68,7 @@ type IServices = {
 };
 
 const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
-  const props = useSpring({
+  useSpring({
     to: { opacity: 1, transform: "translateX(0px)" },
     from: { opacity: 0, transform: "translateX(-20px)" },
     delay: 700,

@@ -43,6 +43,7 @@ const MoleculeCarrusel: React.FC<TCarrusel> = ({ data, t }) => {
       {data &&
         data?.map((item) => (
           <SwiperSlide
+            key={item.title}
             style={{
               display: "flex",
               justifyContent: "center",
