@@ -19,7 +19,7 @@ type NavegationProps = {
 const Navigation = styled.header<NavegationProps>`
   width: 100vw;
   height: 90px;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   display: flex;
   justify-content: center;
   position: fixed;
