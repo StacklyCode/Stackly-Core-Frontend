@@ -4,6 +4,7 @@ import AtomContainer from "@Src/components/atoms/container";
 import I18n from "@Src/i18n";
 import { TFunction } from "next-i18next";
 import { GetStaticProps } from "next";
+import ReactPlayer from 'react-player'
 interface Props {
   t?: TFunction;
 }
@@ -11,7 +12,9 @@ interface Props {
 const PageLive = ({ t }: Props) => {
   return (
     <TemplateMain t={t}>
-      <AtomContainer></AtomContainer>
+      <AtomContainer>
+        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      </AtomContainer>
     </TemplateMain>
   );
 };
