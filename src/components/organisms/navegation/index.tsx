@@ -1,15 +1,13 @@
-import AtomContainer from "@Atoms/container";
-import AtomIcon from "@Atoms/icon";
-import AtomToggleList from "@Atoms/togglelist";
-import styled from "@emotion/styled";
-import { useState } from "react";
-import { Link } from "react-scroll";
-import LinkNext from "next/link";
-import { useRouter } from "next/router";
-import { TFunction } from "next-i18next";
-import AtomButton from "@Src/components/atoms/button";
-import AtomTitle from "@Src/components/atoms/title";
-import AtomSwitch from "@Src/components/atoms/switch";
+import AtomContainer from '@Atoms/container';
+import AtomIcon from '@Atoms/icon';
+import styled from '@emotion/styled';
+import { useState } from 'react';
+import LinkNext from 'next/link';
+import { TFunction } from 'next-i18next';
+import AtomButton from '@Src/components/atoms/button';
+
+import MoleculesNavSetting from '@Src/components/molecules/navseemore';
+import MoleculesSetting from '@Src/components/molecules/navsettings';
 
 type NavegationProps = {
   title?: string;
@@ -18,8 +16,8 @@ type NavegationProps = {
 
 const Navigation = styled.header<NavegationProps>`
   width: 100vw;
-  height: 110px;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  height: 90px;
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   display: flex;
   justify-content: center;
   position: fixed;
@@ -29,8 +27,8 @@ const Navigation = styled.header<NavegationProps>`
 `;
 const NavigationLogo = styled.div`
   div {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     margin-right: 40px;
     cursor: pointer;
     svg {
@@ -68,8 +66,8 @@ const NavigationLink = styled.div<NavegationProps>`
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 25px;
   color: ${({ theme }) => theme.colors.primary.base};
   cursor: pointer;
   display: flex;
@@ -141,11 +139,6 @@ const NavigationLinksSidebar = styled.div<NavegationProps>`
     margin-bottom: 50px;
   }
 `;
-const ToggleContainer = styled.div<NavegationProps>`
-  height: max-content;
-  width: max-content;
-  margin-right: 40px;
-`;
 
 const NavigationContainer = styled.div<NavegationProps>`
   height: 45px;
@@ -170,145 +163,84 @@ const NavigationContainerButtons = styled.div<NavegationProps>`
   }
 `;
 
-const ToggleDarkModeContainer = styled.div<NavegationProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+const SearchBarNavigation = styled.div`
+  width: 30%;
+  max-width: 300px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: ${({ theme }) => theme.colors.secondary.dark};
+  box-shadow: 0px 0px 3px rgba(72, 72, 72, 0.1);
 `;
 
 const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
   const [sidebar, setSidebar] = useState(false);
-  const router = useRouter();
   return (
     <Navigation>
-      <AtomContainer
-        fullwidth
-        alignItems="center"
-        justifyContent="space-between"
-      >
+      <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
         <NavigationContainer>
           <NavigationLogo>
-            {router.pathname !== "/" ? (
-              <a href="/">
+            <LinkNext href="/">
+              <a href="">
                 <AtomIcon icon="stacklycodelogo" />
               </a>
-            ) : (
-              <Link to="HeroScroll" smooth offset={-110}>
-                <AtomIcon icon="stacklycodelogo" />
-              </Link>
-            )}
+            </LinkNext>
           </NavigationLogo>
-          <ToggleContainer>
-            <AtomToggleList
-              outline
-              object={{ title: "Lenguajes", options: ["en", "es"] }}
-            />
-          </ToggleContainer>
-          <NavigationLinks>
-            {router.pathname !== "/" ? (
-              <>
-                <LinkNext href="/#ServicesScroll">
-                  <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
-                </LinkNext>
-                <LinkNext href="/#ProjectsScroll">
-                  <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
-                </LinkNext>
-                <LinkNext href="/#ClientsScroll">
-                  <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
-                </LinkNext>
 
-                <LinkNext href="/#ContactScroll">
-                  <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
-                </LinkNext>
-              </>
-            ) : (
-              <>
-                <Link to="ServicesScroll" smooth offset={-140}>
-                  <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
-                </Link>
-                <Link to="ProjectsScroll" smooth offset={-140}>
-                  <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
-                </Link>
-                <Link to="ClientsScroll" smooth offset={-140}>
-                  <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
-                </Link>
-                <Link to="ContactScroll" smooth offset={-140}>
-                  <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
-                </Link>
-              </>
-            )}
+          <NavigationLinks>
+            <LinkNext href="/team">
+              <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/team">
+              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/resources">
+              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+            </LinkNext>
+            {/*             <LinkNext href="/live">
+              <NavigationLink>{t && t("nav-tag-2")}</NavigationLink>
+            </LinkNext>
             <LinkNext href="/about">
-              <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
+              <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
-              <NavigationLink>
-                {t && t("nav-tag-2")} <AtomIcon color="white" icon="new" />
-              </NavigationLink>
-            </LinkNext>
+              <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
+            </LinkNext> */}
+            <MoleculesNavSetting />
           </NavigationLinks>
         </NavigationContainer>
+        <SearchBarNavigation></SearchBarNavigation>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
           <AtomIcon icon="menu" />
         </IconSideBar>
         <NavigationContainerButtons>
-          {/* 
-          <ToggleDarkModeContainer>
-            <AtomSwitch />
-          </ToggleDarkModeContainer>
-         
-          <AtomButton outline>Sign In</AtomButton>
-          <AtomButton>Sign Up</AtomButton> */}
+          <AtomButton link="/login">Login</AtomButton>
+          <AtomButton outline link="/signup">
+            Sign Up
+          </AtomButton>
+          <MoleculesSetting />
         </NavigationContainerButtons>
       </AtomContainer>
       {sidebar && (
         <SideBar>
           <NavigationLinksSidebar>
             <ContainerSideBar></ContainerSideBar>
+            <LinkNext href="/live">
+              <NavigationLink>{t && t('nav-tag-2')}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/team">
+              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/resources">
+              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+            </LinkNext>
             <LinkNext href="/about">
-              <NavigationLink>{t && t("nav-tag-1")}</NavigationLink>
+              <NavigationLink>{t && t('nav-tag-5')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>
-                {t && t("nav-tag-2")} <AtomIcon color="white" icon="new" />
+                {t && t('nav-tag-6')} <AtomIcon color="white" icon="new" />
               </NavigationLink>
             </LinkNext>
-            {router.pathname !== "/" ? (
-              <LinkNext href="/#ServicesScroll">
-                <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
-              </LinkNext>
-            ) : (
-              <Link to="ServicesScroll" smooth offset={-60}>
-                <NavigationLink>{t && t("nav-tag-3")}</NavigationLink>
-              </Link>
-            )}
-            {router.pathname !== "/" ? (
-              <LinkNext href="/#ClientsScroll">
-                <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
-              </LinkNext>
-            ) : (
-              <Link to="ClientsScroll" smooth offset={-60}>
-                <NavigationLink>{t && t("nav-tag-4")}</NavigationLink>
-              </Link>
-            )}
-            {router.pathname !== "/" ? (
-              <LinkNext href="/#ProjectsScroll">
-                <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
-              </LinkNext>
-            ) : (
-              <Link to="ProjectsScroll" smooth offset={-30}>
-                <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
-              </Link>
-            )}
-            {router.pathname !== "/" ? (
-              <LinkNext href="/#ContactScroll">
-                <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
-              </LinkNext>
-            ) : (
-              <Link to="ContactScroll" smooth offset={-40}>
-                <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
-              </Link>
-            )}
           </NavigationLinksSidebar>
         </SideBar>
       )}

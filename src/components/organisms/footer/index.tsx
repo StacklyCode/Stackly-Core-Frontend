@@ -1,8 +1,9 @@
-import AtomContainer from "@Atoms/container";
-import AtomIcon from "@Atoms/icon";
-import styled from "@emotion/styled";
-import { TFunction } from "next-i18next";
-import LinkNext from "next/link";
+import AtomContainer from '@Atoms/container';
+import AtomIcon from '@Atoms/icon';
+import styled from '@emotion/styled';
+import Link from '@Src/utils/link';
+import { TFunction } from 'next-i18next';
+import LinkNext from 'next/link';
 
 type FooterProps = {
   title?: string;
@@ -89,27 +90,29 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
             <AtomIcon icon="stacklycodelogo" />
           </FooterContainerLogo>
           <LinkNext href="/copyrighted">
-            <FooterCopyrighted>{t && t("footer-desc")}</FooterCopyrighted>
+            <FooterCopyrighted>{t && t('footer-desc')}</FooterCopyrighted>
           </LinkNext>
           <FooterSocialContainer>
-            <a target="_blank"
-              href="https://www.facebook.com/StacklyCodeOfficial"
+            <Link
+              to="https://www.facebook.com/StacklyCodeOfficial"
               title="Facebook Page"
+              isExternal
             >
               <AtomIcon icon="facebook" />
-            </a>
-            <a target="_blank"
-              href="https://www.linkedin.com/company/68642625/admin/"
+            </Link>
+            <Link
+              to="https://www.linkedin.com/company/68642625/admin/"
               title="Linkedin Page"
+              isExternal
             >
               <AtomIcon icon="linkedin" />
-            </a>
-            <a target="_blank" href="https://github.com/StacklyCode" title="Github Page">
+            </Link>
+            <Link to="https://github.com/StacklyCode" title="Github Page" isExternal>
               <AtomIcon icon="github" />
-            </a>
-            <a target="_blank" href="https://twitter.com/StacklyCode" title="Twitter Page">
+            </Link>
+            <Link to="https://twitter.com/StacklyCode" title="Twitter Page">
               <AtomIcon icon="twitter" />
-            </a>
+            </Link>
           </FooterSocialContainer>
         </FooterContainer>
       </AtomContainer>

@@ -1,49 +1,50 @@
-import styled from "@emotion/styled";
-import AtomIcon from "@Atoms/icon";
-import AtomContainer from "@Atoms/container";
-import AtomTitle from "@Atoms/title";
-import AtomBody from "@Atoms/body";
+import styled from '@emotion/styled';
+import AtomIcon from '@Atoms/icon';
+import AtomContainer from '@Atoms/container';
+import AtomTitle from '@Atoms/title';
+import AtomBody from '@Atoms/body';
 
-import { TFunction } from "next-i18next";
+import { TFunction } from 'next-i18next';
+import Link from '@Src/utils/link';
 
-const fakeUserData = [
-  {
-    name: "Albert Flores",
-    description: "client-desc-1",
-    img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
-    ],
-    stars: true,
-  },
-  {
-    name: "Albert Flores",
-    description: "client-desc-2",
-    img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
-    ],
-    stars: true,
-  },
-  {
-    name: "Albert Flores",
-    description: "client-desc-3",
-    img:
-      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    socialnetwork: [
-      { name: "facebook", url: "fb.com/willishakkespeare" },
-      { name: "twitter", url: "twitter.com/willishakkespeare" },
-      { name: "linkedin", url: "linkedin.com/willishakkespeare" },
-    ],
-    stars: true,
-  },
-];
+// const fakeUserData = [
+//   {
+//     name: "Albert Flores",
+//     description: "client-desc-1",
+//     img:
+//       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+//     socialnetwork: [
+//       { name: "facebook", url: "fb.com/willishakkespeare" },
+//       { name: "twitter", url: "twitter.com/willishakkespeare" },
+//       { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+//     ],
+//     stars: true,
+//   },
+//   {
+//     name: "Albert Flores",
+//     description: "client-desc-2",
+//     img:
+//       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+//     socialnetwork: [
+//       { name: "facebook", url: "fb.com/willishakkespeare" },
+//       { name: "twitter", url: "twitter.com/willishakkespeare" },
+//       { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+//     ],
+//     stars: true,
+//   },
+//   {
+//     name: "Albert Flores",
+//     description: "client-desc-3",
+//     img:
+//       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+//     socialnetwork: [
+//       { name: "facebook", url: "fb.com/willishakkespeare" },
+//       { name: "twitter", url: "twitter.com/willishakkespeare" },
+//       { name: "linkedin", url: "linkedin.com/willishakkespeare" },
+//     ],
+//     stars: true,
+//   },
+// ];
 
 const Clients = styled.section`
   min-height: calc(100vh - 110px);
@@ -158,12 +159,12 @@ const SocialNetworkContainer = styled.div`
 
     ${({ theme }) =>
       true && {
-        width: "20px",
-        height: "20px",
-        marginRight: "15px",
+        width: '20px',
+        height: '20px',
+        marginRight: '15px',
         svg: {
-          width: "100%",
-          height: "100%",
+          width: '100%',
+          height: '100%',
           path: {
             fill: theme.colors.primary.base,
           },
@@ -196,13 +197,13 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
       <AtomContainer alignItems="flex-start" justifyContent="flex-start">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium">
-            {t && t("clients-title")}
+            {t && t('clients-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t("clients-desc-1")}
+            {t && t('clients-desc-1')}
           </AtomBody>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t("clients-desc-2")}
+            {t && t('clients-desc-2')}
           </AtomBody>
           <TagsContainer>
             <TagsContainerClients>
@@ -211,16 +212,16 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
                   COMFECO
                 </AtomTitle>
                 <AtomBody align="left" size="BodyMedium" color="light">
-                  {t && t("client-desc-1")}
+                  {t && t('client-desc-1')}
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>
-                    <a target="_blank" href="https://www.comfeco.com/">
+                    <Link to="https://www.comfeco.com/" isExternal>
                       <AtomIcon icon="web" color="dark" size="12px" />
-                    </a>
-                    <a target="_blank" href="https://twitter.com/comfeco">
+                    </Link>
+                    <Link to="https://twitter.com/comfeco" isExternal>
                       <AtomIcon icon="twitter" color="dark" size="12px" />
-                    </a>
+                    </Link>
                   </SocialNetworkContainer>
                   <StarContainer>
                     <AtomIcon icon="star" />

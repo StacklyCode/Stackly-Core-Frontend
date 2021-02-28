@@ -1,13 +1,13 @@
-import styled from "@emotion/styled";
-import OrganismsNavigation from "@Organisms/navegation";
-import OrganismFooter from "@Organisms/footer";
-import { TFunction } from "next-i18next";
-import Seo from "@Utils/seo";
+import styled from '@emotion/styled';
+import OrganismsNavigation from '@Organisms/navegation';
+import OrganismFooter from '@Organisms/footer';
+import { TFunction } from 'next-i18next';
+import Seo from '@Utils/seo';
 
 const Background = styled.main`
   height: max-content;
   width: 100%;
-  margin-top: 110px;
+  margin-top: 90px;
 `;
 
 type ITemplate = {

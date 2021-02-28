@@ -1,7 +1,7 @@
-import TemplateMain from "@Templates/index";
-import I18n from "@Src/i18n";
-import { TFunction } from "next-i18next";
-import { GetStaticProps } from "next";
+import TemplateMain from '@Templates/index';
+import I18n from '@Src/i18n';
+import { TFunction } from 'next-i18next';
+import { GetStaticProps } from 'next';
 
 type TTeam = {
   t?: TFunction;
@@ -23,8 +23,8 @@ const PageTeam = ({ t }: TTeam) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      namespacesRequired: ["common"],
+      namespacesRequired: ['common'],
     },
   };
 };
-export default I18n.withTranslation(["common"])(PageTeam);
+export default I18n.withTranslation(['common'])(PageTeam);
