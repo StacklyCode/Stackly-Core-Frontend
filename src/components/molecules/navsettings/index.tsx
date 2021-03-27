@@ -22,7 +22,11 @@ const SettingsNavigation = styled.div`
   }
   div {
     margin-top: 2px;
-    width: 15px;
+    width: 100%;
+    height: 100%;
+    svg{
+      width: 15px;
+    }
   }
 `;
 
@@ -49,6 +53,7 @@ const SettingsOptionsNavigation = styled(animated.div)`
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
   z-index: 10;
   padding: 5px 10px;
+  user-select: none;
 `;
 
 const ToggleContainerOption = styled.div`
@@ -98,12 +103,13 @@ const ToggleContainerOptionContainer = styled.div`
 function useOutsideAlerter(
   ref: React.RefObject<HTMLDivElement>,
   settoggle: React.Dispatch<boolean>,
-  setoption: React.Dispatch<number>
-) {
+  setoption: React.Dispatch<number>,
+  ref2: React.RefObject<HTMLDivElement>,
+  ) {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function handleClickOutside(event: any) {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if ((ref.current && !ref.current.contains(event.target) && (ref2.current && !ref2.current.contains(event.target)))) {
         settoggle(false);
         setoption(0);
       }
@@ -119,7 +125,8 @@ const MoleculesSetting: React.FC = () => {
   const [toggle, settoggle] = useState(false);
   const [option, setoption] = useState(0);
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, settoggle, setoption);
+  const wrapperRef2 = useRef(null);
+  useOutsideAlerter(wrapperRef, settoggle, setoption,wrapperRef2);
 
   const transitions = useTransition(toggle, null, {
     from: { opacity: 0, transform: 'translateY(-10px)' },
@@ -143,7 +150,7 @@ const MoleculesSetting: React.FC = () => {
       {transitions.map(
         ({ item, props }) =>
           item && (
-            <SettingsOptionsNavigation ref={wrapperRef} style={props}>
+            <SettingsOptionsNavigation ref={wrapperRef2} style={props}>
               {optionAnim.map(
                 ({ item, props }) =>
                   item === 0 && (

@@ -187,6 +187,7 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           </NavigationLogo>
 
           <NavigationLinks>
+       
             <LinkNext href="/team">
               <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
             </LinkNext>
@@ -208,7 +209,6 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
             <MoleculesNavSetting />
           </NavigationLinks>
         </NavigationContainer>
-        <SearchBarNavigation></SearchBarNavigation>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
           <AtomIcon icon="menu" />
         </IconSideBar>
@@ -228,7 +228,7 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
               <NavigationLink>{t && t('nav-tag-2')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/team">
-              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+              <NavigationLink> {t && t('nav-tag-3')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/resources">
               <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>

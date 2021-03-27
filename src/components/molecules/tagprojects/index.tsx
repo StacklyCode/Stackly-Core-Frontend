@@ -59,7 +59,7 @@ const TagImage = styled.img<TagsProps>`
   transition: all 0.6s ease;
 `;
 
-const TagImageDesc = styled.desc<TagsProps>`
+const TagImageDesc = styled.section<TagsProps>`
   width: 100%;
   display: flex;
   flex-direction: column;

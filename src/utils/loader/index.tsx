@@ -45,9 +45,6 @@ const LoaderContainer = styled.div`
 `;
 
 export const Loader = () => {
-  new PerformanceObserver((entryList) => {
-    entryList.getEntries().map((el) => console.log(el));
-  });
 
   return (
     <LoaderBackground>

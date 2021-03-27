@@ -70,7 +70,6 @@ const AtomSwitch: React.FC<SwitchProps> = () => {
       <SwitchInputStyled
         checked={checked}
         onChange={() => {
-          console.log(checked);
           setChecked(!checked);
           if (checked) {
             setTheme(Theme.theme1);
