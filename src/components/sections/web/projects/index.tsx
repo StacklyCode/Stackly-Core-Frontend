@@ -3,7 +3,8 @@ import AtomContainer from '@Atoms/container';
 import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import { Link } from 'react-scroll';
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
+
 import MoleculeCarrusel from '@Src/components/molecules/carrusel';
 
 type IProject = {
@@ -18,7 +19,6 @@ type IProject = {
 type ProjectsProps = {
   idScroll?: string;
   projects?: IProject[];
-  t?: TFunction;
 };
 
 const Projects = styled.section`
@@ -161,32 +161,33 @@ const ProjectsData: IProject[] = [
   },
 ];
 
-const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll, t }) => {
+const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll }) => {
+  const { t } = useTranslation('common');
   return (
     <Projects id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between" fullwidth>
         <ProjectsContainer>
           <ParagraphTitle>
             <AtomTitle bold size="TitleMedium">
-              {t && t('projects-title')}
+              { t('projects-title')}
             </AtomTitle>
             <AtomBody align="center" size="BodyLarge" color="light">
-              {t && t('projects-desc')}
+              { t('projects-desc')}
             </AtomBody>
           </ParagraphTitle>
           <ParagraphContainer>
             <AtomBody size="BodyLarge" color="light">
-              {t && t('projects-desc-button-1')}
+              { t('projects-desc-button-1')}
             </AtomBody>
             <Link to="ContactScroll" smooth offset={-40}>
               <AtomBody color="accent" size="BodyLarge">
-                {t && t('projects-desc-button-2')}
+                { t('projects-desc-button-2')}
               </AtomBody>
             </Link>
           </ParagraphContainer>
 
           <AllProjectsContainer>
-            <MoleculeCarrusel t={t} data={ProjectsData}></MoleculeCarrusel>
+            <MoleculeCarrusel data={ProjectsData}></MoleculeCarrusel>
           </AllProjectsContainer>
         </ProjectsContainer>
       </AtomContainer>

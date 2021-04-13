@@ -2,12 +2,11 @@ import AtomContainer from '@Atoms/container';
 import AtomIcon from '@Atoms/icon';
 import styled from '@emotion/styled';
 import Link from '@Src/utils/link';
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
 import LinkNext from 'next/link';
 
 type FooterProps = {
   title?: string;
-  t?: TFunction;
 };
 
 const Footer = styled.div<FooterProps>`
@@ -81,7 +80,8 @@ const FooterCopyrighted = styled.span`
   cursor: pointer;
 `;
 
-const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
+const OrganismFooter: React.FC<FooterProps> = () => {
+  const { t } = useTranslation('common');
   return (
     <Footer>
       <AtomContainer fullwidth alignItems="center" justifyContent="center">
@@ -90,7 +90,7 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
             <AtomIcon icon="stacklycodelogo" />
           </FooterContainerLogo>
           <LinkNext href="/copyrighted">
-            <FooterCopyrighted>{t && t('footer-desc')}</FooterCopyrighted>
+            <FooterCopyrighted>{ t('footer-desc')}</FooterCopyrighted>
           </LinkNext>
           <FooterSocialContainer>
             <Link

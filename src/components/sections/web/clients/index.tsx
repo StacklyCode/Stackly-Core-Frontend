@@ -4,7 +4,8 @@ import AtomContainer from '@Atoms/container';
 import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
+
 import Link from '@Src/utils/link';
 
 // const fakeUserData = [
@@ -188,22 +189,22 @@ const StarContainer = styled.div`
 
 type IClients = {
   idScroll?: string;
-  t?: TFunction;
 };
 
-const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
+const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
+  const { t } = useTranslation('common');
   return (
     <Clients id={idScroll}>
       <AtomContainer alignItems="flex-start" justifyContent="flex-start">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium">
-            {t && t('clients-title')}
+            { t('clients-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t('clients-desc-1')}
+            { t('clients-desc-1')}
           </AtomBody>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t('clients-desc-2')}
+            { t('clients-desc-2')}
           </AtomBody>
           <TagsContainer>
             <TagsContainerClients>
@@ -212,7 +213,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
                   COMFECO
                 </AtomTitle>
                 <AtomBody align="left" size="BodyMedium" color="light">
-                  {t && t('client-desc-1')}
+                  { t('client-desc-1')}
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>

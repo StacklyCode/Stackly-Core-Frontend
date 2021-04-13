@@ -3,7 +3,7 @@ import AtomContainer from '@Atoms/container';
 import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import { useSpring, animated } from 'react-spring';
-import { TFunction } from 'next-i18next';
+ 
 
 const About = styled.section`
   display: flex;
@@ -39,7 +39,7 @@ const TextContainer = styled(animated.div)`
 
 type IAbout = {
   idScroll?: string;
-  t?: TFunction;
+  
 };
 
 const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
@@ -54,10 +54,10 @@ const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="center" bold size="TitleMedium">
-            {t && t('about-title')}
+            { t('about-title')}
           </AtomTitle>
           <AtomBody align="center" size="BodyLarge" color="light">
-            {t && t('about-desc')}
+            { t('about-desc')}
           </AtomBody>
         </TextContainer>
       </AtomContainer>

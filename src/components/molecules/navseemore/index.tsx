@@ -96,36 +96,26 @@ const MoleculesNavSetting: React.FC = () => {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, settoggle);
 
-  const transitions = useTransition(toggle, null, {
-    from: { opacity: 0, transform: 'translateY(-10px)' },
-    enter: { opacity: 1, transform: 'translateY(0px)' },
-    leave: { opacity: 0, transform: 'translateY(-10px)' },
-    delay: 100,
-  });
-
   return (
     <NavigationSeeMore ref={wrapperRef} onClick={() => settoggle(!toggle)}>
       <AtomIcon icon="dots" />
-      {transitions.map(
-        ({ item, key, props }) =>
-          item && (
-            <NavigationSettings key={key} style={props}>
-              {data.map((item) => (
-                <>
-                  <AtomTitle size="SubTitleSmall" align="center" bold>
-                    {item.name}
-                  </AtomTitle>
-                  {item.data.map((item) => (
-                    <Link href={item.link} key={item.name}>
-                      <NavigationSettingsOption key={key}>
-                        <AtomBody size="BodySmall">{item.name}</AtomBody>
-                      </NavigationSettingsOption>
-                    </Link>
-                  ))}
-                </>
+      {toggle && (
+        <NavigationSettings>
+          {data.map((item) => (
+            <>
+              <AtomTitle key={item.name} size="SubTitleSmall" align="center" bold>
+                {item.name}
+              </AtomTitle>
+              {item.data.map((item) => (
+                <Link href={item.link} key={item.name}>
+                  <NavigationSettingsOption key={item.name}>
+                    <AtomBody size="BodySmall">{item.name}</AtomBody>
+                  </NavigationSettingsOption>
+                </Link>
               ))}
-            </NavigationSettings>
-          )
+            </>
+          ))}
+        </NavigationSettings>
       )}
     </NavigationSeeMore>
   );

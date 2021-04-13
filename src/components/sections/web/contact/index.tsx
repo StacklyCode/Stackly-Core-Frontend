@@ -4,7 +4,7 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import AtomButton from '@Atoms/button';
 import AtomInput from '@Atoms/input';
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation, gql } from '@apollo/client';
@@ -93,7 +93,6 @@ const FormLeftContainer = styled.article`
 
 type IContact = {
   idScroll?: string;
-  t?: TFunction;
 };
 
 interface FormValues {
@@ -116,7 +115,8 @@ const NEW_CONTACT = gql`
   }
 `;
 
-const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
+const OrganismContact: React.FC<IContact> = ({ idScroll }) => {
+  const { t } = useTranslation('common');
   const [newUser] = useMutation(NEW_CONTACT);
 
   const formik = useFormik({
@@ -148,10 +148,10 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="center">
         <TextContainer>
           <AtomTitle align="center" bold size="TitleMedium">
-            {t && t('contact-title')}
+            { t('contact-title')}
           </AtomTitle>
           <AtomBody align="center" size="BodyLarge" color="light">
-            {t && t('contact-desc')}
+            { t('contact-desc')}
           </AtomBody>
 
           <FormContainer onSubmit={formik.handleSubmit}>
@@ -159,14 +159,14 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               <AtomInput
                 id="name"
                 margin={['5px', '0px']}
-                name={t && t('contact-input-name')}
+                name={ t('contact-input-name')}
                 placeholder="My Name is ..."
                 formik={formik}
               />
               <AtomInput
                 id="subject"
                 margin={['5px', '0px']}
-                name={t && t('contact-input-subject')}
+                name={ t('contact-input-subject')}
                 placeholder="Is Important"
                 formik={formik}
               />
@@ -175,7 +175,7 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               id="email"
               type="email"
               margin={['5px', '0px']}
-              name={t && t('contact-input-email')}
+              name={ t('contact-input-email')}
               placeholder="email@gmail.com"
               formik={formik}
             />
@@ -183,11 +183,11 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
             <AtomInput
               id="message"
               margin={['5px', '0px']}
-              name={t && t('contact-input-message')}
+              name={ t('contact-input-message')}
               type="textbox"
               formik={formik}
             />
-            <AtomButton type="submit">{t && t('contact-input-send')}</AtomButton>
+            <AtomButton type="submit">{ t('contact-input-send')}</AtomButton>
           </FormContainer>
         </TextContainer>
       </AtomContainer>

@@ -2,7 +2,7 @@ import AtomContainer from '@Atoms/container';
 import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import styled from '@emotion/styled';
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
 import { useSpring, animated } from 'react-spring';
 import MoleculesTagServices from '@Src/components/molecules/tagservices';
 
@@ -64,10 +64,10 @@ const TagsContainer = styled.div`
 
 type IServices = {
   idScroll?: string;
-  t?: TFunction;
 };
 
-const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
+const OrganismServices: React.FC<IServices> = ({ idScroll }) => {
+  const { t } = useTranslation('common');
   useSpring({
     to: { opacity: 1, transform: 'translateX(0px)' },
     from: { opacity: 0, transform: 'translateX(-20px)' },
@@ -83,30 +83,30 @@ const OrganismServices: React.FC<IServices> = ({ idScroll, t }) => {
       <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
         <TextContainer style={props2}>
           <AtomTitle align="left" bold size="TitleMedium">
-            {t && t('services-title')}
+            { t('services-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t('services-desc')}
+            { t('services-desc')}
           </AtomBody>
           <TagsContainer>
             <MoleculesTagServices
-              title={t && t('services-tag-1-title')}
-              description={t && t('services-tag-1-desc')}
+              title={ t('services-tag-1-title')}
+              description={ t('services-tag-1-desc')}
               icon="design"
             />
             <MoleculesTagServices
-              title={t && t('services-tag-2-title')}
-              description={t && t('services-tag-2-desc')}
+              title={ t('services-tag-2-title')}
+              description={ t('services-tag-2-desc')}
               icon="apps-services"
             />
             <MoleculesTagServices
-              title={t && t('services-tag-3-title')}
-              description={t && t('services-tag-3-desc')}
+              title={ t('services-tag-3-title')}
+              description={ t('services-tag-3-desc')}
               icon="web-mobile"
             />
             <MoleculesTagServices
-              title={t && t('services-tag-4-title')}
-              description={t && t('services-tag-4-desc')}
+              title={ t('services-tag-4-title')}
+              description={ t('services-tag-4-desc')}
               icon="consultancy"
             />
           </TagsContainer>

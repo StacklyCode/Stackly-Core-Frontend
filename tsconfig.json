@@ -4,7 +4,6 @@
     "paths": {
       "@Src/*": ["src/*"],
       "@Hooks/*": ["src/hooks/*"],
-      "@Apollo/*": ["src/apollo/*"],
       "@Public/*": ["public/*"],
       "@Config/*": ["src/config/*"],
       "@Atoms/*": ["src/components/atoms/*"],
@@ -14,7 +13,8 @@
       "@Templates/*": ["src/components/templates/*"],
       "@Utils/*": ["src/utils/*"],
       "@Assets/*": ["src/assets/*"],
-      "@Styles/*": ["src/styles/*"]
+      "@Styles/*": ["src/styles/*"],
+      "@ApolloServer/*": ["src/apollo/*"]
     },
     "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -31,11 +31,5 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules", ".next"],
-  "include": [
-    "next-env.d.ts",
-    "emotion.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/pages/api/contact/index.js"
-  ]
+  "include": ["next-env.d.ts", "emotion.d.ts", "**/*.ts", "**/*.tsx"]
 }

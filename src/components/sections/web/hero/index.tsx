@@ -4,7 +4,8 @@ import AtomBody from '@Atoms/body';
 import AtomContainer from '@Atoms/container';
 import AtomButton from '@Atoms/button';
 import { useSpring, animated } from 'react-spring';
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
+
 import { Link } from 'react-scroll';
 
 const Hero = styled.section`
@@ -97,10 +98,10 @@ const ButtonContainer = styled.div`
 
 type IHero = {
   idScroll?: string;
-  t?: TFunction;
 };
 
-const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
+const OrganismHero: React.FC<IHero> = ({ idScroll }) => {
+  const { t } = useTranslation('common');
   const props = useSpring({
     to: { opacity: 1, transform: 'translateX(0px)' },
     from: { opacity: 0, transform: 'translateX(-20px)' },
@@ -119,17 +120,17 @@ const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
             Hispanic Software Company
           </AtomBody>
           <AtomTitle align="left" bold size="TitleLarge">
-            {t && t('hero-title')}
+            {t('hero-title')}
           </AtomTitle>
           <AtomBody color="light" align="left" size="BodyLarge">
-            {t && t('hero-desc')}
+            {t('hero-desc')}
           </AtomBody>
           <ButtonContainer>
             <Link to="ContactScroll" smooth offset={-40}>
-              <AtomButton>{t && t('hero-btn-1')}</AtomButton>
+              <AtomButton>{t('hero-btn-1')}</AtomButton>
             </Link>
             <Link to="ProjectsScroll" smooth offset={-30}>
-              <AtomButton outline>{t && t('hero-btn-2')}</AtomButton>
+              <AtomButton outline>{t('hero-btn-2')}</AtomButton>
             </Link>
           </ButtonContainer>
         </TextContainer>

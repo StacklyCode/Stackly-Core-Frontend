@@ -3,7 +3,7 @@ import AtomIcon from '@Atoms/icon';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import LinkNext from 'next/link';
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
 import AtomButton from '@Src/components/atoms/button';
 
 import MoleculesNavSetting from '@Src/components/molecules/navseemore';
@@ -11,7 +11,6 @@ import MoleculesSetting from '@Src/components/molecules/navsettings';
 
 type NavegationProps = {
   title?: string;
-  t?: TFunction;
 };
 
 const Navigation = styled.header<NavegationProps>`
@@ -172,7 +171,8 @@ const SearchBarNavigation = styled.div`
   box-shadow: 0px 0px 3px rgba(72, 72, 72, 0.1);
 `;
 
-const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
+const OrganismNavigation: React.FC<NavegationProps> = () => {
+  const { t } = useTranslation('common');
   const [sidebar, setSidebar] = useState(false);
   return (
     <Navigation>
@@ -187,24 +187,23 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           </NavigationLogo>
 
           <NavigationLinks>
-       
             <LinkNext href="/team">
-              <NavigationLink>{t && t('nav-tag-1')}</NavigationLink>
+              <NavigationLink>{ t('nav-tag-1')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/team">
-              <NavigationLink>{t && t('nav-tag-3')}</NavigationLink>
+              <NavigationLink>{ t('nav-tag-3')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/resources">
-              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+              <NavigationLink>{ t('nav-tag-4')}</NavigationLink>
             </LinkNext>
             {/*             <LinkNext href="/live">
-              <NavigationLink>{t && t("nav-tag-2")}</NavigationLink>
+              <NavigationLink>{ t("nav-tag-2")}</NavigationLink>
             </LinkNext>
             <LinkNext href="/about">
-              <NavigationLink>{t && t("nav-tag-5")}</NavigationLink>
+              <NavigationLink>{ t("nav-tag-5")}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
-              <NavigationLink>{t && t("nav-tag-6")}</NavigationLink>
+              <NavigationLink>{ t("nav-tag-6")}</NavigationLink>
             </LinkNext> */}
             <MoleculesNavSetting />
           </NavigationLinks>
@@ -225,20 +224,20 @@ const OrganismNavigation: React.FC<NavegationProps> = ({ t }) => {
           <NavigationLinksSidebar>
             <ContainerSideBar></ContainerSideBar>
             <LinkNext href="/live">
-              <NavigationLink>{t && t('nav-tag-2')}</NavigationLink>
+              <NavigationLink>{ t('nav-tag-2')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/team">
-              <NavigationLink> {t && t('nav-tag-3')}</NavigationLink>
+              <NavigationLink> { t('nav-tag-3')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/resources">
-              <NavigationLink>{t && t('nav-tag-4')}</NavigationLink>
+              <NavigationLink>{ t('nav-tag-4')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/about">
-              <NavigationLink>{t && t('nav-tag-5')}</NavigationLink>
+              <NavigationLink>{ t('nav-tag-5')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>
-                {t && t('nav-tag-6')} <AtomIcon color="white" icon="new" />
+                { t('nav-tag-6')} <AtomIcon color="white" icon="new" />
               </NavigationLink>
             </LinkNext>
           </NavigationLinksSidebar>

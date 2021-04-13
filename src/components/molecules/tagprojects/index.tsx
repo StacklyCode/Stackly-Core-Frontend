@@ -1,7 +1,7 @@
 import AtomBody from '@Atoms/body';
 import AtomTitle from '@Atoms/title';
 import styled from '@emotion/styled';
-import { TFunction } from 'next-i18next';
+ 
 import AtomButton from '@Src/components/atoms/button';
 
 type TagsProps = {
@@ -10,7 +10,7 @@ type TagsProps = {
   title?: string;
   link?: string;
   description?: string;
-  t?: TFunction;
+  
 };
 
 const Tags = styled.article<TagsProps>`

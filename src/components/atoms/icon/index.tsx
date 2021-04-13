@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import dynamic from 'next/dynamic';
 
-type IconProps = {
+export type IconProps = {
   icon?: string;
   color?: 'dark' | 'light' | 'grey' | 'white';
   size?: string;
@@ -24,7 +24,7 @@ const IconStyled = styled.div<IconProps>`
 
 const AtomIcon: React.FC<IconProps> = ({ icon, size, color }) => {
   const DynamicIcon = dynamic(() =>
-    import(`@Assets/icons/${icon}.svg`).catch(() => {
+    import(`../../../assets/icons/${icon}.svg`).catch(() => {
       return false;
     })
   );

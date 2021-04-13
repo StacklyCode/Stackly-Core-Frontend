@@ -10,8 +10,8 @@ const AboutPage = () => {
   return (
     <>
       <Seo page="About" />
-      <TemplateMain t={t}>
-        <OrganismTeam t={t} />
+      <TemplateMain  >
+        <OrganismTeam   />
       </TemplateMain>
     </>
   );

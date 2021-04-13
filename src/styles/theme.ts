@@ -1,4 +1,4 @@
-import theme1 from '@Styles/themes/theme1';
-import theme2 from '@Styles/themes/theme2';
+import Dark from '@Src/styles/themes/dark';
+import Light from '@Src/styles/themes/light';
 
-export default { theme1, theme2 };
+export { Dark, Light };

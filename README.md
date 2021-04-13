@@ -1,3 +1,0 @@
-# Stackly-Web
-
-React > Svelte

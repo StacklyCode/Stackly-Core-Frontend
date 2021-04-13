@@ -1,10 +1,8 @@
 import dynamic from 'next/dynamic';
 import TemplateMain from '@Templates/index';
 import OrganismHero from '@Section/web/hero';
-import I18n from '@Src/i18n';
-import { TFunction } from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation';
 import LazyLoad from 'react-lazyload';
-import { GetStaticProps } from 'next';
 
 const OrganismServices = dynamic(() => import('@Section/web/services'));
 const OrganismProjects = dynamic(() => import('@Section/web/projects'));
@@ -18,10 +16,6 @@ type IProject = {
   description?: string;
   urlImage?: string;
   link?: string;
-};
-
-type Props = {
-  t?: TFunction;
 };
 
 const ProjectsDataFake: IProject[] = [
@@ -72,37 +66,34 @@ const ProjectsDataFake: IProject[] = [
   },
 ];
 
-const PageHome = ({ t }: Props) => {
+const PageHome = () => {
+  const { t } = useTranslation('common');
   return (
     <TemplateMain
-      t={t}
       SeoTitle="Stackly Code Web"
       SeoDesc="Home"
       SeoPage="In Stackly Code we understand that time is the most valuable asset and if you put it in our hands, we will make sure to bring the best product for your needs."
     >
-      <OrganismHero t={t} idScroll="HeroScroll" />
+      <OrganismHero idScroll="HeroScroll" />
       <LazyLoad once preventLoading unmountIfInvisible>
-        <OrganismServices t={t} idScroll="ServicesScroll" />
+        <OrganismServices idScroll="ServicesScroll" />
       </LazyLoad>
       <LazyLoad once preventLoading unmountIfInvisible>
-        <OrganismProjects t={t} idScroll="ProjectsScroll" projects={ProjectsDataFake} />
+        <OrganismProjects idScroll="ProjectsScroll" projects={ProjectsDataFake} />
       </LazyLoad>
       <LazyLoad once preventLoading unmountIfInvisible>
-        <OrganismClients t={t} idScroll="ClientsScroll" />
+        <OrganismClients idScroll="ClientsScroll" />
       </LazyLoad>
       <LazyLoad once preventLoading unmountIfInvisible>
-        <OrganismContact t={t} idScroll="ContactScroll" />
+        <OrganismContact idScroll="ContactScroll" />
       </LazyLoad>
     </TemplateMain>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps = (): {} => {
   return {
-    props: {
-      namespacesRequired: ['common'],
-    },
+    props: {},
   };
 };
-
-export default I18n.withTranslation(['common'])(PageHome);
+export default PageHome;

@@ -4,8 +4,7 @@ import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
 import { useSpring, animated } from 'react-spring';
 import AtomButton from '@Atoms/button';
-import { TFunction } from 'next-i18next';
-import IllustrationHero from '@Assets/img/illustration-community.svg';
+import useTranslation from 'next-translate/useTranslation';
 
 const Community = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -61,10 +60,10 @@ const TextContainer = styled(animated.div)`
 
 type ICommunity = {
   idScroll?: string;
-  t?: TFunction;
 };
 
-const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
+const OrganismCommunity: React.FC<ICommunity> = ({ idScroll }) => {
+  const { t } = useTranslation('common');
   const props = useSpring({
     to: { opacity: 1, transform: 'translateX(0px)' },
     from: { opacity: 0, transform: 'translateX(-20px)' },
@@ -80,17 +79,20 @@ const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer style={props}>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            {t && t('community-title')}
+            {t('community-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t('community-desc')}
+            {t('community-desc')}
           </AtomBody>
-          <AtomButton href="https://discord.gg/jjMRrHguPf">
-            {t && t('community-button')}
+          <AtomButton href="https://discord.stacklycode.com/">
+            {t('community-button')}
           </AtomButton>
         </TextContainer>
         <IllustrationContainer style={props2}>
-          <IllustrationHero />
+          <img
+            src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=300"
+            alt=""
+          />
         </IllustrationContainer>
       </AtomContainer>
     </Community>

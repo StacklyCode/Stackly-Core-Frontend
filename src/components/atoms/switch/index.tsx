@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { useContext, useState } from 'react';
-import Theme from '@Styles/theme';
-import LoadContext from '@Hooks/ThemeContext';
+import { useContext, useEffect, useState } from 'react';
+import { Dark, Light } from '@Styles/theme';
+import { ThemeUseContext } from '@Src/hooks/ThemeContext';
 
 type SwitchProps = {
   check?: boolean;
@@ -64,20 +64,19 @@ const SwitchSpanStyled = styled.span<SwitchProps>`
 
 const AtomSwitch: React.FC<SwitchProps> = () => {
   const [checked, setChecked] = useState(false);
-  const { setTheme } = useContext(LoadContext);
+  const { setTheme } = useContext(ThemeUseContext);
+  useEffect(() => {
+    console.log(localStorage.getItem('theme') === 'Light' ? false : true);
+    setChecked(localStorage.getItem('theme') === 'Light' ? false : true);
+  }, [localStorage.getItem('theme')]);
   return (
     <SwitchLabelStyled htmlFor="SwitchTheme">
       <SwitchInputStyled
         checked={checked}
         onChange={() => {
           setChecked(!checked);
-          if (checked) {
-            setTheme(Theme.theme1);
-            localStorage.setItem('theme', 'theme1');
-          } else {
-            setTheme(Theme.theme2);
-            localStorage.setItem('theme', 'theme2');
-          }
+          localStorage.setItem('theme', `${checked ? 'Light' : 'Dark'}`);
+          setTheme(checked ? Light : Dark);
         }}
         type="checkbox"
         name="SwitchTheme"

@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 import AtomContainer from '@Atoms/container';
 import AtomTitle from '@Atoms/title';
 import AtomBody from '@Atoms/body';
+import useTranslation from 'next-translate/useTranslation';
 import { useSpring, animated } from 'react-spring';
-import { TFunction } from 'next-i18next';
+
 import MoleculesTagTeam from '@Src/components/molecules/tagteam';
 
 const fakeUserData = [
@@ -172,10 +173,10 @@ const TeamContainer = styled(animated.div)`
 
 type ITeam = {
   idScroll?: string;
-  t?: TFunction;
 };
 
-const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
+const OrganismTeam: React.FC<ITeam> = ({ idScroll }) => {
+  const { t } = useTranslation('common');
   const props = useSpring({
     to: { opacity: 1, transform: 'translateX(0px)' },
     from: { opacity: 0, transform: 'translateX(-20px)' },
@@ -187,23 +188,23 @@ const OrganismTeam: React.FC<ITeam> = ({ idScroll, t }) => {
         <TeamContainer style={props}>
           <TextContainer>
             <AtomTitle align="center" bold size="TitleMedium">
-              {t && t('about-title')}
+              {t('about-title')}
             </AtomTitle>
             <AtomBody align="center" size="BodyLarge" color="light">
-              {t && t('about-desc')}
+              {t('about-desc')}
             </AtomBody>
             <AtomBody align="center" size="BodyLarge" color="light">
-              {t && t('team-desc-1')}
+              {t('team-desc-1')}
             </AtomBody>
             <AtomBody align="center" size="BodyLarge" color="light">
-              {t && t('team-desc-2')}
+              {t('team-desc-2')}
             </AtomBody>
           </TextContainer>
 
           <TagsContainer>
             {fakeUserData.map((item) => (
               <MoleculesTagTeam
-                key={item.id}
+                key={`${item.id}Key`}
                 name={item.name}
                 description={item.description}
                 social={item.socialnetwork}
