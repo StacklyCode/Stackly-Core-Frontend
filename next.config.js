@@ -11,7 +11,7 @@ module.exports = withPWA(
       pwa: {
         dest: 'public',
       },
-      webpack: async (config) => {
+      webpack: (config) => {
         config.module.rules.push({
           test: /\.svg$/,
           use: ['@svgr/webpack'],
