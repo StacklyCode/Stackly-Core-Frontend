@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import useTranslation from 'next-translate/useTranslation';
-import { useSpring, animated } from 'react-spring';
+import styled from '@emotion/styled'
+import AtomContainer from '@Atoms/container'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
+import useTranslation from 'next-translate/useTranslation'
 
-import MoleculesTagTeam from '@Src/components/molecules/tagteam';
+import { FC } from 'react'
+import MoleculesTagTeam from '@Src/components/molecules/tagteam'
 
 const fakeUserData = [
   {
@@ -117,14 +117,14 @@ const fakeUserData = [
       { name: 'linkedin', url: 'https://www.linkedin.com/in/dano-reyes/' },
     ],
   },
-];
+]
 
 const Team = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-`;
+`
 
 const TextContainer = styled.div`
   width: 100%;
@@ -148,7 +148,7 @@ const TextContainer = styled.div`
     }
     margin-top: 10px;
   }
-`;
+`
 const TagsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -161,31 +161,26 @@ const TagsContainer = styled.div`
     margin-bottom: 20px;
     margin-right: 20px;
   }
-`;
+`
 
-const TeamContainer = styled(animated.div)`
+const TeamContainer = styled.div`
   display: flex;
   width: 100%;
   height: max-content;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 type ITeam = {
-  idScroll?: string;
-};
+  idScroll?: string
+}
 
-const OrganismTeam: React.FC<ITeam> = ({ idScroll }) => {
-  const { t } = useTranslation('common');
-  const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700,
-  });
+const OrganismTeam: FC<ITeam> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
   return (
     <Team id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="center">
-        <TeamContainer style={props}>
+        <TeamContainer>
           <TextContainer>
             <AtomTitle align="center" bold size="TitleMedium">
               {t('about-title')}
@@ -215,7 +210,7 @@ const OrganismTeam: React.FC<ITeam> = ({ idScroll }) => {
         </TeamContainer>
       </AtomContainer>
     </Team>
-  );
-};
+  )
+}
 
-export default OrganismTeam;
+export default OrganismTeam

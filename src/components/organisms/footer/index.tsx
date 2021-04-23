@@ -1,13 +1,14 @@
-import AtomContainer from '@Atoms/container';
-import AtomIcon from '@Atoms/icon';
-import styled from '@emotion/styled';
-import Link from '@Src/utils/link';
-import useTranslation from 'next-translate/useTranslation';
-import LinkNext from 'next/link';
+import AtomContainer from '@Atoms/container'
+import AtomIcon from '@Atoms/icon'
+import styled from '@emotion/styled'
+import Link from '@Src/utils/link'
+import useTranslation from 'next-translate/useTranslation'
+import LinkNext from 'next/link'
+import { FC } from 'react'
 
 type FooterProps = {
-  title?: string;
-};
+  title?: string
+}
 
 const Footer = styled.div<FooterProps>`
   width: 100vw;
@@ -16,7 +17,7 @@ const Footer = styled.div<FooterProps>`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.secondary.base};
   box-shadow: 0px -5px 10px ${({ theme }) => `${theme.colors.primary.base}0D`};
-`;
+`
 
 const FooterContainer = styled.div<FooterProps>`
   width: 100%;
@@ -38,7 +39,7 @@ const FooterContainer = styled.div<FooterProps>`
       display: flex;
     }
   }
-`;
+`
 const FooterContainerLogo = styled.div<FooterProps>`
   min-width: 190px;
   display: flex;
@@ -51,7 +52,7 @@ const FooterContainerLogo = styled.div<FooterProps>`
     height: 35px;
     width: 35px;
   }
-`;
+`
 const FooterSocialContainer = styled.div<FooterProps>`
   width: max-content;
   height: 100%;
@@ -65,7 +66,7 @@ const FooterSocialContainer = styled.div<FooterProps>`
   a:nth-last-of-type(1) {
     margin-right: 0px;
   }
-`;
+`
 
 const FooterCopyrighted = styled.span`
   font-family: Inter;
@@ -78,10 +79,10 @@ const FooterCopyrighted = styled.span`
   align-items: center;
   text-align: center;
   cursor: pointer;
-`;
+`
 
-const OrganismFooter: React.FC<FooterProps> = () => {
-  const { t } = useTranslation('common');
+const OrganismFooter: FC<FooterProps> = () => {
+  const { t } = useTranslation('common')
   return (
     <Footer>
       <AtomContainer fullwidth alignItems="center" justifyContent="center">
@@ -90,7 +91,7 @@ const OrganismFooter: React.FC<FooterProps> = () => {
             <AtomIcon icon="stacklycodelogo" />
           </FooterContainerLogo>
           <LinkNext href="/copyrighted">
-            <FooterCopyrighted>{ t('footer-desc')}</FooterCopyrighted>
+            <FooterCopyrighted>{t('footer-desc')}</FooterCopyrighted>
           </LinkNext>
           <FooterSocialContainer>
             <Link
@@ -117,7 +118,7 @@ const OrganismFooter: React.FC<FooterProps> = () => {
         </FooterContainer>
       </AtomContainer>
     </Footer>
-  );
-};
+  )
+}
 
-export default OrganismFooter;
+export default OrganismFooter

@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server-micro';
-import schema from '@Apollo/graphql/schema';
+import schema from '@ApolloServer/graphql/schema';
 
 const apolloServer = new ApolloServer({
   schema,

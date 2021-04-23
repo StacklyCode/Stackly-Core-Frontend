@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import { useSpring, animated } from 'react-spring';
- 
+import styled from '@emotion/styled'
+import AtomContainer from '@Atoms/container'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
+import useTranslation from 'next-translate/useTranslation'
+import { FC } from 'react'
 
 const About = styled.section`
   display: flex;
@@ -12,9 +12,9 @@ const About = styled.section`
   justify-content: center;
   position: relative;
   width: 100%;
-`;
+`
 
-const TextContainer = styled(animated.div)`
+const TextContainer = styled.div`
   width: 100%;
   margin: 50px 0;
   display: flex;
@@ -35,34 +35,29 @@ const TextContainer = styled(animated.div)`
     }
     margin-top: 30px;
   }
-`;
+`
 
 type IAbout = {
-  idScroll?: string;
-  
-};
+  idScroll?: string
+}
 
-const OrganismAbout: React.FC<IAbout> = ({ idScroll, t }) => {
-  const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700,
-  });
+const OrganismAbout: FC<IAbout> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
 
   return (
     <About id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
-        <TextContainer style={props}>
+        <TextContainer>
           <AtomTitle align="center" bold size="TitleMedium">
-            { t('about-title')}
+            {t('about-title')}
           </AtomTitle>
           <AtomBody align="center" size="BodyLarge" color="light">
-            { t('about-desc')}
+            {t('about-desc')}
           </AtomBody>
         </TextContainer>
       </AtomContainer>
     </About>
-  );
-};
+  )
+}
 
-export default OrganismAbout;
+export default OrganismAbout

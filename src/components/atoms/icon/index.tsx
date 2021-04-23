@@ -1,11 +1,12 @@
-import styled from '@emotion/styled';
-import dynamic from 'next/dynamic';
+import styled from '@emotion/styled'
+import dynamic from 'next/dynamic'
+import { FC } from 'react'
 
 export type IconProps = {
-  icon?: string;
-  color?: 'dark' | 'light' | 'grey' | 'white';
-  size?: string;
-};
+  icon?: string
+  color?: 'dark' | 'light' | 'grey' | 'white'
+  size?: string
+}
 
 const IconStyled = styled.div<IconProps>`
   display: flex;
@@ -20,24 +21,24 @@ const IconStyled = styled.div<IconProps>`
         color === 'white' ? theme.colors.secondary.base : theme.colors.primary.base};
     }
   }
-`;
+`
 
-const AtomIcon: React.FC<IconProps> = ({ icon, size, color }) => {
+const AtomIcon: FC<IconProps> = ({ icon, size, color }) => {
   const DynamicIcon = dynamic(() =>
     import(`../../../assets/icons/${icon}.svg`).catch(() => {
-      return false;
+      return false
     })
-  );
+  )
 
   if (DynamicIcon) {
     return (
       <IconStyled size={size} color={color}>
         <DynamicIcon />
       </IconStyled>
-    );
+    )
   }
 
-  return null;
-};
+  return null
+}
 
-export default AtomIcon;
+export default AtomIcon

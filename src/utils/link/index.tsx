@@ -1,12 +1,13 @@
-import NexLink from 'next/link';
+import NexLink from 'next/link'
+import { FC } from 'react'
 
 type LinkProps = {
-  to: string;
-  title?: string;
-  isExternal?: boolean;
-};
+  to: string
+  title?: string
+  isExternal?: boolean
+}
 
-const Link: React.FC<LinkProps> = ({ to, isExternal, children, title }) => {
+const Link: FC<LinkProps> = ({ to, isExternal, children, title }) => {
   if (isExternal)
     return (
       <NexLink href={to}>
@@ -14,7 +15,7 @@ const Link: React.FC<LinkProps> = ({ to, isExternal, children, title }) => {
           {children}
         </a>
       </NexLink>
-    );
+    )
 
   return (
     <NexLink href={to}>
@@ -22,7 +23,7 @@ const Link: React.FC<LinkProps> = ({ to, isExternal, children, title }) => {
         {children}
       </a>
     </NexLink>
-  );
-};
+  )
+}
 
-export default Link;
+export default Link

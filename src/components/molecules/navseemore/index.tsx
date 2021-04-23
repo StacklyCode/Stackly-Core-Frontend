@@ -1,10 +1,9 @@
-import AtomBody from '@Atoms/body';
-import AtomIcon from '@Atoms/icon';
-import AtomTitle from '@Atoms/title';
-import styled from '@emotion/styled';
-import Link from 'next/link';
-import { animated, useTransition } from 'react-spring';
-import { useEffect, useRef, useState } from 'react';
+import AtomBody from '@Atoms/body'
+import AtomIcon from '@Atoms/icon'
+import AtomTitle from '@Atoms/title'
+import styled from '@emotion/styled'
+import Link from 'next/link'
+import { FC, useEffect, useRef, useState, RefObject, Dispatch } from 'react'
 
 const NavigationSeeMore = styled.div`
   position: relative;
@@ -22,9 +21,9 @@ const NavigationSeeMore = styled.div`
     cursor: pointer;
     background-color: ${({ theme }) => theme.colors.secondary.dark};
   }
-`;
+`
 
-const NavigationSettings = styled(animated.div)`
+const NavigationSettings = styled.div`
   height: max-content;
   width: 180px;
   position: absolute;
@@ -40,9 +39,9 @@ const NavigationSettings = styled(animated.div)`
     width: 100%;
     padding: 10px 20px 10px 20px;
   }
-`;
+`
 
-const NavigationSettingsOption = styled(animated.div)`
+const NavigationSettingsOption = styled.div`
   p {
     font-size: 12px;
   }
@@ -51,7 +50,7 @@ const NavigationSettingsOption = styled(animated.div)`
   :hover {
     background-color: ${({ theme }) => theme.colors.secondary.dark};
   }
-`;
+`
 
 const data = [
   {
@@ -71,30 +70,27 @@ const data = [
       { name: 'Terminos', link: '/link' },
     ],
   },
-];
+]
 
-function useOutsideAlerter(
-  ref: React.RefObject<HTMLDivElement>,
-  settoggle: React.Dispatch<boolean>
-) {
+function useOutsideAlerter(ref: RefObject<HTMLDivElement>, settoggle: Dispatch<boolean>) {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
-        settoggle(false);
+        settoggle(false)
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [ref]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref, settoggle])
 }
 
-const MoleculesNavSetting: React.FC = () => {
-  const [toggle, settoggle] = useState(false);
-  const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, settoggle);
+const MoleculesNavSetting: FC = () => {
+  const [toggle, settoggle] = useState(false)
+  const wrapperRef = useRef(null)
+  useOutsideAlerter(wrapperRef, settoggle)
 
   return (
     <NavigationSeeMore ref={wrapperRef} onClick={() => settoggle(!toggle)}>
@@ -106,10 +102,10 @@ const MoleculesNavSetting: React.FC = () => {
               <AtomTitle key={item.name} size="SubTitleSmall" align="center" bold>
                 {item.name}
               </AtomTitle>
-              {item.data.map((item) => (
-                <Link href={item.link} key={item.name}>
-                  <NavigationSettingsOption key={item.name}>
-                    <AtomBody size="BodySmall">{item.name}</AtomBody>
+              {item.data.map((itemChild) => (
+                <Link href={itemChild.link} key={itemChild.name}>
+                  <NavigationSettingsOption key={itemChild.name}>
+                    <AtomBody size="BodySmall">{itemChild.name}</AtomBody>
                   </NavigationSettingsOption>
                 </Link>
               ))}
@@ -118,7 +114,7 @@ const MoleculesNavSetting: React.FC = () => {
         </NavigationSettings>
       )}
     </NavigationSeeMore>
-  );
-};
+  )
+}
 
-export default MoleculesNavSetting;
+export default MoleculesNavSetting

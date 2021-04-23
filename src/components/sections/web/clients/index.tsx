@@ -1,12 +1,13 @@
-import styled from '@emotion/styled';
-import AtomIcon from '@Atoms/icon';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
+import styled from '@emotion/styled'
+import AtomIcon from '@Atoms/icon'
+import AtomContainer from '@Atoms/container'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
 
-import useTranslation from 'next-translate/useTranslation';
+import { FC } from 'react'
+import useTranslation from 'next-translate/useTranslation'
 
-import Link from '@Src/utils/link';
+import Link from '@Src/utils/link'
 
 // const fakeUserData = [
 //   {
@@ -64,7 +65,7 @@ const Clients = styled.section`
   ${({ theme }) => theme.mediaquery.small} {
     padding-bottom: 80px;
   }
-`;
+`
 
 const TextContainer = styled.div`
   width: 100%;
@@ -91,7 +92,7 @@ const TextContainer = styled.div`
     }
     margin-top: 10px;
   }
-`;
+`
 const TagsContainer = styled.div`
   display: flex;
   align-items: center;
@@ -100,14 +101,14 @@ const TagsContainer = styled.div`
   height: max-content;
   width: 100%;
   margin-top: 50px;
-`;
+`
 const TagsContainerClients = styled.div`
   display: flex;
   height: 80%;
   width: 100%;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const TagsClient = styled.div`
   display: flex;
@@ -131,7 +132,7 @@ const TagsClient = styled.div`
   border-radius: 10px;
   height: max-content;
   width: 68vw;
-`;
+`
 
 const TagsClientSocial = styled.div`
   display: flex;
@@ -144,7 +145,7 @@ const TagsClientSocial = styled.div`
   height: max-content;
   width: 100%;
   margin-top: 10px;
-`;
+`
 
 const SocialNetworkContainer = styled.div`
   display: flex;
@@ -172,7 +173,7 @@ const SocialNetworkContainer = styled.div`
         },
       }}
   }
-`;
+`
 const StarContainer = styled.div`
   display: flex;
   width: fit-content;
@@ -185,26 +186,26 @@ const StarContainer = styled.div`
       }
     }
   }
-`;
+`
 
 type IClients = {
-  idScroll?: string;
-};
+  idScroll?: string
+}
 
-const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
-  const { t } = useTranslation('common');
+const OrganismClients: FC<IClients> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
   return (
     <Clients id={idScroll}>
       <AtomContainer alignItems="flex-start" justifyContent="flex-start">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium">
-            { t('clients-title')}
+            {t('clients-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
-            { t('clients-desc-1')}
+            {t('clients-desc-1')}
           </AtomBody>
           <AtomBody align="left" size="BodyLarge" color="light">
-            { t('clients-desc-2')}
+            {t('clients-desc-2')}
           </AtomBody>
           <TagsContainer>
             <TagsContainerClients>
@@ -213,7 +214,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
                   COMFECO
                 </AtomTitle>
                 <AtomBody align="left" size="BodyMedium" color="light">
-                  { t('client-desc-1')}
+                  {t('client-desc-1')}
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>
@@ -238,7 +239,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll }) => {
         </TextContainer>
       </AtomContainer>
     </Clients>
-  );
-};
+  )
+}
 
-export default OrganismClients;
+export default OrganismClients

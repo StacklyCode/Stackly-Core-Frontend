@@ -1,3 +1,5 @@
-const ErrorPage = () => <h1>404 </h1>;
+import { FC } from 'react'
 
-export default ErrorPage;
+const ErrorPage: FC = () => <h1>404 </h1>
+
+export default ErrorPage

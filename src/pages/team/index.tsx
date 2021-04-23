@@ -1,8 +1,9 @@
-import TemplateMain from '@Templates/index';
+import TemplateMain from '@Templates/index'
+import { FC } from 'react'
+import { GetStaticProps } from 'next'
+import Hero from '@Section/team/hero'
 
-import Hero from '@Section/team/hero';
-
-const PageTeam = () => {
+const PageTeam: FC = () => {
   return (
     <TemplateMain
       SeoTitle="Stackly Team"
@@ -11,12 +12,12 @@ const PageTeam = () => {
     >
       <Hero />
     </TemplateMain>
-  );
-};
+  )
+}
 
-export const getServerSideProps = (): {} => {
+export const getServerSideProps: GetStaticProps = async () => {
   return {
     props: {},
-  };
-};
-export default PageTeam;
+  }
+}
+export default PageTeam

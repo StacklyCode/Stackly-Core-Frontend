@@ -1,17 +1,17 @@
-import AtomBody from '@Atoms/body';
-import AtomTitle from '@Atoms/title';
-import styled from '@emotion/styled';
- 
-import AtomButton from '@Src/components/atoms/button';
+import AtomBody from '@Atoms/body'
+import AtomTitle from '@Atoms/title'
+import styled from '@emotion/styled'
+
+import { FC } from 'react'
+import AtomButton from '@Src/components/atoms/button'
 
 type TagsProps = {
-  img?: string;
-  type?: string;
-  title?: string;
-  link?: string;
-  description?: string;
-  
-};
+  img?: string
+  type?: string
+  title?: string
+  link?: string
+  description?: string
+}
 
 const Tags = styled.article<TagsProps>`
   width: 240px;
@@ -50,14 +50,14 @@ const Tags = styled.article<TagsProps>`
     margin-top: 5px;
   }
   transition: all 0.6s ease;
-`;
+`
 
 const TagImage = styled.img<TagsProps>`
   width: 100%;
   height: 100px;
   object-fit: cover;
   transition: all 0.6s ease;
-`;
+`
 
 const TagImageDesc = styled.section<TagsProps>`
   width: 100%;
@@ -67,7 +67,7 @@ const TagImageDesc = styled.section<TagsProps>`
   img {
     margin-bottom: 5px;
   }
-`;
+`
 
 const TagDescContainer = styled.div<TagsProps>`
   width: 100%;
@@ -94,9 +94,9 @@ const TagDescContainer = styled.div<TagsProps>`
     margin: 20px 0;
   }
   transition: all 0.6s ease;
-`;
+`
 
-const MoleculesTagProject: React.FC<TagsProps> = ({ img, type, title, link }) => {
+const MoleculesTagProject: FC<TagsProps> = ({ img, type, title, link }) => {
   return (
     <Tags>
       <TagImageDesc>
@@ -117,7 +117,7 @@ const MoleculesTagProject: React.FC<TagsProps> = ({ img, type, title, link }) =>
         <AtomButton href={link}>View Project</AtomButton>
       </TagDescContainer>
     </Tags>
-  );
-};
+  )
+}
 
-export default MoleculesTagProject;
+export default MoleculesTagProject

@@ -1,21 +1,22 @@
-import TemplateMain from '@Templates/index';
-import OrganismCommunity from '@Section/web/community';
-import useTranslation from 'next-translate/useTranslation';
+import TemplateMain from '@Templates/index'
+import OrganismCommunity from '@Section/web/community'
+import { GetStaticProps } from 'next'
+import { FC } from 'react'
 
-const CommunityPage = () => {
+const CommunityPage: FC = () => {
   return (
     <>
       <TemplateMain>
         <OrganismCommunity />
       </TemplateMain>
     </>
-  );
-};
+  )
+}
 
-export const getServerSideProps = (): {} => {
+export const getServerSideProps: GetStaticProps = async () => {
   return {
     props: {},
-  };
-};
+  }
+}
 
-export default CommunityPage;
+export default CommunityPage

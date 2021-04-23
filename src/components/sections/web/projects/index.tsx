@@ -1,25 +1,26 @@
-import styled from '@emotion/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import { Link } from 'react-scroll';
-import useTranslation from 'next-translate/useTranslation';
+import styled from '@emotion/styled'
+import AtomContainer from '@Atoms/container'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
+import { Link } from 'react-scroll'
+import useTranslation from 'next-translate/useTranslation'
 
-import MoleculeCarrusel from '@Src/components/molecules/carrusel';
+import { FC } from 'react'
+import MoleculeCarrusel from '@Src/components/molecules/carrusel'
 
 type IProject = {
-  id?: string;
-  title?: string;
-  type?: string;
-  description?: string;
-  urlImage?: string;
-  link?: string;
-};
+  id?: string
+  title?: string
+  type?: string
+  description?: string
+  urlImage?: string
+  link?: string
+}
 
 type ProjectsProps = {
-  idScroll?: string;
-  projects?: IProject[];
-};
+  idScroll?: string
+  projects?: IProject[]
+}
 
 const Projects = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -29,7 +30,7 @@ const Projects = styled.section`
   justify-content: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.secondary.base};
-`;
+`
 
 const ProjectsContainer = styled.div`
   width: 100%;
@@ -37,7 +38,7 @@ const ProjectsContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-`;
+`
 const ParagraphTitle = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,7 +54,7 @@ const ParagraphTitle = styled.div`
     padding: 0px 20px;
     max-width: 700px;
   }
-`;
+`
 
 const ParagraphContainer = styled.div`
   display: flex;
@@ -77,7 +78,7 @@ const ParagraphContainer = styled.div`
       cursor: pointer;
     }
   }
-`;
+`
 
 const AllProjectsContainer = styled.div`
   display: flex;
@@ -93,7 +94,7 @@ const AllProjectsContainer = styled.div`
     margin: 20px 10px;
   }
   transition: all 2s ease;
-`;
+`
 
 const ProjectsData: IProject[] = [
   {
@@ -159,40 +160,40 @@ const ProjectsData: IProject[] = [
       'https://res.cloudinary.com/stacklycode/image/upload/v1611715791/StacklyCodeImages/app_hotel_design_uuyuoi.png',
     link: 'https://www.figma.com/file/IHaZUiMzMDtz0yTsCZWKaQGx/Untitled?node-id=92%3A2',
   },
-];
+]
 
-const OrganismProjects: React.FC<ProjectsProps> = ({ idScroll }) => {
-  const { t } = useTranslation('common');
+const OrganismProjects: FC<ProjectsProps> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
   return (
     <Projects id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between" fullwidth>
         <ProjectsContainer>
           <ParagraphTitle>
             <AtomTitle bold size="TitleMedium">
-              { t('projects-title')}
+              {t('projects-title')}
             </AtomTitle>
             <AtomBody align="center" size="BodyLarge" color="light">
-              { t('projects-desc')}
+              {t('projects-desc')}
             </AtomBody>
           </ParagraphTitle>
           <ParagraphContainer>
             <AtomBody size="BodyLarge" color="light">
-              { t('projects-desc-button-1')}
+              {t('projects-desc-button-1')}
             </AtomBody>
             <Link to="ContactScroll" smooth offset={-40}>
               <AtomBody color="accent" size="BodyLarge">
-                { t('projects-desc-button-2')}
+                {t('projects-desc-button-2')}
               </AtomBody>
             </Link>
           </ParagraphContainer>
 
           <AllProjectsContainer>
-            <MoleculeCarrusel data={ProjectsData}></MoleculeCarrusel>
+            <MoleculeCarrusel data={ProjectsData} />
           </AllProjectsContainer>
         </ProjectsContainer>
       </AtomContainer>
     </Projects>
-  );
-};
+  )
+}
 
-export default OrganismProjects;
+export default OrganismProjects

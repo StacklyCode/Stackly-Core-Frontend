@@ -33,3 +33,4 @@
   "exclude": ["node_modules", ".next"],
   "include": ["next-env.d.ts", "emotion.d.ts", "**/*.ts", "**/*.tsx"]
 }
+ 

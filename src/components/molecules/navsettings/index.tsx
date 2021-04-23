@@ -1,9 +1,8 @@
-import AtomBody from '@Atoms/body';
-import AtomIcon from '@Atoms/icon';
-import AtomSwitch from '@Src/components/atoms/switch';
-import styled from '@emotion/styled';
-import { animated, useTransition } from 'react-spring';
-import { useEffect, useRef, useState } from 'react';
+import AtomBody from '@Atoms/body'
+import AtomIcon from '@Atoms/icon'
+import AtomSwitch from '@Src/components/atoms/switch'
+import styled from '@emotion/styled'
+import { useEffect, useRef, useState, FC, RefObject, Dispatch } from 'react'
 
 const SettingsNavigation = styled.div`
   position: relative;
@@ -28,17 +27,17 @@ const SettingsNavigation = styled.div`
       width: 15px;
     }
   }
-`;
+`
 
-const SettingsOptionsNavigationContainer = styled(animated.div)`
+const SettingsOptionsNavigationContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
   height: max-content;
-`;
-const SettingsOptionsNavigation = styled(animated.div)`
+`
+const SettingsOptionsNavigation = styled.div`
   top: 95px;
   right: 90px;
   position: absolute;
@@ -54,7 +53,7 @@ const SettingsOptionsNavigation = styled(animated.div)`
   z-index: 10;
   padding: 5px 10px;
   user-select: none;
-`;
+`
 
 const ToggleContainerOption = styled.div`
   width: 100%;
@@ -75,7 +74,7 @@ const ToggleContainerOption = styled.div`
     height: 15px;
     transform: rotate(-90deg);
   }
-`;
+`
 
 const ToggleContainerOptionContainer = styled.div`
   display: flex;
@@ -98,13 +97,13 @@ const ToggleContainerOptionContainer = styled.div`
       }
     }
   }
-`;
+`
 
 function useOutsideAlerter(
-  ref: React.RefObject<HTMLDivElement>,
-  settoggle: React.Dispatch<boolean>,
-  setoption: React.Dispatch<number>,
-  ref2: React.RefObject<HTMLDivElement>
+  ref: RefObject<HTMLDivElement>,
+  settoggle: Dispatch<boolean>,
+  setoption: Dispatch<number>,
+  ref2: RefObject<HTMLDivElement>
 ) {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -115,23 +114,23 @@ function useOutsideAlerter(
         ref2.current &&
         !ref2.current.contains(event.target)
       ) {
-        settoggle(false);
-        setoption(0);
+        settoggle(false)
+        setoption(0)
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [ref]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref, ref2, setoption, settoggle])
 }
 
-const MoleculesSetting: React.FC = () => {
-  const [toggle, settoggle] = useState(false);
-  const [option, setoption] = useState(0);
-  const wrapperRef = useRef(null);
-  const wrapperRef2 = useRef(null);
-  useOutsideAlerter(wrapperRef, settoggle, setoption, wrapperRef2);
+const MoleculesSetting: FC = () => {
+  const [toggle, settoggle] = useState(false)
+  const [option, setoption] = useState(0)
+  const wrapperRef = useRef(null)
+  const wrapperRef2 = useRef(null)
+  useOutsideAlerter(wrapperRef, settoggle, setoption, wrapperRef2)
 
   return (
     <>
@@ -187,7 +186,7 @@ const MoleculesSetting: React.FC = () => {
         </SettingsOptionsNavigation>
       )}
     </>
-  );
-};
+  )
+}
 
-export default MoleculesSetting;
+export default MoleculesSetting

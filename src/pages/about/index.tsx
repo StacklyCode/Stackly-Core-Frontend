@@ -1,27 +1,23 @@
-import TemplateMain from '@Templates/index';
-import OrganismTeam from '@Section/web/team';
-import { useTranslation } from '@Src/i18n';
-import Seo from '@Utils/seo';
-import I18n from '@Src/i18n';
-import { GetStaticProps } from 'next';
+import TemplateMain from '@Templates/index'
+import OrganismTeam from '@Section/web/team'
+import Seo from '@Utils/seo'
+import { FC } from 'react'
+import { GetStaticProps } from 'next'
 
-const AboutPage = () => {
-  const { t } = useTranslation();
+const AboutPage: FC = () => {
   return (
     <>
       <Seo page="About" />
-      <TemplateMain  >
-        <OrganismTeam   />
+      <TemplateMain>
+        <OrganismTeam />
       </TemplateMain>
     </>
-  );
-};
+  )
+}
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetStaticProps = async () => {
   return {
-    props: {
-      namespacesRequired: ['common'],
-    },
-  };
-};
-export default I18n.withTranslation(['common'])(AboutPage);
+    props: {},
+  }
+}
+export default AboutPage

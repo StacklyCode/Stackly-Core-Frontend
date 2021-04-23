@@ -1,22 +1,23 @@
-import dynamic from 'next/dynamic';
-import TemplateMain from '@Templates/index';
-import OrganismHero from '@Section/web/hero';
-import useTranslation from 'next-translate/useTranslation';
-import LazyLoad from 'react-lazyload';
+import dynamic from 'next/dynamic'
+import TemplateMain from '@Templates/index'
+import OrganismHero from '@Section/web/hero'
+import LazyLoad from 'react-lazyload'
+import { GetStaticProps } from 'next'
+import { FC } from 'react'
 
-const OrganismServices = dynamic(() => import('@Section/web/services'));
-const OrganismProjects = dynamic(() => import('@Section/web/projects'));
-const OrganismClients = dynamic(() => import('@Section/web/clients'));
-const OrganismContact = dynamic(() => import('@Section/web/contact'));
+const OrganismServices = dynamic(() => import('@Section/web/services'))
+const OrganismProjects = dynamic(() => import('@Section/web/projects'))
+const OrganismClients = dynamic(() => import('@Section/web/clients'))
+const OrganismContact = dynamic(() => import('@Section/web/contact'))
 
 type IProject = {
-  id?: string;
-  title?: string;
-  type?: string;
-  description?: string;
-  urlImage?: string;
-  link?: string;
-};
+  id?: string
+  title?: string
+  type?: string
+  description?: string
+  urlImage?: string
+  link?: string
+}
 
 const ProjectsDataFake: IProject[] = [
   {
@@ -64,10 +65,9 @@ const ProjectsDataFake: IProject[] = [
       'https://res.cloudinary.com/stacklycode/image/upload/w_400,c_scale/v1604711350/StacklyCodeImages/project3_h3911r.png',
     link: 'https://www.google.com.mx',
   },
-];
+]
 
-const PageHome = () => {
-  const { t } = useTranslation('common');
+const PageHome: FC = () => {
   return (
     <TemplateMain
       SeoTitle="Stackly Code Web"
@@ -88,12 +88,12 @@ const PageHome = () => {
         <OrganismContact idScroll="ContactScroll" />
       </LazyLoad>
     </TemplateMain>
-  );
-};
+  )
+}
 
-export const getServerSideProps = (): {} => {
+export const getServerSideProps: GetStaticProps = async () => {
   return {
     props: {},
-  };
-};
-export default PageHome;
+  }
+}
+export default PageHome

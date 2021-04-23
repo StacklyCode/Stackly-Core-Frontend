@@ -1,9 +1,8 @@
-import TemplateMain from '@Templates/index';
+import TemplateMain from '@Templates/index'
+import { FC } from 'react'
+import { GetStaticProps } from 'next'
 
-import useTranslation from 'next-translate/useTranslation';
-
-const PageResources = () => {
-  const { t } = useTranslation('common');
+const PageResources: FC = () => {
   return (
     <TemplateMain
       SeoTitle="Stackly Resources"
@@ -12,12 +11,12 @@ const PageResources = () => {
     >
       Page To Resources
     </TemplateMain>
-  );
-};
+  )
+}
 
-export const getServerSideProps = (): {} => {
+export const getServerSideProps: GetStaticProps = async () => {
   return {
     props: {},
-  };
-};
-export default PageResources;
+  }
+}
+export default PageResources

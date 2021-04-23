@@ -2,44 +2,81 @@
   "name": "stackly-web-new",
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "npm run build && pm2 start npm --name 'stacklycode' -- start"
+    "lint": "eslint **/*.tsx ",
+    "lint:fix": "eslint **/*.tsx --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "precommit": "lint-staged"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{json,md,html}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
-    "@apollo/client": "^3.3.14",
-    "apollo-server-micro": "^2.22.2",
+    "@apollo/client": "^3.3.15",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
+    "apollo-server-micro": "^2.23.0",
     "cross-fetch": "^3.1.4",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "formik": "^2.2.6",
     "graphql": "^15.5.0",
     "next": "^10.1.3",
     "next-images": "^1.7.0",
-    "next-pwa": "^5.2.9",
-    "next-translate": "^1.0.5",
+    "next-pwa": "^5.2.14",
+    "next-translate": "^1.0.6",
     "nodemailer": "^6.5.0",
+    "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-lazyload": "^3.2.0",
     "react-scroll": "^1.8.2",
-    "react-spring": "^9.1.0",
-    "swiper": "^6.5.6",
+    "swiper": "^6.5.7",
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.15",
-    "@emotion/react": "^11.1.5",
-    "@emotion/styled": "^11.3.0",
+    "@babel/core": "^7.13.16",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/builder-webpack5": "^6.2.8",
+    "@storybook/react": "^6.2.8",
     "@svgr/webpack": "^5.5.0",
+    "@types/node": "^14.14.41",
     "@types/nodemailer": "^6.4.1",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/react-lazyload": "^3.1.0",
     "@types/react-scroll": "^1.8.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "storybook-addon-emotion-theme": "^2.1.1",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typescript": "^4.2.4"
   }
 }

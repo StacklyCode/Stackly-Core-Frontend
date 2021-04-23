@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
-import { ButtonProps } from './index';
-
+import styled from '@emotion/styled'
+import { ButtonProps } from './types'
 
 export const ButtonStyled = styled.button<ButtonProps>`
   position: relative;
@@ -54,4 +53,6 @@ export const ButtonStyled = styled.button<ButtonProps>`
 
 
   transition: all 0.3s ease-out;
-`;
+`
+
+export const Button2Styled = styled.button<ButtonProps>``

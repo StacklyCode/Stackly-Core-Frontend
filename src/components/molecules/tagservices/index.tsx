@@ -1,13 +1,14 @@
-import AtomBody from '@Atoms/body';
-import AtomIcon from '@Atoms/icon';
-import AtomTitle from '@Atoms/title';
-import styled from '@emotion/styled';
+import AtomBody from '@Atoms/body'
+import AtomIcon from '@Atoms/icon'
+import AtomTitle from '@Atoms/title'
+import styled from '@emotion/styled'
+import { FC } from 'react'
 
 type TagsProps = {
-  icon?: string;
-  title?: string;
-  description?: string;
-};
+  icon?: string
+  title?: string
+  description?: string
+}
 
 const Tags = styled.article<TagsProps>`
   width: 180px;
@@ -59,9 +60,9 @@ const Tags = styled.article<TagsProps>`
     line-height: 20px;
   }
   transition: all 0.3s ease;
-`;
+`
 
-const MoleculesTagServices: React.FC<TagsProps> = ({ icon, title, description }) => {
+const MoleculesTagServices: FC<TagsProps> = ({ icon, title, description }) => {
   return (
     <Tags>
       <AtomIcon icon={icon} />
@@ -69,11 +70,10 @@ const MoleculesTagServices: React.FC<TagsProps> = ({ icon, title, description })
         {title || 'Some Title'}
       </AtomTitle>
       <AtomBody align="left" size="BodySmall" color="light">
-        {description ||
-          'Marketing strategies to bring a fresh and modern identity for your brand.'}
+        {description || 'Marketing strategies to bring a fresh and modern identity for your brand.'}
       </AtomBody>
     </Tags>
-  );
-};
+  )
+}
 
-export default MoleculesTagServices;
+export default MoleculesTagServices

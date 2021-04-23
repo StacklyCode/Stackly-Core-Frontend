@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import styled from '@emotion/styled';
-import Icon from '@Atoms/icon';
-import { FormikValues } from 'formik';
+import { FC, useState } from 'react'
+import styled from '@emotion/styled'
+import Icon from '@Atoms/icon'
+import { FormikValues } from 'formik'
 
 type InputProps = {
-  type?: 'password' | 'checkbox' | 'email' | 'text' | 'search' | 'number' | 'textbox';
-  color?: 'dark' | 'light';
-  placeholder?: string;
-  id?: string;
-  icon?: string;
-  margin?: [string, string];
-  name?: string;
-  formik?: FormikValues;
-};
+  type?: 'password' | 'checkbox' | 'email' | 'text' | 'search' | 'number' | 'textbox'
+  color?: 'dark' | 'light'
+  placeholder?: string
+  id?: string
+  icon?: string
+  margin?: [string, string]
+  name?: string
+  formik?: FormikValues
+}
 
 const InputStyled = styled.div<InputProps>`
   width: fit-content;
@@ -141,7 +141,7 @@ const InputStyled = styled.div<InputProps>`
       transition: all 0.3s ease;
     }
   }
-`;
+`
 
 const PasswordContainerStyled = styled.div<InputProps>`
   position: absolute;
@@ -157,7 +157,7 @@ const PasswordContainerStyled = styled.div<InputProps>`
       fill: ${({ theme }) => theme.colors.primary.light};
     }
   }
-`;
+`
 
 const IconContainerStyled = styled.div<InputProps>`
   position: absolute;
@@ -179,7 +179,7 @@ const IconContainerStyled = styled.div<InputProps>`
       }
     }
   }
-`;
+`
 
 const StyledInputError = styled.span`
   margin-top: 20px;
@@ -190,9 +190,9 @@ const StyledInputError = styled.span`
   font-size: 13px;
   line-height: 18px;
   color: #ff295f;
-`;
+`
 
-const AtomInput: React.FC<InputProps> = ({
+const AtomInput: FC<InputProps> = ({
   type,
   color,
   placeholder,
@@ -202,14 +202,9 @@ const AtomInput: React.FC<InputProps> = ({
   formik,
   name,
 }) => {
-  const [eye, seteye] = useState(false);
+  const [eye, seteye] = useState(false)
   return (
-    <InputStyled
-      type={type || 'text'}
-      color={color || `light`}
-      icon={icon}
-      margin={margin}
-    >
+    <InputStyled type={type || 'text'} color={color || `light`} icon={icon} margin={margin}>
       {icon && (
         <IconContainerStyled color={color}>
           <Icon icon={icon} />
@@ -223,7 +218,7 @@ const AtomInput: React.FC<InputProps> = ({
             value={formik?.values[`${id}`]}
             onChange={formik?.handleChange}
             onBlur={formik?.handleBlur}
-          ></textarea>
+          />
         ) : (
           <input
             id={id}
@@ -234,14 +229,13 @@ const AtomInput: React.FC<InputProps> = ({
             placeholder={placeholder}
           />
         )}
-        {(formik?.values[`${id}`] !== '' || formik?.touched[`${id}`]) &&
-        formik?.errors[`${id}`] ? (
+        {(formik?.values[`${id}`] !== '' || formik?.touched[`${id}`]) && formik?.errors[`${id}`] ? (
           <StyledInputError>{formik?.errors[`${id}`]}</StyledInputError>
         ) : null}
         {type === 'password' && (
           <PasswordContainerStyled
             onClick={() => {
-              seteye(!eye);
+              seteye(!eye)
             }}
           >
             {eye ? <Icon icon="eye-close" /> : <Icon icon="eye-open" />}
@@ -249,7 +243,7 @@ const AtomInput: React.FC<InputProps> = ({
         )}
       </label>
     </InputStyled>
-  );
-};
+  )
+}
 
-export default AtomInput;
+export default AtomInput
