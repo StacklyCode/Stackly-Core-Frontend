@@ -174,3 +174,11 @@ Primary.args = {
 
 <h1></h1>
 
+<h2 id="" >
+<b>
+Git  Flow
+</b>
+</h2>
+<br/>
+<img width="400px"	src="https://res.cloudinary.com/design-code-mx/image/upload/v1619492714/Stacklycode/Group_1521_bn3jax.svg" >
+<h1/>
