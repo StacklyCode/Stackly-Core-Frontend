@@ -12,7 +12,7 @@
 <a href="https://github.com/StacklyCode" title="Github">
 <img height="40px" 	src="https://res.cloudinary.com/design-code-mx/image/upload/v1596591162/ReadMeFaztCommunity/github_boz1st.svg" alt="Github">
 </a>&nbsp;
-<a href="https://discord.stacklycode.com/" title="Discord">
+<a href="https://discord.stacklycode.com" title="Discord">
 <img height="40px"	src="https://res.cloudinary.com/design-code-mx/image/upload/v1596590975/ReadMeFaztCommunity/discord_ctzgwd.svg" alt="Discord">
 </a>&nbsp;
 <a href="https://twitter.com/StacklyCode" title="Twitter">
@@ -57,7 +57,7 @@ Estructura del Folder
 </b>
 </h2>
 <br/>
-<img width="400px"	src="https://res.cloudinary.com/design-code-mx/image/upload/v1619492714/Stacklycode/Group_1520_k0k9it.svg" >
+<img width="400px"	src="https://res.cloudinary.com/design-code-mx/image/upload/v1619492715/Stacklycode/Group_1519_k38wib.svg" >
 <h1/>
 
 <h2 id="" >
