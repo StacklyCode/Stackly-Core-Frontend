@@ -1,6 +1,25 @@
-import styled from '@emotion/styled'
-import AtomTitle from '@Src/components/atoms/title'
 import { FC } from 'react'
+import AtomTitle from '@Src/components/atoms/title'
+import AtomBody from '@Src/components/atoms/body'
+import AtomIcon from '@Src/components/atoms/icon'
+import {
+  ContainerInfoStyled,
+  ContainerTagStyled,
+  ImageBox,
+  ImageStyled,
+  HeaderBox,
+  ContentBox,
+  CategoriesBox,
+  Category,
+  ScheduledTime,
+  InformationBox,
+  BottomContentBox,
+  UserInfoBox,
+  UserNetworksBox,
+  UserAvatar,
+  ActionsBox,
+  IconButton,
+} from './styled'
 
 type TagWorkshopProps = {
   name: string
@@ -22,29 +41,6 @@ type TagWorkshopProps = {
   }
 }
 
-const ContainerTagStyled = styled.div`
-  display: flex;
-  max-height: 350px;
-  max-width: 1000px;
-  background: #ffffff;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-`
-const ContainerInfoStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  img {
-    width: 20px;
-  }
-`
-const ImageStyled = styled.img`
-  max-height: 350px;
-  max-width: 350px;
-  height: 100%;
-`
-
 const MoleculeTagWorkshop: FC<TagWorkshopProps> = ({
   name,
   desc,
@@ -57,45 +53,65 @@ const MoleculeTagWorkshop: FC<TagWorkshopProps> = ({
   return (
     <ContainerTagStyled>
       <ContainerInfoStyled>
-        <div>
-          <div>
-            {categories.map((e) => (
-              <span>{e}</span>
+        <HeaderBox>
+          <CategoriesBox>
+            {categories.map((e, idx) => (
+              <Category key={`${e}-${idx}`}>{e}</Category>
             ))}
-          </div>
-          {islive && <span>LIVE in 2 Hours</span>}
-        </div>
-        <AtomTitle size="SubTitleLarge" bold>
-          {name}
-        </AtomTitle>
-        <div>
-          <span>{info.date}</span>
-          <span>{info.duration / 60} Hours</span>
-          <span>{info.views} Views</span>
-          <span>{info.likes} Likes</span>
-        </div>
-        <span>{desc}</span>
-        <div>
-          <div>
-            <img src={user.img} alt="" />
+          </CategoriesBox>
+          {islive && <ScheduledTime>LIVE in 2 Hours</ScheduledTime>}
+        </HeaderBox>
+        <ContentBox>
+          <AtomTitle size="SubTitleLarge" align="left" bold>
+            {name}
+          </AtomTitle>
+          <InformationBox>
+            <AtomBody align="left" size="BodySmall">
+              {info.date}
+            </AtomBody>
+            <AtomBody align="left" size="BodySmall">
+              {info.duration / 60} Hours
+            </AtomBody>
+            <AtomBody align="left" size="BodySmall">
+              {info.views} Views
+            </AtomBody>
+            <AtomBody align="left" size="BodySmall">
+              {info.likes} Likes
+            </AtomBody>
+          </InformationBox>
+          <AtomBody align="left" size="BodyMedium" color="light">
+            {desc}
+          </AtomBody>
+        </ContentBox>
+        <BottomContentBox>
+          <UserInfoBox>
+            <UserAvatar src={user.img} alt="user-avatar" />
             <div>
-              <span> {user.name}</span>
-              <span>{user.desc}</span>
-              <div>
-                {user.socialNetwork.map((e) => (
-                  <span>{e.name}</span>
+              <AtomTitle align="left" size="SubTitleSmall" bold>
+                {user.name}
+              </AtomTitle>
+              <AtomBody align="left" size="BodyExtraSmall" color="light">
+                {user.desc}
+              </AtomBody>
+              <UserNetworksBox>
+                {user.socialNetwork.map((e, idx) => (
+                  <a href={e.url} target="_blank" rel="noreferrer">
+                    <AtomIcon icon={e.name} size="14px" key={idx} />
+                  </a>
                 ))}
-              </div>
+              </UserNetworksBox>
             </div>
-          </div>
-          <div>
-            <span>heart</span>
-            <span>arrowdown</span>
-            <span>arrowup</span>
-          </div>
-        </div>
+          </UserInfoBox>
+          <ActionsBox>
+            <IconButton isTransparent>{/* heart */}</IconButton>
+            <IconButton>{/* arrow-left */}</IconButton>
+            <IconButton>{/* arrow-right */}</IconButton>
+          </ActionsBox>
+        </BottomContentBox>
       </ContainerInfoStyled>
-      <ImageStyled src={img} alt="" />
+      <ImageBox>
+        <ImageStyled src={img} alt="image-workshop" />
+      </ImageBox>
     </ContainerTagStyled>
   )
 }
