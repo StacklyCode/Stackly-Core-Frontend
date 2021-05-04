@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styled from '@emotion/styled'
 import AtomTitle from '@Src/components/atoms/title'
 import MoleculeBlogAndNewsPublishingGrid from '@Src/components/molecules/blogandnewspublishinggrid'
+import MoleculeTabsBlogAndNews from '@Src/components/molecules/tabsblogandnews'
 
 const fakeData = [
   {
@@ -77,12 +78,30 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
+const HeaderBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  align-items: center;
+
+  & > :nth-of-type(1) {
+    grid-column: span 2 / span 2;
+  }
+`
+
 const BlogAndNews: FC = () => (
   <BlogAndNewsBox>
     <Container>
-      <AtomTitle size="TitleSmall" align="left" bold>
-        Blog y Noticias
-      </AtomTitle>
+      <HeaderBox>
+        <AtomTitle size="TitleSmall" align="left" bold>
+          Blog y Noticias
+        </AtomTitle>
+        <MoleculeTabsBlogAndNews
+          tabs={['ALL', 'LIFESTYLE', 'TRAVEL', 'CODE', 'TECH']}
+          value="ALL"
+          onChange={(event, value) => console.log(event, value)}
+        />
+      </HeaderBox>
       <MoleculeBlogAndNewsPublishingGrid data={fakeData} />
     </Container>
   </BlogAndNewsBox>
