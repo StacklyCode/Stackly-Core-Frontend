@@ -5,7 +5,7 @@ import { PublishingCardBox, ImageBox, Image, InformationBox } from './styled'
 
 type PublishingCardProps = {
   name?: string
-  description: string
+  description?: string
   img?: string
   info?: {
     date?: string
