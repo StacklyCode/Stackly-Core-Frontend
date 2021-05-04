@@ -25,8 +25,8 @@ const Navigation = styled.header<NavegationProps>`
 `
 const NavigationLogo = styled.div`
   div {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
     margin-right: 40px;
     cursor: pointer;
     svg {
@@ -177,11 +177,14 @@ const OrganismNavigation: FC<NavegationProps> = () => {
           </NavigationLogo>
 
           <NavigationLinks>
-            <LinkNext href="/team">
+            <LinkNext href="/">
               <NavigationLink>{t('nav-tag-1')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/team">
-              <NavigationLink>{t('nav-tag-3')}</NavigationLink>
+              <NavigationLink> {t('nav-tag-3')}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/live">
+              <NavigationLink>{t('nav-tag-2')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/resources">
               <NavigationLink>{t('nav-tag-4')}</NavigationLink>
