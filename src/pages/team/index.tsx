@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { GetStaticProps } from 'next'
 import Hero from '@Section/team/hero'
 import WorkshopNews from '@Src/components/sections/team/workshopnews'
+import BlogAndNews from '@Src/components/sections/team/blogandnews'
 
 const PageTeam: FC = () => {
   return (
@@ -13,6 +14,7 @@ const PageTeam: FC = () => {
     >
       <Hero />
       <WorkshopNews />
+      <BlogAndNews />
     </TemplateMain>
   )
 }
