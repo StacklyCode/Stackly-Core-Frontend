@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next'
 import Hero from '@Section/team/hero'
 import WorkshopNews from '@Src/components/sections/team/workshopnews'
 import BlogAndNews from '@Src/components/sections/team/blogandnews'
+import BestInstructors from '@Src/components/sections/team/bestinstructors'
 
 const PageTeam: FC = () => {
   return (
@@ -15,6 +16,7 @@ const PageTeam: FC = () => {
       <Hero />
       <WorkshopNews />
       <BlogAndNews />
+      <BestInstructors />
     </TemplateMain>
   )
 }
