@@ -16,18 +16,22 @@ type InstructorCardProps = {
   fullWidth?: boolean
   category?: string
   instructor?: string
+  img?: string
   info?: {
     views: number
     likes: number
   }
 }
 
-const InstructorCard: FC<InstructorCardProps> = ({ fullWidth, category, instructor, info }) => (
+const InstructorCard: FC<InstructorCardProps> = ({
+  fullWidth,
+  category,
+  instructor,
+  img,
+  info,
+}) => (
   <InstructorCardBox fullWidth={fullWidth}>
-    <Image
-      src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
-      alt=""
-    />
+    <Image src={img} alt="img-instructor" />
     <Badge>
       <AtomBody size="BodyExtraSmall" bold>
         {category}
