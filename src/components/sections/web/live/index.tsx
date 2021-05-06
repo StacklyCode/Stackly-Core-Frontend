@@ -74,8 +74,8 @@ const OrganismLive: FC<ILive> = ({ idScroll }) => {
         <TextContainer>
           <ReactPlayer
             controls={true}
-            width="1280"
-            height="720"
+            width="100%"
+            height="100%"
             url={
               'http://amssamples.streaming.mediaservices.windows.net/69fbaeba-8e92-4740-aedc-ce09ae945073/AzurePromo.ism/manifest(format=mpd-time-csf)'
             }
@@ -85,7 +85,8 @@ const OrganismLive: FC<ILive> = ({ idScroll }) => {
               },
             }}
           />
-          <AtomButton href="https://discord.stacklycode.com/">{t('community-button')}</AtomButton>
+          <AtomTitle align="left" size="TitleMedium">Taller de Diseño (FrontEnd)</AtomTitle>
+          <AtomButton href="https://discord.stacklycode.com/">Seguir 29k</AtomButton>
         </TextContainer>
         <IllustrationContainer>
           <AtomTitle align="center" bold size="TitleMedium" color="black">
