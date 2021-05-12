@@ -1,40 +1,28 @@
-import styled from '@emotion/styled'
 import dynamic from 'next/dynamic'
-import { FC } from 'react'
+import { FC, ComponentType, SVGProps } from 'react'
+// eslint-disable-next-line import/no-cycle
+import SvgBox from './styled'
 
 export type IconProps = {
-  icon?: string
-  color?: 'dark' | 'light' | 'grey' | 'white'
-  size?: string
+  name: string
+  variant: 'outlined' | 'filled'
+  color?: 'primary' | 'secondary' | 'white' | 'gray'
+  size?: 'xs' | 'sm' | '1x' | '2x' | '3x' | '4x' | number
+  className?: string
 }
 
-const IconStyled = styled.div<IconProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  ${({ size }) => size && { width: size, height: size }}
-  svg {
-    width: 100%;
-    height: 100%;
-    path {
-      fill: ${({ theme, color }) =>
-        color === 'white' ? theme.colors.secondary.base : theme.colors.primary.base};
-    }
-  }
-`
-
-const AtomIcon: FC<IconProps> = ({ icon, size, color }) => {
-  const DynamicIcon = dynamic(() =>
-    import(`../../../assets/icons/${icon}.svg`).catch(() => {
+const AtomIcon: FC<IconProps> = ({ name, variant, size, color, className }) => {
+  const DynamicIcon: ComponentType<SVGProps<SVGSVGElement>> | undefined = dynamic(() =>
+    import(`../../../assets/icons/${name}-${variant}.svg`).catch(() => {
       return false
     })
   )
 
   if (DynamicIcon) {
     return (
-      <IconStyled size={size} color={color}>
-        <DynamicIcon />
-      </IconStyled>
+      <SvgBox color={color} size={size}>
+        <DynamicIcon viewBox="0 0 24 24" fill="currentColor" className={className} />
+      </SvgBox>
     )
   }
 
