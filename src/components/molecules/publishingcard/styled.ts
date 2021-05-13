@@ -46,6 +46,12 @@ export const InformationBox = styled.div<{ variant?: 'simple' }>`
 
   & > * {
     color: #6a7fa8 !important;
+    display: inline-flex;
+    align-items: center;
+
+    span {
+      margin-right: 8px;
+    }
   }
 
   ${({ variant }) =>

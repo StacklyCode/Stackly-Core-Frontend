@@ -94,7 +94,7 @@ const MoleculesNavSetting: FC = () => {
 
   return (
     <NavigationSeeMore ref={wrapperRef} onClick={() => settoggle(!toggle)}>
-      <AtomIcon icon="dots" />
+      <AtomIcon name="dots" variant="filled" color="primary" />
       {toggle && (
         <NavigationSettings>
           {data.map((item) => (

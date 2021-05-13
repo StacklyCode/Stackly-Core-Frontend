@@ -24,10 +24,10 @@ const Navigation = styled.header<NavegationProps>`
   box-shadow: 0px 5px 10px ${({ theme }) => `${theme.colors.primary.base}0D`};
 `
 const NavigationLogo = styled.div`
+  margin-right: 40px;
   div {
     width: 35px;
     height: 35px;
-    margin-right: 40px;
     cursor: pointer;
     svg {
       g {
@@ -171,7 +171,7 @@ const OrganismNavigation: FC<NavegationProps> = () => {
           <NavigationLogo>
             <LinkNext href="/">
               <a href="">
-                <AtomIcon icon="stacklycodelogo" />
+                <AtomIcon name="stacklycode" variant="outlined" size="2x" color="primary" />
               </a>
             </LinkNext>
           </NavigationLogo>
@@ -202,7 +202,7 @@ const OrganismNavigation: FC<NavegationProps> = () => {
           </NavigationLinks>
         </NavigationContainer>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
-          <AtomIcon icon="menu" />
+          <AtomIcon name="menu" variant="filled" size="2x" />
         </IconSideBar>
         <NavigationContainerButtons>
           <AtomButton link="/login">Login</AtomButton>
@@ -230,7 +230,7 @@ const OrganismNavigation: FC<NavegationProps> = () => {
             </LinkNext>
             <LinkNext href="/community">
               <NavigationLink>
-                {t('nav-tag-6')} <AtomIcon color="white" icon="new" />
+                {t('nav-tag-6')} <AtomIcon color="white" name="new" variant="filled" />
               </NavigationLink>
             </LinkNext>
           </NavigationLinksSidebar>

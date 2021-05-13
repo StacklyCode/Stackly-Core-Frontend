@@ -1,16 +1,17 @@
 import AtomBody from '@Atoms/body'
-import AtomIcon from '@Atoms/icon'
+import AtomIcon, { IconProps } from '@Atoms/icon'
 import AtomTitle from '@Atoms/title'
+
 import styled from '@emotion/styled'
 import { FC } from 'react'
 
 type TagsProps = {
-  icon?: string
+  icon: Pick<IconProps, 'name' | 'variant'>
   title?: string
   description?: string
 }
 
-const Tags = styled.article<TagsProps>`
+const Tags = styled.article<Omit<TagsProps, 'icon'>>`
   width: 180px;
   height: 250px;
   padding: 20px 20px;
@@ -30,30 +31,24 @@ const Tags = styled.article<TagsProps>`
     background-color: ${({ theme }) => theme.colors.secondary.light};
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    div {
+    span:first-child {
       background-color: ${({ theme }) => theme.colors.accent.primary.base};
       svg {
-        height: 60%;
-        width: 60%;
-        path {
-          fill: ${({ theme }) => theme.colors.secondary.base};
-        }
+        color: ${({ theme }) => theme.colors.secondary.base};
       }
     }
   }
-  div {
+  span:first-child {
     background-color: ${({ theme }) => theme.colors.secondary.dark};
     border-radius: 10px;
     width: 72px;
     height: 72px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
     svg {
-      height: 60%;
-      width: 60%;
       transition: all 0.3s ease;
-      path {
-        fill: ${({ theme }) => theme.colors.primary.base};
-      }
     }
   }
   h2 {
@@ -65,7 +60,7 @@ const Tags = styled.article<TagsProps>`
 const MoleculesTagServices: FC<TagsProps> = ({ icon, title, description }) => {
   return (
     <Tags>
-      <AtomIcon icon={icon} />
+      <AtomIcon name={icon.name} variant={icon.variant} size="3x" color="primary" />
       <AtomTitle align="left" as="span" size="SubTitleMedium" color="black" bold>
         {title || 'Some Title'}
       </AtomTitle>

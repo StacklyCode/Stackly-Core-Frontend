@@ -84,22 +84,22 @@ const OrganismServices: FC<IServices> = ({ idScroll }) => {
             <MoleculesTagServices
               title={t('services-tag-1-title')}
               description={t('services-tag-1-desc')}
-              icon="design"
+              icon={{ name: 'design', variant: 'outlined' }}
             />
             <MoleculesTagServices
               title={t('services-tag-2-title')}
               description={t('services-tag-2-desc')}
-              icon="apps-services"
+              icon={{ name: 'appservices', variant: 'outlined' }}
             />
             <MoleculesTagServices
               title={t('services-tag-3-title')}
               description={t('services-tag-3-desc')}
-              icon="web-mobile"
+              icon={{ name: 'webmobile', variant: 'outlined' }}
             />
             <MoleculesTagServices
               title={t('services-tag-4-title')}
               description={t('services-tag-4-desc')}
-              icon="consultancy"
+              icon={{ name: 'consultancy', variant: 'outlined' }}
             />
           </TagsContainer>
         </TextContainer>

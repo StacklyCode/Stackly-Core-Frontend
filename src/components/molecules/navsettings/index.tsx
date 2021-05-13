@@ -23,9 +23,6 @@ const SettingsNavigation = styled.div`
     margin-top: 2px;
     width: 100%;
     height: 100%;
-    svg {
-      width: 15px;
-    }
   }
 `
 
@@ -69,11 +66,6 @@ const ToggleContainerOption = styled.div`
     cursor: pointer;
     background-color: ${({ theme }) => theme.colors.secondary.base};
   }
-  div:last-child {
-    width: 15px;
-    height: 15px;
-    transform: rotate(-90deg);
-  }
 `
 
 const ToggleContainerOptionContainer = styled.div`
@@ -85,18 +77,10 @@ const ToggleContainerOptionContainer = styled.div`
   p {
     margin-left: 10px;
   }
-  div {
-    width: 35px;
-    height: 35px;
-    border-radius: 50px;
-    background-color: ${({ theme }) => theme.colors.primary.base};
-    svg {
-      width: 15px;
-      path {
-        fill: ${({ theme }) => theme.colors.secondary.light};
-      }
-    }
-  }
+`
+
+const AtomIconStyled = styled(AtomIcon)`
+  color: ${({ theme }) => theme.colors.primary.light};
 `
 
 function useOutsideAlerter(
@@ -135,7 +119,7 @@ const MoleculesSetting: FC = () => {
   return (
     <>
       <SettingsNavigation ref={wrapperRef} onClick={() => settoggle(!toggle)}>
-        <AtomIcon icon="arrow" />
+        <AtomIcon name="chevrondown" variant="filled" />
       </SettingsNavigation>
       {toggle && (
         <SettingsOptionsNavigation ref={wrapperRef2}>
@@ -143,17 +127,17 @@ const MoleculesSetting: FC = () => {
             <SettingsOptionsNavigationContainer>
               <ToggleContainerOption>
                 <ToggleContainerOptionContainer>
-                  <AtomIcon icon="user" />
+                  <AtomIconStyled name="user" variant="outlined" />
                   <AtomBody size="BodySmall">My Profile</AtomBody>
                 </ToggleContainerOptionContainer>
-                <AtomIcon icon="" />
+                {/* <AtomIcon icon="" /> */}
               </ToggleContainerOption>
               <ToggleContainerOption onClick={() => setoption(1)}>
                 <ToggleContainerOptionContainer>
-                  <AtomIcon icon="settings" />
+                  <AtomIconStyled name="settings" variant="filled" />
                   <AtomBody size="BodySmall">Configuration</AtomBody>
                 </ToggleContainerOptionContainer>
-                <AtomIcon icon="arrow" />
+                <AtomIcon name="chevrondown" variant="filled" />
               </ToggleContainerOption>
             </SettingsOptionsNavigationContainer>
           )}
@@ -161,25 +145,25 @@ const MoleculesSetting: FC = () => {
             <SettingsOptionsNavigationContainer>
               <ToggleContainerOption onClick={() => setoption(0)}>
                 <ToggleContainerOptionContainer>
-                  <AtomIcon icon="arrowleft" />
+                  <AtomIconStyled name="arrowleft" variant="filled" />
                   <AtomBody size="BodySmall">back</AtomBody>
                 </ToggleContainerOptionContainer>
-                <AtomIcon icon="" />
+                {/* <AtomIcon icon="" /> */}
               </ToggleContainerOption>
               <ToggleContainerOption>
                 <ToggleContainerOptionContainer>
-                  <AtomIcon icon="brush" />
+                  <AtomIconStyled name="brush" variant="outlined" />
                   <AtomBody size="BodySmall">Dark Mode</AtomBody>
                 </ToggleContainerOptionContainer>
-                <AtomIcon icon="" />
+                {/* <AtomIcon icon="" /> */}
                 <AtomSwitch />
               </ToggleContainerOption>
               <ToggleContainerOption>
                 <ToggleContainerOptionContainer>
-                  <AtomIcon icon="language" />
+                  <AtomIconStyled name="language" variant="outlined" />
                   <AtomBody size="BodySmall">Language</AtomBody>
                 </ToggleContainerOptionContainer>
-                <AtomIcon icon="" />
+                {/* <AtomIcon icon="" /> */}
               </ToggleContainerOption>
             </SettingsOptionsNavigationContainer>
           )}

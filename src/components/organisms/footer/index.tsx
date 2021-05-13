@@ -32,7 +32,7 @@ const FooterContainer = styled.div<FooterProps>`
     justify-content: space-between;
     margin: 0px 30px;
   }
-  span {
+  & > span {
     display: none;
     width: 358.47px;
     ${({ theme }) => theme.mediaquery.large} {
@@ -47,10 +47,6 @@ const FooterContainerLogo = styled.div<FooterProps>`
   justify-content: center;
   ${({ theme }) => theme.mediaquery.small} {
     justify-content: flex-start;
-  }
-  svg {
-    height: 35px;
-    width: 35px;
   }
 `
 const FooterSocialContainer = styled.div<FooterProps>`
@@ -88,7 +84,7 @@ const OrganismFooter: FC<FooterProps> = () => {
       <AtomContainer fullwidth alignItems="center" justifyContent="center">
         <FooterContainer>
           <FooterContainerLogo>
-            <AtomIcon icon="stacklycodelogo" />
+            <AtomIcon name="stacklycode" variant="outlined" color="primary" size="2x" />
           </FooterContainerLogo>
           <LinkNext href="/copyrighted">
             <FooterCopyrighted>{t('footer-desc')}</FooterCopyrighted>
@@ -99,20 +95,20 @@ const OrganismFooter: FC<FooterProps> = () => {
               title="Facebook Page"
               isExternal
             >
-              <AtomIcon icon="facebook" />
+              <AtomIcon name="facebook" variant="filled" color="primary" size="2x" />
             </Link>
             <Link
               to="https://www.linkedin.com/company/68642625/admin/"
               title="Linkedin Page"
               isExternal
             >
-              <AtomIcon icon="linkedin" />
+              <AtomIcon name="linkedin" variant="filled" color="primary" size="2x" />
             </Link>
             <Link to="https://github.com/StacklyCode" title="Github Page" isExternal>
-              <AtomIcon icon="github" />
+              <AtomIcon name="github" variant="filled" color="primary" size="2x" />
             </Link>
             <Link to="https://twitter.com/StacklyCode" title="Twitter Page">
-              <AtomIcon icon="twitter" />
+              <AtomIcon name="twitter" variant="filled" color="primary" size="2x" />
             </Link>
           </FooterSocialContainer>
         </FooterContainer>

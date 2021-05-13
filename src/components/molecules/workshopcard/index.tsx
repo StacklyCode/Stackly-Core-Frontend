@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import AtomTitle from '@Src/components/atoms/title'
 import AtomBody from '@Src/components/atoms/body'
-import { WorkshopCardBox, ImageBox, Image, InformationBox } from './styled'
+import { WorkshopCardBox, ImageBox, Image, InformationBox, HeartIcon } from './styled'
 
 type WorkshopCardProps = {
   name?: string
@@ -31,6 +31,7 @@ const WorkshopCard: FC<WorkshopCardProps> = ({ name, img, info, fullWidth }) => 
       </AtomBody>
       <AtomBody size="BodyExtraSmall" color="light" align="left">
         {info?.likes} Likes
+        <HeartIcon name="heart" variant="filled" />
       </AtomBody>
     </InformationBox>
   </WorkshopCardBox>
