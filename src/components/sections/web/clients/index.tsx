@@ -153,38 +153,17 @@ const SocialNetworkContainer = styled.div`
   ${({ theme }) => theme.mediaquery.small} {
     margin-bottom: 0px;
   }
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
 
-    ${({ theme }) =>
-      true && {
-        width: '20px',
-        height: '20px',
-        marginRight: '15px',
-        svg: {
-          width: '100%',
-          height: '100%',
-          path: {
-            fill: theme.colors.primary.base,
-          },
-        },
-      }}
+  & > *:not(:last-child) {
+    margin-right: 10px;
   }
 `
 const StarContainer = styled.div`
   display: flex;
   width: fit-content;
-  div {
-    svg {
-      width: 20px;
-      height: 20px;
-      path {
-        fill: #ffd74b;
-      }
-    }
+
+  svg {
+    color: #ffd74b;
   }
 `
 
@@ -219,18 +198,18 @@ const OrganismClients: FC<IClients> = ({ idScroll }) => {
                 <TagsClientSocial>
                   <SocialNetworkContainer>
                     <Link to="https://www.comfeco.com/" isExternal>
-                      <AtomIcon icon="web" color="dark" size="12px" />
+                      <AtomIcon name="world" variant="filled" color="primary" size={24} />
                     </Link>
                     <Link to="https://twitter.com/comfeco" isExternal>
-                      <AtomIcon icon="twitter" color="dark" size="12px" />
+                      <AtomIcon name="twitter" variant="filled" color="primary" size={24} />
                     </Link>
                   </SocialNetworkContainer>
                   <StarContainer>
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
                   </StarContainer>
                 </TagsClientSocial>
               </TagsClient>
