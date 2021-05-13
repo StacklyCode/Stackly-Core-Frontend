@@ -1,3 +1,4 @@
+import AtomIcon from '@Src/components/atoms/icon'
 import styled from '@emotion/styled'
 
 export const InstructorCardBox = styled.div<{ fullWidth?: boolean }>`
@@ -72,6 +73,11 @@ export const InformationBox = styled.div`
   p {
     color: #fff !important;
   }
+
+  p:last-child {
+    display: inline-flex;
+    align-items: center;
+  }
 `
 
 export const Image = styled.img`
@@ -94,4 +100,9 @@ export const AnchorView = styled.a`
   font-size: ${({ theme }) => theme.texts.SubTitleMedium.FontSize};
   font-family: ${({ theme }) => theme.texts.SubTitleMedium.FontFamily};
   font-weight: 600;
+`
+
+export const HeartIcon = styled(AtomIcon)`
+  color: ${({ theme }) => theme.colors.accent.red.base};
+  margin-left: 4px;
 `

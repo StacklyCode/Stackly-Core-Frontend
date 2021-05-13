@@ -1,3 +1,4 @@
+import AtomIcon from '@Src/components/atoms/icon'
 import styled from '@emotion/styled'
 
 export const WorkshopCardBox = styled.div<{ fullWidth?: boolean }>`
@@ -33,11 +34,21 @@ export const Image = styled.img`
   object-position: center;
 `
 
+export const HeartIcon = styled(AtomIcon)`
+  color: ${({ theme }) => theme.colors.accent.red.base};
+  margin-left: 4px;
+`
+
 export const InformationBox = styled.div`
   display: flex;
   margin-top: 3px;
 
   & > *:not(:last-child) {
     margin-right: 14px;
+  }
+
+  & > :last-child {
+    display: inline-flex;
+    align-items: center;
   }
 `

@@ -10,6 +10,7 @@ import {
   ContentBox,
   InformationBox,
   AnchorView,
+  HeartIcon,
 } from './styled'
 
 type InstructorCardProps = {
@@ -48,6 +49,7 @@ const InstructorCard: FC<InstructorCardProps> = ({
           </AtomBody>
           <AtomBody size="BodySmall" align="left">
             {info?.likes} Likes
+            <HeartIcon name="heart" variant="filled" />
           </AtomBody>
         </InformationBox>
         <Link href="/">

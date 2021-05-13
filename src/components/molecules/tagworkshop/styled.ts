@@ -84,6 +84,12 @@ export const InformationBox = styled.ul`
 
   & > * {
     color: #8d959c !important;
+    display: inline-flex;
+    align-items: center;
+
+    & > span {
+      margin-right: 8px;
+    }
   }
 
   & > *:not(:last-child) {
@@ -141,4 +147,8 @@ export const IconButton = styled.button<{ isTransparent?: boolean }>`
     isTransparent && {
       backgroundColor: 'transparent',
     }}
+
+  &:first-of-type {
+    color: ${({ theme }) => theme.colors.accent.red.base};
+  }
 `
