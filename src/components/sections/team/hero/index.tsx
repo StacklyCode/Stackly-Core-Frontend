@@ -46,8 +46,12 @@ const SectionContainerStyled = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 5rem 5rem;
+  padding: 5rem 4rem;
   background-color: #fafafa;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    padding: 2rem;
+  }
 `
 
 const SectionTeamHero: FC = () => {

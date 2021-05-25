@@ -8,16 +8,37 @@ export const ContainerTagStyled = styled.div`
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    flex-direction: column;
+  }
 `
 
 export const ContainerInfoStyled = styled.div`
   padding: 48px;
   flex: 1;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    order: 2;
+    width: 100%;
+    flex: initial;
+  }
 `
 
 export const ImageBox = styled.div`
   height: inherit;
   max-width: 350px;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    order: 1;
+    max-width: 100%;
+    width: 100%;
+    height: 224px;
+  }
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    height: 164px;
+  }
 `
 
 export const ImageStyled = styled.img`
@@ -36,15 +57,24 @@ export const HeaderBox = styled.div`
 
 export const ContentBox = styled.div`
   max-width: 440px;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    & > * {
+      text-align: left !important;
+    }
+
+    h4 {
+      font-size: ${({ theme }) => `${theme.texts.SubTitleLarge.FontSize}`};
+      margin-bottom: 12px;
+      line-height: ${({ theme }) => `${theme.texts.SubTitleLarge.LineHeight}`};
+    }
+  }
 `
 
 export const CategoriesBox = styled.ul`
   display: flex;
   flex-wrap: wrap;
-
-  & > *:not(:last-child) {
-    margin-right: 12px;
-  }
+  gap: 12px;
 `
 
 export const Category = styled.span`
@@ -66,6 +96,7 @@ export const ScheduledTime = styled.span`
   color: #8d959c;
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
 
   &::before {
     content: '';
@@ -75,6 +106,10 @@ export const ScheduledTime = styled.span`
     background-color: #f24646;
     border-radius: 50%;
     margin-right: 8px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 10px;
   }
 `
 
@@ -95,17 +130,31 @@ export const InformationBox = styled.ul`
   & > *:not(:last-child) {
     margin-right: 20px;
   }
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 `
 
 export const BottomContentBox = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 36px;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    margin-top: 24px;
+  }
 `
 
 export const UserInfoBox = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    & > div > p {
+      text-align: left;
+    }
+  }
 `
 
 export const UserAvatar = styled.img`
@@ -129,6 +178,10 @@ export const ActionsBox = styled.div`
 
   & > *:not(:last-child) {
     margin-right: 14px;
+  }
+
+  @media (max-width: 640px) {
+    display: none;
   }
 `
 
