@@ -8,6 +8,12 @@ export const WorkshopCardBox = styled.div<{ fullWidth?: boolean }>`
       width: '100%',
       maxWidth: '100%',
     }}
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    h5 {
+      text-align: left;
+    }
+  }
 `
 
 export const ImageBox = styled.div`

@@ -4,6 +4,10 @@ import styled from '@emotion/styled'
 const SwiperStyled = styled(Swiper)`
   padding-top: 35px;
 
+  .swiper-carousel {
+    width: 100%;
+  }
+
   .swiper-pagination-bullets {
     bottom: auto;
     top: 0;
@@ -23,6 +27,30 @@ const SwiperStyled = styled(Swiper)`
   .swiper-pagination-bullet-active {
     background: #e14a4a;
     border-color: #e14a4a;
+  }
+  /* reset slide margins by error in slidesPerColumn of swiper*/
+  .swiper-slide {
+    margin-top: 0 !important;
+  }
+
+  @media (min-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    .swiper-slide {
+      margin-top: 40px !important;
+    }
+
+    .swiper-wrapper {
+      margin-top: -40px;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    .swiper-slide {
+      margin-top: 0 !important;
+    }
+
+    .swiper-wrapper {
+      margin-top: 0;
+    }
   }
 `
 

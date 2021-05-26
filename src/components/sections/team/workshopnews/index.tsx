@@ -63,7 +63,12 @@ const fakeData = [
 
 const WorkshopNewsBox = styled.section`
   background-color: #fff;
-  padding: 90px 80px 50px 80px;
+  padding: 90px 4rem 50px 4rem;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `
 
 const Container = styled.div`
