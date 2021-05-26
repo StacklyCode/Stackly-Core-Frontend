@@ -9,6 +9,19 @@ export const PublishingCardBox = styled.div<{ fullWidth?: boolean }>`
       width: '100%',
       maxWidth: '100%',
     }}
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    h4,
+    p {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 640px) {
+    &:nth-of-type(1) {
+      display: none;
+    }
+  }
 `
 
 export const ImageBox = styled.div`
@@ -72,4 +85,8 @@ export const InformationBox = styled.div<{ variant?: 'simple' }>`
         margin-left: 7px;
       }
     `}
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.xs}px`}) {
+    justify-content: ${({ variant }) => (variant === 'simple' ? 'center' : 'flex-start')};
+  }
 `

@@ -70,7 +70,12 @@ const fakeData = [
 
 const BlogAndNewsBox = styled.section`
   background-color: #fff;
-  padding: 0 80px 50px 80px;
+  padding: 0 4rem 50px 4rem;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `
 
 const Container = styled.div`
@@ -86,6 +91,12 @@ const HeaderBox = styled.div`
 
   & > :nth-of-type(1) {
     grid-column: span 2 / span 2;
+  }
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `
 
