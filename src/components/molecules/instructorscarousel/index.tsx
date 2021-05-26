@@ -20,11 +20,23 @@ type InstructorCarouselProps = {
 
 const InstructorsCarousel: FC<InstructorCarouselProps> = ({ data }) => (
   <SwiperStyled
-    slidesPerView={4}
+    slidesPerView={2}
+    slidesPerColumn={1}
+    slidesPerColumnFill="column"
     spaceBetween={26}
-    breakpoints={{}}
+    breakpoints={{
+      768: {
+        slidesPerColumn: 2,
+        slidesPerView: 2,
+        slidesPerColumnFill: 'row',
+      },
+      1024: {
+        slidesPerColumn: 1,
+        slidesPerView: 4,
+        slidesPerColumnFill: 'column',
+      },
+    }}
     pagination={{ clickable: true, type: 'bullets' }}
-    observer
   >
     {Array.isArray(data) &&
       data.map((instructor, idx) => (

@@ -59,7 +59,12 @@ const fakeData = [
 
 const BestInstructorsBox = styled.section`
   background-color: #fff;
-  padding: 0 80px 80px;
+  padding: 0 4rem 80px 4rem;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `
 
 const Container = styled.div`
