@@ -12,6 +12,15 @@ const Grid = styled.div`
     grid-column: span 2 / span 2;
     grid-row: span 2 / span 2;
   }
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    div:nth-of-type(1) {
+      grid-row: span 1 / span 1;
+      padding-bottom: 50px;
+    }
+  }
 `
 
 type BlogAndNewsPublishingGridProps = {

@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Link from 'next/link'
 import styled from '@emotion/styled'
 import AtomTitle from '@Src/components/atoms/title'
 import MoleculeBlogAndNewsPublishingGrid from '@Src/components/molecules/blogandnewspublishinggrid'
@@ -70,7 +71,12 @@ const fakeData = [
 
 const BlogAndNewsBox = styled.section`
   background-color: #fff;
-  padding: 0 80px 50px 80px;
+  padding: 0 4rem 50px 4rem;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `
 
 const Container = styled.div`
@@ -86,6 +92,26 @@ const HeaderBox = styled.div`
 
   & > :nth-of-type(1) {
     grid-column: span 2 / span 2;
+  }
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+const AnchorSeeMore = styled.a`
+  font-size: ${({ theme }) => theme.texts.BodySmall.FontSize};
+  font-family: ${({ theme }) => theme.texts.BodySmall.FontFamily};
+  color: ${({ theme }) => theme.colors.primary.base};
+  cursor: pointer;
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.m}px) {
+    display: none;
   }
 `
 
@@ -103,6 +129,9 @@ const BlogAndNews: FC = () => (
         />
       </HeaderBox>
       <MoleculeBlogAndNewsPublishingGrid data={fakeData} />
+      <Link href="/">
+        <AnchorSeeMore>Ver más</AnchorSeeMore>
+      </Link>
     </Container>
   </BlogAndNewsBox>
 )

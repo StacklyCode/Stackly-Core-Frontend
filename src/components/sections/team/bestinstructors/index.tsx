@@ -1,5 +1,7 @@
 import { FC } from 'react'
+import Link from 'next/link'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import AtomTitle from '@Src/components/atoms/title'
 import MoleculeInstructorsCarousel from '@Src/components/molecules/instructorscarousel'
 
@@ -59,7 +61,12 @@ const fakeData = [
 
 const BestInstructorsBox = styled.section`
   background-color: #fff;
-  padding: 0 80px 80px;
+  padding: 0 4rem 80px 4rem;
+
+  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `
 
 const Container = styled.div`
@@ -67,13 +74,55 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
+const HeadingBox = styled.div`
+  @media (min-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`
+
+const AnchorSeeMore = styled.a<{ isBottom?: boolean }>`
+  font-size: ${({ theme }) => theme.texts.BodySmall.FontSize};
+  font-family: ${({ theme }) => theme.texts.BodySmall.FontFamily};
+  color: ${({ theme }) => theme.colors.primary.base};
+  cursor: pointer;
+
+  ${({ isBottom, theme }) =>
+    isBottom
+      ? css`
+          display: block;
+          margin-top: 30px;
+          text-align: center;
+
+          @media (min-width: ${theme.breakpoints.m}px) {
+            display: none;
+          }
+        `
+      : css`
+          display: none;
+
+          @media (min-width: ${theme.breakpoints.m}px) {
+            display: initial;
+          }
+        `}
+`
+
 const BestInstructors: FC = () => (
   <BestInstructorsBox>
     <Container>
-      <AtomTitle size="TitleSmall" align="left" bold>
-        Mejores Instructores
-      </AtomTitle>
+      <HeadingBox>
+        <AtomTitle size="TitleSmall" align="left" bold>
+          Mejores Instructores
+        </AtomTitle>
+        <Link href="/">
+          <AnchorSeeMore>Ver más</AnchorSeeMore>
+        </Link>
+      </HeadingBox>
       <MoleculeInstructorsCarousel data={fakeData} />
+      <Link href="/">
+        <AnchorSeeMore isBottom>Ver más</AnchorSeeMore>
+      </Link>
     </Container>
   </BestInstructorsBox>
 )

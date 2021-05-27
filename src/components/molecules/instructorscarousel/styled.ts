@@ -24,6 +24,23 @@ const SwiperStyled = styled(Swiper)`
     background: #e14a4a;
     border-color: #e14a4a;
   }
+
+  /* reset slide margins by error in slidesPerColumn of swiper*/
+  .swiper-slide {
+    margin-top: 0 !important;
+  }
+
+  @media (min-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
+    .swiper-slide {
+      margin-top: 26px !important;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
+    .swiper-slide {
+      margin-top: 0 !important;
+    }
+  }
 `
 
 export default SwiperStyled

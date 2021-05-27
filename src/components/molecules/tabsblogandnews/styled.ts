@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 
 export const TabsBox = styled.ul`
   display: flex;
+  max-width: 100%;
+  overflow-x: auto;
 `
 
 export const Tab = styled.button<{ isActive?: boolean }>`

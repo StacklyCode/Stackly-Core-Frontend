@@ -19,7 +19,7 @@ const GlobalStyles: FC = () => (
         font-size: 16px;
       }
       html {
-        width: 100vw;
+        width: 100%;
       }
       body {
         background-color: #fafafa;

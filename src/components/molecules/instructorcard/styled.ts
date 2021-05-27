@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 
 export const InstructorCardBox = styled.div<{ fullWidth?: boolean }>`
   position: relative;
-  max-width: 266px;
   overflow: hidden;
   border-radius: 10px;
 
@@ -28,6 +27,11 @@ export const Badge = styled.span`
   background-color: #fff;
   padding: 3px 20px;
   border-radius: 25px;
+
+  @media (max-width: 640px) {
+    top: 12px;
+    left: 12px;
+  }
 `
 
 export const BackdropBox = styled.div`
@@ -61,6 +65,12 @@ export const ContentBox = styled.div`
     color: #fff !important;
     margin-bottom: 2px;
     max-width: 200px;
+    text-align: left !important;
+  }
+
+  @media (max-width: 640px) {
+    padding: 12px;
+    transform: translateY(46px);
   }
 `
 
@@ -77,6 +87,11 @@ export const InformationBox = styled.div`
   p:last-child {
     display: inline-flex;
     align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    margin-top: 2px;
+    margin-bottom: 10px;
   }
 `
 
@@ -97,9 +112,16 @@ export const AnchorView = styled.a`
   width: 100%;
   cursor: pointer;
   text-align: center;
+  font-weight: 600;
   font-size: ${({ theme }) => theme.texts.SubTitleMedium.FontSize};
   font-family: ${({ theme }) => theme.texts.SubTitleMedium.FontFamily};
-  font-weight: 600;
+
+  @media (max-width: 640px) {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: ${({ theme }) => theme.texts.SubTitleSmall.FontSize};
+    font-family: ${({ theme }) => theme.texts.SubTitleSmall.FontFamily};
+  }
 `
 
 export const HeartIcon = styled(AtomIcon)`
