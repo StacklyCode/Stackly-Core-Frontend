@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Link from 'next/link'
 import styled from '@emotion/styled'
 import AtomTitle from '@Src/components/atoms/title'
 import MoleculeBlogAndNewsPublishingGrid from '@Src/components/molecules/blogandnewspublishinggrid'
@@ -100,6 +101,20 @@ const HeaderBox = styled.div`
   }
 `
 
+const AnchorSeeMore = styled.a`
+  font-size: ${({ theme }) => theme.texts.BodySmall.FontSize};
+  font-family: ${({ theme }) => theme.texts.BodySmall.FontFamily};
+  color: ${({ theme }) => theme.colors.primary.base};
+  cursor: pointer;
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.m}px) {
+    display: none;
+  }
+`
+
 const BlogAndNews: FC = () => (
   <BlogAndNewsBox>
     <Container>
@@ -114,6 +129,9 @@ const BlogAndNews: FC = () => (
         />
       </HeaderBox>
       <MoleculeBlogAndNewsPublishingGrid data={fakeData} />
+      <Link href="/">
+        <AnchorSeeMore>Ver más</AnchorSeeMore>
+      </Link>
     </Container>
   </BlogAndNewsBox>
 )
