@@ -10,7 +10,7 @@ export const ContainerTagStyled = styled.div`
   overflow: hidden;
 
   @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
-    flex-direction: column;
+    display: initial;
   }
 `
 
@@ -19,7 +19,6 @@ export const ContainerInfoStyled = styled.div`
   flex: 1;
 
   @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
-    order: 2;
     width: 100%;
     flex: initial;
   }
@@ -30,14 +29,7 @@ export const ImageBox = styled.div`
   max-width: 350px;
 
   @media (max-width: ${({ theme }) => `${theme.breakpoints.m}px`}) {
-    order: 1;
-    max-width: 100%;
-    width: 100%;
-    height: 224px;
-  }
-
-  @media (max-width: ${({ theme }) => `${theme.breakpoints.s}px`}) {
-    height: 164px;
+    display: none;
   }
 `
 
