@@ -47,6 +47,7 @@ export const HeartIcon = styled(AtomIcon)`
 
 export const InformationBox = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 3px;
 
   & > *:not(:last-child) {
