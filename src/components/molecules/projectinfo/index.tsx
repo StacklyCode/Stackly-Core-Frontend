@@ -1,17 +1,18 @@
-import AtomBody from '@Atoms/body';
-import AtomButton from '@Atoms/button';
-import AtomImage from '@Atoms/image';
-import AtomTitle from '@Atoms/title';
-import styled from '@emotion/styled';
+import AtomBody from '@Atoms/body'
+import AtomButton from '@Atoms/button'
+import AtomImage from '@Atoms/image'
+import AtomTitle from '@Atoms/title'
+import styled from '@emotion/styled'
+import { FC } from 'react'
 
 type ProjectInfoProps = {
-  id?: string;
-  title?: string;
-  type?: string;
-  description?: string;
-  urlImage?: string;
-  link?: string;
-};
+  id?: string
+  title?: string
+  type?: string
+  description?: string
+  urlImage?: string
+  link?: string
+}
 
 const ProjectInfo = styled.div`
   margin: 30px 0px;
@@ -23,7 +24,7 @@ const ProjectInfo = styled.div`
     flex-direction: row;
     justify-content: flex-start;
   }
-`;
+`
 const ContainerInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,15 +58,15 @@ const ContainerInfo = styled.div`
       align-self: flex-start;
     }
   }
-`;
+`
 const ContainerInfoTitle = styled.div`
   margin-top: 20px;
   ${({ theme }) => theme.mediaquery.medium} {
     margin-top: 0px;
   }
-`;
+`
 
-const MoleculeProjectInfo: React.FC<ProjectInfoProps> = ({
+const MoleculeProjectInfo: FC<ProjectInfoProps> = ({
   urlImage,
   title,
   type,
@@ -92,7 +93,7 @@ const MoleculeProjectInfo: React.FC<ProjectInfoProps> = ({
         </AtomButton>
       </ContainerInfo>
     </ProjectInfo>
-  );
-};
+  )
+}
 
-export default MoleculeProjectInfo;
+export default MoleculeProjectInfo

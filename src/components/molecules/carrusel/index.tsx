@@ -1,22 +1,21 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { TFunction } from 'next-i18next';
-import MoleculesTagProject from '@Src/components/molecules/tagprojects';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FC } from 'react'
+import MoleculesTagProject from '@Src/components/molecules/tagprojects'
 
 interface IProject {
-  id?: string;
-  title?: string;
-  type?: string;
-  description?: string;
-  urlImage?: string;
-  link?: string;
+  id?: string
+  title?: string
+  type?: string
+  description?: string
+  urlImage?: string
+  link?: string
 }
 
 type TCarrusel = {
-  data?: IProject[];
-  t?: TFunction;
-};
+  data?: IProject[]
+}
 
-const MoleculeCarrusel: React.FC<TCarrusel> = ({ data, t }) => {
+const MoleculeCarrusel: FC<TCarrusel> = ({ data }) => {
   return (
     <Swiper
       slidesPerView={4}
@@ -50,7 +49,6 @@ const MoleculeCarrusel: React.FC<TCarrusel> = ({ data, t }) => {
             }}
           >
             <MoleculesTagProject
-              t={t}
               key={item.id}
               title={item.title}
               img={item.urlImage}
@@ -61,7 +59,7 @@ const MoleculeCarrusel: React.FC<TCarrusel> = ({ data, t }) => {
           </SwiperSlide>
         ))}
     </Swiper>
-  );
-};
+  )
+}
 
-export default MoleculeCarrusel;
+export default MoleculeCarrusel

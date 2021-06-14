@@ -1,18 +1,19 @@
-import AtomBody from '@Atoms/body';
-import AtomIcon from '@Atoms/icon';
-import AtomTitle from '@Atoms/title';
-import styled from '@emotion/styled';
-import Link from '@Src/utils/link';
+import AtomBody from '@Atoms/body'
+import AtomIcon from '@Atoms/icon'
+import AtomTitle from '@Atoms/title'
+import styled from '@emotion/styled'
+import Link from '@Src/utils/link'
+import { FC } from 'react'
 
 type TagsProps = {
-  image?: string;
-  name?: string;
-  description?: string;
+  image?: string
+  name?: string
+  description?: string
   social?: {
-    name: string;
-    url: string;
-  }[];
-};
+    name: string
+    url: string
+  }[]
+}
 
 const Tags = styled.article<TagsProps>`
   width: 150px;
@@ -63,7 +64,7 @@ const Tags = styled.article<TagsProps>`
     line-height: 20px;
   }
   transition: all 0.3s ease;
-`;
+`
 
 const SocialNetworkContainer = styled.div`
   display: flex;
@@ -91,9 +92,9 @@ const SocialNetworkContainer = styled.div`
         },
       }}
   }
-`;
+`
 
-const MoleculesTagTeam: React.FC<TagsProps> = ({ image, name, description, social }) => {
+const MoleculesTagTeam: FC<TagsProps> = ({ image, name, description, social }) => {
   return (
     <Tags>
       <img src={image || 'https://i.stack.imgur.com/l60Hf.png'} alt={name} />
@@ -111,7 +112,7 @@ const MoleculesTagTeam: React.FC<TagsProps> = ({ image, name, description, socia
         ))}
       </SocialNetworkContainer>
     </Tags>
-  );
-};
+  )
+}
 
-export default MoleculesTagTeam;
+export default MoleculesTagTeam

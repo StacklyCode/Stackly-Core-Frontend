@@ -1,9 +1,8 @@
-import AtomBody from '@Atoms/body';
-import AtomIcon from '@Atoms/icon';
-import AtomSwitch from '@Src/components/atoms/switch';
-import styled from '@emotion/styled';
-import { animated, useTransition } from 'react-spring';
-import { useEffect, useRef, useState } from 'react';
+import AtomBody from '@Atoms/body'
+import AtomIcon from '@Atoms/icon'
+import AtomSwitch from '@Src/components/atoms/switch'
+import styled from '@emotion/styled'
+import { useEffect, useRef, useState, FC, RefObject, Dispatch } from 'react'
 
 const SettingsNavigation = styled.div`
   position: relative;
@@ -22,19 +21,20 @@ const SettingsNavigation = styled.div`
   }
   div {
     margin-top: 2px;
-    width: 15px;
+    width: 100%;
+    height: 100%;
   }
-`;
+`
 
-const SettingsOptionsNavigationContainer = styled(animated.div)`
+const SettingsOptionsNavigationContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
   height: max-content;
-`;
-const SettingsOptionsNavigation = styled(animated.div)`
+`
+const SettingsOptionsNavigation = styled.div`
   top: 95px;
   right: 90px;
   position: absolute;
@@ -49,7 +49,8 @@ const SettingsOptionsNavigation = styled(animated.div)`
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
   z-index: 10;
   padding: 5px 10px;
-`;
+  user-select: none;
+`
 
 const ToggleContainerOption = styled.div`
   width: 100%;
@@ -65,12 +66,7 @@ const ToggleContainerOption = styled.div`
     cursor: pointer;
     background-color: ${({ theme }) => theme.colors.secondary.base};
   }
-  div:last-child {
-    width: 15px;
-    height: 15px;
-    transform: rotate(-90deg);
-  }
-`;
+`
 
 const ToggleContainerOptionContainer = styled.div`
   display: flex;
@@ -81,124 +77,100 @@ const ToggleContainerOptionContainer = styled.div`
   p {
     margin-left: 10px;
   }
-  div {
-    width: 35px;
-    height: 35px;
-    border-radius: 50px;
-    background-color: ${({ theme }) => theme.colors.primary.base};
-    svg {
-      width: 15px;
-      path {
-        fill: ${({ theme }) => theme.colors.secondary.light};
-      }
-    }
-  }
-`;
+`
+
+const AtomIconStyled = styled(AtomIcon)`
+  color: ${({ theme }) => theme.colors.primary.light};
+`
 
 function useOutsideAlerter(
-  ref: React.RefObject<HTMLDivElement>,
-  settoggle: React.Dispatch<boolean>,
-  setoption: React.Dispatch<number>
+  ref: RefObject<HTMLDivElement>,
+  settoggle: Dispatch<boolean>,
+  setoption: Dispatch<number>,
+  ref2: RefObject<HTMLDivElement>
 ) {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function handleClickOutside(event: any) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        settoggle(false);
-        setoption(0);
+      if (
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        ref2.current &&
+        !ref2.current.contains(event.target)
+      ) {
+        settoggle(false)
+        setoption(0)
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [ref]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref, ref2, setoption, settoggle])
 }
 
-const MoleculesSetting: React.FC = () => {
-  const [toggle, settoggle] = useState(false);
-  const [option, setoption] = useState(0);
-  const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, settoggle, setoption);
-
-  const transitions = useTransition(toggle, null, {
-    from: { opacity: 0, transform: 'translateY(-10px)' },
-    enter: { opacity: 1, transform: 'translateY(0px)' },
-    leave: { opacity: 0, transform: 'translateY(-10px)' },
-    delay: 100,
-  });
-
-  const optionAnim = useTransition(option, null, {
-    from: { opacity: 0, transform: 'translateX(-10px)' },
-    enter: { opacity: 1, transform: 'translateX(0px)', display: 'flex' },
-    leave: { opacity: 0, transform: 'translateX(-10px)', display: 'none' },
-    delay: 100,
-  });
+const MoleculesSetting: FC = () => {
+  const [toggle, settoggle] = useState(false)
+  const [option, setoption] = useState(0)
+  const wrapperRef = useRef(null)
+  const wrapperRef2 = useRef(null)
+  useOutsideAlerter(wrapperRef, settoggle, setoption, wrapperRef2)
 
   return (
     <>
       <SettingsNavigation ref={wrapperRef} onClick={() => settoggle(!toggle)}>
-        <AtomIcon icon="arrow" />
+        <AtomIcon name="chevrondown" variant="filled" />
       </SettingsNavigation>
-      {transitions.map(
-        ({ item, props }) =>
-          item && (
-            <SettingsOptionsNavigation ref={wrapperRef} style={props}>
-              {optionAnim.map(
-                ({ item, props }) =>
-                  item === 0 && (
-                    <SettingsOptionsNavigationContainer style={props}>
-                      <ToggleContainerOption>
-                        <ToggleContainerOptionContainer>
-                          <AtomIcon icon="user" />
-                          <AtomBody size="BodySmall">My Profile</AtomBody>
-                        </ToggleContainerOptionContainer>
-                        <AtomIcon icon="" />
-                      </ToggleContainerOption>
-                      <ToggleContainerOption onClick={() => setoption(1)}>
-                        <ToggleContainerOptionContainer>
-                          <AtomIcon icon="settings" />
-                          <AtomBody size="BodySmall">Configuration</AtomBody>
-                        </ToggleContainerOptionContainer>
-                        <AtomIcon icon="arrow" />
-                      </ToggleContainerOption>
-                    </SettingsOptionsNavigationContainer>
-                  )
-              )}
-              {optionAnim.map(
-                ({ item, props }) =>
-                  item === 1 && (
-                    <SettingsOptionsNavigationContainer style={props}>
-                      <ToggleContainerOption onClick={() => setoption(0)}>
-                        <ToggleContainerOptionContainer>
-                          <AtomIcon icon="arrowleft" />
-                          <AtomBody size="BodySmall">back</AtomBody>
-                        </ToggleContainerOptionContainer>
-                        <AtomIcon icon="" />
-                      </ToggleContainerOption>
-                      <ToggleContainerOption>
-                        <ToggleContainerOptionContainer>
-                          <AtomIcon icon="brush" />
-                          <AtomBody size="BodySmall">Dark Mode</AtomBody>
-                        </ToggleContainerOptionContainer>
-                        <AtomIcon icon="" />
-                        <AtomSwitch />
-                      </ToggleContainerOption>
-                      <ToggleContainerOption>
-                        <ToggleContainerOptionContainer>
-                          <AtomIcon icon="language" />
-                          <AtomBody size="BodySmall">Language</AtomBody>
-                        </ToggleContainerOptionContainer>
-                        <AtomIcon icon="" />
-                      </ToggleContainerOption>
-                    </SettingsOptionsNavigationContainer>
-                  )
-              )}
-            </SettingsOptionsNavigation>
-          )
+      {toggle && (
+        <SettingsOptionsNavigation ref={wrapperRef2}>
+          {option === 0 && (
+            <SettingsOptionsNavigationContainer>
+              <ToggleContainerOption>
+                <ToggleContainerOptionContainer>
+                  <AtomIconStyled name="user" variant="outlined" />
+                  <AtomBody size="BodySmall">My Profile</AtomBody>
+                </ToggleContainerOptionContainer>
+                {/* <AtomIcon icon="" /> */}
+              </ToggleContainerOption>
+              <ToggleContainerOption onClick={() => setoption(1)}>
+                <ToggleContainerOptionContainer>
+                  <AtomIconStyled name="settings" variant="filled" />
+                  <AtomBody size="BodySmall">Configuration</AtomBody>
+                </ToggleContainerOptionContainer>
+                <AtomIcon name="chevrondown" variant="filled" />
+              </ToggleContainerOption>
+            </SettingsOptionsNavigationContainer>
+          )}
+          {option === 1 && (
+            <SettingsOptionsNavigationContainer>
+              <ToggleContainerOption onClick={() => setoption(0)}>
+                <ToggleContainerOptionContainer>
+                  <AtomIconStyled name="arrowleft" variant="filled" />
+                  <AtomBody size="BodySmall">back</AtomBody>
+                </ToggleContainerOptionContainer>
+                {/* <AtomIcon icon="" /> */}
+              </ToggleContainerOption>
+              <ToggleContainerOption>
+                <ToggleContainerOptionContainer>
+                  <AtomIconStyled name="brush" variant="outlined" />
+                  <AtomBody size="BodySmall">Dark Mode</AtomBody>
+                </ToggleContainerOptionContainer>
+                {/* <AtomIcon icon="" /> */}
+                <AtomSwitch />
+              </ToggleContainerOption>
+              <ToggleContainerOption>
+                <ToggleContainerOptionContainer>
+                  <AtomIconStyled name="language" variant="outlined" />
+                  <AtomBody size="BodySmall">Language</AtomBody>
+                </ToggleContainerOptionContainer>
+                {/* <AtomIcon icon="" /> */}
+              </ToggleContainerOption>
+            </SettingsOptionsNavigationContainer>
+          )}
+        </SettingsOptionsNavigation>
       )}
     </>
-  );
-};
+  )
+}
 
-export default MoleculesSetting;
+export default MoleculesSetting

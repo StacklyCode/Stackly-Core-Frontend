@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import { useSpring, animated } from 'react-spring';
-import AtomButton from '@Atoms/button';
-import { TFunction } from 'next-i18next';
-import IllustrationHero from '@Assets/img/illustration-community.svg';
+import styled from '@emotion/styled'
+import AtomContainer from '@Atoms/container'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
+import { FC } from 'react'
+
+import AtomButton from '@Atoms/button'
+import useTranslation from 'next-translate/useTranslation'
 
 const Community = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -21,9 +21,9 @@ const Community = styled.section`
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-`;
+`
 
-const IllustrationContainer = styled(animated.div)`
+const IllustrationContainer = styled.div`
   width: 35%;
   display: none;
   ${({ theme }) => theme.mediaquery.medium} {
@@ -34,9 +34,9 @@ const IllustrationContainer = styled(animated.div)`
   svg {
     width: 70%;
   }
-`;
+`
 
-const TextContainer = styled(animated.div)`
+const TextContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -57,44 +57,36 @@ const TextContainer = styled(animated.div)`
     }
     margin-top: 30px;
   }
-`;
+`
 
 type ICommunity = {
-  idScroll?: string;
-  t?: TFunction;
-};
+  idScroll?: string
+}
 
-const OrganismCommunity: React.FC<ICommunity> = ({ idScroll, t }) => {
-  const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700,
-  });
-  const props2 = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(20px)' },
-    delay: 700,
-  });
+const OrganismCommunity: FC<ICommunity> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
+
   return (
     <Community id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
-        <TextContainer style={props}>
+        <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium" color="black">
-            {t && t('community-title')}
+            {t('community-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyExtraLarge" color="gray">
-            {t && t('community-desc')}
+            {t('community-desc')}
           </AtomBody>
-          <AtomButton href="https://discord.gg/jjMRrHguPf">
-            {t && t('community-button')}
-          </AtomButton>
+          <AtomButton href="https://discord.stacklycode.com/">{t('community-button')}</AtomButton>
         </TextContainer>
-        <IllustrationContainer style={props2}>
-          <IllustrationHero />
+        <IllustrationContainer>
+          <img
+            src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=300"
+            alt=""
+          />
         </IllustrationContainer>
       </AtomContainer>
     </Community>
-  );
-};
+  )
+}
 
-export default OrganismCommunity;
+export default OrganismCommunity

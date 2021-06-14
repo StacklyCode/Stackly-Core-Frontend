@@ -1,11 +1,13 @@
-import styled from '@emotion/styled';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import AtomContainer from '@Atoms/container';
-import AtomButton from '@Atoms/button';
-import { useSpring, animated } from 'react-spring';
-import { TFunction } from 'next-i18next';
-import { Link } from 'react-scroll';
+import styled from '@emotion/styled'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
+import AtomContainer from '@Atoms/container'
+import AtomButton from '@Atoms/button'
+
+import { FC } from 'react'
+import useTranslation from 'next-translate/useTranslation'
+
+import { Link } from 'react-scroll'
 
 const Hero = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -22,9 +24,9 @@ const Hero = styled.section`
   div {
     position: relative;
   }
-`;
+`
 
-const TextContainer = styled(animated.div)`
+const TextContainer = styled.div`
   width: 100%;
   ${({ theme }) => theme.mediaquery.small} {
     width: 80%;
@@ -42,8 +44,8 @@ const TextContainer = styled(animated.div)`
   p {
     max-width: 480px;
   }
-`;
-const IllustrationContainer = styled(animated.div)`
+`
+const IllustrationContainer = styled.div`
   position: absolute;
   overflow: hidden;
   left: 100px;
@@ -70,7 +72,7 @@ const IllustrationContainer = styled(animated.div)`
     filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.15));
     border-radius: 10px;
   }
-`;
+`
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -93,47 +95,38 @@ const ButtonContainer = styled.div`
       margin-right: 30px;
     }
   }
-`;
+`
 
 type IHero = {
-  idScroll?: string;
-  t?: TFunction;
-};
+  idScroll?: string
+}
 
-const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
-  const props = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(-20px)' },
-    delay: 700,
-  });
-  const props2 = useSpring({
-    to: { opacity: 1, transform: 'translateX(0px)' },
-    from: { opacity: 0, transform: 'translateX(20px)' },
-    delay: 700,
-  });
+const OrganismHero: FC<IHero> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
+
   return (
     <Hero id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="space-between">
-        <TextContainer style={props}>
+        <TextContainer>
           <AtomBody color="accent" align="left" size="BodyLarge" bold>
             Hispanic Software Company
           </AtomBody>
           <AtomTitle align="left" bold size="TitleLarge">
-            {t && t('hero-title')}
+            {t('hero-title')}
           </AtomTitle>
           <AtomBody color="light" align="left" size="BodyLarge">
-            {t && t('hero-desc')}
+            {t('hero-desc')}
           </AtomBody>
           <ButtonContainer>
             <Link to="ContactScroll" smooth offset={-40}>
-              <AtomButton>{t && t('hero-btn-1')}</AtomButton>
+              <AtomButton>{t('hero-btn-1')}</AtomButton>
             </Link>
             <Link to="ProjectsScroll" smooth offset={-30}>
-              <AtomButton outline>{t && t('hero-btn-2')}</AtomButton>
+              <AtomButton outline>{t('hero-btn-2')}</AtomButton>
             </Link>
           </ButtonContainer>
         </TextContainer>
-        <IllustrationContainer style={props2}>
+        <IllustrationContainer>
           <img
             src="https://images.pexels.com/photos/443383/pexels-photo-443383.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=300"
             alt=""
@@ -145,7 +138,7 @@ const OrganismHero: React.FC<IHero> = ({ idScroll, t }) => {
         </IllustrationContainer>
       </AtomContainer>
     </Hero>
-  );
-};
+  )
+}
 
-export default OrganismHero;
+export default OrganismHero

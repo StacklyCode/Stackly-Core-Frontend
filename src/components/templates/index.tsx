@@ -1,37 +1,31 @@
-import styled from '@emotion/styled';
-import OrganismsNavigation from '@Organisms/navegation';
-import OrganismFooter from '@Organisms/footer';
-import { TFunction } from 'next-i18next';
-import Seo from '@Utils/seo';
+import styled from '@emotion/styled'
+import OrganismsNavigation from '@Organisms/navegation'
+import OrganismFooter from '@Organisms/footer'
+import { FC } from 'react'
+
+import Seo from '@Utils/seo'
 
 const Background = styled.main`
   height: max-content;
   width: 100%;
   margin-top: 90px;
-`;
+`
 
 type ITemplate = {
-  t?: TFunction;
-  SeoTitle?: string;
-  SeoPage?: string;
-  SeoDesc?: string;
-};
+  SeoTitle?: string
+  SeoPage?: string
+  SeoDesc?: string
+}
 
-const TemplateMain: React.FC<ITemplate> = ({
-  children,
-  t,
-  SeoTitle,
-  SeoPage,
-  SeoDesc,
-}) => {
+const TemplateMain: FC<ITemplate> = ({ children, SeoTitle, SeoPage, SeoDesc }) => {
   return (
     <Background>
       <Seo title={SeoTitle} page={SeoPage} description={SeoDesc} />
-      <OrganismsNavigation t={t} />
+      <OrganismsNavigation />
       {children}
-      <OrganismFooter t={t} />
+      <OrganismFooter />
     </Background>
-  );
-};
+  )
+}
 
-export default TemplateMain;
+export default TemplateMain

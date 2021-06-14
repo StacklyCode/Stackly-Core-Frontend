@@ -1,11 +1,13 @@
-import styled from '@emotion/styled';
-import AtomIcon from '@Atoms/icon';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
+import styled from '@emotion/styled'
+import AtomIcon from '@Atoms/icon'
+import AtomContainer from '@Atoms/container'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
 
-import { TFunction } from 'next-i18next';
-import Link from '@Src/utils/link';
+import { FC } from 'react'
+import useTranslation from 'next-translate/useTranslation'
+
+import Link from '@Src/utils/link'
 
 // const fakeUserData = [
 //   {
@@ -63,7 +65,7 @@ const Clients = styled.section`
   ${({ theme }) => theme.mediaquery.small} {
     padding-bottom: 80px;
   }
-`;
+`
 
 const TextContainer = styled.div`
   width: 100%;
@@ -90,7 +92,7 @@ const TextContainer = styled.div`
     }
     margin-top: 10px;
   }
-`;
+`
 const TagsContainer = styled.div`
   display: flex;
   align-items: center;
@@ -99,14 +101,14 @@ const TagsContainer = styled.div`
   height: max-content;
   width: 100%;
   margin-top: 50px;
-`;
+`
 const TagsContainerClients = styled.div`
   display: flex;
   height: 80%;
   width: 100%;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const TagsClient = styled.div`
   display: flex;
@@ -130,7 +132,7 @@ const TagsClient = styled.div`
   border-radius: 10px;
   height: max-content;
   width: 68vw;
-`;
+`
 
 const TagsClientSocial = styled.div`
   display: flex;
@@ -143,7 +145,7 @@ const TagsClientSocial = styled.div`
   height: max-content;
   width: 100%;
   margin-top: 10px;
-`;
+`
 
 const SocialNetworkContainer = styled.div`
   display: flex;
@@ -151,59 +153,38 @@ const SocialNetworkContainer = styled.div`
   ${({ theme }) => theme.mediaquery.small} {
     margin-bottom: 0px;
   }
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
 
-    ${({ theme }) =>
-      true && {
-        width: '20px',
-        height: '20px',
-        marginRight: '15px',
-        svg: {
-          width: '100%',
-          height: '100%',
-          path: {
-            fill: theme.colors.primary.base,
-          },
-        },
-      }}
+  & > *:not(:last-child) {
+    margin-right: 10px;
   }
-`;
+`
 const StarContainer = styled.div`
   display: flex;
   width: fit-content;
-  div {
-    svg {
-      width: 20px;
-      height: 20px;
-      path {
-        fill: #ffd74b;
-      }
-    }
+
+  svg {
+    color: #ffd74b;
   }
-`;
+`
 
 type IClients = {
-  idScroll?: string;
-  t?: TFunction;
-};
+  idScroll?: string
+}
 
-const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
+const OrganismClients: FC<IClients> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
   return (
     <Clients id={idScroll}>
       <AtomContainer alignItems="flex-start" justifyContent="flex-start">
         <TextContainer>
           <AtomTitle align="left" bold size="TitleMedium">
-            {t && t('clients-title')}
+            {t('clients-title')}
           </AtomTitle>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t('clients-desc-1')}
+            {t('clients-desc-1')}
           </AtomBody>
           <AtomBody align="left" size="BodyLarge" color="light">
-            {t && t('clients-desc-2')}
+            {t('clients-desc-2')}
           </AtomBody>
           <TagsContainer>
             <TagsContainerClients>
@@ -212,23 +193,23 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
                   COMFECO
                 </AtomTitle>
                 <AtomBody align="left" size="BodyMedium" color="light">
-                  {t && t('client-desc-1')}
+                  {t('client-desc-1')}
                 </AtomBody>
                 <TagsClientSocial>
                   <SocialNetworkContainer>
                     <Link to="https://www.comfeco.com/" isExternal>
-                      <AtomIcon icon="web" color="dark" size="12px" />
+                      <AtomIcon name="world" variant="filled" color="primary" size={24} />
                     </Link>
                     <Link to="https://twitter.com/comfeco" isExternal>
-                      <AtomIcon icon="twitter" color="dark" size="12px" />
+                      <AtomIcon name="twitter" variant="filled" color="primary" size={24} />
                     </Link>
                   </SocialNetworkContainer>
                   <StarContainer>
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
-                    <AtomIcon icon="star" />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
+                    <AtomIcon name="star" variant="filled" size={24} />
                   </StarContainer>
                 </TagsClientSocial>
               </TagsClient>
@@ -237,7 +218,7 @@ const OrganismClients: React.FC<IClients> = ({ idScroll, t }) => {
         </TextContainer>
       </AtomContainer>
     </Clients>
-  );
-};
+  )
+}
 
-export default OrganismClients;
+export default OrganismClients

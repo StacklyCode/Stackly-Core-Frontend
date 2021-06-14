@@ -1,6 +1,7 @@
-import { Global, css } from '@emotion/react';
+import { Global, css } from '@emotion/react'
+import { FC } from 'react'
 
-const GlobalStyles = () => (
+const GlobalStyles: FC = () => (
   <Global
     styles={css`
       *,
@@ -18,7 +19,7 @@ const GlobalStyles = () => (
         font-size: 16px;
       }
       html {
-        width: 100vw;
+        width: 100%;
       }
       body {
         background-color: #fafafa;
@@ -111,10 +112,8 @@ const GlobalStyles = () => (
         font-weight: 400;
         font-display: swap;
         src: local('Roboto'), local('Roboto-Regular'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu72xKOzY.woff2)
-            format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-          U+FE2E-FE2F;
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu72xKOzY.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
       }
       /* cyrillic */
       @font-face {
@@ -123,8 +122,7 @@ const GlobalStyles = () => (
         font-weight: 400;
         font-display: swap;
         src: local('Roboto'), local('Roboto-Regular'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu5mxKOzY.woff2)
-            format('woff2');
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu5mxKOzY.woff2) format('woff2');
         unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
       }
       /* greek-ext */
@@ -134,8 +132,7 @@ const GlobalStyles = () => (
         font-weight: 400;
         font-display: swap;
         src: local('Roboto'), local('Roboto-Regular'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7mxKOzY.woff2)
-            format('woff2');
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7mxKOzY.woff2) format('woff2');
         unicode-range: U+1F00-1FFF;
       }
       /* greek */
@@ -145,8 +142,7 @@ const GlobalStyles = () => (
         font-weight: 400;
         font-display: swap;
         src: local('Roboto'), local('Roboto-Regular'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4WxKOzY.woff2)
-            format('woff2');
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4WxKOzY.woff2) format('woff2');
         unicode-range: U+0370-03FF;
       }
       /* vietnamese */
@@ -156,10 +152,9 @@ const GlobalStyles = () => (
         font-weight: 400;
         font-display: swap;
         src: local('Roboto'), local('Roboto-Regular'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7WxKOzY.woff2)
-            format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-          U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7WxKOzY.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0,
+          U+1EA0-1EF9, U+20AB;
       }
       /* latin-ext */
       @font-face {
@@ -168,10 +163,9 @@ const GlobalStyles = () => (
         font-weight: 400;
         font-display: swap;
         src: local('Roboto'), local('Roboto-Regular'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7GxKOzY.woff2)
-            format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-          U+2113, U+2C60-2C7F, U+A720-A7FF;
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
       }
       /* latin */
       @font-face {
@@ -180,11 +174,9 @@ const GlobalStyles = () => (
         font-weight: 400;
         font-display: swap;
         src: local('Roboto'), local('Roboto-Regular'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2)
-            format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-          U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       /* cyrillic-ext */
       @font-face {
@@ -194,8 +186,7 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZJhiI2B.woff2)
           format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-          U+FE2E-FE2F;
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
       }
       /* cyrillic */
       @font-face {
@@ -235,8 +226,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZBhiI2B.woff2)
           format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-          U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0,
+          U+1EA0-1EF9, U+20AB;
       }
       /* latin-ext */
       @font-face {
@@ -246,8 +237,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZFhiI2B.woff2)
           format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-          U+2113, U+2C60-2C7F, U+A720-A7FF;
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
       }
       /* latin */
       @font-face {
@@ -257,9 +248,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2)
           format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-          U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       /* cyrillic-ext */
       @font-face {
@@ -269,8 +259,7 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7SUc.woff2)
           format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-          U+FE2E-FE2F;
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
       }
       /* cyrillic */
       @font-face {
@@ -310,8 +299,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2pL7SUc.woff2)
           format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-          U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0,
+          U+1EA0-1EF9, U+20AB;
       }
       /* latin-ext */
       @font-face {
@@ -321,8 +310,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa25L7SUc.woff2)
           format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-          U+2113, U+2C60-2C7F, U+A720-A7FF;
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
       }
       /* latin */
       @font-face {
@@ -332,9 +321,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
           format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-          U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       /* cyrillic-ext */
       @font-face {
@@ -344,8 +332,7 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7SUc.woff2)
           format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-          U+FE2E-FE2F;
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
       }
       /* cyrillic */
       @font-face {
@@ -385,8 +372,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2pL7SUc.woff2)
           format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-          U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0,
+          U+1EA0-1EF9, U+20AB;
       }
       /* latin-ext */
       @font-face {
@@ -396,8 +383,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa25L7SUc.woff2)
           format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-          U+2113, U+2C60-2C7F, U+A720-A7FF;
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
       }
       /* latin */
       @font-face {
@@ -407,9 +394,8 @@ const GlobalStyles = () => (
         font-display: swap;
         src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2)
           format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-          U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       /* cyrillic-ext */
       @font-face {
@@ -420,8 +406,7 @@ const GlobalStyles = () => (
         src: local('Roboto Medium'), local('Roboto-Medium'),
           url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2)
             format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-          U+FE2E-FE2F;
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
       }
       /* cyrillic */
       @font-face {
@@ -465,8 +450,8 @@ const GlobalStyles = () => (
         src: local('Roboto Medium'), local('Roboto-Medium'),
           url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2)
             format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-          U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0,
+          U+1EA0-1EF9, U+20AB;
       }
       /* latin-ext */
       @font-face {
@@ -477,8 +462,8 @@ const GlobalStyles = () => (
         src: local('Roboto Medium'), local('Roboto-Medium'),
           url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2)
             format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-          U+2113, U+2C60-2C7F, U+A720-A7FF;
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
       }
       /* latin */
       @font-face {
@@ -487,11 +472,9 @@ const GlobalStyles = () => (
         font-weight: 500;
         font-display: swap;
         src: local('Roboto Medium'), local('Roboto-Medium'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2)
-            format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-          U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       /* cyrillic-ext */
       @font-face {
@@ -502,8 +485,7 @@ const GlobalStyles = () => (
         src: local('Roboto Bold'), local('Roboto-Bold'),
           url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfCRc4EsA.woff2)
             format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-          U+FE2E-FE2F;
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
       }
       /* cyrillic */
       @font-face {
@@ -547,8 +529,8 @@ const GlobalStyles = () => (
         src: local('Roboto Bold'), local('Roboto-Bold'),
           url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2)
             format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-          U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0,
+          U+1EA0-1EF9, U+20AB;
       }
       /* latin-ext */
       @font-face {
@@ -559,8 +541,8 @@ const GlobalStyles = () => (
         src: local('Roboto Bold'), local('Roboto-Bold'),
           url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2)
             format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF,
-          U+2113, U+2C60-2C7F, U+A720-A7FF;
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113,
+          U+2C60-2C7F, U+A720-A7FF;
       }
       /* latin */
       @font-face {
@@ -569,11 +551,9 @@ const GlobalStyles = () => (
         font-weight: 700;
         font-display: swap;
         src: local('Roboto Bold'), local('Roboto-Bold'),
-          url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2)
-            format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-          U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
+          url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       .circles {
         position: absolute;
@@ -804,11 +784,7 @@ const GlobalStyles = () => (
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
       }
       .swiper-container-3d .swiper-slide-shadow-bottom {
-        background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0)
-        );
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
       }
       /* CSS Mode */
       .swiper-container-css-mode > .swiper-wrapper {
@@ -978,8 +954,7 @@ const GlobalStyles = () => (
         margin: 6px 0;
         display: block;
       }
-      .swiper-container-vertical
-        > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+      .swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
         top: 50%;
         transform: translateY(-50%);
         width: 8px;
@@ -990,13 +965,10 @@ const GlobalStyles = () => (
         display: inline-block;
         transition: 200ms transform, 200ms top;
       }
-      .swiper-container-horizontal
-        > .swiper-pagination-bullets
-        .swiper-pagination-bullet {
+      .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
         margin: 0 4px;
       }
-      .swiper-container-horizontal
-        > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+      .swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
         left: 50%;
         transform: translateX(-50%);
         white-space: nowrap;
@@ -1026,9 +998,7 @@ const GlobalStyles = () => (
         transform: scale(0);
         transform-origin: left top;
       }
-      .swiper-container-rtl
-        .swiper-pagination-progressbar
-        .swiper-pagination-progressbar-fill {
+      .swiper-container-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
         transform-origin: right top;
       }
       .swiper-container-horizontal > .swiper-pagination-progressbar,
@@ -1252,6 +1222,6 @@ const GlobalStyles = () => (
       }
     `}
   />
-);
+)
 
-export default GlobalStyles;
+export default GlobalStyles

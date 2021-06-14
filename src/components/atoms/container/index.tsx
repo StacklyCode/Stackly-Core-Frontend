@@ -1,16 +1,17 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
+import { FC } from 'react'
 
 type AtomContainerProps = {
-  alignItems?: 'center' | 'flex-start' | 'flex-end';
+  alignItems?: 'center' | 'flex-start' | 'flex-end'
   justifyContent?:
     | 'center'
     | 'flex-start'
     | 'flex-end'
     | 'space-between'
     | 'space-around'
-    | 'space-evenly';
-  fullwidth?: boolean;
-};
+    | 'space-evenly'
+  fullwidth?: boolean
+}
 
 const Container = styled.div<AtomContainerProps>`
   ${({ fullwidth }) => fullwidth && { width: '100%' }}
@@ -35,23 +36,19 @@ const Container = styled.div<AtomContainerProps>`
   ${({ theme }) => theme.mediaquery.extralarge} {
     margin: 0px 100px;
   }
-`;
+`
 
-const AtomContainer: React.FC<AtomContainerProps> = ({
+const AtomContainer: FC<AtomContainerProps> = ({
   children,
   alignItems,
   justifyContent,
   fullwidth,
 }) => {
   return (
-    <Container
-      alignItems={alignItems}
-      justifyContent={justifyContent}
-      fullwidth={fullwidth}
-    >
+    <Container alignItems={alignItems} justifyContent={justifyContent} fullwidth={fullwidth}>
       {children}
     </Container>
-  );
-};
+  )
+}
 
-export default AtomContainer;
+export default AtomContainer

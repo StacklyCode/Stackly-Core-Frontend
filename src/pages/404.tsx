@@ -1,13 +1,5 @@
-import { GetStaticProps } from 'next';
+import { FC } from 'react'
 
-const ErrorPage = () => <h1>404 </h1>;
+const ErrorPage: FC = () => <h1>404 </h1>
 
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {
-      namespacesRequired: ['common'],
-    },
-  };
-};
-
-export default ErrorPage;
+export default ErrorPage

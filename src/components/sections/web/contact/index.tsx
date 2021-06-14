@@ -1,13 +1,14 @@
-import styled from '@emotion/styled';
-import AtomContainer from '@Atoms/container';
-import AtomTitle from '@Atoms/title';
-import AtomBody from '@Atoms/body';
-import AtomButton from '@Atoms/button';
-import AtomInput from '@Atoms/input';
-import { TFunction } from 'next-i18next';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { useMutation, gql } from '@apollo/client';
+import { FC } from 'react'
+import styled from '@emotion/styled'
+import AtomContainer from '@Atoms/container'
+import AtomTitle from '@Atoms/title'
+import AtomBody from '@Atoms/body'
+import AtomButton from '@Atoms/button'
+import AtomInput from '@Atoms/input'
+import useTranslation from 'next-translate/useTranslation'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { useMutation, gql } from '@apollo/client'
 
 const Contact = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -25,7 +26,7 @@ const Contact = styled.section`
   ${({ theme }) => theme.mediaquery.small} {
     padding-bottom: 80px;
   }
-`;
+`
 
 const TextContainer = styled.div`
   width: 100%;
@@ -40,7 +41,7 @@ const TextContainer = styled.div`
   h2 {
     margin-bottom: 20px;
   }
-`;
+`
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -65,7 +66,7 @@ const FormContainer = styled.form`
     }
     margin-top: 15px;
   }
-`;
+`
 const FormLeftContainer = styled.article`
   display: flex;
   align-items: center;
@@ -89,18 +90,17 @@ const FormLeftContainer = styled.article`
       }
     }
   }
-`;
+`
 
 type IContact = {
-  idScroll?: string;
-  t?: TFunction;
-};
+  idScroll?: string
+}
 
 interface FormValues {
-  name: string;
-  subject: string;
-  email: string;
-  message: string;
+  name: string
+  subject: string
+  email: string
+  message: string
 }
 
 const initialValues: FormValues = {
@@ -108,16 +108,17 @@ const initialValues: FormValues = {
   subject: '',
   email: '',
   message: '',
-};
+}
 
 const NEW_CONTACT = gql`
   mutation($input: ContactInput) {
     newContact(input: $input)
   }
-`;
+`
 
-const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
-  const [newUser] = useMutation(NEW_CONTACT);
+const OrganismContact: FC<IContact> = ({ idScroll }) => {
+  const { t } = useTranslation('common')
+  const [newUser] = useMutation(NEW_CONTACT)
 
   const formik = useFormik({
     initialValues,
@@ -136,22 +137,22 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
         },
       })
         .catch((error) => {
-          throw new Error(error.message);
+          throw new Error(error.message)
         })
         .then(() => {
-          location.href = '/';
-        });
+          location.href = '/'
+        })
     },
-  });
+  })
   return (
     <Contact id={idScroll}>
       <AtomContainer alignItems="center" justifyContent="center">
         <TextContainer>
           <AtomTitle align="center" bold size="TitleMedium">
-            {t && t('contact-title')}
+            {t('contact-title')}
           </AtomTitle>
           <AtomBody align="center" size="BodyLarge" color="light">
-            {t && t('contact-desc')}
+            {t('contact-desc')}
           </AtomBody>
 
           <FormContainer onSubmit={formik.handleSubmit}>
@@ -159,14 +160,14 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               <AtomInput
                 id="name"
                 margin={['5px', '0px']}
-                name={t && t('contact-input-name')}
+                name={t('contact-input-name')}
                 placeholder="My Name is ..."
                 formik={formik}
               />
               <AtomInput
                 id="subject"
                 margin={['5px', '0px']}
-                name={t && t('contact-input-subject')}
+                name={t('contact-input-subject')}
                 placeholder="Is Important"
                 formik={formik}
               />
@@ -175,7 +176,7 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
               id="email"
               type="email"
               margin={['5px', '0px']}
-              name={t && t('contact-input-email')}
+              name={t('contact-input-email')}
               placeholder="email@gmail.com"
               formik={formik}
             />
@@ -183,16 +184,16 @@ const OrganismContact: React.FC<IContact> = ({ idScroll, t }) => {
             <AtomInput
               id="message"
               margin={['5px', '0px']}
-              name={t && t('contact-input-message')}
+              name={t('contact-input-message')}
               type="textbox"
               formik={formik}
             />
-            <AtomButton type="submit">{t && t('contact-input-send')}</AtomButton>
+            <AtomButton type="submit">{t('contact-input-send')}</AtomButton>
           </FormContainer>
         </TextContainer>
       </AtomContainer>
     </Contact>
-  );
-};
+  )
+}
 
-export default OrganismContact;
+export default OrganismContact

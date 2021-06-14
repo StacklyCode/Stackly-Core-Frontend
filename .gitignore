@@ -32,7 +32,6 @@ yarn-error.log*
 .idea
 
 # locks
-package-lock.json
 yarn.lock
 
 /public/**.js

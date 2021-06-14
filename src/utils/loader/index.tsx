@@ -1,5 +1,6 @@
-import { keyframes } from '@emotion/react';
-import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react'
+import styled from '@emotion/styled'
+import { FC } from 'react'
 
 const LoaderAnimation = keyframes`
    @keyframes loader {
@@ -19,14 +20,14 @@ const LoaderAnimation = keyframes`
     }
   }
  
- `;
+ `
 
 const LoaderBackground = styled.div`
   width: '100%';
   height: '100vh';
   display: 'inline-block';
   background: ${() => '#162C5B'};
-`;
+`
 
 const LoaderContainer = styled.div`
   position: relative;
@@ -42,19 +43,17 @@ const LoaderContainer = styled.div`
   .loader div:nth-child(2) {
     animation-delay: -0.5s;
   }
-`;
+`
 
-export const Loader = () => {
-  new PerformanceObserver((entryList) => {
-    entryList.getEntries().map((el) => console.log(el));
-  });
-
+const Loader: FC = () => {
   return (
     <LoaderBackground>
       <LoaderContainer>
-        <div></div>
-        <div></div>
+        <div />
+        <div />
       </LoaderContainer>
     </LoaderBackground>
-  );
-};
+  )
+}
+
+export default Loader

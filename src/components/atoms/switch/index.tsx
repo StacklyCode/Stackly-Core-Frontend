@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import { useContext, useState } from 'react';
-import Theme from '@Styles/theme';
-import LoadContext from '@Hooks/ThemeContext';
+import styled from '@emotion/styled'
+import { FC, useContext, useEffect, useState } from 'react'
+import { Dark, Light } from '@Styles/theme'
+import { ThemeUseContext } from '@Src/hooks/ThemeContext'
 
 type SwitchProps = {
-  check?: boolean;
-};
+  check?: boolean
+}
 
 const SwitchLabelStyled = styled.label<SwitchProps>`
   margin-right: 20px;
@@ -13,7 +13,7 @@ const SwitchLabelStyled = styled.label<SwitchProps>`
   display: inline-block;
   width: 50px;
   height: 25px;
-`;
+`
 const SwitchInputStyled = styled.input<SwitchProps>`
   opacity: 0;
   width: 0;
@@ -32,7 +32,7 @@ const SwitchInputStyled = styled.input<SwitchProps>`
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
-`;
+`
 
 const SwitchSpanStyled = styled.span<SwitchProps>`
   position: absolute;
@@ -41,8 +41,7 @@ const SwitchSpanStyled = styled.span<SwitchProps>`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${({ theme, check }) =>
-    check ? theme.colors.accent.primary.base : '#ccc'};
+  background-color: ${({ theme, check }) => (check ? theme.colors.accent.primary.base : '#ccc')};
   -webkit-transition: 0.4s;
   transition: 0.4s;
 
@@ -60,33 +59,30 @@ const SwitchSpanStyled = styled.span<SwitchProps>`
     transition: 0.4s;
     border-radius: 50%;
   }
-`;
+`
 
-const AtomSwitch: React.FC<SwitchProps> = () => {
-  const [checked, setChecked] = useState(false);
-  const { setTheme } = useContext(LoadContext);
+const AtomSwitch: FC<SwitchProps> = () => {
+  const [checked, setChecked] = useState(false)
+  const { setTheme } = useContext(ThemeUseContext)
+  useEffect(() => {
+    setChecked(localStorage.getItem('theme') !== 'Light')
+  }, [])
   return (
     <SwitchLabelStyled htmlFor="SwitchTheme">
       <SwitchInputStyled
         checked={checked}
         onChange={() => {
-          console.log(checked);
-          setChecked(!checked);
-          if (checked) {
-            setTheme(Theme.theme1);
-            localStorage.setItem('theme', 'theme1');
-          } else {
-            setTheme(Theme.theme2);
-            localStorage.setItem('theme', 'theme2');
-          }
+          setChecked(!checked)
+          localStorage.setItem('theme', `${checked ? 'Light' : 'Dark'}`)
+          setTheme(checked ? Light : Dark)
         }}
         type="checkbox"
         name="SwitchTheme"
         id="SwitchTheme"
       />
-      <SwitchSpanStyled check={checked}></SwitchSpanStyled>
+      <SwitchSpanStyled check={checked} />
     </SwitchLabelStyled>
-  );
-};
+  )
+}
 
-export default AtomSwitch;
+export default AtomSwitch

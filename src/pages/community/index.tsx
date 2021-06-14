@@ -1,26 +1,22 @@
-import TemplateMain from '@Templates/index';
-import OrganismCommunity from '@Section/web/community';
-import { useTranslation } from '@Src/i18n';
-import I18n from '@Src/i18n';
-import { GetStaticProps } from 'next';
+import TemplateMain from '@Templates/index'
+import OrganismCommunity from '@Section/web/community'
+import { GetStaticProps } from 'next'
+import { FC } from 'react'
 
-const CommunityPage = () => {
-  const { t } = useTranslation();
+const CommunityPage: FC = () => {
   return (
     <>
-      <TemplateMain t={t}>
-        <OrganismCommunity t={t} />
+      <TemplateMain>
+        <OrganismCommunity />
       </TemplateMain>
     </>
-  );
-};
+  )
+}
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetStaticProps = async () => {
   return {
-    props: {
-      namespacesRequired: ['common'],
-    },
-  };
-};
+    props: {},
+  }
+}
 
-export default I18n.withTranslation(['common'])(CommunityPage);
+export default CommunityPage

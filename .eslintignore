@@ -1,5 +1,1 @@
-node_modules
-.next
-_next
-out
-build
+**/*stories.tsx

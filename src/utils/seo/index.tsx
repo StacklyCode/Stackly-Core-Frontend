@@ -1,9 +1,10 @@
-import Head from 'next/head';
+import Head from 'next/head'
+import { FC } from 'react'
 
 interface SeoProps {
-  page?: string;
-  title?: string;
-  description?: string;
+  page?: string
+  title?: string
+  description?: string
 }
 
 const StructuredData = {
@@ -27,9 +28,9 @@ const StructuredData = {
     'https://www.linkedin.com/company/stackly-code/',
     'https://twitter.com/StacklyCode',
   ],
-};
+}
 
-const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
+const Seo: FC<SeoProps> = ({ title, page, description }) => {
   return (
     <Head>
       <title>{title || (page ? `${page} | Stackly Code` : 'Stackly Code')}</title>
@@ -69,10 +70,11 @@ const Seo: React.FC<SeoProps> = ({ title, page, description }): JSX.Element => {
       <link rel="manifest" href="manifest.webmanifest" />
       <script
         type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(StructuredData) }}
-      ></script>
+      />
     </Head>
-  );
-};
+  )
+}
 
-export default Seo;
+export default Seo

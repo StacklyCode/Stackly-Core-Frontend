@@ -1,19 +1,16 @@
-import styled from '@emotion/styled';
-import { Theme } from '@Styles/styled';
+import styled from '@emotion/styled'
+import { Theme } from '@Styles/styled'
+import { FC } from 'react'
 
-type Size =
-  | 'BodyExtraLarge'
-  | 'BodyLarge'
-  | 'BodyMedium'
-  | 'BodySmall'
-  | 'BodyExtraSmall';
+type Size = 'BodyExtraLarge' | 'BodyLarge' | 'BodyMedium' | 'BodySmall' | 'BodyExtraSmall'
 
-type BodyProps = {
-  size?: Size;
-  color?: 'white' | 'green' | 'gray' | 'black' | 'light' | 'accent';
-  align?: 'left' | 'center';
-  bold?: boolean;
-};
+export type BodyProps = {
+  size?: Size
+  color?: 'white' | 'green' | 'gray' | 'black' | 'light' | 'accent'
+  align?: 'left' | 'center'
+  bold?: boolean
+  text?: string
+}
 
 const getColor = (
   theme: Theme,
@@ -21,34 +18,34 @@ const getColor = (
 ) => {
   switch (color) {
     case 'black':
-      return theme.colors.primary.base;
+      return theme.colors.primary.base
     case 'gray':
-      return theme.colors.gray[500];
+      return theme.colors.gray[500]
     case 'green':
-      return theme.colors.accent.cyan.light;
+      return theme.colors.accent.cyan.light
     case 'light':
-      return theme.colors.primary.light;
+      return theme.colors.primary.light
     case 'accent':
-      return theme.colors.accent.primary.base;
+      return theme.colors.accent.primary.base
     default:
-      return theme.colors.primary.base;
+      return theme.colors.primary.base
   }
-};
+}
 
 const getMobileSize = (size: Size | undefined) => {
   switch (size) {
     case 'BodyExtraSmall':
-      return 'BodyExtraSmall';
+      return 'BodyExtraSmall'
     case 'BodySmall':
-      return 'BodyExtraSmall';
+      return 'BodyExtraSmall'
     case 'BodyMedium':
-      return 'BodySmall';
+      return 'BodySmall'
     case 'BodyLarge':
-      return 'BodyMedium';
+      return 'BodyMedium'
     default:
-      return 'BodyLarge';
+      return 'BodyLarge'
   }
-};
+}
 
 const Body = styled.p<BodyProps>`
   ${({ theme, size, color, bold }) => ({
@@ -69,14 +66,14 @@ const Body = styled.p<BodyProps>`
     })}
   }
   ${({ color }) => color === 'green' && { cursor: 'pointer' }}
-`;
+`
 
-const AtomBody: React.FC<BodyProps> = ({ children, size, color, align, bold }) => {
+const AtomBody: FC<BodyProps> = ({ children, size, color, align, bold }) => {
   return (
     <Body size={size} color={color} align={align} bold={bold}>
-      {children}
+      {children || 'Default Text'}
     </Body>
-  );
-};
+  )
+}
 
-export default AtomBody;
+export default AtomBody

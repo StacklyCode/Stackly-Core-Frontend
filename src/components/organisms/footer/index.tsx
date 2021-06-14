@@ -1,14 +1,14 @@
-import AtomContainer from '@Atoms/container';
-import AtomIcon from '@Atoms/icon';
-import styled from '@emotion/styled';
-import Link from '@Src/utils/link';
-import { TFunction } from 'next-i18next';
-import LinkNext from 'next/link';
+import AtomContainer from '@Atoms/container'
+import AtomIcon from '@Atoms/icon'
+import styled from '@emotion/styled'
+import Link from '@Src/utils/link'
+import useTranslation from 'next-translate/useTranslation'
+import LinkNext from 'next/link'
+import { FC } from 'react'
 
 type FooterProps = {
-  title?: string;
-  t?: TFunction;
-};
+  title?: string
+}
 
 const Footer = styled.div<FooterProps>`
   width: 100vw;
@@ -17,7 +17,7 @@ const Footer = styled.div<FooterProps>`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.secondary.base};
   box-shadow: 0px -5px 10px ${({ theme }) => `${theme.colors.primary.base}0D`};
-`;
+`
 
 const FooterContainer = styled.div<FooterProps>`
   width: 100%;
@@ -32,14 +32,14 @@ const FooterContainer = styled.div<FooterProps>`
     justify-content: space-between;
     margin: 0px 30px;
   }
-  span {
+  & > span {
     display: none;
     width: 358.47px;
     ${({ theme }) => theme.mediaquery.large} {
       display: flex;
     }
   }
-`;
+`
 const FooterContainerLogo = styled.div<FooterProps>`
   min-width: 190px;
   display: flex;
@@ -48,11 +48,7 @@ const FooterContainerLogo = styled.div<FooterProps>`
   ${({ theme }) => theme.mediaquery.small} {
     justify-content: flex-start;
   }
-  svg {
-    height: 35px;
-    width: 35px;
-  }
-`;
+`
 const FooterSocialContainer = styled.div<FooterProps>`
   width: max-content;
   height: 100%;
@@ -66,7 +62,7 @@ const FooterSocialContainer = styled.div<FooterProps>`
   a:nth-last-of-type(1) {
     margin-right: 0px;
   }
-`;
+`
 
 const FooterCopyrighted = styled.span`
   font-family: Inter;
@@ -79,18 +75,19 @@ const FooterCopyrighted = styled.span`
   align-items: center;
   text-align: center;
   cursor: pointer;
-`;
+`
 
-const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
+const OrganismFooter: FC<FooterProps> = () => {
+  const { t } = useTranslation('common')
   return (
     <Footer>
       <AtomContainer fullwidth alignItems="center" justifyContent="center">
         <FooterContainer>
           <FooterContainerLogo>
-            <AtomIcon icon="stacklycodelogo" />
+            <AtomIcon name="stacklycode" variant="outlined" color="primary" size="2x" />
           </FooterContainerLogo>
           <LinkNext href="/copyrighted">
-            <FooterCopyrighted>{t && t('footer-desc')}</FooterCopyrighted>
+            <FooterCopyrighted>{t('footer-desc')}</FooterCopyrighted>
           </LinkNext>
           <FooterSocialContainer>
             <Link
@@ -98,26 +95,26 @@ const OrganismFooter: React.FC<FooterProps> = ({ t }) => {
               title="Facebook Page"
               isExternal
             >
-              <AtomIcon icon="facebook" />
+              <AtomIcon name="facebook" variant="filled" color="primary" size="2x" />
             </Link>
             <Link
               to="https://www.linkedin.com/company/68642625/admin/"
               title="Linkedin Page"
               isExternal
             >
-              <AtomIcon icon="linkedin" />
+              <AtomIcon name="linkedin" variant="filled" color="primary" size="2x" />
             </Link>
             <Link to="https://github.com/StacklyCode" title="Github Page" isExternal>
-              <AtomIcon icon="github" />
+              <AtomIcon name="github" variant="filled" color="primary" size="2x" />
             </Link>
             <Link to="https://twitter.com/StacklyCode" title="Twitter Page">
-              <AtomIcon icon="twitter" />
+              <AtomIcon name="twitter" variant="filled" color="primary" size="2x" />
             </Link>
           </FooterSocialContainer>
         </FooterContainer>
       </AtomContainer>
     </Footer>
-  );
-};
+  )
+}
 
-export default OrganismFooter;
+export default OrganismFooter

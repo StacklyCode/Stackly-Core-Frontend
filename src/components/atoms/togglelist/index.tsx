@@ -1,14 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
-import styled from '@emotion/styled';
-import AtomIcon from '@Atoms/icon';
-import { i18n } from '@Src/i18n';
-import { I18nContext } from 'next-i18next';
+import { FC, useEffect, useState, MouseEvent } from 'react'
+import styled from '@emotion/styled'
+import AtomIcon from '@Atoms/icon'
 
 type ToggleListProps = {
-  outline?: boolean;
-  object?: { title: string; options: string[] };
-  toggle?: boolean;
-};
+  outline?: boolean
+  object?: { title: string; options: string[] }
+  toggle?: boolean
+}
 
 const ToggleListStyled = styled.div<ToggleListProps>`
   position: relative;
@@ -30,7 +28,7 @@ const ToggleListStyled = styled.div<ToggleListProps>`
       border: `solid 1px ${theme.colors.primary.base}`,
     }}
   transition: all .5s ease;
-`;
+`
 
 const ContainerTitleStyled = styled.div<ToggleListProps>`
   width: 100%;
@@ -69,7 +67,7 @@ const ContainerTitleStyled = styled.div<ToggleListProps>`
       }
     }
   }
-`;
+`
 const ContainerOptionsStyled = styled.div<ToggleListProps>`
   position: absolute;
   top: 33px;
@@ -103,25 +101,22 @@ const ContainerOptionsStyled = styled.div<ToggleListProps>`
         }}
     }
   }
-`;
+`
 
-const AtomToggleList: React.FC<ToggleListProps> = ({ outline, object }) => {
-  const [toggle, settoggle] = useState(false);
-  const [option, setoption] = useState('');
-  const {
-    i18n: { language },
-  } = useContext(I18nContext);
-  function clickOption(e: React.MouseEvent<HTMLSpanElement>) {
-    const eGet = e.target as HTMLSpanElement;
-    const optionGet = eGet.innerText.toLowerCase();
-    localStorage.setItem('language', optionGet);
-    i18n.changeLanguage(optionGet);
-    setoption(optionGet);
+const AtomToggleList: FC<ToggleListProps> = ({ outline, object }) => {
+  const [toggle, settoggle] = useState(false)
+  const [option, setoption] = useState('')
+
+  function clickOption(e: MouseEvent<HTMLSpanElement>) {
+    const eGet = e.target as HTMLSpanElement
+    const optionGet = eGet.innerText.toLowerCase()
+    localStorage.setItem('language', optionGet)
+    setoption(optionGet)
     /*  Function to Do */
   }
   useEffect(() => {
-    setoption(language);
-  });
+    setoption('ES')
+  }, [])
   return (
     <ToggleListStyled outline={outline} onClick={() => settoggle(!toggle)}>
       <ContainerTitleStyled outline={outline} toggle={toggle}>
@@ -138,7 +133,7 @@ const AtomToggleList: React.FC<ToggleListProps> = ({ outline, object }) => {
         </ContainerOptionsStyled>
       )}
     </ToggleListStyled>
-  );
-};
+  )
+}
 
-export default AtomToggleList;
+export default AtomToggleList
