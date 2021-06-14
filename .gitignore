@@ -36,5 +36,6 @@ yarn.lock
 
 /public/**.js
 /public/**.map
+/public/sw.js.map
 
 .env
