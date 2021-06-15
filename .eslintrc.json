@@ -36,6 +36,12 @@
     }
   },
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -46,6 +52,7 @@
         "tsx": "never"
       }
     ],
+    "eslint linebreak-style": [0, "error", "windows"],
     "no-nested-ternary": "off",
     "react/jsx-fragments": 0,
     "react/prop-types": "off",
@@ -53,11 +60,9 @@
     "jsx-a11y/anchor-is-valid": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/explicit-function-return-type": 0,
-    "prettier/prettier": ["error", {}, { "usePrettierrc": true, "endOfLine": "auto" }],
     "linebreak-style": 0,
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "no-restricted-globals": 0,
-    "react/no-array-index-key": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/no-array-index-key": 0
   }
 }
