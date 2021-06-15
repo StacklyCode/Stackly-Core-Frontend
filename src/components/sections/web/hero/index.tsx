@@ -16,7 +16,7 @@ const Hero = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   padding: 50px 0px;
   ${({ theme }) => theme.mediaquery.small} {
     padding: 0px 0px;

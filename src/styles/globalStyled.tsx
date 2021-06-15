@@ -24,6 +24,7 @@ const GlobalStyles: FC = () => (
       body {
         background-color: #fafafa;
         overflow-x: hidden;
+        min-width: 100vw;
       }
 
       blockquote,

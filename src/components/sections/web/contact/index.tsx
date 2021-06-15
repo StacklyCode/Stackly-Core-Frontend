@@ -17,15 +17,12 @@ const Contact = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding-bottom: 50px;
-  ${({ theme }) => theme.mediaquery.small} {
-    padding-bottom: 80px;
-  }
+  padding: 50px 0px;
 `
 
 const TextContainer = styled.div`
@@ -74,7 +71,13 @@ const FormLeftContainer = styled.article`
   justify-content: center;
   ${({ theme }) => theme.mediaquery.extrasmall} {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    div {
+      label {
+        min-width: max-content;
+      }
+    }
   }
   width: 100%;
   div {

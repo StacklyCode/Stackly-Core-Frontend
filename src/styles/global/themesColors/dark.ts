@@ -6,7 +6,7 @@ const ThemeColor = {
   },
   secondary: {
     base: '#182337',
-    light: '#FFFFFF',
+    light: '#182337',
     dark: '#4C5B78',
   },
   accent: {
@@ -55,6 +55,6 @@ const ThemeColor = {
   },
   black: '#303030',
   white: '#FFFFFF',
-};
+}
 
-export default ThemeColor;
+export default ThemeColor

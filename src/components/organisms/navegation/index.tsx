@@ -1,12 +1,14 @@
 import AtomContainer from '@Atoms/container'
 import AtomIcon from '@Atoms/icon'
 import styled from '@emotion/styled'
-import { FC, useState } from 'react'
+import { ChangeEvent, FC, useState } from 'react'
+import { useRouter } from 'next/router'
 import LinkNext from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 import AtomButton from '@Src/components/atoms/button'
 import MoleculesNavSetting from '@Src/components/molecules/navseemore'
-import MoleculesSetting from '@Src/components/molecules/navsettings'
+import AtomSwitch from '@Src/components/atoms/switch'
+import setLanguage from 'next-translate/setLanguage'
 
 type NavegationProps = {
   title?: string
@@ -161,8 +163,24 @@ const NavigationContainerButtons = styled.div<NavegationProps>`
   }
 `
 
+const SelectContainer = styled.select`
+  border: 2px solid ${({ theme }) => theme.colors.gray[200]};
+  padding: 5px 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.primary.base};
+`
+
 const OrganismNavigation: FC<NavegationProps> = () => {
   const { t } = useTranslation('common')
+  const router = useRouter()
+  const handleChange = async (e: ChangeEvent<HTMLSelectElement>) => {
+    await setLanguage(e.target.value)
+  }
   const [sidebar, setSidebar] = useState(false)
   return (
     <Navigation>
@@ -180,7 +198,7 @@ const OrganismNavigation: FC<NavegationProps> = () => {
             <LinkNext href="/">
               <NavigationLink>{t('nav-tag-1')}</NavigationLink>
             </LinkNext>
-            <LinkNext href="/team">
+            {/* <LinkNext href="/team">
               <NavigationLink> {t('nav-tag-3')}</NavigationLink>
             </LinkNext>
             <LinkNext href="/live">
@@ -188,16 +206,8 @@ const OrganismNavigation: FC<NavegationProps> = () => {
             </LinkNext>
             <LinkNext href="/resources">
               <NavigationLink>{t('nav-tag-4')}</NavigationLink>
-            </LinkNext>
-            {/*             <LinkNext href="/live">
-              <NavigationLink>{ t("nav-tag-2")}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/about">
-              <NavigationLink>{ t("nav-tag-5")}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/community">
-              <NavigationLink>{ t("nav-tag-6")}</NavigationLink>
             </LinkNext> */}
+
             <MoleculesNavSetting />
           </NavigationLinks>
         </NavigationContainer>
@@ -205,17 +215,44 @@ const OrganismNavigation: FC<NavegationProps> = () => {
           <AtomIcon name="menu" variant="filled" size="2x" />
         </IconSideBar>
         <NavigationContainerButtons>
-          <AtomButton link="/login">Login</AtomButton>
-          <AtomButton outline link="/signup">
-            Sign Up
-          </AtomButton>
-          <MoleculesSetting />
+          <AtomSwitch />
+          <SelectContainer
+            name="country-change"
+            id="country-change"
+            onBlur={handleChange}
+            onChange={handleChange}
+            defaultValue={router.locale}
+          >
+            <option value="en" defaultValue={router.locale}>
+              EN
+            </option>
+            <option value="es" defaultValue={router.locale}>
+              ES
+            </option>
+          </SelectContainer>
+          <AtomButton link="/login">Sign In</AtomButton>
         </NavigationContainerButtons>
       </AtomContainer>
       {sidebar && (
         <SideBar>
           <NavigationLinksSidebar>
             <ContainerSideBar />
+            <SelectContainer
+              name="country-change"
+              id="country-change"
+              onBlur={handleChange}
+              onChange={handleChange}
+              defaultValue={router.locale}
+            >
+              <option value="en" defaultValue={router.locale}>
+                EN
+              </option>
+              <option value="es" defaultValue={router.locale}>
+                ES
+              </option>
+            </SelectContainer>
+            <AtomSwitch />
+            <AtomButton link="/login">Sign In</AtomButton>
             <LinkNext href="/live">
               <NavigationLink>{t('nav-tag-2')}</NavigationLink>
             </LinkNext>

@@ -1,6 +1,7 @@
 import AtomBody from '@Atoms/body'
 import AtomIcon, { IconProps } from '@Atoms/icon'
 import AtomTitle from '@Atoms/title'
+import { motion } from 'framer-motion'
 
 import styled from '@emotion/styled'
 import { FC } from 'react'
@@ -11,7 +12,7 @@ type TagsProps = {
   description?: string
 }
 
-const Tags = styled.article<Omit<TagsProps, 'icon'>>`
+const Tags = styled(motion.article)<Omit<TagsProps, 'icon'>>`
   width: 180px;
   height: 250px;
   padding: 20px 20px;
@@ -26,19 +27,19 @@ const Tags = styled.article<Omit<TagsProps, 'icon'>>`
     padding: 20px 30px;
   }
   border-radius: 10px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   :hover {
     background-color: ${({ theme }) => theme.colors.secondary.light};
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    span:first-child {
+    span:first-of-type {
       background-color: ${({ theme }) => theme.colors.accent.primary.base};
       svg {
         color: ${({ theme }) => theme.colors.secondary.base};
       }
     }
   }
-  span:first-child {
+  span:first-of-type {
     background-color: ${({ theme }) => theme.colors.secondary.dark};
     border-radius: 10px;
     width: 72px;
@@ -59,7 +60,11 @@ const Tags = styled.article<Omit<TagsProps, 'icon'>>`
 
 const MoleculesTagServices: FC<TagsProps> = ({ icon, title, description }) => {
   return (
-    <Tags>
+    <Tags
+      whileHover={{ scale: 1.05, translateY: '-20px' }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ duration: 0.01 }}
+    >
       <AtomIcon name={icon.name} variant={icon.variant} size="3x" color="primary" />
       <AtomTitle align="left" as="span" size="SubTitleMedium" color="black" bold>
         {title || 'Some Title'}

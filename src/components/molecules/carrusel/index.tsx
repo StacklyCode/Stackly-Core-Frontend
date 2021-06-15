@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FC } from 'react'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper'
 import MoleculesTagProject from '@Src/components/molecules/tagprojects'
 
 interface IProject {
@@ -15,15 +16,19 @@ type TCarrusel = {
   data?: IProject[]
 }
 
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay])
+
 const MoleculeCarrusel: FC<TCarrusel> = ({ data }) => {
   return (
     <Swiper
       slidesPerView={4}
       pagination={{ clickable: true }}
-      loop
       autoplay={{
-        delay: 500,
+        delay: 7000,
+        disableOnInteraction: false,
       }}
+      navigation
+      loop
       breakpoints={{
         0: {
           slidesPerView: 1,

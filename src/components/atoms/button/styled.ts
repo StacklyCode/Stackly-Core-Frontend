@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
 import { ButtonProps } from './types'
 
-export const ButtonStyled = styled.button<ButtonProps>`
+export const ButtonStyled = styled(motion.button)<ButtonProps>`
   position: relative;
   overflow: hidden;
   max-width: 250px;

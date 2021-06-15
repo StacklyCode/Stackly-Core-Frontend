@@ -15,6 +15,7 @@ type TagsProps = {
 
 const Tags = styled.article<TagsProps>`
   width: 240px;
+  margin: 50px 0px;
   padding: 20px 30px;
   display: flex;
   flex-direction: column;

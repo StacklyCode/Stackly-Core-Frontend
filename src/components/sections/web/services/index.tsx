@@ -15,12 +15,12 @@ const Services = styled.section`
   justify-content: center;
   position: relative;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding-bottom: 50px;
+  padding: 50px 0px;
   ${({ theme }) => theme.mediaquery.small} {
     padding-bottom: 80px;
   }
@@ -56,7 +56,7 @@ const TagsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 50px;
   justify-content: center;
   ${({ theme }) => theme.mediaquery.small} {
     justify-content: space-evenly;

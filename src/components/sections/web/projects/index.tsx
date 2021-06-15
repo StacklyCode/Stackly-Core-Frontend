@@ -29,7 +29,8 @@ const Projects = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.light};
+  padding: 50px 0px;
 `
 
 const ProjectsContainer = styled.div`
@@ -86,14 +87,12 @@ const AllProjectsContainer = styled.div`
   flex-wrap: wrap;
   max-width: 1150px;
   width: 100%;
-  height: 280px;
-  padding-bottom: 100px;
+  height: max-content;
   margin-top: 20px;
   margin-bottom: 20px;
   button {
     margin: 20px 10px;
   }
-  transition: all 2s ease;
 `
 
 const ProjectsData: IProject[] = [

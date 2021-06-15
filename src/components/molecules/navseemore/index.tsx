@@ -4,6 +4,7 @@ import AtomTitle from '@Atoms/title'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import { FC, useEffect, useRef, useState, RefObject, Dispatch } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const NavigationSeeMore = styled.div`
   position: relative;
@@ -16,19 +17,18 @@ const NavigationSeeMore = styled.div`
   div {
     margin-top: 2px;
   }
-
   :hover {
     cursor: pointer;
-    background-color: ${({ theme }) => theme.colors.secondary.dark};
+    background-color: ${({ theme }) => theme.colors.secondary.base};
   }
 `
 
-const NavigationSettings = styled.div`
+const NavigationSettings = styled(motion.div)`
   height: max-content;
   width: 180px;
   position: absolute;
   top: 30px;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -39,6 +39,11 @@ const NavigationSettings = styled.div`
     width: 100%;
     padding: 10px 20px 10px 20px;
   }
+`
+
+const NavigationSettingsOptionContainer = styled(motion.div)`
+  width: 100%;
+  height: max-content;
 `
 
 const NavigationSettingsOption = styled.div`
@@ -56,9 +61,8 @@ const data = [
   {
     name: 'GENERAL',
     data: [
-      { name: 'Contacto', link: '/link' },
-      { name: 'Nosotros', link: '/link' },
-      { name: 'Comunidad', link: '/link' },
+      { name: 'Nosotros', link: '/about' },
+      { name: 'Comunidad', link: '/community' },
     ],
   },
   {
@@ -66,8 +70,6 @@ const data = [
     data: [
       { name: 'Ayuda', link: '/link' },
       { name: 'Politica de Privacidad', link: '/link' },
-      { name: 'Politica sobre cookies', link: '/link' },
-      { name: 'Terminos', link: '/link' },
     ],
   },
 ]
@@ -95,24 +97,36 @@ const MoleculesNavSetting: FC = () => {
   return (
     <NavigationSeeMore ref={wrapperRef} onClick={() => settoggle(!toggle)}>
       <AtomIcon name="dots" variant="filled" color="primary" />
-      {toggle && (
-        <NavigationSettings>
-          {data.map((item) => (
-            <>
-              <AtomTitle key={item.name} size="SubTitleSmall" align="center" bold>
-                {item.name}
-              </AtomTitle>
-              {item.data.map((itemChild) => (
-                <Link href={itemChild.link} key={itemChild.name}>
-                  <NavigationSettingsOption key={itemChild.name}>
-                    <AtomBody size="BodySmall">{itemChild.name}</AtomBody>
-                  </NavigationSettingsOption>
-                </Link>
-              ))}
-            </>
-          ))}
-        </NavigationSettings>
-      )}
+      <AnimatePresence>
+        {toggle && (
+          <NavigationSettings
+            key="NavigationSettings"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {data.map((item, index) => (
+              <NavigationSettingsOptionContainer
+                key={`NavigationSettingsOptionContainer${index}`}
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+              >
+                <AtomTitle key={item.name} size="SubTitleSmall" align="center" bold>
+                  {item.name}
+                </AtomTitle>
+                {item.data.map((itemChild) => (
+                  <Link href={itemChild.link} key={itemChild.name}>
+                    <NavigationSettingsOption key={itemChild.name}>
+                      <AtomBody size="BodySmall">{itemChild.name}</AtomBody>
+                    </NavigationSettingsOption>
+                  </Link>
+                ))}
+              </NavigationSettingsOptionContainer>
+            ))}
+          </NavigationSettings>
+        )}
+      </AnimatePresence>
     </NavigationSeeMore>
   )
 }

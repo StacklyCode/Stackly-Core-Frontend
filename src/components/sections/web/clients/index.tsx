@@ -50,7 +50,7 @@ import Link from '@Src/utils/link'
 
 const Clients = styled.section`
   min-height: calc(100vh - 110px);
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,10 +61,7 @@ const Clients = styled.section`
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  padding-bottom: 50px;
-  ${({ theme }) => theme.mediaquery.small} {
-    padding-bottom: 80px;
-  }
+  padding: 50px 0px;
 `
 
 const TextContainer = styled.div`

@@ -33,8 +33,8 @@ const Tags = styled.article<TagsProps>`
     border: 2px solid transparent;
   }
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  background-color: ${({ theme }) => theme.colors.secondary.light};
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   :hover {
     background-color: ${({ theme }) => theme.colors.accent.primary.base};
     span {
@@ -107,7 +107,7 @@ const MoleculesTagTeam: FC<TagsProps> = ({ image, name, description, social }) =
       <SocialNetworkContainer>
         {social?.map((item, index) => (
           <Link key={`${item.name}key${index}`} to={item.url}>
-            <AtomIcon icon={item.name} color="dark" size="12px" />
+            <AtomIcon name={item.name} variant="filled" color="primary" size={20} />
           </Link>
         ))}
       </SocialNetworkContainer>

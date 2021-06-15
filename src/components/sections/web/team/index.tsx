@@ -38,20 +38,9 @@ const fakeUserData = [
     ],
   },
   {
-    id: '2',
-    name: 'Jose Luis Reyes',
-    description: 'CTO',
-    img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Jose-Luis-Reyes--CTO_bzngai.jpg',
-    socialnetwork: [
-      { name: 'github', url: 'https://github.com/joseluisroot' },
-      { name: 'linkedin', url: 'https://www.linkedin.com/in/joseluisroot/' },
-    ],
-  },
-  {
     id: '3',
     name: 'William Jesus',
-    description: 'Fullstack Developer',
+    description: 'Frontend Leader',
     img:
       'https://res.cloudinary.com/stacklycode/image/upload/v1607381258/StacklyTeam/IMG-20191220-WA0003-01_bb51ks.png',
     socialnetwork: [
@@ -66,55 +55,12 @@ const fakeUserData = [
   {
     id: '4',
     name: 'Juan Carlos Cruz',
-    description: 'UI-UX Designer',
+    description: 'UI-UX Leader',
     img:
       'https://res.cloudinary.com/stacklycode/image/upload/v1607379874/StacklyTeam/Juan-Carlos-Cruz-UI-Designer_mbjiu6.jpg',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/juank1791' },
       { name: 'linkedin', url: 'https://www.linkedin.com/in/juancarlos-cruz/' },
-    ],
-  },
-  {
-    id: '5',
-    name: 'Erick Vargas',
-    description: 'Frontend Developer',
-    img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379872/StacklyTeam/Erick-Vargas-Frontend-Developer_piy4fo.png',
-    socialnetwork: [
-      { name: 'github', url: 'https://github.com/erianvc' },
-      { name: 'linkedin', url: 'https://www.linkedin.com/in/erianvc/' },
-    ],
-  },
-  {
-    id: '6',
-    name: 'Pablo Sabater',
-    description: 'Fullstack Developer',
-    img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Pablo-Sabater-Backend-Developer_ggz171.jpg',
-    socialnetwork: [
-      { name: 'github', url: 'https://github.com/Blopaa' },
-      {
-        name: 'twitter',
-        url: 'https://twitter.com/Pabloosabaterr',
-      },
-      {
-        name: 'linkedin',
-        url: 'https://www.linkedin.com/in/pablo-sabater-jimenez/',
-      },
-    ],
-  },
-  {
-    id: '7',
-    name: 'Dano Reyes',
-    description: 'DBA Manager',
-    img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379873/StacklyTeam/Dano-Reyes-DBA-Manager_tbh5ef.png',
-    socialnetwork: [
-      {
-        name: 'github',
-        url: 'https://github.com/orgs/StacklyCode/people/DanoRysJan',
-      },
-      { name: 'linkedin', url: 'https://www.linkedin.com/in/dano-reyes/' },
     ],
   },
 ]
@@ -124,6 +70,7 @@ const Team = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.secondary.light};
 `
 
 const TextContainer = styled.div`

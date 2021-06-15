@@ -13,7 +13,7 @@ export type IconProps = {
 
 const AtomIcon: FC<IconProps> = ({ name, variant, size, color, className }) => {
   const DynamicIcon: ComponentType<SVGProps<SVGSVGElement>> | undefined = dynamic(() =>
-    import(`../../../assets/icons/${name}-${variant}.svg`).catch(() => {
+    import(`../../../assets/icons/${name}-${variant || 'filled'}.svg`).catch(() => {
       return false
     })
   )
