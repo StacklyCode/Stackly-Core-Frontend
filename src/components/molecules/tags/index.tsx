@@ -120,18 +120,18 @@ const MoleculesTags: FC<TagsProps> = ({ color, img, title, description, socialne
                 <SocialNetworkContainer stars={stars}>
                   {socialnetwork.map((social) => (
                     <a key={social.name} href={social.url}>
-                      <AtomIcon icon={social.name} color="dark" size="12px" />
+                      <AtomIcon name={social.name} variant="filled" color="primary" size={12} />
                     </a>
                   ))}
                 </SocialNetworkContainer>
               )}
               {stars && (
                 <StarContainer>
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
-                  <AtomIcon icon="star" />
+                  <AtomIcon name="star" variant="filled" />
+                  <AtomIcon name="star" variant="filled" />
+                  <AtomIcon name="star" variant="filled" />
+                  <AtomIcon name="star" variant="filled" />
+                  <AtomIcon name="star" variant="filled" />
                 </StarContainer>
               )}
             </InfoTag>

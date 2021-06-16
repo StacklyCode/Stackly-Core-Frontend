@@ -121,7 +121,7 @@ const AtomToggleList: FC<ToggleListProps> = ({ outline, object }) => {
     <ToggleListStyled outline={outline} onClick={() => settoggle(!toggle)}>
       <ContainerTitleStyled outline={outline} toggle={toggle}>
         <span>{option || object?.options[0]}</span>
-        <AtomIcon icon="arrow" />
+        <AtomIcon name="arrow" variant="filled" />
       </ContainerTitleStyled>
       {toggle && (
         <ContainerOptionsStyled outline={outline}>
