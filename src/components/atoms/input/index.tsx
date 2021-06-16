@@ -207,7 +207,7 @@ const AtomInput: FC<InputProps> = ({
     <InputStyled type={type || 'text'} color={color || `light`} icon={icon} margin={margin}>
       {icon && (
         <IconContainerStyled color={color}>
-          <Icon icon={icon} />
+          <Icon name={icon} variant="filled" />
         </IconContainerStyled>
       )}
       <label htmlFor={id}>
@@ -238,7 +238,11 @@ const AtomInput: FC<InputProps> = ({
               seteye(!eye)
             }}
           >
-            {eye ? <Icon icon="eye-close" /> : <Icon icon="eye-open" />}
+            {eye ? (
+              <Icon name="eye-close" variant="filled" />
+            ) : (
+              <Icon name="eye-open" variant="filled" />
+            )}
           </PasswordContainerStyled>
         )}
       </label>
