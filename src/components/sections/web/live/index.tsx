@@ -73,19 +73,19 @@ const OrganismLive: FC<ILive> = ({ idScroll }) => {
       <AtomContainer alignItems="center" justifyContent="space-between">
         <TextContainer>
           <ReactPlayer
-            controls={true}
+            controls
             width="100%"
             height="100%"
-            url={
-              'http://amssamples.streaming.mediaservices.windows.net/69fbaeba-8e92-4740-aedc-ce09ae945073/AzurePromo.ism/manifest(format=mpd-time-csf)'
-            }
+            url="http://amssamples.streaming.mediaservices.windows.net/69fbaeba-8e92-4740-aedc-ce09ae945073/AzurePromo.ism/manifest(format=mpd-time-csf)"
             config={{
               file: {
                 forceDASH: true,
               },
             }}
           />
-          <AtomTitle align="left" size="TitleMedium">Taller de Diseño (FrontEnd)</AtomTitle>
+          <AtomTitle align="left" size="TitleMedium">
+            Taller de Diseño (FrontEnd)
+          </AtomTitle>
           <AtomButton href="https://discord.stacklycode.com/">Seguir 29k</AtomButton>
         </TextContainer>
         <IllustrationContainer>
