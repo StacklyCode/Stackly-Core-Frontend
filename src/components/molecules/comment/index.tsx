@@ -43,7 +43,7 @@ const Comment: FC<CommentProps> = ({
         )}
       </HeadingBox>
       <BodyContentBox>
-        <AtomBody align="left" size="BodyMedium">
+        <AtomBody align="left" size="BodySmall">
           {body}
         </AtomBody>
       </BodyContentBox>
