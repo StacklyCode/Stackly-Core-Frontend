@@ -9,6 +9,7 @@ type InputProps = {
   placeholder?: string
   id?: string
   icon?: string
+  iconVariant?: 'outlined' | 'filled'
   margin?: [string, string]
   name?: string
   formik?: FormikValues
@@ -198,6 +199,7 @@ const AtomInput: FC<InputProps> = ({
   placeholder,
   id,
   icon,
+  iconVariant,
   margin,
   formik,
   name,
@@ -207,7 +209,7 @@ const AtomInput: FC<InputProps> = ({
     <InputStyled type={type || 'text'} color={color || `light`} icon={icon} margin={margin}>
       {icon && (
         <IconContainerStyled color={color}>
-          <Icon icon={icon} />
+          <Icon name={icon} variant={iconVariant} />
         </IconContainerStyled>
       )}
       <label htmlFor={id}>
@@ -238,7 +240,11 @@ const AtomInput: FC<InputProps> = ({
               seteye(!eye)
             }}
           >
-            {eye ? <Icon icon="eye-close" /> : <Icon icon="eye-open" />}
+            {eye ? (
+              <Icon name="eye-close" variant="outlined" />
+            ) : (
+              <Icon name="eye-open" variant="outlined" />
+            )}
           </PasswordContainerStyled>
         )}
       </label>
