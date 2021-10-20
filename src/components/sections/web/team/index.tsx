@@ -7,20 +7,20 @@ import { TFunction } from 'next-i18next';
 import MoleculesTagTeam from '@Src/components/molecules/tagteam';
 
 const fakeUserData = [
-  {
-    id: '0',
-    name: 'Fernando Lopez',
-    description: 'CEO',
-    img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607380127/StacklyTeam/15000248_djw7aa.jpg',
-    socialnetwork: [
-      { name: 'github', url: 'https://github.com/Beor18' },
-      {
-        name: 'linkedin',
-        url: 'https://www.linkedin.com/in/fernandogabriellopez/',
-      },
-    ],
-  },
+//   {
+//     id: '0',
+//     name: 'Fernando Lopez',
+//     description: 'CEO',
+//     img:
+//       'https://res.cloudinary.com/stacklycode/image/upload/v1607380127/StacklyTeam/15000248_djw7aa.jpg',
+//     socialnetwork: [
+//       { name: 'github', url: 'https://github.com/Beor18' },
+//       {
+//         name: 'linkedin',
+//         url: 'https://www.linkedin.com/in/fernandogabriellopez/',
+//       },
+//     ],
+//   },
   {
     id: '1',
     name: 'Carlos Montalvo',
