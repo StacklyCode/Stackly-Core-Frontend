@@ -98,7 +98,7 @@ const OrganismFooter: FC<FooterProps> = () => {
               <AtomIcon name="facebook" variant="filled" color="primary" size="2x" />
             </Link>
             <Link
-              to="https://www.linkedin.com/company/68642625/admin/"
+              to="https://www.linkedin.com/company/stackly-code"
               title="Linkedin Page"
               isExternal
             >
