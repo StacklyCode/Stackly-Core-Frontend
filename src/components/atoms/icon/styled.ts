@@ -30,7 +30,8 @@ const getColor = (color: IconProps['color'], theme: Theme) => {
 const SvgBox = styled.span<Omit<IconProps, 'name' | 'variant'>>`
   display: inline-flex;
   align-items: center;
-
+  /* background-color: ${({ theme }) => theme.colors.secondary.light};
+  padding: 5px; */
   svg {
     width: 1em;
     height: 1em;
@@ -38,8 +39,8 @@ const SvgBox = styled.span<Omit<IconProps, 'name' | 'variant'>>`
     g {
       path {
         /* fill: red; */
+        /* fill: white; */
         fill: ${({ color, theme }) => {
-          console.log(color)
           return theme.colors.primary.base
         }};
       }

@@ -1,8 +1,8 @@
 import AtomContainer from '@Atoms/container'
 import AtomIcon from '@Atoms/icon'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import AtomSwitch from '@Src/components/atoms/switch'
-import MoleculesNavSetting from '@Src/components/molecules/navseemore'
 import setLanguage from 'next-translate/setLanguage'
 import useTranslation from 'next-translate/useTranslation'
 import LinkNext from 'next/link'
@@ -11,6 +11,7 @@ import { ChangeEvent, FC, useState } from 'react'
 
 type NavegationProps = {
   title?: string
+  sidebar?: boolean
 }
 
 const Navigation = styled.header<NavegationProps>`
@@ -53,6 +54,7 @@ const NavigationLinks = styled.div<NavegationProps>`
   display: none;
   align-items: center;
   justify-content: center;
+  /* color: ${({ theme }) => theme.colors.secondary.base}; */
   ${({ theme }) => theme.mediaquery.medium} {
     display: flex;
   }
@@ -67,7 +69,12 @@ const NavigationLink = styled.div<NavegationProps>`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  color: ${({ theme }) => theme.colors.primary.base};
+  ${({ sidebar, theme }) =>
+    sidebar &&
+    css`
+      color: ${theme.colors.primary.base};
+    `}
+  /* color: ${({ theme }) => theme.colors.primary.base}; */
   cursor: pointer;
   display: flex;
   position: relative;
@@ -108,7 +115,7 @@ const IconSideBar = styled.div<NavegationProps>`
 const SideBar = styled.div<NavegationProps>`
   height: 100vh;
   width: 300px;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: white;
   position: absolute;
   top: 0;
   right: 0;
@@ -129,7 +136,7 @@ const SideBar = styled.div<NavegationProps>`
 `
 const ContainerSideBar = styled.div<NavegationProps>`
   width: 100%;
-  height: 110px;
+  height: 91px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -191,7 +198,22 @@ const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  margin-right: 50px;
+  /* margin: 20px; */
+`
+type Burger = {
+  sidebar: boolean
+}
+const ButtonBurger = styled.div<Burger>`
+  svg {
+    g {
+      path {
+        /* background-color: ${({ theme }) => theme.colors.secondary.light}; */
+        fill: ${({ theme, sidebar }) => (sidebar ? theme.colors.secondary.light : 'white')};
+        stroke: ${({ theme, sidebar }) => (sidebar ? theme.colors.secondary.light : 'white')};
+      }
+    }
+  }
 `
 
 const OrganismNavigation: FC<NavegationProps> = () => {
@@ -215,14 +237,22 @@ const OrganismNavigation: FC<NavegationProps> = () => {
 
           <NavigationLinks>
             <LinkNext href="/">
-              <NavigationLink>{t('nav-tag-1')}</NavigationLink>
+              <NavigationLink sidebar={sidebar}>{t('nav-tag-11')}</NavigationLink>
             </LinkNext>
-
-            <MoleculesNavSetting />
+            <LinkNext href="/about">
+              <NavigationLink sidebar={sidebar}>{t('nav-tag-10')}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/community">
+              <NavigationLink sidebar={sidebar}>
+                {t('nav-tag-9')} <AtomIcon color="white" name="new" variant="filled" />
+              </NavigationLink>
+            </LinkNext>
           </NavigationLinks>
         </NavigationContainer>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
-          <AtomIcon name="menu" variant="filled" size="2x" />
+          <ButtonBurger sidebar={sidebar}>
+            <AtomIcon name="menu" variant="filled" size="2x" />
+          </ButtonBurger>
         </IconSideBar>
         <NavigationContainerButtons>
           <AtomSwitch />
@@ -247,37 +277,39 @@ const OrganismNavigation: FC<NavegationProps> = () => {
         <SideBar>
           <NavigationLinksSidebar>
             <ContainerSideBar />
-            <ButtonsContainer>
-              <SelectContainer
-                name="country-change"
-                id="country-change"
-                onBlur={handleChange}
-                onChange={handleChange}
-                defaultValue={router.locale}
-              >
-                <option value="en" defaultValue={router.locale}>
-                  EN
-                </option>
-                <option value="es" defaultValue={router.locale}>
-                  ES
-                </option>
-              </SelectContainer>
-              <AtomSwitch />
-            </ButtonsContainer>
-            <LinkNext href="/about">
-              <NavigationLink>{t('nav-tag-5')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/community">
-              <NavigationLink>
-                {t('nav-tag-6')} <AtomIcon color="white" name="new" variant="filled" />
-              </NavigationLink>
-            </LinkNext>
-            <LinkNext href="/live">
-              <NavigationLink>{t('nav-tag-2')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/team">
-              <NavigationLink> {t('nav-tag-3')}</NavigationLink>
-            </LinkNext>
+            <div>
+              <ButtonsContainer>
+                <SelectContainer
+                  name="country-change"
+                  id="country-change"
+                  onBlur={handleChange}
+                  onChange={handleChange}
+                  defaultValue={router.locale}
+                >
+                  <option value="en" defaultValue={router.locale}>
+                    EN
+                  </option>
+                  <option value="es" defaultValue={router.locale}>
+                    ES
+                  </option>
+                </SelectContainer>
+                <AtomSwitch />
+              </ButtonsContainer>
+              <LinkNext href="/about">
+                <NavigationLink>{t('nav-tag-10')}</NavigationLink>
+              </LinkNext>
+              <LinkNext href="/community">
+                <NavigationLink>
+                  {t('nav-tag-9')} <AtomIcon color="white" name="new" variant="filled" />
+                </NavigationLink>
+              </LinkNext>
+              <LinkNext href="/live">
+                <NavigationLink>{t('nav-tag-8')}</NavigationLink>
+              </LinkNext>
+              <LinkNext href="/team">
+                <NavigationLink> {t('nav-tag-7')}</NavigationLink>
+              </LinkNext>
+            </div>
           </NavigationLinksSidebar>
         </SideBar>
       )}
