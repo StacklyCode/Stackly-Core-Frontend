@@ -30,6 +30,7 @@ const Tags = styled.article<TagsProps>`
     padding: 20px 30px;
   }
   img {
+    object-fit: cover;
     border: 2px solid transparent;
   }
   border-radius: 10px;

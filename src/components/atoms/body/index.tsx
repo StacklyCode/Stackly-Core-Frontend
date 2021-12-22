@@ -66,6 +66,7 @@ const Body = styled.p<BodyProps>`
     })}
   }
   ${({ color }) => color === 'green' && { cursor: 'pointer' }}
+  color: ${({ theme }) => theme && theme.colors.primary.base};
 `
 
 const AtomBody: FC<BodyProps> = ({ children, size, color, align, bold }) => {

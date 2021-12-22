@@ -1,33 +1,32 @@
-import styled from '@emotion/styled'
+import AtomBody from '@Atoms/body'
 import AtomContainer from '@Atoms/container'
 import AtomTitle from '@Atoms/title'
-import AtomBody from '@Atoms/body'
-import useTranslation from 'next-translate/useTranslation'
-
-import { FC } from 'react'
+import styled from '@emotion/styled'
 import MoleculesTagTeam from '@Src/components/molecules/tagteam'
+import useTranslation from 'next-translate/useTranslation'
+import { FC } from 'react'
 
 const fakeUserData = [
-//   {
-//     id: '0',
-//     name: 'Fernando Lopez',
-//     description: 'CEO',
-//     img:
-//       'https://res.cloudinary.com/stacklycode/image/upload/v1607380127/StacklyTeam/15000248_djw7aa.jpg',
-//     socialnetwork: [
-//       { name: 'github', url: 'https://github.com/Beor18' },
-//       {
-//         name: 'linkedin',
-//         url: 'https://www.linkedin.com/in/fernandogabriellopez/',
-//       },
-//     ],
-//   },
+  {
+    id: '0',
+    name: 'Iván García',
+    description: 'Frontend developer',
+    img:
+      'https://avatars.githubusercontent.com/u/67771688?s=400&u=a3f864486ae2c2d4b454c37770a9b76b3011718d&v=4',
+    socialnetwork: [
+      { name: 'github', url: 'https://github.com/Whil117' },
+      {
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/iv%C3%A1n-garc%C3%ADa-6b8238208/',
+      },
+    ],
+  },
   {
     id: '1',
     name: 'Carlos Montalvo',
     description: 'CTO',
     img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379875/StacklyTeam/Carlos-Montalvo-CTO_xzbmq4.png',
+      'https://media-exp1.licdn.com/dms/image/C4E03AQHWWh4aBGfw3g/profile-displayphoto-shrink_800_800/0/1639274676490?e=1645660800&v=beta&t=Q9x8_2Teh_A3hNOlQ8kmlgyiBOqyFfBHwUp9WYR6M5k',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/ZephiroRB' },
       { name: 'twitter', url: 'https://twitter.com/CrlosMontalvo' },

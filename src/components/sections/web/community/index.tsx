@@ -1,22 +1,23 @@
-import styled from '@emotion/styled'
+import AtomBody from '@Atoms/body'
+import AtomButton from '@Atoms/button'
 import AtomContainer from '@Atoms/container'
 import AtomTitle from '@Atoms/title'
-import AtomBody from '@Atoms/body'
+import styled from '@emotion/styled'
+import useTranslation from 'next-translate/useTranslation'
+import Image from 'next/image'
 import { FC } from 'react'
 
-import AtomButton from '@Atoms/button'
-import useTranslation from 'next-translate/useTranslation'
-
 const Community = styled.section`
-  background: ${({ theme }) => theme.colors.white};
+  /* background: ${({ theme }) => theme.colors.white}; */
+  background-color: ${({ theme }) => theme.colors.secondary.light};
   min-height: calc(100vh - 110px);
   display: flex;
-  margin-top: 110px;
+  /* margin-top: 110px; */
   align-items: center;
   justify-content: center;
   position: relative;
   width: 100%;
-  background-color: transparent;
+  /* background-color: transparent; */
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
@@ -79,9 +80,11 @@ const OrganismCommunity: FC<ICommunity> = ({ idScroll }) => {
           <AtomButton href="https://discord.stacklycode.com/">{t('community-button')}</AtomButton>
         </TextContainer>
         <IllustrationContainer>
-          <img
+          <Image
             src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=300"
             alt=""
+            width={1600}
+            height={1300}
           />
         </IllustrationContainer>
       </AtomContainer>

@@ -14,6 +14,7 @@ type AtomContainerProps = {
 }
 
 const Container = styled.div<AtomContainerProps>`
+  padding: 40px 0;
   ${({ fullwidth }) => fullwidth && { width: '100%' }}
   max-width: 1440px;
   height: 100%;
@@ -36,6 +37,7 @@ const Container = styled.div<AtomContainerProps>`
   ${({ theme }) => theme.mediaquery.extralarge} {
     margin: 0px 100px;
   }
+  /* background-color: ${({ theme }) => theme.colors.a}; */
 `
 
 const AtomContainer: FC<AtomContainerProps> = ({

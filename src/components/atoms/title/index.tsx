@@ -86,6 +86,7 @@ const Title = styled.h1<TitleProps>`
       lineHeight: theme.texts[size || 'TitleLarge'].LineHeight,
     })}
   }
+  color: ${({ theme }) => theme && theme.colors.primary.base};
 `
 
 const AtomTitle: FC<TitleProps> = ({ children, size, color, align, bold, as }) => {

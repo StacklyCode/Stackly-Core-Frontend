@@ -1,14 +1,13 @@
 import AtomContainer from '@Atoms/container'
 import AtomIcon from '@Atoms/icon'
 import styled from '@emotion/styled'
-import { ChangeEvent, FC, useState } from 'react'
-import { useRouter } from 'next/router'
-import LinkNext from 'next/link'
-import useTranslation from 'next-translate/useTranslation'
-import AtomButton from '@Src/components/atoms/button'
-import MoleculesNavSetting from '@Src/components/molecules/navseemore'
 import AtomSwitch from '@Src/components/atoms/switch'
+import MoleculesNavSetting from '@Src/components/molecules/navseemore'
 import setLanguage from 'next-translate/setLanguage'
+import useTranslation from 'next-translate/useTranslation'
+import LinkNext from 'next/link'
+import { useRouter } from 'next/router'
+import { ChangeEvent, FC, useState } from 'react'
 
 type NavegationProps = {
   title?: string
@@ -94,7 +93,8 @@ const IconSideBar = styled.div<NavegationProps>`
   div {
     svg {
       path {
-        stroke: ${({ theme }) => theme.colors.primary.base};
+        fill: ${({ theme }) => theme.colors.secondary.base};
+        stroke: ${({ theme }) => theme.colors.secondary.base};
       }
     }
   }
@@ -119,6 +119,13 @@ const SideBar = styled.div<NavegationProps>`
     display: none;
   }
   box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.05);
+  svg {
+    g {
+      path {
+        fill: ${({ theme }) => theme.colors.secondary.base};
+      }
+    }
+  }
 `
 const ContainerSideBar = styled.div<NavegationProps>`
   width: 100%;
@@ -172,7 +179,12 @@ const SelectContainer = styled.select`
   font-size: 12px;
   font-style: normal;
   font-weight: bold;
+  /* option {
+    color: ${({ theme }) => theme.colors.primary.base};
+  }
+ */
   color: ${({ theme }) => theme.colors.primary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
 `
 
 const OrganismNavigation: FC<NavegationProps> = () => {
@@ -230,7 +242,7 @@ const OrganismNavigation: FC<NavegationProps> = () => {
               ES
             </option>
           </SelectContainer>
-          <AtomButton link="/login">Sign In</AtomButton>
+          {/* <AtomButton link="/login">Discord</AtomButton> */}
         </NavigationContainerButtons>
       </AtomContainer>
       {sidebar && (
@@ -252,7 +264,7 @@ const OrganismNavigation: FC<NavegationProps> = () => {
               </option>
             </SelectContainer>
             <AtomSwitch />
-            <AtomButton link="/login">Sign In</AtomButton>
+            {/* <AtomButton link="/login">Sign In</AtomButton> */}
             <LinkNext href="/live">
               <NavigationLink>{t('nav-tag-2')}</NavigationLink>
             </LinkNext>

@@ -3,7 +3,6 @@ import AtomIcon from '@Atoms/icon'
 import styled from '@emotion/styled'
 import Link from '@Src/utils/link'
 import useTranslation from 'next-translate/useTranslation'
-import LinkNext from 'next/link'
 import { FC } from 'react'
 
 type FooterProps = {
@@ -74,7 +73,6 @@ const FooterCopyrighted = styled.span`
   display: flex;
   align-items: center;
   text-align: center;
-  cursor: pointer;
 `
 
 const OrganismFooter: FC<FooterProps> = () => {
@@ -86,9 +84,9 @@ const OrganismFooter: FC<FooterProps> = () => {
           <FooterContainerLogo>
             <AtomIcon name="stacklycode" variant="outlined" color="primary" size="2x" />
           </FooterContainerLogo>
-          <LinkNext href="/copyrighted">
-            <FooterCopyrighted>{t('footer-desc')}</FooterCopyrighted>
-          </LinkNext>
+          <FooterCopyrighted>
+            <p>{t('footer-desc')}</p>
+          </FooterCopyrighted>
           <FooterSocialContainer>
             <Link
               to="https://www.facebook.com/StacklyCodeOfficial"
