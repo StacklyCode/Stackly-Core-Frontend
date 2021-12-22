@@ -2,9 +2,9 @@ import AtomBody from '@Atoms/body'
 import AtomIcon from '@Atoms/icon'
 import AtomTitle from '@Atoms/title'
 import styled from '@emotion/styled'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import { FC, useEffect, useRef, useState, RefObject, Dispatch } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { Dispatch, FC, RefObject, useEffect, useRef, useState } from 'react'
 
 const NavigationSeeMore = styled.div`
   position: relative;
@@ -16,6 +16,9 @@ const NavigationSeeMore = styled.div`
   border-radius: 20px;
   div {
     margin-top: 2px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-start; */
   }
   :hover {
     cursor: pointer;
@@ -31,19 +34,22 @@ const NavigationSettings = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.secondary.light};
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   padding: 10px 10px 20px 10px;
   h6 {
     font-size: 13px;
     width: 100%;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 20px 10px 15px;
   }
 `
 
 const NavigationSettingsOptionContainer = styled(motion.div)`
   width: 100%;
   height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `
 
 const NavigationSettingsOption = styled.div`
@@ -56,6 +62,10 @@ const NavigationSettingsOption = styled.div`
     background-color: ${({ theme }) => theme.colors.secondary.dark};
   }
 `
+const OptionsContainer = styled.div`
+  display: flex;
+  width: 100%;
+`
 
 const data = [
   {
@@ -63,13 +73,6 @@ const data = [
     data: [
       { name: 'Nosotros', link: '/about' },
       { name: 'Comunidad', link: '/community' },
-    ],
-  },
-  {
-    name: 'AYUDA E INFORMACIÓN LEGAL',
-    data: [
-      { name: 'Ayuda', link: '/link' },
-      { name: 'Politica de Privacidad', link: '/link' },
     ],
   },
 ]
@@ -112,16 +115,20 @@ const MoleculesNavSetting: FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
               >
-                <AtomTitle key={item.name} size="SubTitleSmall" align="center" bold>
-                  {item.name}
-                </AtomTitle>
-                {item.data.map((itemChild) => (
-                  <Link href={itemChild.link} key={itemChild.name}>
-                    <NavigationSettingsOption key={itemChild.name}>
-                      <AtomBody size="BodySmall">{itemChild.name}</AtomBody>
-                    </NavigationSettingsOption>
-                  </Link>
-                ))}
+                <div>
+                  <AtomTitle key={item.name} size="SubTitleSmall" align="center" bold>
+                    {item.name}
+                  </AtomTitle>
+                </div>
+                <OptionsContainer>
+                  {item.data.map((itemChild) => (
+                    <Link href={itemChild.link} key={itemChild.name}>
+                      <NavigationSettingsOption key={itemChild.name}>
+                        <AtomBody size="BodySmall">{itemChild.name}</AtomBody>
+                      </NavigationSettingsOption>
+                    </Link>
+                  ))}
+                </OptionsContainer>
               </NavigationSettingsOptionContainer>
             ))}
           </NavigationSettings>

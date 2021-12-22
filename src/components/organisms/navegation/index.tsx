@@ -187,6 +187,13 @@ const SelectContainer = styled.select`
   background-color: ${({ theme }) => theme.colors.secondary.base};
 `
 
+const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+`
+
 const OrganismNavigation: FC<NavegationProps> = () => {
   const { t } = useTranslation('common')
   const router = useRouter()
@@ -210,15 +217,6 @@ const OrganismNavigation: FC<NavegationProps> = () => {
             <LinkNext href="/">
               <NavigationLink>{t('nav-tag-1')}</NavigationLink>
             </LinkNext>
-            {/* <LinkNext href="/team">
-              <NavigationLink> {t('nav-tag-3')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/live">
-              <NavigationLink>{t('nav-tag-2')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/resources">
-              <NavigationLink>{t('nav-tag-4')}</NavigationLink>
-            </LinkNext> */}
 
             <MoleculesNavSetting />
           </NavigationLinks>
@@ -249,31 +247,23 @@ const OrganismNavigation: FC<NavegationProps> = () => {
         <SideBar>
           <NavigationLinksSidebar>
             <ContainerSideBar />
-            <SelectContainer
-              name="country-change"
-              id="country-change"
-              onBlur={handleChange}
-              onChange={handleChange}
-              defaultValue={router.locale}
-            >
-              <option value="en" defaultValue={router.locale}>
-                EN
-              </option>
-              <option value="es" defaultValue={router.locale}>
-                ES
-              </option>
-            </SelectContainer>
-            <AtomSwitch />
-            {/* <AtomButton link="/login">Sign In</AtomButton> */}
-            <LinkNext href="/live">
-              <NavigationLink>{t('nav-tag-2')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/team">
-              <NavigationLink> {t('nav-tag-3')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/resources">
-              <NavigationLink>{t('nav-tag-4')}</NavigationLink>
-            </LinkNext>
+            <ButtonsContainer>
+              <SelectContainer
+                name="country-change"
+                id="country-change"
+                onBlur={handleChange}
+                onChange={handleChange}
+                defaultValue={router.locale}
+              >
+                <option value="en" defaultValue={router.locale}>
+                  EN
+                </option>
+                <option value="es" defaultValue={router.locale}>
+                  ES
+                </option>
+              </SelectContainer>
+              <AtomSwitch />
+            </ButtonsContainer>
             <LinkNext href="/about">
               <NavigationLink>{t('nav-tag-5')}</NavigationLink>
             </LinkNext>
@@ -281,6 +271,12 @@ const OrganismNavigation: FC<NavegationProps> = () => {
               <NavigationLink>
                 {t('nav-tag-6')} <AtomIcon color="white" name="new" variant="filled" />
               </NavigationLink>
+            </LinkNext>
+            <LinkNext href="/live">
+              <NavigationLink>{t('nav-tag-2')}</NavigationLink>
+            </LinkNext>
+            <LinkNext href="/team">
+              <NavigationLink> {t('nav-tag-3')}</NavigationLink>
             </LinkNext>
           </NavigationLinksSidebar>
         </SideBar>

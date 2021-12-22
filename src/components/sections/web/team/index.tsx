@@ -107,6 +107,13 @@ const TagsContainer = styled.div`
     margin-bottom: 20px;
     margin-right: 20px;
   }
+  @media (max-width: 555px) {
+    align-items: center;
+    flex-direction: column;
+    article {
+      margin-right: 0;
+    }
+  }
 `
 
 const TeamContainer = styled.div`

@@ -65,6 +65,10 @@ const Tags = styled.article<TagsProps>`
     line-height: 20px;
   }
   transition: all 0.3s ease;
+  @media (max-width: 555px) {
+    width: 200px;
+    height: 250px;
+  }
 `
 
 const SocialNetworkContainer = styled.div`
