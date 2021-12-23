@@ -8,20 +8,6 @@ import { FC } from 'react'
 
 const fakeUserData = [
   {
-    id: '0',
-    name: 'Iván García',
-    description: 'Frontend developer',
-    img:
-      'https://avatars.githubusercontent.com/u/67771688?s=400&u=a3f864486ae2c2d4b454c37770a9b76b3011718d&v=4',
-    socialnetwork: [
-      { name: 'github', url: 'https://github.com/Whil117' },
-      {
-        name: 'linkedin',
-        url: 'https://www.linkedin.com/in/iv%C3%A1n-garc%C3%ADa-6b8238208/',
-      },
-    ],
-  },
-  {
     id: '1',
     name: 'Carlos Montalvo',
     description: 'CTO',
@@ -55,11 +41,24 @@ const fakeUserData = [
     id: '4',
     name: 'Juan Carlos Cruz',
     description: 'UI-UX Leader',
-    img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379874/StacklyTeam/Juan-Carlos-Cruz-UI-Designer_mbjiu6.jpg',
+    img: 'https://avatars.githubusercontent.com/u/13596890?v=4',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/juank1791' },
       { name: 'linkedin', url: 'https://www.linkedin.com/in/juancarlos-cruz/' },
+    ],
+  },
+  {
+    id: '0',
+    name: 'Iván García',
+    description: 'Frontend developer',
+    img:
+      'https://firebasestorage.googleapis.com/v0/b/gyphsbackend.appspot.com/o/IMG_20211223_113953.jpg?alt=media&token=dfcd5886-5d94-4d14-87f6-0445670589c2',
+    socialnetwork: [
+      { name: 'github', url: 'https://github.com/Whil117' },
+      {
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/iv%C3%A1n-garc%C3%ADa-6b8238208/',
+      },
     ],
   },
 ]
