@@ -40,9 +40,9 @@ const SvgBox = styled.span<Omit<IconProps, 'name' | 'variant'>>`
       path {
         /* fill: red; */
         /* fill: white; */
-        fill: ${({ color, theme }) => {
+        /* fill: ${({ color, theme }) => {
           return theme.colors.primary.base
-        }};
+        }}; */
       }
     }
     path {

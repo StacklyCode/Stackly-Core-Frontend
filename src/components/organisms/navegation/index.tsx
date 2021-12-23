@@ -1,6 +1,5 @@
 import AtomContainer from '@Atoms/container'
 import AtomIcon from '@Atoms/icon'
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import AtomSwitch from '@Src/components/atoms/switch'
 import setLanguage from 'next-translate/setLanguage'
@@ -69,12 +68,8 @@ const NavigationLink = styled.div<NavegationProps>`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  ${({ sidebar, theme }) =>
-    sidebar &&
-    css`
-      color: ${theme.colors.primary.base};
-    `}
-  /* color: ${({ theme }) => theme.colors.primary.base}; */
+  color: ${({ sidebar, theme }) => (sidebar ? 'black' : theme.colors.primary.base)};
+
   cursor: pointer;
   display: flex;
   position: relative;
@@ -100,8 +95,8 @@ const IconSideBar = styled.div<NavegationProps>`
   div {
     svg {
       path {
-        fill: ${({ theme }) => theme.colors.secondary.base};
-        stroke: ${({ theme }) => theme.colors.secondary.base};
+        /* fill: ${({ theme }) => theme.colors.secondary.base};
+        stroke: ${({ theme }) => theme.colors.secondary.base}; */
       }
     }
   }
@@ -136,7 +131,7 @@ const SideBar = styled.div<NavegationProps>`
 `
 const ContainerSideBar = styled.div<NavegationProps>`
   width: 100%;
-  height: 91px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -208,9 +203,24 @@ const ButtonBurger = styled.div<Burger>`
   svg {
     g {
       path {
-        /* background-color: ${({ theme }) => theme.colors.secondary.light}; */
-        fill: ${({ theme, sidebar }) => (sidebar ? theme.colors.secondary.light : 'white')};
-        stroke: ${({ theme, sidebar }) => (sidebar ? theme.colors.secondary.light : 'white')};
+        fill: ${({ theme, sidebar }) => {
+          if (sidebar && theme.colors.secondary.base === '#162C5B') {
+            return 'black'
+          }
+          if (theme.colors.secondary.base === '#162C5B') {
+            return 'white'
+          }
+          return sidebar ? 'black' : theme.colors.primary.base
+        }};
+        stroke: ${({ theme, sidebar }) => {
+          /* (sidebar ? theme.colors.secondary.base : 'white' */
+          if (sidebar && theme.colors.secondary.base === '#FFFFFF') {
+            return 'black'
+          }
+          if (theme.colors.secondary.base === '#FFFFFF') {
+            return 'black'
+          }
+        }};
       }
     }
   }
@@ -223,6 +233,8 @@ const OrganismNavigation: FC<NavegationProps> = () => {
     await setLanguage(e.target.value)
   }
   const [sidebar, setSidebar] = useState(false)
+  console.log(sidebar)
+
   return (
     <Navigation>
       <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
@@ -296,18 +308,18 @@ const OrganismNavigation: FC<NavegationProps> = () => {
                 <AtomSwitch />
               </ButtonsContainer>
               <LinkNext href="/about">
-                <NavigationLink>{t('nav-tag-10')}</NavigationLink>
+                <NavigationLink sidebar={sidebar}>{t('nav-tag-10')}</NavigationLink>
               </LinkNext>
               <LinkNext href="/community">
-                <NavigationLink>
+                <NavigationLink sidebar={sidebar}>
                   {t('nav-tag-9')} <AtomIcon color="white" name="new" variant="filled" />
                 </NavigationLink>
               </LinkNext>
               <LinkNext href="/live">
-                <NavigationLink>{t('nav-tag-8')}</NavigationLink>
+                <NavigationLink sidebar={sidebar}>{t('nav-tag-8')}</NavigationLink>
               </LinkNext>
               <LinkNext href="/team">
-                <NavigationLink> {t('nav-tag-7')}</NavigationLink>
+                <NavigationLink sidebar={sidebar}> {t('nav-tag-7')}</NavigationLink>
               </LinkNext>
             </div>
           </NavigationLinksSidebar>
