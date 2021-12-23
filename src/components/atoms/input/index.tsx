@@ -45,11 +45,9 @@ const InputStyled = styled.div<InputProps>`
       :hover {
         cursor: pointer;
         color: black;
-        background-color: ${({ theme }) => theme.colors.primary.black};
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       }
       ::placeholder {
-        color: ${({ theme }) => theme.colors.primary.black};
       }
 
       ${({ color, theme }) =>

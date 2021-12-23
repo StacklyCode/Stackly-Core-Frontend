@@ -37,7 +37,6 @@ const Container = styled.div<AtomContainerProps>`
   ${({ theme }) => theme.mediaquery.extralarge} {
     margin: 0px 100px;
   }
-  /* background-color: ${({ theme }) => theme.colors.a}; */
 `
 
 const AtomContainer: FC<AtomContainerProps> = ({
