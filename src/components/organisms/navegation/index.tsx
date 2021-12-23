@@ -315,12 +315,6 @@ const OrganismNavigation: FC<NavegationProps> = () => {
                   {t('nav-tag-9')} <AtomIcon color="white" name="new" variant="filled" />
                 </NavigationLink>
               </LinkNext>
-              <LinkNext href="/live">
-                <NavigationLink sidebar={sidebar}>{t('nav-tag-8')}</NavigationLink>
-              </LinkNext>
-              <LinkNext href="/team">
-                <NavigationLink sidebar={sidebar}> {t('nav-tag-7')}</NavigationLink>
-              </LinkNext>
             </div>
           </NavigationLinksSidebar>
         </SideBar>
