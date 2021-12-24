@@ -27,7 +27,7 @@ const fakeUserData = [
     name: 'William Jesus',
     description: 'Frontend Leader',
     img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607381258/StacklyTeam/IMG-20191220-WA0003-01_bb51ks.png',
+      'https://media-exp1.licdn.com/dms/image/C5603AQH-AA47ERffeA/profile-displayphoto-shrink_800_800/0/1626139953564?e=1645660800&v=beta&t=OqJeNM0Eu0lInF2CUj_cWxkl0FDwUES4dZPQ5gINkd8',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/Willishakespeare' },
       { name: 'twitter', url: 'https://twitter.com/WilliSkr13' },
