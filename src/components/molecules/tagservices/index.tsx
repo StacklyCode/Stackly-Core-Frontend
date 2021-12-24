@@ -13,7 +13,7 @@ type TagsProps = {
 
 const Tags = styled(motion.article)<Omit<TagsProps, 'icon'>>`
   width: 190px;
-  height: 270px;
+  /* height: 270px; */
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
