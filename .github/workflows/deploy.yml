@@ -1,4 +1,4 @@
-name: Node Github CI StacklyBot
+name: StacklyCode
 on:
   push:
     branches: [master]
