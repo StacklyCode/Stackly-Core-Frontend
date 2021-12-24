@@ -1,33 +1,18 @@
-import styled from '@emotion/styled'
+import AtomBody from '@Atoms/body'
 import AtomContainer from '@Atoms/container'
 import AtomTitle from '@Atoms/title'
-import AtomBody from '@Atoms/body'
-import useTranslation from 'next-translate/useTranslation'
-
-import { FC } from 'react'
+import styled from '@emotion/styled'
 import MoleculesTagTeam from '@Src/components/molecules/tagteam'
+import useTranslation from 'next-translate/useTranslation'
+import { FC } from 'react'
 
 const fakeUserData = [
-//   {
-//     id: '0',
-//     name: 'Fernando Lopez',
-//     description: 'CEO',
-//     img:
-//       'https://res.cloudinary.com/stacklycode/image/upload/v1607380127/StacklyTeam/15000248_djw7aa.jpg',
-//     socialnetwork: [
-//       { name: 'github', url: 'https://github.com/Beor18' },
-//       {
-//         name: 'linkedin',
-//         url: 'https://www.linkedin.com/in/fernandogabriellopez/',
-//       },
-//     ],
-//   },
   {
     id: '1',
     name: 'Carlos Montalvo',
     description: 'CTO',
     img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379875/StacklyTeam/Carlos-Montalvo-CTO_xzbmq4.png',
+      'https://media-exp1.licdn.com/dms/image/C4E03AQHWWh4aBGfw3g/profile-displayphoto-shrink_800_800/0/1639274676490?e=1645660800&v=beta&t=Q9x8_2Teh_A3hNOlQ8kmlgyiBOqyFfBHwUp9WYR6M5k',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/ZephiroRB' },
       { name: 'twitter', url: 'https://twitter.com/CrlosMontalvo' },
@@ -56,11 +41,24 @@ const fakeUserData = [
     id: '4',
     name: 'Juan Carlos Cruz',
     description: 'UI-UX Leader',
-    img:
-      'https://res.cloudinary.com/stacklycode/image/upload/v1607379874/StacklyTeam/Juan-Carlos-Cruz-UI-Designer_mbjiu6.jpg',
+    img: 'https://avatars.githubusercontent.com/u/13596890?v=4',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/juank1791' },
       { name: 'linkedin', url: 'https://www.linkedin.com/in/juancarlos-cruz/' },
+    ],
+  },
+  {
+    id: '0',
+    name: 'Iván García',
+    description: 'Frontend developer',
+    img:
+      'https://firebasestorage.googleapis.com/v0/b/gyphsbackend.appspot.com/o/IMG_20211223_113953.jpg?alt=media&token=dfcd5886-5d94-4d14-87f6-0445670589c2',
+    socialnetwork: [
+      { name: 'github', url: 'https://github.com/Whil117' },
+      {
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/iv%C3%A1n-garc%C3%ADa-6b8238208/',
+      },
     ],
   },
 ]
@@ -107,6 +105,13 @@ const TagsContainer = styled.div`
   article {
     margin-bottom: 20px;
     margin-right: 20px;
+  }
+  @media (max-width: 555px) {
+    align-items: center;
+    flex-direction: column;
+    article {
+      margin-right: 0;
+    }
   }
 `
 

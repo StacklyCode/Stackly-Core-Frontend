@@ -1,11 +1,10 @@
+import AtomBody from '@Atoms/body'
 import AtomContainer from '@Atoms/container'
 import AtomTitle from '@Atoms/title'
-import AtomBody from '@Atoms/body'
 import styled from '@emotion/styled'
-import { FC } from 'react'
-import useTranslation from 'next-translate/useTranslation'
-
 import MoleculesTagServices from '@Src/components/molecules/tagservices'
+import useTranslation from 'next-translate/useTranslation'
+import { FC } from 'react'
 
 const Services = styled.section`
   background: ${({ theme }) => theme.colors.white};
@@ -58,9 +57,17 @@ const TagsContainer = styled.div`
   width: 100%;
   margin-top: 50px;
   justify-content: center;
-  ${({ theme }) => theme.mediaquery.small} {
-    justify-content: space-evenly;
+  gap: 20px;
+
+  @media (max-width: 555px) {
+    flex-direction: column;
+    align-items: center;
   }
+
+  /* ${({ theme }) => theme.mediaquery.small} { */
+  /* justify-content: space-evenly; */
+  /* gap: 20px; */
+  /* } */
 `
 
 type IServices = {

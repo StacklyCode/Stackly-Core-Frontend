@@ -1,9 +1,8 @@
 import AtomBody from '@Atoms/body'
 import AtomIcon, { IconProps } from '@Atoms/icon'
 import AtomTitle from '@Atoms/title'
-import { motion } from 'framer-motion'
-
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import { FC } from 'react'
 
 type TagsProps = {
@@ -13,17 +12,18 @@ type TagsProps = {
 }
 
 const Tags = styled(motion.article)<Omit<TagsProps, 'icon'>>`
-  width: 180px;
-  height: 250px;
+  width: 190px;
+  /* height: 270px; */
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 20px;
+  /* justify-content: space-evenly; */
   align-items: center;
   ${({ theme }) => theme.mediaquery.small} {
     align-items: flex-start;
-    width: 240px;
-    height: 240px;
+    width: 270px;
+    height: 270px;
     padding: 20px 30px;
   }
   border-radius: 10px;
@@ -61,7 +61,7 @@ const Tags = styled(motion.article)<Omit<TagsProps, 'icon'>>`
 const MoleculesTagServices: FC<TagsProps> = ({ icon, title, description }) => {
   return (
     <Tags
-      whileHover={{ scale: 1.05, translateY: '-20px' }}
+      whileHover={{ scale: 1, translateY: '-20px' }}
       whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.01 }}
     >

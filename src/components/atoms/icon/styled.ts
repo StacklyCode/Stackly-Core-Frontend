@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
 import { Theme } from '@emotion/react'
+import styled from '@emotion/styled'
 // eslint-disable-next-line import/no-cycle
 import { IconProps } from './index'
 
@@ -30,12 +30,24 @@ const getColor = (color: IconProps['color'], theme: Theme) => {
 const SvgBox = styled.span<Omit<IconProps, 'name' | 'variant'>>`
   display: inline-flex;
   align-items: center;
-
+  /* background-color: ${({ theme }) => theme.colors.secondary.light};
+  padding: 5px; */
   svg {
     width: 1em;
     height: 1em;
     font-size: 1em;
-
+    g {
+      path {
+        /* fill: red; */
+        /* fill: white; */
+        /* fill: ${({ color, theme }) => {
+          return theme.colors.primary.base
+        }}; */
+      }
+    }
+    path {
+      fill: ${({ color, theme }) => getColor(color, theme)};
+    }
     ${({ size }) =>
       size && {
         fontSize: typeof size === 'string' ? `${sizes[size]}em` : `${size}px`,
@@ -45,10 +57,6 @@ const SvgBox = styled.span<Omit<IconProps, 'name' | 'variant'>>`
       color && {
         color: getColor(color, theme),
       }}
-  }
-
-  svg path {
-    fill: currentColor;
   }
 `
 export default SvgBox

@@ -1,6 +1,6 @@
-const nextTranslate = require('next-translate');
-const withImages = require('next-images');
-const withPWA = require('next-pwa');
+const nextTranslate = require('next-translate')
+const withImages = require('next-images')
+const withPWA = require('next-pwa')
 
 module.exports = withPWA(
   nextTranslate(
@@ -11,14 +11,17 @@ module.exports = withPWA(
       pwa: {
         dest: 'public',
       },
+      images: {
+        domains: ['images.pexels.com'],
+      },
       webpack: (config) => {
         config.module.rules.push({
           test: /\.svg$/,
           use: ['@svgr/webpack'],
-        });
+        })
 
-        return config;
+        return config
       },
     })
   )
-);
+)

@@ -29,13 +29,13 @@
 
 <h2 id="" >
 <b>
-¿Quienes Somos?
+¿Quiénes Somos?
 </b>
 </h2>
 
 <span>
 <b>
-StacklyCode es una espacio donde se reúnen desarrolladores y diseñadores de habla
+StacklyCode es un espacio donde se reúnen desarrolladores y diseñadores de habla
 hispana. Un lugar donde puedes aprender, pasarla bien y mejorar tus habilidades.
 </b>
 </span>

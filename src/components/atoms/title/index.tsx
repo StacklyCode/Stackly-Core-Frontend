@@ -74,18 +74,19 @@ const Title = styled.h1<TitleProps>`
     fontFamily: theme.texts.TitleLarge.FontFamily,
     fontWeight: bold ? 700 : 500,
     textAlign: 'center',
-    fontSize: theme.texts[mobileSize].FontSize,
-    lineHeight: theme.texts[mobileSize].LineHeight,
+    /* fontSize: theme.texts[mobileSize].FontSize, */
+    /* lineHeight: theme.texts[mobileSize].LineHeight, */
     color: getColor(theme, color),
   })}
 
   ${({ theme }) => theme.mediaquery.small} {
-    ${({ theme, size, align }) => ({
+    ${({ align }) => ({
       textAlign: align || 'center',
-      fontSize: theme.texts[size || 'TitleLarge'].FontSize,
-      lineHeight: theme.texts[size || 'TitleLarge'].LineHeight,
+      /* fontSize: theme.texts[size || 'TitleLarge'].FontSize, */
+      /* lineHeight: theme.texts[size || 'TitleLarge'].LineHeight, */
     })}
   }
+  color: ${({ theme }) => theme && theme.colors.primary.base};
 `
 
 const AtomTitle: FC<TitleProps> = ({ children, size, color, align, bold, as }) => {

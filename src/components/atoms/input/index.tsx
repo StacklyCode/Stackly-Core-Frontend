@@ -1,7 +1,7 @@
-import { FC, useState } from 'react'
-import styled from '@emotion/styled'
 import Icon from '@Atoms/icon'
+import styled from '@emotion/styled'
 import { FormikValues } from 'formik'
+import { FC, useState } from 'react'
 
 type InputProps = {
   type?: 'password' | 'checkbox' | 'email' | 'text' | 'search' | 'number' | 'textbox'
@@ -31,6 +31,7 @@ const InputStyled = styled.div<InputProps>`
     font-weight: bold;
     color: ${({ theme }) => theme.colors.primary.base};
     input {
+      color: ${({ theme }) => theme.colors.primary.base};
       border: none;
       min-width: ${({ type }) => (type === 'checkbox' ? '15px' : '180px')};
       font-family: Roboto;
@@ -43,24 +44,25 @@ const InputStyled = styled.div<InputProps>`
 
       :hover {
         cursor: pointer;
+        color: black;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       }
       ::placeholder {
-        color: ${({ theme }) => theme.colors.primary.light};
       }
 
       ${({ color, theme }) =>
         (color === 'dark' && {
           backgroundColor: theme.colors.primary.dark,
-          color: theme.colors.white,
+          color: theme.colors.primary.base,
           height: '40px',
           borderRadius: '2px',
           border: `solid 2px ${theme.colors.primary.dark}`,
           '::placeholder': {
-            color: theme.colors.white,
+            color: 'black',
           },
           ':hover': {
-            backgroundColor: theme.colors.primary.base,
+            color: 'black',
+            backgroundColor: theme.colors.secondary.light,
           },
         }) ||
         (color === 'light' && {
@@ -86,6 +88,7 @@ const InputStyled = styled.div<InputProps>`
       transition: all 0.3s ease;
     }
     textarea {
+      color: ${({ theme }) => theme.colors.primary.base};
       border: none;
       width: 100%;
       min-height: 200px;
@@ -99,6 +102,7 @@ const InputStyled = styled.div<InputProps>`
 
       :hover {
         cursor: pointer;
+        color: black;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       }
       ::placeholder {

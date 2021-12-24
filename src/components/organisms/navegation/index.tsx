@@ -1,17 +1,16 @@
 import AtomContainer from '@Atoms/container'
 import AtomIcon from '@Atoms/icon'
 import styled from '@emotion/styled'
-import { ChangeEvent, FC, useState } from 'react'
-import { useRouter } from 'next/router'
-import LinkNext from 'next/link'
-import useTranslation from 'next-translate/useTranslation'
-import AtomButton from '@Src/components/atoms/button'
-import MoleculesNavSetting from '@Src/components/molecules/navseemore'
 import AtomSwitch from '@Src/components/atoms/switch'
 import setLanguage from 'next-translate/setLanguage'
+import useTranslation from 'next-translate/useTranslation'
+import LinkNext from 'next/link'
+import { useRouter } from 'next/router'
+import { ChangeEvent, FC, useState } from 'react'
 
 type NavegationProps = {
   title?: string
+  sidebar?: boolean
 }
 
 const Navigation = styled.header<NavegationProps>`
@@ -54,6 +53,7 @@ const NavigationLinks = styled.div<NavegationProps>`
   display: none;
   align-items: center;
   justify-content: center;
+  /* color: ${({ theme }) => theme.colors.secondary.base}; */
   ${({ theme }) => theme.mediaquery.medium} {
     display: flex;
   }
@@ -68,7 +68,8 @@ const NavigationLink = styled.div<NavegationProps>`
   font-weight: 500;
   font-size: 15px;
   line-height: 25px;
-  color: ${({ theme }) => theme.colors.primary.base};
+  color: ${({ sidebar, theme }) => (sidebar ? 'black' : theme.colors.primary.base)};
+
   cursor: pointer;
   display: flex;
   position: relative;
@@ -94,7 +95,8 @@ const IconSideBar = styled.div<NavegationProps>`
   div {
     svg {
       path {
-        stroke: ${({ theme }) => theme.colors.primary.base};
+        /* fill: ${({ theme }) => theme.colors.secondary.base};
+        stroke: ${({ theme }) => theme.colors.secondary.base}; */
       }
     }
   }
@@ -108,7 +110,7 @@ const IconSideBar = styled.div<NavegationProps>`
 const SideBar = styled.div<NavegationProps>`
   height: 100vh;
   width: 300px;
-  background-color: ${({ theme }) => theme.colors.secondary.base};
+  background-color: white;
   position: absolute;
   top: 0;
   right: 0;
@@ -119,10 +121,17 @@ const SideBar = styled.div<NavegationProps>`
     display: none;
   }
   box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.05);
+  svg {
+    g {
+      path {
+        fill: ${({ theme }) => theme.colors.secondary.base};
+      }
+    }
+  }
 `
 const ContainerSideBar = styled.div<NavegationProps>`
   width: 100%;
-  height: 110px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -172,7 +181,49 @@ const SelectContainer = styled.select`
   font-size: 12px;
   font-style: normal;
   font-weight: bold;
+  /* option {
+    color: ${({ theme }) => theme.colors.primary.base};
+  }
+ */
   color: ${({ theme }) => theme.colors.primary.base};
+  background-color: ${({ theme }) => theme.colors.secondary.base};
+`
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+  /* margin: 20px; */
+`
+type Burger = {
+  sidebar: boolean
+}
+const ButtonBurger = styled.div<Burger>`
+  svg {
+    g {
+      path {
+        fill: ${({ theme, sidebar }) => {
+          if (sidebar && theme.colors.secondary.base === '#162C5B') {
+            return 'black'
+          }
+          if (theme.colors.secondary.base === '#162C5B') {
+            return 'white'
+          }
+          return sidebar ? 'black' : theme.colors.primary.base
+        }};
+        stroke: ${({ theme, sidebar }) => {
+          /* (sidebar ? theme.colors.secondary.base : 'white' */
+          if (sidebar && theme.colors.secondary.base === '#FFFFFF') {
+            return 'black'
+          }
+          if (theme.colors.secondary.base === '#FFFFFF') {
+            return 'black'
+          }
+        }};
+      }
+    }
+  }
 `
 
 const OrganismNavigation: FC<NavegationProps> = () => {
@@ -182,6 +233,8 @@ const OrganismNavigation: FC<NavegationProps> = () => {
     await setLanguage(e.target.value)
   }
   const [sidebar, setSidebar] = useState(false)
+  console.log(sidebar)
+
   return (
     <Navigation>
       <AtomContainer fullwidth alignItems="center" justifyContent="space-between">
@@ -196,23 +249,22 @@ const OrganismNavigation: FC<NavegationProps> = () => {
 
           <NavigationLinks>
             <LinkNext href="/">
-              <NavigationLink>{t('nav-tag-1')}</NavigationLink>
+              <NavigationLink sidebar={sidebar}>{t('nav-tag-11')}</NavigationLink>
             </LinkNext>
-            {/* <LinkNext href="/team">
-              <NavigationLink> {t('nav-tag-3')}</NavigationLink>
+            <LinkNext href="/about">
+              <NavigationLink sidebar={sidebar}>{t('nav-tag-10')}</NavigationLink>
             </LinkNext>
-            <LinkNext href="/live">
-              <NavigationLink>{t('nav-tag-2')}</NavigationLink>
+            <LinkNext href="/community">
+              <NavigationLink sidebar={sidebar}>
+                {t('nav-tag-9')} <AtomIcon color="white" name="new" variant="filled" />
+              </NavigationLink>
             </LinkNext>
-            <LinkNext href="/resources">
-              <NavigationLink>{t('nav-tag-4')}</NavigationLink>
-            </LinkNext> */}
-
-            <MoleculesNavSetting />
           </NavigationLinks>
         </NavigationContainer>
         <IconSideBar onClick={() => setSidebar(!sidebar)}>
-          <AtomIcon name="menu" variant="filled" size="2x" />
+          <ButtonBurger sidebar={sidebar}>
+            <AtomIcon name="menu" variant="filled" size="2x" />
+          </ButtonBurger>
         </IconSideBar>
         <NavigationContainerButtons>
           <AtomSwitch />
@@ -230,46 +282,40 @@ const OrganismNavigation: FC<NavegationProps> = () => {
               ES
             </option>
           </SelectContainer>
-          <AtomButton link="/login">Sign In</AtomButton>
+          {/* <AtomButton link="/login">Discord</AtomButton> */}
         </NavigationContainerButtons>
       </AtomContainer>
       {sidebar && (
         <SideBar>
           <NavigationLinksSidebar>
             <ContainerSideBar />
-            <SelectContainer
-              name="country-change"
-              id="country-change"
-              onBlur={handleChange}
-              onChange={handleChange}
-              defaultValue={router.locale}
-            >
-              <option value="en" defaultValue={router.locale}>
-                EN
-              </option>
-              <option value="es" defaultValue={router.locale}>
-                ES
-              </option>
-            </SelectContainer>
-            <AtomSwitch />
-            <AtomButton link="/login">Sign In</AtomButton>
-            <LinkNext href="/live">
-              <NavigationLink>{t('nav-tag-2')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/team">
-              <NavigationLink> {t('nav-tag-3')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/resources">
-              <NavigationLink>{t('nav-tag-4')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/about">
-              <NavigationLink>{t('nav-tag-5')}</NavigationLink>
-            </LinkNext>
-            <LinkNext href="/community">
-              <NavigationLink>
-                {t('nav-tag-6')} <AtomIcon color="white" name="new" variant="filled" />
-              </NavigationLink>
-            </LinkNext>
+            <div>
+              <ButtonsContainer>
+                <SelectContainer
+                  name="country-change"
+                  id="country-change"
+                  onBlur={handleChange}
+                  onChange={handleChange}
+                  defaultValue={router.locale}
+                >
+                  <option value="en" defaultValue={router.locale}>
+                    EN
+                  </option>
+                  <option value="es" defaultValue={router.locale}>
+                    ES
+                  </option>
+                </SelectContainer>
+                <AtomSwitch />
+              </ButtonsContainer>
+              <LinkNext href="/about">
+                <NavigationLink sidebar={sidebar}>{t('nav-tag-10')}</NavigationLink>
+              </LinkNext>
+              <LinkNext href="/community">
+                <NavigationLink sidebar={sidebar}>
+                  {t('nav-tag-9')} <AtomIcon color="white" name="new" variant="filled" />
+                </NavigationLink>
+              </LinkNext>
+            </div>
           </NavigationLinksSidebar>
         </SideBar>
       )}
