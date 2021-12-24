@@ -29,7 +29,7 @@
 
 <h2 id="" >
 <b>
-¿Quienes Somos?
+¿Quiénes Somos?
 </b>
 </h2>
 
