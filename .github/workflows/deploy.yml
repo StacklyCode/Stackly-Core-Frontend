@@ -1,7 +1,7 @@
 name: StacklyCode Deploy
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   job_one:
