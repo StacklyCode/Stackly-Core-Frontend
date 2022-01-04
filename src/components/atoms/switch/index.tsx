@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
-import { FC, useContext, useEffect, useState } from 'react'
-import { Dark, Light } from '@Styles/theme'
 import { ThemeUseContext } from '@Src/hooks/ThemeContext'
+import { Dark, Light } from '@Styles/theme'
+import { FC, useContext, useEffect, useState } from 'react'
 
 type SwitchProps = {
   check?: boolean
+  checked?: boolean
 }
 
 const SwitchLabelStyled = styled.label<SwitchProps>`
@@ -28,9 +29,9 @@ const SwitchInputStyled = styled.input<SwitchProps>`
   }
 
   :checked + :before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: ${({ checked }) => (checked ? 'translateX(26px)' : 'translateX(0)')};
+    -ms-transform: ${({ checked }) => (checked ? 'translateX(26px)' : 'translateX(0)')};
+    transform: ${({ checked }) => (checked ? 'translateX(26px)' : 'translateX(0)')};
   }
 `
 
@@ -41,7 +42,7 @@ const SwitchSpanStyled = styled.span<SwitchProps>`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${({ theme, check }) => (check ? theme.colors.accent.primary.base : '#ccc')};
+  background-color: ${({ theme, check }) => (check ? theme.colors.accent.primary.base : '#2196f3')};
   -webkit-transition: 0.4s;
   transition: 0.4s;
 
@@ -63,10 +64,12 @@ const SwitchSpanStyled = styled.span<SwitchProps>`
 
 const AtomSwitch: FC<SwitchProps> = () => {
   const [checked, setChecked] = useState(false)
-  const { setTheme } = useContext(ThemeUseContext)
+  const { theme, setTheme } = useContext(ThemeUseContext)
+
+
   useEffect(() => {
     setChecked(localStorage.getItem('theme') !== 'Light')
-  }, [])
+  }, [theme])
   return (
     <SwitchLabelStyled htmlFor="SwitchTheme">
       <SwitchInputStyled

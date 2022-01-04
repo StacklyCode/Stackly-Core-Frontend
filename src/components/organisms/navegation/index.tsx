@@ -233,7 +233,6 @@ const OrganismNavigation: FC<NavegationProps> = () => {
     await setLanguage(e.target.value)
   }
   const [sidebar, setSidebar] = useState(false)
-  console.log(sidebar)
 
   return (
     <Navigation>
