@@ -63,6 +63,9 @@ const TextContainer = styled.div`
 type ICommunity = {
   idScroll?: string
 }
+export const OrganisImage = styled(Image)`
+  object-fit: cover;
+`
 
 const OrganismCommunity: FC<ICommunity> = ({ idScroll }) => {
   const { t } = useTranslation('common')
@@ -80,7 +83,7 @@ const OrganismCommunity: FC<ICommunity> = ({ idScroll }) => {
           <AtomButton href="https://discord.stacklycode.com/">{t('community-button')}</AtomButton>
         </TextContainer>
         <IllustrationContainer>
-          <Image
+          <OrganisImage
             src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=300"
             alt=""
             width={1600}
