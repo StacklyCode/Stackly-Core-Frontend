@@ -46,10 +46,10 @@ const InputStyled = styled.div<InputProps>`
       :hover {
         cursor: pointer;
         color: black;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         ::placeholder {
           color: black;
         }
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       }
 
       ${({ color, theme }) =>
@@ -59,14 +59,9 @@ const InputStyled = styled.div<InputProps>`
           height: '40px',
           borderRadius: '2px',
           border: `solid 2px ${theme.colors.primary.dark}`,
-          '::placeholder': {
-            color: 'black',
-          },
+
           ':hover': {
             backgroundColor: theme.colors.gray[100],
-            '::placeholder': {
-              color: 'black',
-            },
           },
         }) ||
         (color === 'light' && {
@@ -80,9 +75,6 @@ const InputStyled = styled.div<InputProps>`
           },
           ':hover': {
             backgroundColor: theme.colors.gray[100],
-            '::placeholder': {
-              color: theme.colors.primary.base,
-            },
           },
           ':focus': {
             border: `solid 2px ${theme.colors.primary.base}`,
@@ -108,8 +100,6 @@ const InputStyled = styled.div<InputProps>`
         cursor: pointer;
         color: black;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      }
-      ::placeholder {
       }
 
       ${({ color, theme }) =>
