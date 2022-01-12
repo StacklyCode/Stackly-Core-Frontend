@@ -32,6 +32,7 @@ const InputStyled = styled.div<InputProps>`
     color: ${({ theme }) => theme.colors.primary.base};
     input {
       color: ${({ theme }) => theme.colors.primary.base};
+
       border: none;
       min-width: ${({ type }) => (type === 'checkbox' ? '15px' : '180px')};
       font-family: Roboto;
@@ -45,9 +46,10 @@ const InputStyled = styled.div<InputProps>`
       :hover {
         cursor: pointer;
         color: black;
+        ::placeholder {
+          color: black;
+        }
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      }
-      ::placeholder {
       }
 
       ${({ color, theme }) =>
@@ -61,8 +63,10 @@ const InputStyled = styled.div<InputProps>`
             color: 'black',
           },
           ':hover': {
-            color: 'black',
-            backgroundColor: theme.colors.secondary.light,
+            backgroundColor: theme.colors.gray[100],
+            '::placeholder': {
+              color: 'black',
+            },
           },
         }) ||
         (color === 'light' && {

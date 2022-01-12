@@ -13,12 +13,12 @@ type TagsProps = {
 
 const Tags = styled(motion.article)<Omit<TagsProps, 'icon'>>`
   width: 190px;
-  /* height: 270px; */
+  height: 270px;
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
   align-items: center;
   ${({ theme }) => theme.mediaquery.small} {
     align-items: flex-start;

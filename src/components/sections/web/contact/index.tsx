@@ -123,7 +123,6 @@ const OrganismContact: FC<IContact> = ({ idScroll }) => {
   const { t } = useTranslation('common')
   const [newUser] = useMutation(NEW_CONTACT)
 
-  
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({

@@ -2,6 +2,7 @@ import AtomBody from '@Atoms/body'
 import AtomContainer from '@Atoms/container'
 import AtomTitle from '@Atoms/title'
 import styled from '@emotion/styled'
+import { IconProps } from '@Src/components/atoms/icon'
 import MoleculesTagServices from '@Src/components/molecules/tagservices'
 import useTranslation from 'next-translate/useTranslation'
 import { FC } from 'react'
@@ -64,10 +65,9 @@ const TagsContainer = styled.div`
     align-items: center;
   }
 
-  /* ${({ theme }) => theme.mediaquery.small} { */
-  /* justify-content: space-evenly; */
-  /* gap: 20px; */
-  /* } */
+  ${({ theme }) => theme.mediaquery.small} {
+    justify-content: space-evenly;
+  }
 `
 
 type IServices = {
@@ -76,6 +76,34 @@ type IServices = {
 
 const OrganismServices: FC<IServices> = ({ idScroll }) => {
   const { t } = useTranslation('common')
+
+  const iconData = (nameIcon: string): IconProps => ({
+    name: nameIcon,
+    variant: 'outlined',
+  })
+
+  const data = [
+    {
+      title: t('services-tag-1-title'),
+      description: t('services-tag-1-desc'),
+      icon: iconData('design'),
+    },
+    {
+      title: t('services-tag-2-title'),
+      description: t('services-tag-2-desc'),
+      icon: iconData('appservices'),
+    },
+    {
+      title: t('services-tag-3-title'),
+      description: t('services-tag-3-desc'),
+      icon: iconData('webmobile'),
+    },
+    {
+      title: t('services-tag-4-title'),
+      description: t('services-tag-4-desc'),
+      icon: iconData('consultancy'),
+    },
+  ]
 
   return (
     <Services id={idScroll}>
@@ -88,26 +116,9 @@ const OrganismServices: FC<IServices> = ({ idScroll }) => {
             {t('services-desc')}
           </AtomBody>
           <TagsContainer>
-            <MoleculesTagServices
-              title={t('services-tag-1-title')}
-              description={t('services-tag-1-desc')}
-              icon={{ name: 'design', variant: 'outlined' }}
-            />
-            <MoleculesTagServices
-              title={t('services-tag-2-title')}
-              description={t('services-tag-2-desc')}
-              icon={{ name: 'appservices', variant: 'outlined' }}
-            />
-            <MoleculesTagServices
-              title={t('services-tag-3-title')}
-              description={t('services-tag-3-desc')}
-              icon={{ name: 'webmobile', variant: 'outlined' }}
-            />
-            <MoleculesTagServices
-              title={t('services-tag-4-title')}
-              description={t('services-tag-4-desc')}
-              icon={{ name: 'consultancy', variant: 'outlined' }}
-            />
+            {data.map(({ title, description, icon }) => (
+              <MoleculesTagServices {...{ title, description, icon }} />
+            ))}
           </TagsContainer>
         </TextContainer>
       </AtomContainer>
