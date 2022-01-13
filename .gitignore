@@ -33,6 +33,7 @@ yarn-error.log*
 
 # locks
 yarn.lock
+package-lock.json
 
 /public/**.js
 /public/**.map
