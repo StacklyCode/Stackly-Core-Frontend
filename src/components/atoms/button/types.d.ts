@@ -5,4 +5,5 @@ export type ButtonProps = {
   href?: string
   type?: 'button' | 'reset' | 'submit'
   text?: string
+  children?: React.ReactNode
 }

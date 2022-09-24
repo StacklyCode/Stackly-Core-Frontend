@@ -1,14 +1,14 @@
-import dynamic from 'next/dynamic'
-import TemplateMain from '@Templates/index'
 import OrganismHero from '@Section/web/hero'
-import LazyLoad from 'react-lazyload'
+import TemplateMain from '@Templates/index'
 import { GetStaticProps } from 'next'
+import dynamic from 'next/dynamic'
 import { FC } from 'react'
+import LazyLoad from 'react-lazyload'
 
-const OrganismServices = dynamic(() => import('@Section/web/services'))
-const OrganismProjects = dynamic(() => import('@Section/web/projects'))
-const OrganismClients = dynamic(() => import('@Section/web/clients'))
-const OrganismContact = dynamic(() => import('@Section/web/contact'))
+const OrganismServices = dynamic(() => import('@Section/web/services')) as any
+const OrganismProjects = dynamic(() => import('@Section/web/projects')) as any
+const OrganismClients = dynamic(() => import('@Section/web/clients')) as any
+const OrganismContact = dynamic(() => import('@Section/web/contact')) as any
 
 type IProject = {
   id?: string

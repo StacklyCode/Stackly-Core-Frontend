@@ -13,6 +13,7 @@ type Tag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'a' | 'span'
 
 type TitleProps = {
   size?: Size
+  children?: React.ReactNode
   as?: Tag
   color?: 'white' | 'green' | 'gray' | 'black' | 'light' | 'accent'
   align?: 'left' | 'center'

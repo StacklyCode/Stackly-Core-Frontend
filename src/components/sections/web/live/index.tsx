@@ -1,7 +1,6 @@
-import styled from '@emotion/styled'
 import AtomContainer from '@Atoms/container'
 import AtomTitle from '@Atoms/title'
-import AtomBody from '@Atoms/body'
+import styled from '@emotion/styled'
 import { FC } from 'react'
 
 import ReactPlayer from 'react-player'
@@ -85,7 +84,9 @@ const OrganismLive: FC<ILive> = ({ idScroll }) => {
               },
             }}
           />
-          <AtomTitle align="left" size="TitleMedium">Taller de Diseño (FrontEnd)</AtomTitle>
+          <AtomTitle align="left" size="TitleMedium">
+            Taller de Diseño (FrontEnd)
+          </AtomTitle>
           <AtomButton href="https://discord.stacklycode.com/">Seguir 29k</AtomButton>
         </TextContainer>
         <IllustrationContainer>

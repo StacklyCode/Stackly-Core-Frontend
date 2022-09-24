@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { PROPSWITHCHILDREN } from '@Src/hooks/GlobalContext'
 import { Theme } from '@Styles/styled'
 import { FC } from 'react'
 
@@ -72,7 +73,7 @@ const Body = styled.p<BodyProps>`
   }
 `
 
-const AtomBody: FC<BodyProps> = ({ children, size, color, align, bold }) => {
+const AtomBody: FC<BodyProps & PROPSWITHCHILDREN> = ({ children, size, color, align, bold }) => {
   return (
     <Body size={size} color={color} align={align} bold={bold}>
       {children || 'Default Text'}

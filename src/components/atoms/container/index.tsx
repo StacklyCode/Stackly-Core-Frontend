@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 type AtomContainerProps = {
   alignItems?: 'center' | 'flex-start' | 'flex-end'
@@ -10,6 +10,7 @@ type AtomContainerProps = {
     | 'space-between'
     | 'space-around'
     | 'space-evenly'
+  children?: React.ReactNode
   fullwidth?: boolean
 }
 
