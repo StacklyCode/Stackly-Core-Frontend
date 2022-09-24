@@ -3,6 +3,7 @@ import AtomContainer from '@Atoms/container'
 import AtomTitle from '@Atoms/title'
 import styled from '@emotion/styled'
 import MoleculesTagServices from '@Src/components/molecules/tagservices'
+import { PROPSWITHCHILDREN } from '@Src/hooks/GlobalContext'
 import useTranslation from 'next-translate/useTranslation'
 import { FC } from 'react'
 
@@ -72,7 +73,7 @@ const TagsContainer = styled.div`
 
 type IServices = {
   idScroll?: string
-}
+} & PROPSWITHCHILDREN
 
 const OrganismServices: FC<IServices> = ({ idScroll }) => {
   const { t } = useTranslation('common')

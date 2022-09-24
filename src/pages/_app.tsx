@@ -1,9 +1,8 @@
-import type { AppProps } from 'next/app'
-import GlobalStyles from '@Styles/globalStyled'
 import GlobalContext from '@Src/hooks/GlobalContext'
-import { FC } from 'react'
+import GlobalStyles from '@Styles/globalStyled'
+import type { AppPropsWithLayout } from 'next/app'
 
-const App: FC<AppProps> = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return (
     <GlobalContext>
       <GlobalStyles />

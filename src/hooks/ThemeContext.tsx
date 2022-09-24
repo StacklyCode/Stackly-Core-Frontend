@@ -1,7 +1,8 @@
-import { FC, createContext, useEffect, useState, Dispatch, SetStateAction } from 'react'
 import { ThemeProvider } from '@emotion/react'
 import { Theme } from '@Styles/styled'
 import { Dark, Light } from '@Styles/theme'
+import { createContext, Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { PROPSWITHCHILDREN } from './GlobalContext'
 
 interface IContextProps {
   theme: Theme
@@ -10,7 +11,7 @@ interface IContextProps {
 
 export const ThemeUseContext = createContext({} as IContextProps)
 
-const ThemeContext: FC = ({ children }) => {
+const ThemeContext: FC<PROPSWITHCHILDREN> = ({ children }) => {
   const [theme, setTheme] = useState(Light)
   useEffect(() => {
     const themeLocal = localStorage.getItem('theme')

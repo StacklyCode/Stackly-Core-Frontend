@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/require-default-props */
 import dynamic from 'next/dynamic'
-import { FC, ComponentType, SVGProps } from 'react'
+import { FC } from 'react'
 // eslint-disable-next-line import/no-cycle
 import SvgBox from './styled'
 
@@ -12,11 +14,11 @@ export type IconProps = {
 }
 
 const AtomIcon: FC<IconProps> = ({ name, variant, size, color, className }) => {
-  const DynamicIcon: ComponentType<SVGProps<SVGSVGElement>> | undefined = dynamic(() =>
+  const DynamicIcon = dynamic(() =>
     import(`../../../assets/icons/${name}-${variant || 'filled'}.svg`).catch(() => {
       return false
     })
-  )
+  ) as any
 
   if (DynamicIcon) {
     return (

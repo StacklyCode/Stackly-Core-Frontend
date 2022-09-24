@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
-import OrganismsNavigation from '@Organisms/navegation'
 import OrganismFooter from '@Organisms/footer'
+import OrganismsNavigation from '@Organisms/navegation'
 import { FC } from 'react'
 
+import { PROPSWITHCHILDREN } from '@Src/hooks/GlobalContext'
 import Seo from '@Utils/seo'
 
 const Background = styled.main`
@@ -15,7 +16,7 @@ type ITemplate = {
   SeoTitle?: string
   SeoPage?: string
   SeoDesc?: string
-}
+} & PROPSWITHCHILDREN
 
 const TemplateMain: FC<ITemplate> = ({ children, SeoTitle, SeoPage, SeoDesc }) => {
   return (
