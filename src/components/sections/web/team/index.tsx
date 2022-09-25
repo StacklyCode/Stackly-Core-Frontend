@@ -11,8 +11,7 @@ const fakeUserData = [
     id: '1',
     name: 'Carlos Montalvo',
     description: 'CTO',
-    img:
-      'https://media-exp1.licdn.com/dms/image/C4E03AQHWWh4aBGfw3g/profile-displayphoto-shrink_800_800/0/1639274676490?e=1645660800&v=beta&t=Q9x8_2Teh_A3hNOlQ8kmlgyiBOqyFfBHwUp9WYR6M5k',
+    img: 'https://res.cloudinary.com/whil/image/upload/v1664067960/1639274676490_sf4wjo.jpg',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/ZephiroRB' },
       { name: 'twitter', url: 'https://twitter.com/CrlosMontalvo' },
@@ -26,8 +25,7 @@ const fakeUserData = [
     id: '3',
     name: 'William Jesus',
     description: 'Frontend Leader',
-    img:
-      'https://media-exp1.licdn.com/dms/image/C5603AQH-AA47ERffeA/profile-displayphoto-shrink_800_800/0/1626139953564?e=1645660800&v=beta&t=OqJeNM0Eu0lInF2CUj_cWxkl0FDwUES4dZPQ5gINkd8',
+    img: 'https://res.cloudinary.com/whil/image/upload/v1664067953/198200249_3987786127972391_3136218924347927455_n_iythaw.jpg',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/Willishakespeare' },
       { name: 'twitter', url: 'https://twitter.com/WilliSkr13' },
@@ -51,8 +49,7 @@ const fakeUserData = [
     id: '0',
     name: 'Iván García',
     description: 'Frontend developer',
-    img:
-      'https://firebasestorage.googleapis.com/v0/b/gyphsbackend.appspot.com/o/IMG_20211223_113953.jpg?alt=media&token=dfcd5886-5d94-4d14-87f6-0445670589c2',
+    img: 'https://firebasestorage.googleapis.com/v0/b/gyphsbackend.appspot.com/o/IMG_20211223_113953.jpg?alt=media&token=dfcd5886-5d94-4d14-87f6-0445670589c2',
     socialnetwork: [
       { name: 'github', url: 'https://github.com/Whil117' },
       {
